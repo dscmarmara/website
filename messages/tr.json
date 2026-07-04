@@ -1,0 +1,193 @@
+{
+  "metadata": {
+    "siteName": "Data Science Club",
+    "defaultTitle": "Data Science Club · Marmara Üniversitesi",
+    "titleTemplate": "%s · Data Science Club",
+    "defaultDescription": "Marmara Üniversitesi Veri Bilimi Kulübü — geleneksel öğrenci kulübü kalıplarını kırıp küresel teknoloji topluluklarıyla ve çevik girişimlerle aynı dili konuşuyoruz.",
+    "home": {
+      "title": "Anasayfa",
+      "description": "Girişim gibi düşünen veri kulübü — altı departman, gerçek projeler ve seni bir üretici gibi gören bir topluluk."
+    },
+    "about": {
+      "title": "Hakkımızda",
+      "description": "Biz bir kulüp değil, bir üretim ekibiyiz. Hikâyemiz, kulübün nasıl örgütlendiği ve arkasındaki altı departman."
+    },
+    "team": {
+      "title": "Ekip",
+      "description": "Kulübün arkasındaki insanlar — başkan liderliğinde, altı departmanın her birini iki direktör yönetiyor."
+    },
+    "blog": {
+      "title": "Blog",
+      "description": "Üretim ekibinden köşe yazıları — veriyle açıkça uğraşan öğrencilerden görüşler, saha notları ve dersler."
+    },
+    "contact": {
+      "title": "İletişim",
+      "description": "Katılmak, sponsor olmak ya da iş birliği yapmak mı istiyorsun? Bize yaz — her mesajı gerçek bir öğrenci okuyor."
+    },
+    "notFound": {
+      "title": "Sayfa bulunamadı",
+      "description": "Aradığın sayfa mevcut değil."
+    }
+  },
+  "nav": {
+    "home": "Anasayfa",
+    "about": "Hakkımızda",
+    "team": "Ekip",
+    "blog": "Blog",
+    "contact": "İletişim",
+    "openMenu": "Menüyü aç",
+    "closeMenu": "Menüyü kapat",
+    "english": "English",
+    "turkish": "Türkçe"
+  },
+  "brand": {
+    "title": "Data Science Club",
+    "university": "Marmara Üniversitesi"
+  },
+  "footer": {
+    "description": "Marmara Üniversitesi Veri Bilimi Kulübü — geleneksel öğrenci kulübü kalıplarını kırıp küresel teknoloji topluluklarıyla ve çevik girişimlerle aynı dili konuşuyoruz.",
+    "exploreTitle": "Keşfet",
+    "departmentsTitle": "Departmanlar",
+    "linkHome": "Anasayfa",
+    "linkAbout": "Kulüp Hakkında",
+    "linkBlog": "Blog & Köşe Yazıları",
+    "linkContact": "İletişim",
+    "copyright": "© 2026 Data Science Club · Marmara Üniversitesi. Tüm hakları saklıdır.",
+    "tagline": "Öğrenciler tarafından, üretenler için."
+  },
+  "home": {
+    "heroTitle": "Girişim gibi düşünen veri kulübü.",
+    "heroSub": "Geleneksel öğrenci kulübü kalıplarını kırıyoruz — küresel teknoloji topluluklarıyla ve çevik girişimlerle aynı dili konuşuyoruz.",
+    "joinUs": "Aramıza Katıl",
+    "exploreBlog": "Blog'u Keşfet →",
+    "whoEyebrow": "BİZ KİMİZ",
+    "whoTitleLine1": "Biz kimiz &",
+    "whoTitleLine2": "nasıl çalışıyoruz",
+    "whoP1": "Marmara Üniversitesi'nde, veriye duyulan merakı yayınlanan işlere dönüştüren öğrenci topluluğuyuz. Hiyerarşi ve bürokrasiyle değil; sprintler, kod incelemeleri ve demolarla ilerliyoruz. Üyeler, keşifsel analizden üretim veri mühendisliğine kadar altı departman arasında geçiş yapıyor.",
+    "whoP2": "İster tablolarla ister PyTorch ile gel; sana uygun bir yol var — ve seni bir katılımcı gibi değil, bir üretici gibi gören bir topluluk.",
+    "readStory": "Tüm hikâyemizi oku →",
+    "featuredEyebrow": "ÖNE ÇIKAN PROJELER",
+    "featuredTitle": "Neler inşa ediyoruz",
+    "allProjects": "Tüm projeler →",
+    "viewDetails": "Detayları gör →",
+    "deptEyebrow": "ALTI DEPARTMAN",
+    "deptTitle": "Tek kulüp, üretmenin altı yolu",
+    "deptSub": "Bir alan seç ya da aralarında geçiş yap — her departman gerçek işler çıkarır.",
+    "ctaTitle": "Veriyle bir şeyler inşa etmeye hazır mısın?",
+    "ctaSub": "Başvurular her dönem açık. Ön koşul yok — sadece merakını getir.",
+    "joinClub": "Kulübe katıl →"
+  },
+  "about": {
+    "eyebrow": "KULÜP HAKKINDA",
+    "heroTitle": "Biz bir kulüp değiliz. Bir üretim ekibiyiz.",
+    "storyTitle": "Hikâyemiz",
+    "storyEst": "KURULUŞ 2024 · İSTANBUL",
+    "storyP1": "Çoğu üniversite kulübü toplantılar, tutanaklar ve hiyerarşiyle işler. Biz Veri Bilimi Kulübü'nü tam tersini istediğimiz için kurduk — hayran olduğumuz şirketlerdeki veri ekipleri gibi hissettiren bir yer.",
+    "storyP2": "Biz de öyle bir yer kurduk. Altı departman, çok işlevli takımlar gibi çalışıyor. İşler sprintlerle ilerliyor. Bilgi saklanmıyor; kod incelemeleri ve açık demolarla paylaşılıyor. Yeni üyeler ilk aylarında gerçek bir şey çıkarıyor — bir grafik, bir model ya da bir veri hattı.",
+    "pullQuote": "Veri yeni petrol değil. Yeni toprak — ve biz bir kuşağa onda bir şeyler yetiştirmeyi öğretiyoruz.",
+    "storyP3": "Sonuç, küresel teknoloji topluluklarıyla ve çevik girişimlerle aynı dili akıcı konuşan — ve mezun olduğu gün bunu konuşmaya hazır — bir topluluk.",
+    "orgEyebrow": "ALTI DEPARTMAN",
+    "orgTitle": "Kulüp nasıl örgütlendi",
+    "purposeLabel": "AMAÇ",
+    "focusLabel": "ODAK ALANLARI",
+    "visionLabel": "VİZYON",
+    "teamEyebrow": "EKİBİMİZ",
+    "teamTitle": "Arkasındaki insanlar",
+    "meetEveryone": "Herkesle tanış →",
+    "viewFullProfile": "Tüm profili gör →",
+    "viewProfile": "Profili gör →"
+  },
+  "team": {
+    "eyebrow": "EKİP",
+    "heroTitle": "Kulübün arkasındaki insanlar",
+    "heroSub": "Başkan liderliğinde, kulübün altı departmanının her birini iki direktör yönetiyor — her biri kendi sayfasına sahip bir üretici.",
+    "vpHeading": "VP",
+    "viewProfile": "Profili gör →",
+    "joinTitle": "Gelecek dönem adın burada olabilir",
+    "joinSub": "Her üyeye bir sayfa, bir departman ve çıkaracağı gerçek işler veriliyor.",
+    "joinClub": "Kulübe katıl →"
+  },
+  "member": {
+    "backToTeam": "← EKİP",
+    "about": "{name} hakkında",
+    "focusLabel": "ODAK ALANLARI",
+    "writingTitle": "Son yazılar",
+    "allPosts": "Tüm yazılar →",
+    "previous": "ÖNCEKİ",
+    "next": "SONRAKİ",
+    "linkedin": "LinkedIn",
+    "email": "E-posta",
+    "website": "Web Sitesi"
+  },
+  "blog": {
+    "eyebrow": "BLOG",
+    "heroTitle": "Üretim ekibinden köşe yazıları",
+    "heroSub": "Veriyle açıkça uğraşan öğrencilerden görüşler, saha notları ve dersler — basın bültenleri değil.",
+    "featuredBadge": "ÖNE ÇIKAN · GÖRÜŞ",
+    "all": "Tümü",
+    "backToBlog": "← BLOG'A DÖN",
+    "writtenBy": "YAZAN",
+    "readSuffix": "OKUMA",
+    "readArticle": "Yazıyı oku"
+  },
+  "contact": {
+    "eyebrow": "MERHABA DE",
+    "heroTitle": "Birlikte bir şeyler inşa edelim",
+    "heroSub": "Katılmak, sponsor olmak, bir projede iş birliği yapmak ya da sadece soru sormak mı istiyorsun? Bize yaz — her mesajı gerçek bir öğrenci okuyor.",
+    "fullName": "AD SOYAD",
+    "email": "E-POSTA",
+    "subject": "KONU",
+    "message": "MESAJ",
+    "send": "Mesajı gönder →",
+    "namePlaceholder": "Ada Lovelace",
+    "emailPlaceholder": "sen@marmara.edu.tr",
+    "subjectPlaceholder": "Kulübe katılmak istiyorum",
+    "messagePlaceholder": "Ne inşa etmek istediğini anlat…",
+    "nameError": "Lütfen adını gir.",
+    "emailError": "Lütfen geçerli bir e-posta gir.",
+    "subjectError": "Lütfen bir konu ekle.",
+    "messageError": "Lütfen biraz daha yaz (en az 10 karakter).",
+    "successTitle": "Mesaj gönderildi!",
+    "successBody": "Bize ulaştığın için teşekkürler. Birkaç gün içinde döneceğiz.",
+    "sendAnother": "Yeni mesaj gönder",
+    "emailUs": "BİZE YAZ",
+    "follow": "TAKİP ET",
+    "applyTitle": "Başvurmaya hazır mısın?",
+    "applyBody": "Üyelik başvuruları her dönem başında açılıyor.",
+    "applyNow": "Hemen başvur →"
+  },
+  "roles": {
+    "president": "BAŞKAN",
+    "presidentFull": "KULÜP BAŞKANI",
+    "vicePresident": "BAŞKAN YARDIMCISI",
+    "secretary": "SEKRETER",
+    "director": "DİREKTÖR"
+  },
+  "kpiLabels": {
+    "ARTICLES": "MAKALE",
+    "PROJECTS LED": "YÖNETİLEN PROJE",
+    "EVENTS": "ETKİNLİK",
+    "DEPARTMENTS": "DEPARTMAN",
+    "SYNCS": "SENKRON",
+    "MINUTES": "TUTANAK",
+    "WIKI": "WIKI",
+    "DASHBOARDS": "PANO",
+    "WORKSHOPS": "ATÖLYE",
+    "MODELS": "MODEL",
+    "TALKS": "KONUŞMA",
+    "PIPELINES": "VERİ HATTI",
+    "DATASETS": "VERİ SETİ",
+    "DATATHONS": "DATATHON",
+    "SPONSORS": "SPONSOR",
+    "RAISED": "TOPLANAN",
+    "PARTNERS": "PARTNER",
+    "POSTS": "GÖNDERİ",
+    "BRAND": "MARKA",
+    "CAMPAIGNS": "KAMPANYA"
+  },
+  "notFound": {
+    "title": "Sayfa bulunamadı",
+    "body": "Aradığın sayfa mevcut değil ya da taşınmış.",
+    "home": "Anasayfaya dön →"
+  }
+}

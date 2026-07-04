@@ -1,0 +1,69 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { routing } from "@/i18n/routing";
+import { bricolage, hanken, pacifico, condiment } from "@/fonts";
+import { Nav } from "@/components/layout/Nav";
+import { Footer } from "@/components/layout/Footer";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { organizationLd, SITE_URL } from "@/lib/seo";
+import "../globals.css";
+
+type Params = { locale: string };
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<Params>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "metadata" });
+  return {
+    metadataBase: new URL(SITE_URL),
+    title: { default: t("defaultTitle"), template: t("titleTemplate") },
+    description: t("defaultDescription"),
+    applicationName: t("siteName"),
+    openGraph: {
+      type: "website",
+      siteName: t("siteName"),
+      locale,
+      url: SITE_URL,
+    },
+    twitter: { card: "summary_large_image" },
+    robots: { index: true, follow: true },
+  };
+}
+
+export default async function LocaleLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: Promise<Params>;
+}) {
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+  setRequestLocale(locale);
+
+  const fontVars = `${bricolage.variable} ${hanken.variable} ${pacifico.variable} ${condiment.variable}`;
+
+  return (
+    <html lang={locale} data-scroll-behavior="smooth" className={`dark ${fontVars}`}>
+      <body>
+        <NextIntlClientProvider>
+          <JsonLd data={organizationLd()} />
+          <Nav />
+          <main>{children}</main>
+          <Footer />
+        </NextIntlClientProvider>
+      </body>
+    </html>
+  );
+}

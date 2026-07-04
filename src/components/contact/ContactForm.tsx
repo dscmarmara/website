@@ -1,0 +1,116 @@
+"use client";
+
+import { useState, type CSSProperties } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { useTranslations } from "next-intl";
+import { CheckIcon } from "@/components/common/SocialIcons";
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const inputStyle: CSSProperties = {
+  padding: "14px 16px",
+  borderRadius: 10,
+  border: "1px solid var(--border)",
+  background: "var(--bg-elev)",
+  color: "var(--text)",
+  fontFamily: "var(--font-body-stack)",
+  fontSize: 15,
+  width: "100%",
+};
+
+const captionStyle: CSSProperties = {
+  fontFamily: "var(--font-mono-stack)",
+  fontSize: 12,
+  letterSpacing: "0.08em",
+  color: "var(--text-muted)",
+};
+
+const errorStyle: CSSProperties = {
+  fontFamily: "var(--font-body-stack)",
+  fontSize: 12.5,
+  color: "var(--destructive)",
+};
+
+export function ContactForm() {
+  const t = useTranslations("contact");
+  const [sent, setSent] = useState(false);
+
+  const schema = z.object({
+    name: z.string().min(2, t("nameError")),
+    email: z.string().regex(EMAIL_RE, t("emailError")),
+    subject: z.string().min(2, t("subjectError")),
+    message: z.string().min(10, t("messageError")),
+  });
+  type FormValues = z.infer<typeof schema>;
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<FormValues>({ resolver: zodResolver(schema) });
+
+  if (sent) {
+    return (
+      <div style={{ border: "1px solid var(--accent)", borderRadius: 18, background: "var(--bg-elev)", padding: 48, textAlign: "center", boxShadow: "var(--glow-soft)" }}>
+        <div style={{ width: 64, height: 64, margin: "0 auto 22px", borderRadius: "50%", background: "var(--grad)", display: "grid", placeItems: "center" }}>
+          <CheckIcon size={30} />
+        </div>
+        <h3 style={{ fontFamily: "var(--font-display-stack)", fontWeight: 700, fontSize: 26, margin: "0 0 12px" }}>{t("successTitle")}</h3>
+        <p style={{ fontFamily: "var(--font-body-stack)", fontSize: 15, lineHeight: 1.6, color: "var(--text-muted)", margin: "0 auto 24px", maxWidth: "42ch" }}>{t("successBody")}</p>
+        <button
+          type="button"
+          onClick={() => { reset(); setSent(false); }}
+          style={{ padding: "12px 24px", borderRadius: 10, border: "1px solid var(--border)", background: "transparent", color: "var(--accent)", fontFamily: "var(--font-body-stack)", fontWeight: 600, fontSize: 14, cursor: "pointer" }}
+        >
+          {t("sendAnother")}
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <form
+      className="contact-form"
+      noValidate
+      onSubmit={handleSubmit(() => {
+        setSent(true);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      })}
+    >
+      <label style={{ display: "flex", flexDirection: "column", gap: 9 }}>
+        <span style={captionStyle}>{t("fullName")}</span>
+        <input className="field" type="text" placeholder={t("namePlaceholder")} style={inputStyle} {...register("name")} />
+        {errors.name && <span style={errorStyle}>{errors.name.message}</span>}
+      </label>
+
+      <label style={{ display: "flex", flexDirection: "column", gap: 9 }}>
+        <span style={captionStyle}>{t("email")}</span>
+        <input className="field" type="email" placeholder={t("emailPlaceholder")} style={inputStyle} {...register("email")} />
+        {errors.email && <span style={errorStyle}>{errors.email.message}</span>}
+      </label>
+
+      <label className="span-2" style={{ display: "flex", flexDirection: "column", gap: 9 }}>
+        <span style={captionStyle}>{t("subject")}</span>
+        <input className="field" type="text" placeholder={t("subjectPlaceholder")} style={inputStyle} {...register("subject")} />
+        {errors.subject && <span style={errorStyle}>{errors.subject.message}</span>}
+      </label>
+
+      <label className="span-2" style={{ display: "flex", flexDirection: "column", gap: 9 }}>
+        <span style={captionStyle}>{t("message")}</span>
+        <textarea className="field" rows={6} placeholder={t("messagePlaceholder")} style={{ ...inputStyle, resize: "vertical" }} {...register("message")} />
+        {errors.message && <span style={errorStyle}>{errors.message.message}</span>}
+      </label>
+
+      <button
+        type="submit"
+        className="lift-btn span-2"
+        style={{ justifySelf: "start", padding: "15px 34px", borderRadius: 10, border: "none", background: "var(--grad)", color: "#04190a", fontFamily: "var(--font-body-stack)", fontWeight: 700, fontSize: 15, cursor: "pointer", boxShadow: "var(--glow-soft)" }}
+      >
+        {t("send")}
+      </button>
+    </form>
+  );
+}

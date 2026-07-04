@@ -1,0 +1,22 @@
+---
+title: "Prompt engineering is just… engineering"
+author: "burak"
+date: "2026-05-20"
+category: "PR"
+readingTime: "6 MIN"
+excerpt: "Versioning, evals and reproducibility didn't disappear because we're talking to a model now."
+---
+
+**Prompt engineering isn't a new discipline. It's an old one wearing a hoodie.** The moment a prompt does something important, all the unglamorous engineering habits come straight back.
+
+## The boring parts didn't disappear
+
+A prompt that ships is code. It needs a version, a place to live, and a note explaining why it says what it says. Change one line and you've changed the behaviour of a system — so treat it like a change, not a whim. Keep the old one. Write down what you expected to happen.
+
+> Talking to a model doesn't excuse you from measuring whether it worked.
+
+## Treat prompts like code
+
+Build a tiny evaluation set before you tune anything: ten inputs, the answers you actually want, and a way to compare runs. It feels like overkill for a paragraph of English until the day a "small tweak" quietly breaks half your outputs and the eval catches it in seconds.
+
+The tools are new. The engineering is not. That's good news — it means we already know how to do this well.

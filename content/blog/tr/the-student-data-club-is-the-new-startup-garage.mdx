@@ -1,0 +1,50 @@
+---
+title: "Öğrenci veri kulübü, yeni girişim garajı"
+author: "ahmet"
+date: "2026-06-22"
+category: "Core AI"
+readingTime: "7 DK"
+excerpt: "Ülkedeki en ilginç veri işinin neden gece 11'de bir üniversite odasında olabileceği — ve bunun öğrenme biçimimiz için anlamı."
+featured: true
+---
+
+**Salı gecesi saat 11** ve mühendislik binasındaki bir oda çoğu dersten daha kalabalık. Kimse not almıyor. Altı kişi modellerinin veri sızdırıp sızdırmadığını tartışıyor ve tartışmakta da haklılar.
+
+En iyi veri işi şu an böyle görünüyor ve beklediğiniz yerde olmuyor. Kurumsal bir laboratuvarda değil, bir amfide değil — öğrenci kulübü olmak yerine girişim gibi davranmaya karar veren kulüplerde.
+
+## Yanlış şeyi optimize eden kulüpler
+
+Geleneksel öğrenci kulübü **etkinlikler ve katılım** üzerine kuruludur. Gelirsin, imza atarsın, bir konuşma izlersin, çıkarsın. Ölçü, kişi sayısıdır. Bu, bilgiye erişimin kıt kaynak olduğu bir çağdan miras kalan bir modeldir.
+
+Ama bilgi artık kıt değil. Kıt olan şey, önemseyen başka insanlarla gerçek bir şey inşa etme deneyimi — çıkarmak, bozmak, incelemek ve yeniden çıkarmak. Üniversitelerin üretmekte en kötü olduğu ve işverenlerin aslında istediği şey tam olarak bu.
+
+> Kaç kişinin geldiğini ölçmeyi bıraktık, kaç kişinin iş çıkardığını ölçmeye başladık. Her şey değişti.
+
+## Bir komite değil, altı takım
+
+Veri Bilimi Kulübü'nü yeniden yapılandırdığımızda organizasyon şemasını sildik ve yerine çok işlevli takımlar gibi davranan altı departman koyduk — Data Insights, Core AI, Data Pipelines, Summits & Awards, Finance & Corporate Relations ve PR. Her biri toplantıların değil, sonuçların sahibidir.
+
+Bir üye Data Insights'ta ilk grafiğini yaparak başlayabilir ve üç ay sonra Data Pipelines'ta Core AI'daki bir modeli besleyen bir ETL işi yazıyor olabilir. Sınırlar odak verecek kadar gerçek, insanların büyümesine izin verecek kadar geçirgen.
+
+İşte bir takımın geri bildirim puanlama modelinin ilk sürümünün tamamı — bir toplantıda okunacak kadar küçük, yayınlanacak kadar gerçek:
+
+```python title="campus_pulse.py"
+# campus_pulse.py — score student feedback in real time
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.linear_model import LogisticRegression
+
+def train(feedback, labels):
+    vec = TfidfVectorizer(ngram_range=(1, 2))
+    X = vec.fit_transform(feedback)
+    model = LogisticRegression(max_iter=1000)
+    model.fit(X, labels)
+    return vec, model
+```
+
+<p className="code-caption">On iki satırda tüm model — bir üye bunu ilk ayında çıkardı.</p>
+
+## Bunun öğrenme biçimimiz için anlamı
+
+Garaj, geçen kuşağın şirketlerinin doğduğu yerse, öğrenci veri kulübü de bu kuşağın **üreticilerinin** doğduğu yer olabilir. Araçlar özel olduğu için değil — bedava ve her yerdeler — kültür özel olduğu için. Öğrencilere üretici gibi davran, üretsinler.
+
+Tüm tez bu. Gerisi sadece sprintler.

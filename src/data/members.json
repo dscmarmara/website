@@ -1,0 +1,350 @@
+{
+  "departmentOrder": ["Data Insights", "Core AI", "Data Pipelines", "Summits & Awards", "Finance & Corporate", "PR"],
+  "members": [
+    {
+      "slug": "ahmet", "name": "Ahmet Kipici", "first": "Ahmet", "initials": "AK",
+      "group": "president", "teamRole": "PRESIDENT", "dept": "LEADERSHIP",
+      "photo": null,
+      "tagline": {
+        "en": "Leads the club's direction and mentors every department — building the bridge between academic research and the agile, ship-fast culture of modern startups.",
+        "tr": "Kulübün yönünü belirler ve her departmana mentorluk yapar — akademik araştırma ile modern girişimlerin çevik, hızlı üretim kültürü arasında köprü kurar."
+      },
+      "bio1": {
+        "en": "Ahmet is a final-year statistics student and the president of the Data Science Club. He pushed for it after a summer internship convinced him that the gap between what universities teach and what data teams actually do was a problem worth solving — together, in public.",
+        "tr": "Ahmet son sınıf istatistik öğrencisi ve Veri Bilimi Kulübü'nün başkanı. Bir yaz stajı ona üniversitelerin öğrettikleriyle veri ekiplerinin gerçekte yaptıkları arasındaki uçurumun çözülmeye değer bir problem olduğunu gösterdikten sonra bu işin peşine düştü — birlikte ve açıkça."
+      },
+      "bio2": {
+        "en": "Today he sets the club's direction, mentors department leads, and still finds time to review pull requests at midnight. He believes the best way to learn is to ship something real with people who care.",
+        "tr": "Bugün kulübün yönünü belirliyor, departman liderlerine mentorluk yapıyor ve gece yarısı pull request incelemeye hâlâ zaman buluyor. Öğrenmenin en iyi yolunun, önemseyen insanlarla gerçek bir şey çıkarmak olduğuna inanıyor."
+      },
+      "quote": {
+        "en": "Treat students like builders, and they build.",
+        "tr": "Öğrencilere üretici gibi davran, üretsinler."
+      },
+      "focus": ["AI", "Data Science", "Strategy", "Statistics", "Mentorship", "Python"],
+      "kpis": [{ "num": "12", "label": "ARTICLES" }, { "num": "30+", "label": "PROJECTS LED" }, { "num": "8", "label": "EVENTS" }]
+    },
+    {
+      "slug": "aylin", "name": "Aylin Çelik", "first": "Aylin", "initials": "AÇ",
+      "group": "vp", "teamRole": "VICE PRESIDENT", "dept": "LEADERSHIP",
+      "photo": null,
+      "tagline": {
+        "en": "The president's second — keeps six departments moving in the same direction.",
+        "tr": "Başkanın sağ kolu — altı departmanı aynı yönde ilerletir."
+      },
+      "bio1": {
+        "en": "Aylin is the club's vice president, the person who turns the president's direction into a week-by-week plan the departments can actually run on.",
+        "tr": "Aylin kulübün başkan yardımcısı; başkanın belirlediği yönü, departmanların gerçekten uygulayabileceği haftalık bir plana çeviren kişi."
+      },
+      "bio2": {
+        "en": "She spends her time unblocking directors, chairing the weekly sync, and making sure decisions get made instead of endlessly discussed.",
+        "tr": "Vaktini direktörlerin önünü açmakla, haftalık senkron toplantısını yönetmekle ve kararların sonsuza dek tartışılmak yerine alınmasını sağlamakla geçiriyor."
+      },
+      "quote": {
+        "en": "Strategy is worthless until someone owns the next step.",
+        "tr": "Bir sonraki adımı biri sahiplenmedikçe strateji beş para etmez."
+      },
+      "focus": ["Operations", "Planning", "People", "Statistics"],
+      "kpis": [{ "num": "6", "label": "ARTICLES" }, { "num": "6", "label": "DEPARTMENTS" }, { "num": "40+", "label": "SYNCS" }]
+    },
+    {
+      "slug": "emre", "name": "Emre Doğan", "first": "Emre", "initials": "ED",
+      "group": "vp", "teamRole": "SECRETARY", "dept": "LEADERSHIP",
+      "photo": null,
+      "tagline": {
+        "en": "Runs the club's operations, minutes and memory so nothing falls through.",
+        "tr": "Kulübün operasyonlarını, tutanaklarını ve hafızasını yürütür; hiçbir şey gözden kaçmasın diye."
+      },
+      "bio1": {
+        "en": "Emre is the club's secretary and its institutional memory — agendas, minutes, decisions and follow-ups all pass through him.",
+        "tr": "Emre kulübün sekreteri ve kurumsal hafızası — gündemler, tutanaklar, kararlar ve takipler hep ondan geçiyor."
+      },
+      "bio2": {
+        "en": "He built the club's shared knowledge base so that no lesson has to be learned twice.",
+        "tr": "Hiçbir ders iki kez öğrenilmek zorunda kalmasın diye kulübün ortak bilgi tabanını kurdu."
+      },
+      "quote": {
+        "en": "If it isn't written down, it didn't happen.",
+        "tr": "Yazılmadıysa, olmamış demektir."
+      },
+      "focus": ["Operations", "Documentation", "Coordination", "Notion"],
+      "kpis": [{ "num": "4", "label": "ARTICLES" }, { "num": "50+", "label": "MINUTES" }, { "num": "1", "label": "WIKI" }]
+    },
+    {
+      "slug": "zeynep", "name": "Zeynep Kaya", "first": "Zeynep", "initials": "ZK",
+      "group": "Data Insights", "teamRole": "DIRECTOR", "dept": "DATA INSIGHTS",
+      "photo": null,
+      "tagline": {
+        "en": "Turns messy datasets into dashboards people actually want to look at.",
+        "tr": "Dağınık veri setlerini, insanların gerçekten bakmak istediği panolara dönüştürür."
+      },
+      "bio1": {
+        "en": "Zeynep leads Data Insights, where storytelling matters as much as statistics. She's the person who can take a 40-column spreadsheet and hand you back a single chart that changes your mind.",
+        "tr": "Zeynep, hikâye anlatımının en az istatistik kadar önemli olduğu Data Insights'ı yönetiyor. 40 sütunluk bir tabloyu alıp size fikrinizi değiştiren tek bir grafik olarak geri verebilen kişi."
+      },
+      "bio2": {
+        "en": "She runs the club's BI workshops and is on a mission to make data literacy a default skill across campus.",
+        "tr": "Kulübün BI atölyelerini yürütüyor ve veri okuryazarlığını kampüs genelinde varsayılan bir beceri hâline getirmeyi görev ediniyor."
+      },
+      "quote": {
+        "en": "A good chart ends an argument faster than a meeting.",
+        "tr": "İyi bir grafik, bir tartışmayı toplantıdan daha hızlı bitirir."
+      },
+      "focus": ["EDA", "Power BI", "Tableau", "Storytelling", "SQL"],
+      "kpis": [{ "num": "8", "label": "ARTICLES" }, { "num": "16", "label": "DASHBOARDS" }, { "num": "5", "label": "WORKSHOPS" }]
+    },
+    {
+      "slug": "deniz", "name": "Deniz Aydın", "first": "Deniz", "initials": "DA",
+      "group": "Data Insights", "teamRole": "DIRECTOR", "dept": "DATA INSIGHTS",
+      "photo": null,
+      "tagline": {
+        "en": "Lives in the space between a good question and the chart that answers it.",
+        "tr": "İyi bir soru ile onu yanıtlayan grafik arasındaki alanda yaşar."
+      },
+      "bio1": {
+        "en": "Deniz co-directs Data Insights, turning open datasets into visual stories the whole campus can read. She starts every project by asking what decision the chart should change.",
+        "tr": "Deniz, açık veri setlerini tüm kampüsün okuyabileceği görsel hikâyelere dönüştürerek Data Insights'ı birlikte yönetiyor. Her projeye, grafiğin hangi kararı değiştirmesi gerektiğini sorarak başlıyor."
+      },
+      "bio2": {
+        "en": "She runs the club's BI office hours and is quietly on a mission to delete the pie chart from student life.",
+        "tr": "Kulübün BI danışma saatlerini yürütüyor ve sessizce pasta grafiğini öğrenci hayatından silmeyi görev ediniyor."
+      },
+      "quote": {
+        "en": "A chart that doesn't change a decision is just decoration.",
+        "tr": "Bir kararı değiştirmeyen grafik yalnızca süstür."
+      },
+      "focus": ["EDA", "Dashboards", "Power BI", "Storytelling"],
+      "kpis": [{ "num": "5", "label": "ARTICLES" }, { "num": "12", "label": "DASHBOARDS" }, { "num": "4", "label": "WORKSHOPS" }]
+    },
+    {
+      "slug": "sadik", "name": "Sadık Çoban", "first": "Sadık", "initials": "SÇ",
+      "group": "Core AI", "teamRole": "DIRECTOR", "dept": "CORE AI",
+      "photo": null, "website": "sadikcoban.com", "websiteUrl": "https://www.sadikcoban.com",
+      "tagline": {
+        "en": "NLP and Turkish-language models — turns research into things that ship.",
+        "tr": "NLP ve Türkçe dil modelleri — araştırmayı yayınlanan işlere dönüştürür."
+      },
+      "bio1": {
+        "en": "Sadık co-directs Core AI, where he pushes the club's language work from clever notebooks into deployed, reproducible models. He is happiest with a messy Turkish dataset and a clear evaluation metric.",
+        "tr": "Sadık, kulübün dil çalışmalarını akıllı defterlerden dağıtılmış, tekrar üretilebilir modellere taşıdığı Core AI'ı birlikte yönetiyor. En mutlu olduğu an, dağınık bir Türkçe veri seti ve net bir değerlendirme metriğiyle olduğu andır."
+      },
+      "bio2": {
+        "en": "He mentors new members through their first fine-tune and keeps a running log of experiments on his personal site.",
+        "tr": "Yeni üyelere ilk fine-tune'larında mentorluk yapıyor ve deneylerinin güncel kaydını kişisel sitesinde tutuyor."
+      },
+      "quote": {
+        "en": "A model you can't reproduce is a story, not a result.",
+        "tr": "Tekrar üretemediğin bir model bir sonuç değil, bir hikâyedir."
+      },
+      "focus": ["NLP", "LLMs", "PyTorch", "Reproducibility", "Python"],
+      "kpis": [{ "num": "8", "label": "ARTICLES" }, { "num": "13", "label": "MODELS" }, { "num": "5", "label": "TALKS" }]
+    },
+    {
+      "slug": "kerem", "name": "Kerem Aslan", "first": "Kerem", "initials": "KA",
+      "group": "Core AI", "teamRole": "DIRECTOR", "dept": "CORE AI",
+      "photo": null,
+      "tagline": {
+        "en": "Computer-vision tinkerer who ships models before he ships slides.",
+        "tr": "Slayt çıkarmadan önce model çıkaran bir bilgisayarlı görü meraklısı."
+      },
+      "bio1": {
+        "en": "Kerem co-directs Core AI with a bias for building. He would rather have a rough model running on real data by Friday than a perfect plan on Monday.",
+        "tr": "Kerem, üretmeye yatkın bir tavırla Core AI'ı birlikte yönetiyor. Pazartesi mükemmel bir plan yerine, cumaya kadar gerçek veride çalışan kaba bir modeli tercih eder."
+      },
+      "bio2": {
+        "en": "He mentors the club's first-years through their first training loop and swears by small, honest baselines.",
+        "tr": "Kulübün birinci sınıflarına ilk eğitim döngülerinde mentorluk yapıyor ve küçük, dürüst temel modellere sonuna kadar güveniyor."
+      },
+      "quote": {
+        "en": "Ship the baseline first — it tells you what hard actually means.",
+        "tr": "Önce temel modeli çıkar — sana zorun gerçekte ne demek olduğunu söyler."
+      },
+      "focus": ["Computer Vision", "PyTorch", "MLOps", "Python"],
+      "kpis": [{ "num": "4", "label": "ARTICLES" }, { "num": "10", "label": "MODELS" }, { "num": "3", "label": "WORKSHOPS" }]
+    },
+    {
+      "slug": "mert", "name": "Mert Demir", "first": "Mert", "initials": "MD",
+      "group": "Data Pipelines", "teamRole": "DIRECTOR", "dept": "DATA PIPELINES",
+      "photo": null,
+      "tagline": {
+        "en": "Keeps the club's data flowing with Spark, Airflow and a lot of caffeine.",
+        "tr": "Kulübün verisini Spark, Airflow ve bir sürü kafeinle akar tutar."
+      },
+      "bio1": {
+        "en": "Mert owns the plumbing nobody sees but everyone relies on. If a model has clean, fresh data to train on, there's a good chance Mert built the pipeline that delivered it.",
+        "tr": "Mert, kimsenin görmediği ama herkesin güvendiği tesisatın sahibi. Bir modelin eğitecek temiz, taze verisi varsa, o veriyi getiren hattı büyük ihtimalle Mert kurmuştur."
+      },
+      "bio2": {
+        "en": "He cares about boring, observable systems that don't page you at 3am — and teaching newcomers that data engineering is a craft.",
+        "tr": "Gece 3'te seni aramayan sıkıcı, gözlemlenebilir sistemleri önemsiyor — ve yeni gelenlere veri mühendisliğinin bir zanaat olduğunu öğretmeyi."
+      },
+      "quote": {
+        "en": "Your first pipeline should be boring, observable and hard to break.",
+        "tr": "İlk veri hattın sıkıcı, gözlemlenebilir ve kırılması zor olmalı."
+      },
+      "focus": ["ETL", "Spark", "Airflow", "SQL", "Cloud"],
+      "kpis": [{ "num": "7", "label": "ARTICLES" }, { "num": "11", "label": "PIPELINES" }, { "num": "4", "label": "WORKSHOPS" }]
+    },
+    {
+      "slug": "ece", "name": "Ece Korkmaz", "first": "Ece", "initials": "EK",
+      "group": "Data Pipelines", "teamRole": "DIRECTOR", "dept": "DATA PIPELINES",
+      "photo": null,
+      "tagline": {
+        "en": "Believes every dataset deserves a clean, observable path to production.",
+        "tr": "Her veri setinin üretime giden temiz, gözlemlenebilir bir yolu hak ettiğine inanır."
+      },
+      "bio1": {
+        "en": "Ece co-directs Data Pipelines and treats reliability as a feature. If a job fails at 3am, she wants it to fail loudly, clearly, and exactly once.",
+        "tr": "Ece, Data Pipelines'ı birlikte yönetiyor ve güvenilirliği bir özellik olarak görüyor. Bir iş gece 3'te patlarsa, yüksek sesle, net biçimde ve tam olarak bir kez patlamasını ister."
+      },
+      "bio2": {
+        "en": "She's building the club's internal data platform so every squad can trust the numbers they ship.",
+        "tr": "Her takım çıkardığı rakamlara güvenebilsin diye kulübün iç veri platformunu kuruyor."
+      },
+      "quote": {
+        "en": "Boring pipelines are the ones you can sleep through.",
+        "tr": "Sıkıcı veri hatları, uyuyabildiğin hatlardır."
+      },
+      "focus": ["Airflow", "Spark", "SQL", "Cloud"],
+      "kpis": [{ "num": "3", "label": "ARTICLES" }, { "num": "9", "label": "PIPELINES" }, { "num": "5", "label": "DATASETS" }]
+    },
+    {
+      "slug": "can", "name": "Can Öztürk", "first": "Can", "initials": "CÖ",
+      "group": "Summits & Awards", "teamRole": "DIRECTOR", "dept": "SUMMITS & AWARDS",
+      "photo": null,
+      "tagline": {
+        "en": "Runs the Datathon and somehow makes 200-person events look easy.",
+        "tr": "Datathon'u yönetir ve 200 kişilik etkinlikleri bir şekilde kolay gösterir."
+      },
+      "bio1": {
+        "en": "Can turns the club's energy into events people remember — summits, award nights, and the flagship Datathon. Logistics, sponsors, schedules: he keeps all the plates spinning.",
+        "tr": "Can, kulübün enerjisini insanların hatırladığı etkinliklere dönüştürüyor — zirveler, ödül geceleri ve amiral gemisi Datathon. Lojistik, sponsorlar, programlar: tüm tabakları havada tutan o."
+      },
+      "bio2": {
+        "en": "He believes a great event is just a really well-run project with snacks, and he's usually right.",
+        "tr": "Harika bir etkinliğin, atıştırmalıkları olan çok iyi yönetilmiş bir projeden ibaret olduğuna inanıyor ve genellikle haklı."
+      },
+      "quote": {
+        "en": "An event is a project with a deadline you can't move.",
+        "tr": "Etkinlik, erteleyemeyeceğin bir son teslim tarihi olan bir projedir."
+      },
+      "focus": ["Event Ops", "Hackathons", "Partnerships", "Logistics"],
+      "kpis": [{ "num": "5", "label": "ARTICLES" }, { "num": "9", "label": "EVENTS" }, { "num": "2", "label": "DATATHONS" }]
+    },
+    {
+      "slug": "yusuf", "name": "Yusuf Demir", "first": "Yusuf", "initials": "YD",
+      "group": "Summits & Awards", "teamRole": "DIRECTOR", "dept": "SUMMITS & AWARDS",
+      "photo": null,
+      "tagline": {
+        "en": "Turns a room full of strangers into teams that ship by sunrise.",
+        "tr": "Yabancılarla dolu bir odayı, gün doğana kadar iş çıkaran takımlara dönüştürür."
+      },
+      "bio1": {
+        "en": "Yusuf co-directs Summits & Awards, obsessing over the tiny logistics that decide whether an event feels magic or chaotic.",
+        "tr": "Yusuf, bir etkinliğin büyülü mü yoksa kaotik mi hissettireceğini belirleyen küçük lojistik detaylara takıntıyla Summits & Awards'ı birlikte yönetiyor."
+      },
+      "bio2": {
+        "en": "He designed the club's mentor-matching format that pairs beginners with seniors during the Datathon.",
+        "tr": "Datathon sırasında yeni başlayanları kıdemlilerle eşleştiren kulübün mentor eşleştirme formatını tasarladı."
+      },
+      "quote": {
+        "en": "Great events are just great projects with snacks.",
+        "tr": "Harika etkinlikler, atıştırmalıkları olan harika projelerdir."
+      },
+      "focus": ["Event Ops", "Hackathons", "Community", "Logistics"],
+      "kpis": [{ "num": "3", "label": "ARTICLES" }, { "num": "7", "label": "EVENTS" }, { "num": "2", "label": "DATATHONS" }]
+    },
+    {
+      "slug": "selin", "name": "Selin Arslan", "first": "Selin", "initials": "SA",
+      "group": "Finance & Corporate", "teamRole": "DIRECTOR", "dept": "FINANCE & CORPORATE",
+      "photo": null,
+      "tagline": {
+        "en": "Connects the club with sponsors and turns budgets into opportunities.",
+        "tr": "Kulübü sponsorlarla buluşturur ve bütçeleri fırsatlara çevirir."
+      },
+      "bio1": {
+        "en": "Selin keeps the club funded and connected. She writes the proposals, runs the numbers, and builds the relationships that turn into internships and first jobs for members.",
+        "tr": "Selin, kulübün finansmanını ve bağlantılarını ayakta tutuyor. Teklifleri yazıyor, rakamları hesaplıyor ve üyeler için staja ve ilk işlere dönüşen ilişkileri kuruyor."
+      },
+      "bio2": {
+        "en": "She's proof that the business side of a data club is every bit as creative as the technical side.",
+        "tr": "Bir veri kulübünün iş tarafının, teknik tarafı kadar yaratıcı olduğunun kanıtı."
+      },
+      "quote": {
+        "en": "A cold email is just a warm intro you haven't earned yet.",
+        "tr": "Soğuk bir e-posta, henüz hak etmediğin sıcak bir tanışıklıktan ibarettir."
+      },
+      "focus": ["Sponsorship", "Budgeting", "Partnerships", "Negotiation"],
+      "kpis": [{ "num": "5", "label": "ARTICLES" }, { "num": "12", "label": "SPONSORS" }, { "num": "₺—", "label": "RAISED" }]
+    },
+    {
+      "slug": "nil", "name": "Nil Şen", "first": "Nil", "initials": "NŞ",
+      "group": "Finance & Corporate", "teamRole": "DIRECTOR", "dept": "FINANCE & CORPORATE",
+      "photo": null,
+      "tagline": {
+        "en": "Speaks fluent spreadsheet and even more fluent partnership.",
+        "tr": "Akıcı tablo konuşur, ortaklığı ise daha da akıcı."
+      },
+      "bio1": {
+        "en": "Nil co-directs Finance & Corporate Relations, turning cold outreach into the sponsorships that keep the club running and its members hired.",
+        "tr": "Nil, soğuk iletişimi kulübü ayakta tutan ve üyelerini işe aldıran sponsorluklara dönüştürerek Finance & Corporate Relations'ı birlikte yönetiyor."
+      },
+      "bio2": {
+        "en": "She treats every partner conversation as the start of a member's future internship.",
+        "tr": "Her partner görüşmesini, bir üyenin gelecekteki stajının başlangıcı olarak görüyor."
+      },
+      "quote": {
+        "en": "A budget is just a plan with consequences.",
+        "tr": "Bütçe, sonuçları olan bir plandan ibarettir."
+      },
+      "focus": ["Sponsorship", "Budgeting", "Outreach", "Partnerships"],
+      "kpis": [{ "num": "3", "label": "ARTICLES" }, { "num": "8", "label": "PARTNERS" }, { "num": "—", "label": "RAISED" }]
+    },
+    {
+      "slug": "burak", "name": "Burak Şahin", "first": "Burak", "initials": "BŞ",
+      "group": "PR", "teamRole": "DIRECTOR", "dept": "PR",
+      "photo": null,
+      "tagline": {
+        "en": "Designer and storyteller behind the club's voice and visuals.",
+        "tr": "Kulübün sesinin ve görsellerinin arkasındaki tasarımcı ve hikâye anlatıcısı."
+      },
+      "bio1": {
+        "en": "Burak shapes how the club looks and sounds — from the logo you just saw to every post in your feed. He treats the club's brand like a product.",
+        "tr": "Burak, kulübün nasıl göründüğünü ve nasıl bir ses tonu olduğunu şekillendiriyor — az önce gördüğün logodan akışındaki her gönderiye kadar. Kulübün markasına bir ürün gibi yaklaşıyor."
+      },
+      "bio2": {
+        "en": "He's convinced that good design is how good ideas earn attention, and he's building a brand students actually want to wear on a hoodie.",
+        "tr": "İyi tasarımın, iyi fikirlerin ilgi kazanma yolu olduğuna ikna olmuş durumda ve öğrencilerin gerçekten bir svetşört üzerinde taşımak isteyeceği bir marka kuruyor."
+      },
+      "quote": {
+        "en": "Good design is how good ideas earn attention.",
+        "tr": "İyi tasarım, iyi fikirlerin ilgi kazanma yoludur."
+      },
+      "focus": ["Brand", "Graphic Design", "Content", "Social Media"],
+      "kpis": [{ "num": "6", "label": "ARTICLES" }, { "num": "200+", "label": "POSTS" }, { "num": "1", "label": "BRAND" }]
+    },
+    {
+      "slug": "berk", "name": "Berk Aksoy", "first": "Berk", "initials": "BA",
+      "group": "PR", "teamRole": "DIRECTOR", "dept": "PR",
+      "photo": null,
+      "tagline": {
+        "en": "Runs the feed and makes sure the club's work actually gets seen.",
+        "tr": "Akışı yönetir ve kulübün işinin gerçekten görülmesini sağlar."
+      },
+      "bio1": {
+        "en": "Berk co-directs PR, translating the club's technical wins into stories people outside the room actually care about.",
+        "tr": "Berk, kulübün teknik başarılarını, odanın dışındaki insanların gerçekten önemsediği hikâyelere çevirerek PR'ı birlikte yönetiyor."
+      },
+      "bio2": {
+        "en": "He built the content calendar that turned an empty Instagram into the club's loudest recruiting channel.",
+        "tr": "Boş bir Instagram hesabını kulübün en gür sesli üye toplama kanalına dönüştüren içerik takvimini kurdu."
+      },
+      "quote": {
+        "en": "If we built it and nobody saw it, did we really ship?",
+        "tr": "Yaptık ama kimse görmediyse, gerçekten çıkardık mı?"
+      },
+      "focus": ["Social Media", "Content", "Copywriting", "Community"],
+      "kpis": [{ "num": "4", "label": "ARTICLES" }, { "num": "150+", "label": "POSTS" }, { "num": "3", "label": "CAMPAIGNS" }]
+    }
+  ]
+}
