@@ -143,23 +143,27 @@ export default async function HomePage({
         </div>
       </section>
 
-      {/* FEATURED PROJECTS */}
-      <section style={{ borderTop: "1px solid var(--border)", background: "var(--bg-elev)" }}>
-        <div style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "90px 24px" }}>
-          <Reveal style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 24, flexWrap: "wrap", marginBottom: 46 }}>
-            <div>
-              <Eyebrow style={{ marginBottom: 12 }}>{t("featuredEyebrow")}</Eyebrow>
-              <h2 style={h2Style}>{t("featuredTitle")}</h2>
+      {/* FEATURED PROJECTS — the whole section is hidden while there are no
+         projects. Add entries to HOME_PROJECTS (lib/constants.ts) to bring it
+         back; the cards then render automatically. */}
+      {HOME_PROJECTS.length > 0 && (
+        <section style={{ borderTop: "1px solid var(--border)", background: "var(--bg-elev)" }}>
+          <div style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "90px 24px" }}>
+            <Reveal style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 24, flexWrap: "wrap", marginBottom: 46 }}>
+              <div>
+                <Eyebrow style={{ marginBottom: 12 }}>{t("featuredEyebrow")}</Eyebrow>
+                <h2 style={h2Style}>{t("featuredTitle")}</h2>
+              </div>
+              <span style={{ fontFamily: "var(--font-body-stack)", fontWeight: 600, fontSize: 15, color: "var(--text-muted)" }}>{t("allProjects")}</span>
+            </Reveal>
+            <div className="dsc-grid-3" style={{ gap: 26 }}>
+              {HOME_PROJECTS.map((p) => (
+                <ProjectCard key={p.title} title={p.title} tag={p.tag} shot={p.shot} desc={pick(p.desc, locale)} />
+              ))}
             </div>
-            <span style={{ fontFamily: "var(--font-body-stack)", fontWeight: 600, fontSize: 15, color: "var(--text-muted)" }}>{t("allProjects")}</span>
-          </Reveal>
-          <div className="dsc-grid-3" style={{ gap: 26 }}>
-            {HOME_PROJECTS.map((p) => (
-              <ProjectCard key={p.title} title={p.title} tag={p.tag} shot={p.shot} desc={pick(p.desc, locale)} />
-            ))}
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* DEPARTMENTS */}
       <section style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "96px 24px" }}>

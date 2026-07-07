@@ -63,7 +63,7 @@ export function Nav() {
             className="nav-lockup"
             style={{ display: "flex", flexDirection: "column", gap: 4, borderLeft: "1px solid var(--border)", paddingLeft: 14, lineHeight: 1 }}
           >
-            <span style={{ fontFamily: "var(--font-display-stack)", fontWeight: 600, fontSize: 14, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--text)" }}>
+            <span lang="en" style={{ fontFamily: "var(--font-display-stack)", fontWeight: 600, fontSize: 14, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--text)" }}>
               {tb("title")}
             </span>
             <span style={{ fontFamily: "var(--font-body-stack)", fontWeight: 500, fontSize: 9.5, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--text-muted)" }}>

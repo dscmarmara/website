@@ -25,8 +25,8 @@ export interface HomeStat {
 
 export const HOME_STATS: HomeStat[] = [
   { num: "6", label: { en: "DEPARTMENTS", tr: "DEPARTMAN" } },
-  { num: "120+", label: { en: "ACTIVE MEMBERS", tr: "AKTİF ÜYE" } },
-  { num: "30+", label: { en: "PROJECTS SHIPPED", tr: "YAYINLANAN PROJE" } },
+  { num: "400+", label: { en: "ACTIVE MEMBERS", tr: "AKTİF ÜYE" } },
+  // { num: "30+", label: { en: "PROJECTS SHIPPED", tr: "YAYINLANAN PROJE" } },
   { num: "12", label: { en: "EVENTS / YEAR", tr: "YILLIK ETKİNLİK" } },
 ];
 
@@ -37,34 +37,37 @@ export interface HomeProject {
   desc: Localized;
 }
 
+// No projects live yet, so the featured-projects section stays hidden while
+// HOME_PROJECTS is empty. The previous entries are kept below (commented out) —
+// uncomment them (and remove the empty array) to show the project cards again.
 export const HOME_PROJECTS: HomeProject[] = [
-  {
-    title: "Campus Pulse",
-    tag: "CORE AI",
-    shot: "dashboard shot",
-    desc: {
-      en: "A real-time NLP pipeline that scores student feedback across six faculties and surfaces emerging issues in a live dashboard.",
-      tr: "Altı fakülte genelinde öğrenci geri bildirimini puanlayan ve ortaya çıkan sorunları canlı bir panoda gösteren gerçek zamanlı bir NLP hattı.",
-    },
-  },
-  {
-    title: "TransitFlow",
-    tag: "DATA PIPELINES",
-    shot: "map shot",
-    desc: {
-      en: "Predicting Istanbul commute times from open transit data with a streaming ETL pipeline on Spark.",
-      tr: "Spark üzerinde akış tabanlı bir ETL hattıyla açık ulaşım verisinden İstanbul'daki yol sürelerini tahmin ediyor.",
-    },
-  },
-  {
-    title: "MarmaraViz",
-    tag: "DATA INSIGHTS",
-    shot: "BI shot",
-    desc: {
-      en: "Interactive Power BI dashboards that turn the university's open datasets into stories anyone can read.",
-      tr: "Üniversitenin açık veri setlerini herkesin okuyabileceği hikâyelere çeviren etkileşimli Power BI panoları.",
-    },
-  },
+  // {
+  //   title: "Campus Pulse",
+  //   tag: "CORE AI",
+  //   shot: "dashboard shot",
+  //   desc: {
+  //     en: "A real-time NLP pipeline that scores student feedback across six faculties and surfaces emerging issues in a live dashboard.",
+  //     tr: "Altı fakülte genelinde öğrenci geri bildirimini puanlayan ve ortaya çıkan sorunları canlı bir panoda gösteren gerçek zamanlı bir NLP hattı.",
+  //   },
+  // },
+  // {
+  //   title: "TransitFlow",
+  //   tag: "DATA PIPELINES",
+  //   shot: "map shot",
+  //   desc: {
+  //     en: "Predicting Istanbul commute times from open transit data with a streaming ETL pipeline on Spark.",
+  //     tr: "Spark üzerinde akış tabanlı bir ETL hattıyla açık ulaşım verisinden İstanbul'daki yol sürelerini tahmin ediyor.",
+  //   },
+  // },
+  // {
+  //   title: "MarmaraViz",
+  //   tag: "DATA INSIGHTS",
+  //   shot: "BI shot",
+  //   desc: {
+  //     en: "Interactive Power BI dashboards that turn the university's open datasets into stories anyone can read.",
+  //     tr: "Üniversitenin açık veri setlerini herkesin okuyabileceği hikâyelere çeviren etkileşimli Power BI panoları.",
+  //   },
+  // },
 ];
 
 export interface HomeDepartment {
