@@ -1,0 +1,29 @@
+---
+title: "Yazı başlığın"
+author: "ahmet"
+date: "2026-01-01"
+category: "Core AI"
+readingTime: "5 DK"
+excerpt: "Blog listesinde ve sosyal medya önizlemelerinde görünecek bir iki cümle."
+---
+
+Adı `_` ile başlayan dosyalar `src/lib/posts.ts` içindeki `getPostSlugs()`
+tarafından yok sayılır, yani bu şablon sitede hiç görünmez. Yazı yayınlamak için
+`<slug>.mdx` olarak kopyala (aynı slug hem `en/` hem `tr/` içinde olmalı).
+
+Frontmatter kuralları: `author` mutlaka `src/data/members.json` içindeki bir üye
+slug'ı, `category` ise `src/lib/constants.ts` içindeki `DEPARTMENTS`
+değerlerinden biri olmalı — aksi halde build açıkça hata verir
+(`assertContentIntegrity`). Yazıyı blog listesinin en üstüne sabitlemek için
+`featured: true` ekle.
+
+## Bir bölüm başlığı
+
+Normal paragraflar, **kalın**, _italik_ ve [bağlantılar](https://example.com)
+sorunsuz çalışır.
+
+> Alıntılar yeşil vurgu çizgisiyle görünür.
+
+```python
+print("Kod blokları sözdizimi vurgusuyla gelir.")
+```

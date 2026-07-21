@@ -29,7 +29,11 @@ export function getPostSlugs(): string[] {
   if (!fs.existsSync(dir)) return [];
   return fs
     .readdirSync(dir)
-    .filter((f) => f.endsWith(".mdx"))
+    // `_`-prefixed files are drafts/templates, not posts. `_template.mdx` also
+    // keeps at least one module in the folder: the post body is loaded with a
+    // dynamic `import()`, and with zero .mdx files the bundler cannot build
+    // that import map and the production build fails to resolve it.
+    .filter((f) => f.endsWith(".mdx") && !f.startsWith("_"))
     .map((f) => f.replace(/\.mdx$/, ""));
 }
 

@@ -1,0 +1,27 @@
+---
+title: "Your post title"
+author: "ahmet"
+date: "2026-01-01"
+category: "Core AI"
+readingTime: "5 MIN"
+excerpt: "One or two sentences shown on the blog index and in social previews."
+---
+
+Files whose name starts with `_` are ignored by `getPostSlugs()` in
+`src/lib/posts.ts`, so this template never appears on the site. Copy it to
+`<slug>.mdx` (same slug in both `en/` and `tr/`) to publish a post.
+
+Frontmatter rules: `author` must be a member slug from `src/data/members.json`,
+and `category` must be one of `DEPARTMENTS` in `src/lib/constants.ts` — the
+build fails loudly otherwise (see `assertContentIntegrity`). Add `featured: true`
+to pin a post to the top of the blog index.
+
+## A section heading
+
+Regular paragraphs, **bold**, _italic_ and [links](https://example.com) all work.
+
+> Pull quotes render with the green accent bar.
+
+```python
+print("Fenced code blocks get syntax highlighting.")
+```
