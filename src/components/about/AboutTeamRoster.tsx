@@ -41,7 +41,9 @@ export function AboutTeamRoster({
             <p style={{ fontFamily: "var(--font-body-stack)", fontSize: 16, lineHeight: 1.75, color: "var(--text-muted)", margin: "0 0 22px", maxWidth: "60ch" }}>{pick(president.bio1, locale)}</p>
             <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
               <Link href={`/team/${president.slug}`} className="lift-btn" style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "11px 20px", borderRadius: 10, background: "var(--grad)", color: "#04190a", fontFamily: "var(--font-body-stack)", fontWeight: 700, fontSize: 14, textDecoration: "none" }}>{viewFullProfileLabel}</Link>
-              <SocialLink href="#" label="LinkedIn"><LinkedInIcon /></SocialLink>
+              {president.linkedin && (
+                <SocialLink href={president.linkedin} label="LinkedIn" external><LinkedInIcon /></SocialLink>
+              )}
             </div>
           </div>
         </div>

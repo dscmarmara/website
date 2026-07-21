@@ -147,7 +147,9 @@ export default async function BlogDetailPage({
                 </Link>
                 <p style={{ fontFamily: "var(--font-body-stack)", fontSize: 14.5, lineHeight: 1.7, color: "var(--text-muted)", margin: "0 0 16px" }}>{pick(author.bio1, locale)}</p>
                 <div style={{ display: "flex", gap: 11 }}>
-                  <SocialLink href="#" label="LinkedIn" size={38} radius={9}><LinkedInIcon size={16} /></SocialLink>
+                  {author.linkedin && (
+                    <SocialLink href={author.linkedin} label="LinkedIn" size={38} radius={9} external><LinkedInIcon size={16} /></SocialLink>
+                  )}
                 </div>
               </div>
             </div>

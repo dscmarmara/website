@@ -120,8 +120,15 @@ export default async function MemberPage({
               <div style={{ display: "flex", alignItems: "center", gap: 18, flexWrap: "wrap" }}>
                 <span style={{ padding: "6px 15px", borderRadius: 100, border: "1px solid var(--border)", background: "var(--bg-elev)", fontFamily: "var(--font-mono-stack)", fontSize: 12, letterSpacing: "0.05em", color: "var(--accent)" }}>{m.dept}</span>
                 <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-                  <SocialLink href="#" label={t("linkedin")} size={40}><LinkedInIcon size={17} /></SocialLink>
-                  <SocialLink href="#" label={t("email")} size={40}><MailIcon size={17} /></SocialLink>
+                  {/* Only rendered for members who actually have one — no dead
+                      "#" links. Fill in `linkedin` / `email` in members.json
+                      (or later, the admin profile form) to switch them on. */}
+                  {m.linkedin && (
+                    <SocialLink href={m.linkedin} label={t("linkedin")} size={40} external><LinkedInIcon size={17} /></SocialLink>
+                  )}
+                  {m.email && (
+                    <SocialLink href={`mailto:${m.email}`} label={t("email")} size={40}><MailIcon size={17} /></SocialLink>
+                  )}
                   {m.website && m.websiteUrl && (
                     <a
                       className="social-ico"

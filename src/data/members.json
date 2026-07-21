@@ -43,10 +43,6 @@
       ],
       "kpis": [
         {
-          "num": "12",
-          "label": "ARTICLES"
-        },
-        {
           "num": "30+",
           "label": "PROJECTS LED"
         },
@@ -54,7 +50,8 @@
           "num": "8",
           "label": "EVENTS"
         }
-      ]
+      ],
+      "linkedin": "https://www.linkedin.com/in/ahmet-kipici-46224a226/"
     },
     {
       "slug": "irmak-evci",
@@ -66,27 +63,38 @@
       "dept": "LEADERSHIP",
       "photo": null,
       "tagline": {
-        "en": "Vice president — keeps the six departments moving in the same direction.",
-        "tr": "Başkan yardımcısı — altı departmanı aynı yönde ilerletir."
+        "en": "The president's second — keeps six departments moving in the same direction.",
+        "tr": "Başkanın sağ kolu — altı departmanı aynı yönde ilerletir."
       },
       "bio1": {
-        "en": "The vice president supports the president and turns the club's direction into a plan the departments can actually run on.",
-        "tr": "Başkan yardımcısı, başkana destek olur ve kulübün yönünü departmanların uygulayabileceği bir plana çevirir."
+        "en": "Irmak is the club's vice president, the person who turns the president's direction into a week-by-week plan the departments can actually run on.",
+        "tr": "Irmak kulübün başkan yardımcısı; başkanın belirlediği yönü, departmanların gerçekten uygulayabileceği haftalık bir plana çeviren kişi."
       },
       "bio2": {
-        "en": "",
-        "tr": ""
+        "en": "They spend their time unblocking directors, chairing the weekly sync, and making sure decisions get made instead of endlessly discussed.",
+        "tr": "Vaktini direktörlerin önünü açmakla, haftalık senkron toplantısını yönetmekle ve kararların sonsuza dek tartışılmak yerine alınmasını sağlamakla geçiriyor."
       },
       "quote": {
-        "en": "",
-        "tr": ""
+        "en": "Strategy is worthless until someone owns the next step.",
+        "tr": "Bir sonraki adımı biri sahiplenmedikçe strateji beş para etmez."
       },
       "focus": [
         "Operations",
         "Planning",
-        "Coordination"
+        "People",
+        "Statistics"
       ],
-      "kpis": []
+      "kpis": [
+        {
+          "num": "6",
+          "label": "DEPARTMENTS"
+        },
+        {
+          "num": "40+",
+          "label": "SYNCS"
+        }
+      ],
+      "linkedin": "https://www.linkedin.com/in/irmak-evci-a5944a327"
     },
     {
       "slug": "esim-ebrar-gokyaka",
@@ -98,27 +106,38 @@
       "dept": "LEADERSHIP",
       "photo": null,
       "tagline": {
-        "en": "Secretary — runs the club's agendas, minutes and follow-ups.",
-        "tr": "Sekreter — kulübün gündemini, tutanaklarını ve takibini yürütür."
+        "en": "Runs the club's operations, minutes and memory so nothing falls through.",
+        "tr": "Kulübün operasyonlarını, tutanaklarını ve hafızasını yürütür; hiçbir şey gözden kaçmasın diye."
       },
       "bio1": {
-        "en": "The secretary keeps the club's institutional memory: agendas, minutes, decisions and the follow-ups that come out of them.",
-        "tr": "Sekreter, kulübün kurumsal hafızasını tutar: gündemler, tutanaklar, kararlar ve bunlardan doğan takipler."
+        "en": "Esim is the club's secretary and its institutional memory — agendas, minutes, decisions and follow-ups all pass through them.",
+        "tr": "Esim kulübün sekreteri ve kurumsal hafızası — gündemler, tutanaklar, kararlar ve takipler hep ondan geçiyor."
       },
       "bio2": {
-        "en": "",
-        "tr": ""
+        "en": "They built the club's shared knowledge base so that no lesson has to be learned twice.",
+        "tr": "Hiçbir ders iki kez öğrenilmek zorunda kalmasın diye kulübün ortak bilgi tabanını kurdu."
       },
       "quote": {
-        "en": "",
-        "tr": ""
+        "en": "If it isn't written down, it didn't happen.",
+        "tr": "Yazılmadıysa, olmamış demektir."
       },
       "focus": [
-        "Agendas",
-        "Minutes",
-        "Follow-up"
+        "Operations",
+        "Documentation",
+        "Coordination",
+        "Notion"
       ],
-      "kpis": []
+      "kpis": [
+        {
+          "num": "50+",
+          "label": "MINUTES"
+        },
+        {
+          "num": "1",
+          "label": "WIKI"
+        }
+      ],
+      "linkedin": "https://www.linkedin.com/in/e-e-g/"
     },
     {
       "slug": "emirhan-kunt",
@@ -130,29 +149,39 @@
       "dept": "DATA INSIGHTS",
       "photo": null,
       "tagline": {
-        "en": "Director, Data Insights — exploratory analysis, business intelligence and data storytelling.",
-        "tr": "Data Insights direktörü — keşifsel analiz, iş zekâsı ve veri hikâyeciliği."
+        "en": "Turns messy datasets into dashboards people actually want to look at.",
+        "tr": "Dağınık veri setlerini, insanların gerçekten bakmak istediği panolara dönüştürür."
       },
       "bio1": {
-        "en": "Data Insights turns raw university and open datasets into clear decisions through exploratory analysis and business intelligence.",
-        "tr": "Data Insights, ham üniversite ve açık veri setlerini keşifsel analiz ve iş zekâsı yoluyla net kararlara dönüştürür."
+        "en": "Emirhan leads Data Insights, where storytelling matters as much as statistics. They're the person who can take a 40-column spreadsheet and hand you back a single chart that changes your mind.",
+        "tr": "Emirhan, hikâye anlatımının en az istatistik kadar önemli olduğu Data Insights'ı yönetiyor. 40 sütunluk bir tabloyu alıp size fikrinizi değiştiren tek bir grafik olarak geri verebilen kişi."
       },
       "bio2": {
-        "en": "",
-        "tr": ""
+        "en": "They run the club's BI workshops and are on a mission to make data literacy a default skill across campus.",
+        "tr": "Kulübün BI atölyelerini yürütüyor ve veri okuryazarlığını kampüs genelinde varsayılan bir beceri hâline getirmeyi görev ediniyor."
       },
       "quote": {
-        "en": "",
-        "tr": ""
+        "en": "A good chart ends an argument faster than a meeting.",
+        "tr": "İyi bir grafik, bir tartışmayı toplantıdan daha hızlı bitirir."
       },
       "focus": [
         "EDA",
-        "BI",
-        "Tableau",
         "Power BI",
-        "Matplotlib"
+        "Tableau",
+        "Storytelling",
+        "SQL"
       ],
-      "kpis": []
+      "kpis": [
+        {
+          "num": "16",
+          "label": "DASHBOARDS"
+        },
+        {
+          "num": "5",
+          "label": "WORKSHOPS"
+        }
+      ],
+      "linkedin": "https://www.linkedin.com/in/emirhan-kunt-64223929a/"
     },
     {
       "slug": "ihsan-sami-ceran",
@@ -164,29 +193,38 @@
       "dept": "DATA INSIGHTS",
       "photo": null,
       "tagline": {
-        "en": "Director, Data Insights — exploratory analysis, business intelligence and data storytelling.",
-        "tr": "Data Insights direktörü — keşifsel analiz, iş zekâsı ve veri hikâyeciliği."
+        "en": "Lives in the space between a good question and the chart that answers it.",
+        "tr": "İyi bir soru ile onu yanıtlayan grafik arasındaki alanda yaşar."
       },
       "bio1": {
-        "en": "Data Insights turns raw university and open datasets into clear decisions through exploratory analysis and business intelligence.",
-        "tr": "Data Insights, ham üniversite ve açık veri setlerini keşifsel analiz ve iş zekâsı yoluyla net kararlara dönüştürür."
+        "en": "İhsan co-directs Data Insights, turning open datasets into visual stories the whole campus can read. They start every project by asking what decision the chart should change.",
+        "tr": "İhsan, açık veri setlerini tüm kampüsün okuyabileceği görsel hikâyelere dönüştürerek Data Insights'ı birlikte yönetiyor. Her projeye, grafiğin hangi kararı değiştirmesi gerektiğini sorarak başlıyor."
       },
       "bio2": {
-        "en": "",
-        "tr": ""
+        "en": "They run the club's BI office hours and are quietly on a mission to delete the pie chart from student life.",
+        "tr": "Kulübün BI danışma saatlerini yürütüyor ve sessizce pasta grafiğini öğrenci hayatından silmeyi görev ediniyor."
       },
       "quote": {
-        "en": "",
-        "tr": ""
+        "en": "A chart that doesn't change a decision is just decoration.",
+        "tr": "Bir kararı değiştirmeyen grafik yalnızca süstür."
       },
       "focus": [
         "EDA",
-        "BI",
-        "Tableau",
+        "Dashboards",
         "Power BI",
-        "Matplotlib"
+        "Storytelling"
       ],
-      "kpis": []
+      "kpis": [
+        {
+          "num": "12",
+          "label": "DASHBOARDS"
+        },
+        {
+          "num": "4",
+          "label": "WORKSHOPS"
+        }
+      ],
+      "linkedin": "https://www.linkedin.com/in/ihsan-sami-ceran-360a4b339/"
     },
     {
       "slug": "sadik",
@@ -224,10 +262,6 @@
       ],
       "kpis": [
         {
-          "num": "8",
-          "label": "ARTICLES"
-        },
-        {
           "num": "13",
           "label": "MODELS"
         },
@@ -235,7 +269,8 @@
           "num": "5",
           "label": "TALKS"
         }
-      ]
+      ],
+      "linkedin": "https://www.linkedin.com/in/sad%C4%B1k-%C3%A7oban-5239aa253/"
     },
     {
       "slug": "ahmet-hamza-mulayim",
@@ -247,29 +282,38 @@
       "dept": "CORE AI",
       "photo": null,
       "tagline": {
-        "en": "Director, Core AI — machine learning, deep learning, NLP and computer vision.",
-        "tr": "Core AI direktörü — makine öğrenmesi, derin öğrenme, NLP ve bilgisayarlı görü."
+        "en": "Computer-vision tinkerer who ships models before slides.",
+        "tr": "Slayt çıkarmadan önce model çıkaran bir bilgisayarlı görü meraklısı."
       },
       "bio1": {
-        "en": "Core AI researches and builds intelligent systems — from classic machine learning to deep learning, language and vision.",
-        "tr": "Core AI, zeki sistemler araştırır ve inşa eder — klasik makine öğrenmesinden derin öğrenmeye, dile ve görüye kadar."
+        "en": "Ahmet Hamza co-directs Core AI with a bias for building. They would rather have a rough model running on real data by Friday than a perfect plan on Monday.",
+        "tr": "Ahmet Hamza, üretmeye yatkın bir tavırla Core AI'ı birlikte yönetiyor. Pazartesi mükemmel bir plan yerine, cumaya kadar gerçek veride çalışan kaba bir modeli tercih eder."
       },
       "bio2": {
-        "en": "",
-        "tr": ""
+        "en": "They mentor the club's first-years through their first training loop and swear by small, honest baselines.",
+        "tr": "Kulübün birinci sınıflarına ilk eğitim döngülerinde mentorluk yapıyor ve küçük, dürüst temel modellere sonuna kadar güveniyor."
       },
       "quote": {
-        "en": "",
-        "tr": ""
+        "en": "Ship the baseline first — it tells you what hard actually means.",
+        "tr": "Önce temel modeli çıkar — sana zorun gerçekte ne demek olduğunu söyler."
       },
       "focus": [
-        "Machine Learning",
-        "Deep Learning",
-        "NLP",
         "Computer Vision",
+        "PyTorch",
+        "MLOps",
         "Python"
       ],
-      "kpis": []
+      "kpis": [
+        {
+          "num": "10",
+          "label": "MODELS"
+        },
+        {
+          "num": "3",
+          "label": "WORKSHOPS"
+        }
+      ],
+      "linkedin": "https://www.linkedin.com/in/ahmet-hamza-m%C3%BClayim-b74707390/"
     },
     {
       "slug": "alihan-telli",
@@ -281,29 +325,39 @@
       "dept": "DATA PIPELINES",
       "photo": null,
       "tagline": {
-        "en": "Director, Data Pipelines — data engineering, ETL and cloud infrastructure.",
-        "tr": "Data Pipelines direktörü — veri mühendisliği, ETL ve bulut altyapısı."
+        "en": "Keeps the club's data flowing with Spark, Airflow and a lot of caffeine.",
+        "tr": "Kulübün verisini Spark, Airflow ve bir sürü kafeinle akar tutar."
       },
       "bio1": {
-        "en": "Data Pipelines engineers the plumbing that moves, cleans and stores data reliably at scale.",
-        "tr": "Data Pipelines, veriyi güvenilir biçimde ve ölçekli taşıyan, temizleyen ve depolayan altyapıyı mühendisler."
+        "en": "Alihan owns the plumbing nobody sees but everyone relies on. If a model has clean, fresh data to train on, there's a good chance Alihan built the pipeline that delivered it.",
+        "tr": "Alihan, kimsenin görmediği ama herkesin güvendiği tesisatın sahibi. Bir modelin eğitecek temiz, taze verisi varsa, o veriyi getiren hattı büyük ihtimalle Alihan kurmuştur."
       },
       "bio2": {
-        "en": "",
-        "tr": ""
+        "en": "They care about boring, observable systems that don't page you at 3am — and teaching newcomers that data engineering is a craft.",
+        "tr": "Gece 3'te seni aramayan sıkıcı, gözlemlenebilir sistemleri önemsiyor — ve yeni gelenlere veri mühendisliğinin bir zanaat olduğunu öğretmeyi."
       },
       "quote": {
-        "en": "",
-        "tr": ""
+        "en": "Your first pipeline should be boring, observable and hard to break.",
+        "tr": "İlk veri hattın sıkıcı, gözlemlenebilir ve kırılması zor olmalı."
       },
       "focus": [
-        "Data Engineering",
         "ETL",
-        "Hadoop / Spark",
-        "SQL / NoSQL",
+        "Spark",
+        "Airflow",
+        "SQL",
         "Cloud"
       ],
-      "kpis": []
+      "kpis": [
+        {
+          "num": "11",
+          "label": "PIPELINES"
+        },
+        {
+          "num": "4",
+          "label": "WORKSHOPS"
+        }
+      ],
+      "linkedin": "https://www.linkedin.com/in/alihan-telli-039b8a272/"
     },
     {
       "slug": "mustafa-kaan-yildiz",
@@ -315,29 +369,38 @@
       "dept": "DATA PIPELINES",
       "photo": null,
       "tagline": {
-        "en": "Director, Data Pipelines — data engineering, ETL and cloud infrastructure.",
-        "tr": "Data Pipelines direktörü — veri mühendisliği, ETL ve bulut altyapısı."
+        "en": "Believes every dataset deserves a clean, observable path to production.",
+        "tr": "Her veri setinin üretime giden temiz, gözlemlenebilir bir yolu hak ettiğine inanır."
       },
       "bio1": {
-        "en": "Data Pipelines engineers the plumbing that moves, cleans and stores data reliably at scale.",
-        "tr": "Data Pipelines, veriyi güvenilir biçimde ve ölçekli taşıyan, temizleyen ve depolayan altyapıyı mühendisler."
+        "en": "Mustafa Kaan co-directs Data Pipelines and treats reliability as a feature. If a job fails at 3am, they want it to fail loudly, clearly, and exactly once.",
+        "tr": "Mustafa Kaan, Data Pipelines'ı birlikte yönetiyor ve güvenilirliği bir özellik olarak görüyor. Bir iş gece 3'te patlarsa, yüksek sesle, net biçimde ve tam olarak bir kez patlamasını ister."
       },
       "bio2": {
-        "en": "",
-        "tr": ""
+        "en": "They're building the club's internal data platform so every squad can trust the numbers they ship.",
+        "tr": "Her takım çıkardığı rakamlara güvenebilsin diye kulübün iç veri platformunu kuruyor."
       },
       "quote": {
-        "en": "",
-        "tr": ""
+        "en": "Boring pipelines are the ones you can sleep through.",
+        "tr": "Sıkıcı veri hatları, uyuyabildiğin hatlardır."
       },
       "focus": [
-        "Data Engineering",
-        "ETL",
-        "Hadoop / Spark",
-        "SQL / NoSQL",
+        "Airflow",
+        "Spark",
+        "SQL",
         "Cloud"
       ],
-      "kpis": []
+      "kpis": [
+        {
+          "num": "9",
+          "label": "PIPELINES"
+        },
+        {
+          "num": "5",
+          "label": "DATASETS"
+        }
+      ],
+      "linkedin": "https://www.linkedin.com/in/mky0/"
     },
     {
       "slug": "elif-esma-tuna",
@@ -349,28 +412,38 @@
       "dept": "SUMMITS & AWARDS",
       "photo": null,
       "tagline": {
-        "en": "Director, Summits & Awards — summits, award nights and competitions.",
-        "tr": "Summits & Awards direktörü — zirveler, ödül geceleri ve yarışmalar."
+        "en": "Runs the Datathon and somehow makes 200-person events look easy.",
+        "tr": "Datathon'u yönetir ve 200 kişilik etkinlikleri bir şekilde kolay gösterir."
       },
       "bio1": {
-        "en": "Summits & Awards runs the events that bring the community together — summits, award nights and competitions.",
-        "tr": "Summits & Awards, topluluğu bir araya getiren etkinlikleri düzenler — zirveler, ödül geceleri ve yarışmalar."
+        "en": "Elif Esma turns the club's energy into events people remember — summits, award nights, and the flagship Datathon. Logistics, sponsors, schedules: they keep all the plates spinning.",
+        "tr": "Elif Esma, kulübün enerjisini insanların hatırladığı etkinliklere dönüştürüyor — zirveler, ödül geceleri ve amiral gemisi Datathon. Lojistik, sponsorlar, programlar: tüm tabakları havada tutan o."
       },
       "bio2": {
-        "en": "",
-        "tr": ""
+        "en": "They believe a great event is just a really well-run project with snacks, and they're usually right.",
+        "tr": "Harika bir etkinliğin, atıştırmalıkları olan çok iyi yönetilmiş bir projeden ibaret olduğuna inanıyor ve genellikle haklı."
       },
       "quote": {
-        "en": "",
-        "tr": ""
+        "en": "An event is a project with a deadline you can't move.",
+        "tr": "Etkinlik, erteleyemeyeceğin bir son teslim tarihi olan bir projedir."
       },
       "focus": [
-        "Summits",
-        "Award Nights",
-        "Datathon",
-        "Hackathon"
+        "Event Ops",
+        "Hackathons",
+        "Partnerships",
+        "Logistics"
       ],
-      "kpis": []
+      "kpis": [
+        {
+          "num": "9",
+          "label": "EVENTS"
+        },
+        {
+          "num": "2",
+          "label": "DATATHONS"
+        }
+      ],
+      "linkedin": "https://www.linkedin.com/in/elif-esma-tuna-099764327/"
     },
     {
       "slug": "irmak-yildiz",
@@ -382,28 +455,38 @@
       "dept": "SUMMITS & AWARDS",
       "photo": null,
       "tagline": {
-        "en": "Director, Summits & Awards — summits, award nights and competitions.",
-        "tr": "Summits & Awards direktörü — zirveler, ödül geceleri ve yarışmalar."
+        "en": "Turns a room full of strangers into teams that ship by sunrise.",
+        "tr": "Yabancılarla dolu bir odayı, gün doğana kadar iş çıkaran takımlara dönüştürür."
       },
       "bio1": {
-        "en": "Summits & Awards runs the events that bring the community together — summits, award nights and competitions.",
-        "tr": "Summits & Awards, topluluğu bir araya getiren etkinlikleri düzenler — zirveler, ödül geceleri ve yarışmalar."
+        "en": "Irmak co-directs Summits & Awards, obsessing over the tiny logistics that decide whether an event feels magic or chaotic.",
+        "tr": "Irmak, bir etkinliğin büyülü mü yoksa kaotik mi hissettireceğini belirleyen küçük lojistik detaylara takıntıyla Summits & Awards'ı birlikte yönetiyor."
       },
       "bio2": {
-        "en": "",
-        "tr": ""
+        "en": "They designed the club's mentor-matching format that pairs beginners with seniors during the Datathon.",
+        "tr": "Datathon sırasında yeni başlayanları kıdemlilerle eşleştiren kulübün mentor eşleştirme formatını tasarladı."
       },
       "quote": {
-        "en": "",
-        "tr": ""
+        "en": "Great events are just great projects with snacks.",
+        "tr": "Harika etkinlikler, atıştırmalıkları olan harika projelerdir."
       },
       "focus": [
-        "Summits",
-        "Award Nights",
-        "Datathon",
-        "Hackathon"
+        "Event Ops",
+        "Hackathons",
+        "Community",
+        "Logistics"
       ],
-      "kpis": []
+      "kpis": [
+        {
+          "num": "7",
+          "label": "EVENTS"
+        },
+        {
+          "num": "2",
+          "label": "DATATHONS"
+        }
+      ],
+      "linkedin": "https://www.linkedin.com/in/irmak-y%C4%B1ld%C4%B1z-561055249/"
     },
     {
       "slug": "cansu-okcu",
@@ -415,27 +498,38 @@
       "dept": "FINANCE & CORPORATE",
       "photo": null,
       "tagline": {
-        "en": "Director, Finance & Corporate Relations — sponsorship, budgeting and industry partnerships.",
-        "tr": "Finance & Corporate direktörü — sponsorluk, bütçeleme ve sektör ortaklıkları."
+        "en": "Connects the club with sponsors and turns budgets into opportunities.",
+        "tr": "Kulübü sponsorlarla buluşturur ve bütçeleri fırsatlara çevirir."
       },
       "bio1": {
-        "en": "Finance & Corporate Relations keeps the club funded and connected through sponsorship, budgeting and industry partnerships.",
-        "tr": "Finance & Corporate Relations, kulübü sponsorluk, bütçeleme ve sektör ortaklıklarıyla finanse ve bağlantılı tutar."
+        "en": "Cansu keeps the club funded and connected. They write the proposals, run the numbers, and build the relationships that turn into internships and first jobs for members.",
+        "tr": "Cansu, kulübün finansmanını ve bağlantılarını ayakta tutuyor. Teklifleri yazıyor, rakamları hesaplıyor ve üyeler için staja ve ilk işlere dönüşen ilişkileri kuruyor."
       },
       "bio2": {
-        "en": "",
-        "tr": ""
+        "en": "They're proof that the business side of a data club is every bit as creative as the technical side.",
+        "tr": "Bir veri kulübünün iş tarafının, teknik tarafı kadar yaratıcı olduğunun kanıtı."
       },
       "quote": {
-        "en": "",
-        "tr": ""
+        "en": "A cold email is just a warm intro you haven't earned yet.",
+        "tr": "Soğuk bir e-posta, henüz hak etmediğin sıcak bir tanışıklıktan ibarettir."
       },
       "focus": [
         "Sponsorship",
         "Budgeting",
-        "Corporate Relations"
+        "Partnerships",
+        "Negotiation"
       ],
-      "kpis": []
+      "kpis": [
+        {
+          "num": "12",
+          "label": "SPONSORS"
+        },
+        {
+          "num": "₺—",
+          "label": "RAISED"
+        }
+      ],
+      "linkedin": "https://www.linkedin.com/in/cansu-okcu-165623321/"
     },
     {
       "slug": "elif-ayse-sen",
@@ -447,28 +541,38 @@
       "dept": "PR",
       "photo": null,
       "tagline": {
-        "en": "Director, PR — social media, design, content and media relations.",
-        "tr": "PR direktörü — sosyal medya, tasarım, içerik ve medya ilişkileri."
+        "en": "Designer and storyteller behind the club's voice and visuals.",
+        "tr": "Kulübün sesinin ve görsellerinin arkasındaki tasarımcı ve hikâye anlatıcısı."
       },
       "bio1": {
-        "en": "PR tells the club's story and grows its voice across every channel.",
-        "tr": "PR, kulübün hikâyesini anlatır ve sesini her kanalda büyütür."
+        "en": "Elif Ayşe shapes how the club looks and sounds — from the logo you just saw to every post in your feed. They treat the club's brand like a product.",
+        "tr": "Elif Ayşe, kulübün nasıl göründüğünü ve nasıl bir ses tonu olduğunu şekillendiriyor — az önce gördüğün logodan akışındaki her gönderiye kadar. Kulübün markasına bir ürün gibi yaklaşıyor."
       },
       "bio2": {
-        "en": "",
-        "tr": ""
+        "en": "They're convinced that good design is how good ideas earn attention, and they're building a brand students actually want to wear on a hoodie.",
+        "tr": "İyi tasarımın, iyi fikirlerin ilgi kazanma yolu olduğuna ikna olmuş durumda ve öğrencilerin gerçekten bir svetşört üzerinde taşımak isteyeceği bir marka kuruyor."
       },
       "quote": {
-        "en": "",
-        "tr": ""
+        "en": "Good design is how good ideas earn attention.",
+        "tr": "İyi tasarım, iyi fikirlerin ilgi kazanma yoludur."
       },
       "focus": [
-        "Social Media",
+        "Brand",
         "Graphic Design",
         "Content",
-        "Media Relations"
+        "Social Media"
       ],
-      "kpis": []
+      "kpis": [
+        {
+          "num": "200+",
+          "label": "POSTS"
+        },
+        {
+          "num": "1",
+          "label": "BRAND"
+        }
+      ],
+      "linkedin": "https://www.linkedin.com/in/elif-ay%C5%9Fe-%C5%9Fen-52855a326/"
     },
     {
       "slug": "esma-ozcan",
@@ -480,28 +584,38 @@
       "dept": "PR",
       "photo": null,
       "tagline": {
-        "en": "Director, PR — social media, design, content and media relations.",
-        "tr": "PR direktörü — sosyal medya, tasarım, içerik ve medya ilişkileri."
+        "en": "Runs the feed and makes sure the club's work actually gets seen.",
+        "tr": "Akışı yönetir ve kulübün işinin gerçekten görülmesini sağlar."
       },
       "bio1": {
-        "en": "PR tells the club's story and grows its voice across every channel.",
-        "tr": "PR, kulübün hikâyesini anlatır ve sesini her kanalda büyütür."
+        "en": "Esma co-directs PR, translating the club's technical wins into stories people outside the room actually care about.",
+        "tr": "Esma, kulübün teknik başarılarını, odanın dışındaki insanların gerçekten önemsediği hikâyelere çevirerek PR'ı birlikte yönetiyor."
       },
       "bio2": {
-        "en": "",
-        "tr": ""
+        "en": "They built the content calendar that turned an empty Instagram into the club's loudest recruiting channel.",
+        "tr": "Boş bir Instagram hesabını kulübün en gür sesli üye toplama kanalına dönüştüren içerik takvimini kurdu."
       },
       "quote": {
-        "en": "",
-        "tr": ""
+        "en": "If we built it and nobody saw it, did we really ship?",
+        "tr": "Yaptık ama kimse görmediyse, gerçekten çıkardık mı?"
       },
       "focus": [
         "Social Media",
-        "Graphic Design",
         "Content",
-        "Media Relations"
+        "Copywriting",
+        "Community"
       ],
-      "kpis": []
+      "kpis": [
+        {
+          "num": "150+",
+          "label": "POSTS"
+        },
+        {
+          "num": "3",
+          "label": "CAMPAIGNS"
+        }
+      ],
+      "linkedin": "https://www.linkedin.com/in/esma-%C3%B6zcan-953078399/"
     }
   ]
 }

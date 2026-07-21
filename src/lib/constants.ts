@@ -12,7 +12,8 @@ export const SOCIALS = {
   medium: "#",
 } as const;
 
-export const CONTACT_EMAIL = "hello@dataclub.marmara.edu.tr";
+/** Public contact address, shown on /contact. */
+export const CONTACT_EMAIL = "iletisim@dscmarmara.com.tr";
 
 /** Department display names (kept identical in both locales, per the prototype). */
 export const DEPARTMENTS = [

@@ -23,6 +23,10 @@ export interface Member {
   photo: string | null;
   website?: string;
   websiteUrl?: string;
+  /** Full profile URL. The LinkedIn icon is hidden when absent. */
+  linkedin?: string;
+  /** Public contact address. The mail icon is hidden when absent. */
+  email?: string;
   tagline: Localized;
   bio1: Localized;
   bio2: Localized;
