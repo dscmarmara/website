@@ -7,7 +7,7 @@ import { bricolage, hanken, pacifico, condiment } from "@/fonts";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { organizationLd, SITE_URL } from "@/lib/seo";
+import { organizationLd, websiteLd, SITE_NAME, SITE_URL } from "@/lib/seo";
 import "../globals.css";
 
 type Params = { locale: string };
@@ -27,10 +27,12 @@ export async function generateMetadata({
     metadataBase: new URL(SITE_URL),
     title: { default: t("defaultTitle"), template: t("titleTemplate") },
     description: t("defaultDescription"),
-    applicationName: t("siteName"),
+    // Short brand name, matching the WebSite JSON-LD, so search engines and
+    // social cards all agree on what this site is called.
+    applicationName: SITE_NAME,
     openGraph: {
       type: "website",
-      siteName: t("siteName"),
+      siteName: SITE_NAME,
       locale,
       url: SITE_URL,
     },
@@ -69,6 +71,7 @@ export default async function LocaleLayout({
     <html lang={locale} data-scroll-behavior="smooth" className={`dark ${fontVars}`}>
       <body>
         <NextIntlClientProvider>
+          <JsonLd data={websiteLd()} />
           <JsonLd data={organizationLd()} />
           <Nav />
           <main>{children}</main>

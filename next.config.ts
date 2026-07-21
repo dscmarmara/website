@@ -53,6 +53,16 @@ const nextConfig: NextConfig = {
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
   // Allow the LAN origin during `next dev` (e.g. testing the responsive site on a phone).
   allowedDevOrigins: ["192.168.1.89", "192.168.1.89:3737"],
+  async redirects() {
+    return [
+      // Turkish is switched off (see src/i18n/routing.ts), so /tr/* would 404.
+      // Send those URLs to the English equivalent instead. Deliberately NOT
+      // permanent: a 301 gets cached hard by browsers and search engines, which
+      // would fight us when Turkish is turned back on.
+      { source: "/tr", destination: "/", permanent: false },
+      { source: "/tr/:path*", destination: "/:path*", permanent: false },
+    ];
+  },
 };
 
 export default withNextIntl(withMDX(nextConfig));
