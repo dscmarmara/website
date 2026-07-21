@@ -142,27 +142,34 @@ export default async function MemberPage({
         </div>
       </section>
 
-      {/* STATS */}
-      <section style={{ borderBottom: "1px solid var(--border)", background: "var(--bg-elev)" }}>
-        <div data-reveal className="dsc-grid-3" style={{ maxWidth: MAXW, margin: "0 auto", padding: "0 24px" }}>
-          {m.kpis.map((k, i) => (
-            <div key={k.label + i} style={{ padding: "30px 0", textAlign: "center", borderRight: "1px solid var(--border)" }}>
-              <div style={{ fontFamily: "var(--font-display-stack)", fontWeight: 700, fontSize: 34, color: "var(--accent)", lineHeight: 1 }}>{k.num}</div>
-              <div style={{ fontFamily: "var(--font-mono-stack)", fontSize: 11, letterSpacing: "0.1em", color: "var(--text-muted)", marginTop: 8 }}>{tk(k.label)}</div>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* STATS — omitted for members with no published figures */}
+      {m.kpis.length > 0 && (
+        <section style={{ borderBottom: "1px solid var(--border)", background: "var(--bg-elev)" }}>
+          <div data-reveal className="dsc-grid-3" style={{ maxWidth: MAXW, margin: "0 auto", padding: "0 24px" }}>
+            {m.kpis.map((k, i) => (
+              <div key={k.label + i} style={{ padding: "30px 0", textAlign: "center", borderRight: "1px solid var(--border)" }}>
+                <div style={{ fontFamily: "var(--font-display-stack)", fontWeight: 700, fontSize: 34, color: "var(--accent)", lineHeight: 1 }}>{k.num}</div>
+                <div style={{ fontFamily: "var(--font-mono-stack)", fontSize: 11, letterSpacing: "0.1em", color: "var(--text-muted)", marginTop: 8 }}>{tk(k.label)}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* ABOUT + FOCUS */}
       <div className="split member-main" style={{ maxWidth: MAXW, margin: "0 auto", padding: "72px 24px 40px", gap: 56, alignItems: "start" }}>
         <Reveal>
           <h2 style={{ fontFamily: "var(--font-display-stack)", fontWeight: 700, fontSize: "clamp(22px,2.6vw,30px)", margin: "0 0 20px" }}>{t("about", { name: m.first })}</h2>
           <p style={{ fontFamily: "var(--font-body-stack)", fontSize: 17, lineHeight: 1.8, color: "var(--text)", margin: "0 0 20px" }}>{pick(m.bio1, locale)}</p>
-          <p style={{ fontFamily: "var(--font-body-stack)", fontSize: 17, lineHeight: 1.8, color: "var(--text-muted)", margin: "0 0 32px" }}>{pick(m.bio2, locale)}</p>
-          <blockquote style={{ borderLeft: "3px solid var(--accent)", padding: "4px 0 4px 26px", margin: 0, boxShadow: "-1px 0 0 0 var(--accent),var(--glow-soft)" }}>
-            <p style={{ fontFamily: "var(--font-display-stack)", fontWeight: 500, fontSize: "clamp(19px,2.2vw,24px)", lineHeight: 1.45, fontStyle: "italic", margin: 0 }}>“{pick(m.quote, locale)}”</p>
-          </blockquote>
+          {pick(m.bio2, locale) && (
+            <p style={{ fontFamily: "var(--font-body-stack)", fontSize: 17, lineHeight: 1.8, color: "var(--text-muted)", margin: "0 0 32px" }}>{pick(m.bio2, locale)}</p>
+          )}
+          {/* quote is only shown when the member actually has one — never invented */}
+          {pick(m.quote, locale) && (
+            <blockquote style={{ borderLeft: "3px solid var(--accent)", padding: "4px 0 4px 26px", margin: 0, boxShadow: "-1px 0 0 0 var(--accent),var(--glow-soft)" }}>
+              <p style={{ fontFamily: "var(--font-display-stack)", fontWeight: 500, fontSize: "clamp(19px,2.2vw,24px)", lineHeight: 1.45, fontStyle: "italic", margin: 0 }}>“{pick(m.quote, locale)}”</p>
+            </blockquote>
+          )}
         </Reveal>
         <Reveal as="aside" style={{ border: "1px solid var(--border)", borderRadius: 16, background: "var(--bg-elev)", padding: 26 }}>
           <div style={{ fontFamily: "var(--font-mono-stack)", fontSize: 11, letterSpacing: "0.12em", color: "var(--accent)", marginBottom: 16 }}>{t("focusLabel")}</div>

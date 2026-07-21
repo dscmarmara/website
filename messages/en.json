@@ -130,7 +130,9 @@
     "backToBlog": "← BACK TO BLOG",
     "writtenBy": "WRITTEN BY",
     "readSuffix": "READ",
-    "readArticle": "Read article"
+    "readArticle": "Read article",
+    "comingSoon": "Posts coming soon",
+    "comingSoonSub": "Our first columns are in the works. Check back shortly to read what the crew is writing about data."
   },
   "contact": {
     "eyebrow": "SAY HELLO",

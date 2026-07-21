@@ -7,7 +7,6 @@ import {
   SocialLink,
   LinkedInIcon,
   InstagramIcon,
-  MediumIcon,
 } from "@/components/common/SocialIcons";
 import { CONTACT_EMAIL, SOCIALS } from "@/lib/constants";
 import { buildAlternates } from "@/lib/seo";
@@ -81,9 +80,8 @@ export default async function ContactPage({
             <div style={cardStyle}>
               <div style={{ ...cardLabel, marginBottom: 14 }}>{t("follow")}</div>
               <div style={{ display: "flex", gap: 12 }}>
-                <SocialLink href={SOCIALS.linkedin} label="LinkedIn" size={44} radius={11}><LinkedInIcon size={19} /></SocialLink>
-                <SocialLink href={SOCIALS.instagram} label="Instagram" size={44} radius={11}><InstagramIcon size={19} /></SocialLink>
-                <SocialLink href={SOCIALS.medium} label="Medium" size={44} radius={11}><MediumIcon size={21} /></SocialLink>
+                <SocialLink href={SOCIALS.linkedin} label="LinkedIn" size={44} radius={11} external><LinkedInIcon size={19} /></SocialLink>
+                <SocialLink href={SOCIALS.instagram} label="Instagram" size={44} radius={11} external><InstagramIcon size={19} /></SocialLink>
               </div>
             </div>
 

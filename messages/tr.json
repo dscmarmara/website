@@ -130,7 +130,9 @@
     "backToBlog": "← BLOG'A DÖN",
     "writtenBy": "YAZAN",
     "readSuffix": "OKUMA",
-    "readArticle": "Yazıyı oku"
+    "readArticle": "Yazıyı oku",
+    "comingSoon": "Yazılar çok yakında",
+    "comingSoonSub": "İlk köşe yazılarımız üzerinde çalışıyoruz. Ekibin veriyle ilgili neler yazdığını okumak için yakında tekrar uğrayın."
   },
   "contact": {
     "eyebrow": "MERHABA DE",

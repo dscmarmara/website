@@ -36,6 +36,17 @@ export async function generateMetadata({
     },
     twitter: { card: "summary_large_image" },
     robots: { index: true, follow: true },
+    // Explicit, query-less icon links. Bing (unlike Google) does not reliably
+    // guess /favicon.ico and wants a plain <link rel="icon"> advertising a
+    // 32x32 entry; Next's file-convention links carry a cache-busting query.
+    icons: {
+      icon: [
+        { url: "/favicon.ico", sizes: "16x16 32x32 48x48", type: "image/x-icon" },
+        { url: "/icon.svg", type: "image/svg+xml", sizes: "any" },
+      ],
+      shortcut: [{ url: "/favicon.ico", type: "image/x-icon" }],
+      apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+    },
   };
 }
 

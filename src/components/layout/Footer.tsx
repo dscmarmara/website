@@ -5,7 +5,6 @@ import {
   SocialLink,
   LinkedInIcon,
   InstagramIcon,
-  MediumIcon,
 } from "@/components/common/SocialIcons";
 
 const FOOT_DEPARTMENTS = ["Data Insights", "Core AI", "Data Pipelines", "Summits & Awards"];
@@ -42,9 +41,8 @@ export function Footer() {
             {t("description")}
           </p>
           <div style={{ display: "flex", gap: 12 }}>
-            <SocialLink href={SOCIALS.linkedin} label="LinkedIn"><LinkedInIcon /></SocialLink>
-            <SocialLink href={SOCIALS.instagram} label="Instagram"><InstagramIcon /></SocialLink>
-            <SocialLink href={SOCIALS.medium} label="Medium"><MediumIcon /></SocialLink>
+            <SocialLink href={SOCIALS.linkedin} label="LinkedIn" external><LinkedInIcon /></SocialLink>
+            <SocialLink href={SOCIALS.instagram} label="Instagram" external><InstagramIcon /></SocialLink>
           </div>
         </div>
 

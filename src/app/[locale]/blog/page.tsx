@@ -93,7 +93,24 @@ export default async function BlogPage({
           </div>
         )}
 
-        <BlogFilter posts={rowData} />
+        {all.length > 0 ? (
+          <BlogFilter posts={rowData} />
+        ) : (
+          /* No posts yet — the category chips would be pointless, so show a placeholder instead. */
+          <div
+            data-reveal
+            style={{
+              border: "1px dashed var(--border)",
+              borderRadius: 18,
+              background: "var(--bg-elev)",
+              padding: "clamp(48px,8vw,84px) 24px",
+              textAlign: "center",
+            }}
+          >
+            <h2 style={{ fontFamily: "var(--font-display-stack)", fontWeight: 600, fontSize: "clamp(24px,3.4vw,34px)", margin: "0 0 12px" }}>{t("comingSoon")}</h2>
+            <p style={{ fontFamily: "var(--font-body-stack)", fontSize: 16, lineHeight: 1.6, color: "var(--text-muted)", maxWidth: "46ch", margin: "0 auto" }}>{t("comingSoonSub")}</p>
+          </div>
+        )}
       </div>
     </>
   );

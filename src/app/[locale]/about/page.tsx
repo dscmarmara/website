@@ -8,7 +8,7 @@ import { Avatar } from "@/components/common/Avatar";
 import { MemberCard } from "@/components/cards/MemberCard";
 import { DepartmentAccordions } from "@/components/about/DepartmentAccordions";
 import { SocialLink, LinkedInIcon } from "@/components/common/SocialIcons";
-import { getDepartmentTeasers, getMemberBySlug, pick } from "@/lib/members";
+import { getMembers, getMemberBySlug, pick } from "@/lib/members";
 import { buildAlternates } from "@/lib/seo";
 
 export async function generateMetadata({
@@ -42,7 +42,8 @@ export default async function AboutPage({
   const t = await getTranslations("about");
   const tr = await getTranslations("roles");
   const president = getMemberBySlug("ahmet")!;
-  const teasers = getDepartmentTeasers();
+  // Everyone except the president, who already has the highlight card above.
+  const others = getMembers().filter((m) => m.slug !== president.slug);
 
   return (
     <>
@@ -58,9 +59,8 @@ export default async function AboutPage({
       {/* STORY */}
       <section style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "90px 24px" }}>
         <div className="split story" style={{ gap: 60, alignItems: "start" }}>
-          <Reveal style={{ position: "sticky", top: 96 }}>
+          <Reveal>
             <h2 style={{ ...h2Style, fontSize: "clamp(26px,3.2vw,38px)", lineHeight: 1.1, margin: "0 0 16px" }}>{t("storyTitle")}</h2>
-            <p style={{ fontFamily: "var(--font-mono-stack)", fontSize: 12, letterSpacing: "0.1em", color: "var(--accent)", margin: 0 }}>{t("storyEst")}</p>
           </Reveal>
           <Reveal style={{ display: "flex", flexDirection: "column", gap: 22 }}>
             <p style={{ fontFamily: "var(--font-body-stack)", fontSize: 17, lineHeight: 1.8, color: "var(--text)", margin: 0 }}>{t("storyP1")}</p>
@@ -113,7 +113,7 @@ export default async function AboutPage({
         </article>
 
         <div className="dsc-grid-3" style={{ gap: 26 }}>
-          {teasers.map((m) => (
+          {others.map((m) => (
             <MemberCard key={m.slug} member={m} />
           ))}
         </div>

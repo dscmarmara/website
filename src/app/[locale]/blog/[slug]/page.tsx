@@ -12,7 +12,6 @@ import { ReadingProgress } from "@/components/blog/ReadingProgress";
 import {
   SocialLink,
   LinkedInIcon,
-  MediumIcon,
 } from "@/components/common/SocialIcons";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getPostBySlug, getPostSlugs } from "@/lib/posts";
@@ -149,7 +148,6 @@ export default async function BlogDetailPage({
                 <p style={{ fontFamily: "var(--font-body-stack)", fontSize: 14.5, lineHeight: 1.7, color: "var(--text-muted)", margin: "0 0 16px" }}>{pick(author.bio1, locale)}</p>
                 <div style={{ display: "flex", gap: 11 }}>
                   <SocialLink href="#" label="LinkedIn" size={38} radius={9}><LinkedInIcon size={16} /></SocialLink>
-                  <SocialLink href="#" label="Medium" size={38} radius={9}><MediumIcon size={18} /></SocialLink>
                 </div>
               </div>
             </div>

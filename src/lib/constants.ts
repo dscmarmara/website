@@ -1,8 +1,14 @@
 import type { Localized } from "@/lib/members";
 
 export const SOCIALS = {
-  linkedin: "#",
-  instagram: "#",
+  linkedin: "https://www.linkedin.com/company/datascienceclub-marmara",
+  instagram: "https://www.instagram.com/dsc.marmara",
+  /**
+   * No Medium account yet, so it is not rendered anywhere. Kept here (and
+   * `MediumIcon` is kept in SocialIcons) so switching it back on later is just
+   * pasting the URL and re-adding the <SocialLink>. "#" also keeps it out of
+   * the JSON-LD `sameAs` list in lib/seo.ts.
+   */
   medium: "#",
 } as const;
 
