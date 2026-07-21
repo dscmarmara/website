@@ -4,11 +4,8 @@ import { Link } from "@/i18n/navigation";
 import { PageHero } from "@/components/common/PageHero";
 import { Reveal } from "@/components/effects/Reveal";
 import { Eyebrow } from "@/components/common/Eyebrow";
-import { Avatar } from "@/components/common/Avatar";
-import { MemberCard } from "@/components/cards/MemberCard";
 import { DepartmentAccordions } from "@/components/about/DepartmentAccordions";
-import { SocialLink, LinkedInIcon } from "@/components/common/SocialIcons";
-import { getMembers, getMemberBySlug, pick } from "@/lib/members";
+import { getMembers, departmentOrder } from "@/lib/members";
 import { buildAlternates } from "@/lib/seo";
 
 export async function generateMetadata({
@@ -40,10 +37,10 @@ export default async function AboutPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("about");
-  const tr = await getTranslations("roles");
-  const president = getMemberBySlug("ahmet")!;
-  // Everyone except the president, who already has the highlight card above.
-  const others = getMembers().filter((m) => m.slug !== president.slug);
+  // Counts for the team call-to-action, derived from the data so they stay
+  // correct as the roster changes.
+  const memberCount = getMembers().length;
+  const departmentCount = departmentOrder.length;
 
   return (
     <>
@@ -94,29 +91,37 @@ export default async function AboutPage({
           <Link href="/team" className="lift-arrow" style={{ fontFamily: "var(--font-body-stack)", fontWeight: 600, fontSize: 15, color: "var(--accent)", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8 }}>{t("meetEveryone")}</Link>
         </Reveal>
 
-        {/* President highlight */}
-        <article data-reveal className="glow-card" style={{ border: "1px solid var(--accent)", borderRadius: 20, background: "var(--bg-elev)", overflow: "hidden", display: "grid", marginBottom: 30, boxShadow: "var(--glow-soft)" }}>
-          <div className="split prez">
-            <div style={{ position: "relative", background: "repeating-linear-gradient(135deg,var(--bg-elev2),var(--bg-elev2) 10px,transparent 10px,transparent 20px)", minHeight: 240, display: "grid", placeItems: "center", borderRight: "1px solid var(--border)" }}>
-              <Avatar photo={president.photo} initials={president.initials} size={0} variant="clip" fontSize={72} />
-            </div>
-            <div style={{ padding: 40, display: "flex", flexDirection: "column", justifyContent: "center" }}>
-              <div style={{ fontFamily: "var(--font-mono-stack)", fontSize: 12, letterSpacing: "0.14em", color: "var(--accent)", marginBottom: 14 }}>{tr("presidentFull")}</div>
-              <h3 style={{ fontFamily: "var(--font-display-stack)", fontWeight: 700, fontSize: "clamp(26px,3vw,34px)", margin: "0 0 14px" }}>{president.name}</h3>
-              <p style={{ fontFamily: "var(--font-body-stack)", fontSize: 16, lineHeight: 1.75, color: "var(--text-muted)", margin: "0 0 22px", maxWidth: "60ch" }}>{pick(president.bio1, locale)}</p>
-              <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-                <Link href={`/team/${president.slug}`} className="lift-btn" style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "11px 20px", borderRadius: 10, background: "var(--grad)", color: "#04190a", fontFamily: "var(--font-body-stack)", fontWeight: 700, fontSize: 14, textDecoration: "none" }}>{t("viewFullProfile")}</Link>
-                <SocialLink href="#" label="LinkedIn"><LinkedInIcon /></SocialLink>
+        {/* Points at /team rather than repeating the roster here. The long-form
+            block lives on in components/about/AboutTeamRoster.tsx. */}
+        <Reveal
+          className="glow-card"
+          style={{
+            border: "1px solid var(--border)",
+            borderRadius: 20,
+            background: "var(--bg-elev)",
+            padding: "clamp(40px,6vw,64px) 32px",
+            textAlign: "center",
+          }}
+        >
+          <div style={{ display: "flex", justifyContent: "center", gap: "clamp(36px,7vw,72px)", flexWrap: "wrap", marginBottom: 30 }}>
+            {[
+              { num: memberCount, label: t("peopleLabel") },
+              { num: departmentCount, label: t("departmentsLabel") },
+            ].map((s) => (
+              <div key={s.label}>
+                <div style={{ fontFamily: "var(--font-display-stack)", fontWeight: 700, fontSize: 40, color: "var(--accent)", lineHeight: 1 }}>{s.num}</div>
+                <div style={{ fontFamily: "var(--font-mono-stack)", fontSize: 11, letterSpacing: "0.12em", color: "var(--text-muted)", marginTop: 9 }}>{s.label}</div>
               </div>
-            </div>
+            ))}
           </div>
-        </article>
-
-        <div className="dsc-grid-3" style={{ gap: 26 }}>
-          {others.map((m) => (
-            <MemberCard key={m.slug} member={m} />
-          ))}
-        </div>
+          <Link
+            href="/team"
+            className="lift-btn"
+            style={{ display: "inline-flex", alignItems: "center", gap: 9, padding: "14px 28px", borderRadius: 10, background: "var(--grad)", color: "#04190a", fontFamily: "var(--font-body-stack)", fontWeight: 700, fontSize: 15, textDecoration: "none" }}
+          >
+            {t("meetEveryone")}
+          </Link>
+        </Reveal>
       </section>
     </>
   );
