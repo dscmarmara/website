@@ -149,7 +149,7 @@
     "sendError": "Your message couldn't be sent. Please try again, or email us directly.",
     "rateError": "Too many messages sent. Please wait a few minutes and try again.",
     "namePlaceholder": "Ada Lovelace",
-    "emailPlaceholder": "you@marmara.edu.tr",
+    "emailPlaceholder": "you@example.com",
     "subjectPlaceholder": "I'd like to join the club",
     "messagePlaceholder": "Tell us what you want to build…",
     "nameError": "Please enter your name.",

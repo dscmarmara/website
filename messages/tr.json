@@ -149,7 +149,7 @@
     "sendError": "Mesajın gönderilemedi. Lütfen tekrar dene ya da doğrudan e-posta gönder.",
     "rateError": "Çok fazla mesaj gönderildi. Lütfen birkaç dakika bekleyip tekrar dene.",
     "namePlaceholder": "Ada Lovelace",
-    "emailPlaceholder": "sen@marmara.edu.tr",
+    "emailPlaceholder": "sen@example.com",
     "subjectPlaceholder": "Kulübe katılmak istiyorum",
     "messagePlaceholder": "Ne inşa etmek istediğini anlat…",
     "nameError": "Lütfen adını gir.",
