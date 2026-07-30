@@ -10,7 +10,10 @@ const schema = z.object({
   name: z.string().trim().min(2).max(120),
   email: z.string().trim().email().max(200),
   subject: z.string().trim().min(2).max(200),
-  message: z.string().trim().min(10).max(5000),
+  // One character is enough — some people really do just write "?" — but the
+  // `.trim()` runs before `.min()`, so a whitespace-only message collapses to
+  // "" and is rejected. That guard is the whole point of the low minimum.
+  message: z.string().trim().min(1).max(5000),
   /** Honeypot: real users never see this field, bots fill everything. */
   company: z.string().max(200).optional(),
 });

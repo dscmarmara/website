@@ -155,7 +155,7 @@
     "nameError": "Please enter your name.",
     "emailError": "Please enter a valid email.",
     "subjectError": "Please add a subject.",
-    "messageError": "Please write a little more (at least 10 characters).",
+    "messageError": "Please write a message.",
     "successTitle": "Message sent!",
     "successBody": "Thanks for reaching out. We'll get back to you within a couple of days.",
     "sendAnother": "Send another",

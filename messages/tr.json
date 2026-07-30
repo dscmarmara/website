@@ -155,7 +155,7 @@
     "nameError": "Lütfen adını gir.",
     "emailError": "Lütfen geçerli bir e-posta gir.",
     "subjectError": "Lütfen bir konu ekle.",
-    "messageError": "Lütfen biraz daha yaz (en az 10 karakter).",
+    "messageError": "Lütfen bir mesaj yaz.",
     "successTitle": "Mesaj gönderildi!",
     "successBody": "Bize ulaştığın için teşekkürler. Birkaç gün içinde döneceğiz.",
     "sendAnother": "Yeni mesaj gönder",

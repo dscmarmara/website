@@ -40,10 +40,14 @@ export function ContactForm() {
   const [sendError, setSendError] = useState<string | null>(null);
 
   const schema = z.object({
-    name: z.string().min(2, t("nameError")),
-    email: z.string().regex(EMAIL_RE, t("emailError")),
-    subject: z.string().min(2, t("subjectError")),
-    message: z.string().min(10, t("messageError")),
+    // `.trim()` mirrors the server schema. Without it a whitespace-only value
+    // passes here and is only caught server-side, where the visitor gets the
+    // generic "couldn't be sent" banner instead of an inline field error.
+    name: z.string().trim().min(2, t("nameError")),
+    email: z.string().trim().regex(EMAIL_RE, t("emailError")),
+    subject: z.string().trim().min(2, t("subjectError")),
+    // A single character is enough; trimming first is what blocks blank spaces.
+    message: z.string().trim().min(1, t("messageError")),
     /** Honeypot — hidden from real users; see `company` in the server action. */
     company: z.string().optional(),
   });
