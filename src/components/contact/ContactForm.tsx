@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useTranslations } from "next-intl";
 import { CheckIcon } from "@/components/common/SocialIcons";
+import { sendContactMessage } from "@/app/[locale]/contact/actions";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -36,12 +37,15 @@ const errorStyle: CSSProperties = {
 export function ContactForm() {
   const t = useTranslations("contact");
   const [sent, setSent] = useState(false);
+  const [sendError, setSendError] = useState<string | null>(null);
 
   const schema = z.object({
     name: z.string().min(2, t("nameError")),
     email: z.string().regex(EMAIL_RE, t("emailError")),
     subject: z.string().min(2, t("subjectError")),
     message: z.string().min(10, t("messageError")),
+    /** Honeypot — hidden from real users; see `company` in the server action. */
+    company: z.string().optional(),
   });
   type FormValues = z.infer<typeof schema>;
 
@@ -49,8 +53,19 @@ export function ContactForm() {
     register,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<FormValues>({ resolver: zodResolver(schema) });
+
+  const onSubmit = async (values: FormValues) => {
+    setSendError(null);
+    const result = await sendContactMessage(values);
+    if (result.ok) {
+      setSent(true);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+    setSendError(result.error === "rate" ? t("rateError") : t("sendError"));
+  };
 
   if (sent) {
     return (
@@ -62,7 +77,7 @@ export function ContactForm() {
         <p style={{ fontFamily: "var(--font-body-stack)", fontSize: 15, lineHeight: 1.6, color: "var(--text-muted)", margin: "0 auto 24px", maxWidth: "42ch" }}>{t("successBody")}</p>
         <button
           type="button"
-          onClick={() => { reset(); setSent(false); }}
+          onClick={() => { reset(); setSent(false); setSendError(null); }}
           style={{ padding: "12px 24px", borderRadius: 10, border: "1px solid var(--border)", background: "transparent", color: "var(--accent)", fontFamily: "var(--font-body-stack)", fontWeight: 600, fontSize: 14, cursor: "pointer" }}
         >
           {t("sendAnother")}
@@ -72,14 +87,15 @@ export function ContactForm() {
   }
 
   return (
-    <form
-      className="contact-form"
-      noValidate
-      onSubmit={handleSubmit(() => {
-        setSent(true);
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      })}
-    >
+    <form className="contact-form" noValidate onSubmit={handleSubmit(onSubmit)}>
+      {/* Honeypot: off-screen and hidden from assistive tech, so only bots fill it. */}
+      <div aria-hidden style={{ position: "absolute", left: "-9999px", width: 1, height: 1, overflow: "hidden" }}>
+        <label>
+          Company
+          <input type="text" tabIndex={-1} autoComplete="off" {...register("company")} />
+        </label>
+      </div>
+
       <label style={{ display: "flex", flexDirection: "column", gap: 9 }}>
         <span style={captionStyle}>{t("fullName")}</span>
         <input className="field" type="text" placeholder={t("namePlaceholder")} style={inputStyle} {...register("name")} />
@@ -104,13 +120,17 @@ export function ContactForm() {
         {errors.message && <span style={errorStyle}>{errors.message.message}</span>}
       </label>
 
-      <button
-        type="submit"
-        className="lift-btn span-2"
-        style={{ justifySelf: "start", padding: "15px 34px", borderRadius: 10, border: "none", background: "var(--grad)", color: "#04190a", fontFamily: "var(--font-body-stack)", fontWeight: 700, fontSize: 15, cursor: "pointer", boxShadow: "var(--glow-soft)" }}
-      >
-        {t("send")}
-      </button>
+      <div className="span-2" style={{ display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap" }}>
+        <button
+          type="submit"
+          className="lift-btn"
+          disabled={isSubmitting}
+          style={{ padding: "15px 34px", borderRadius: 10, border: "none", background: "var(--grad)", color: "#04190a", fontFamily: "var(--font-body-stack)", fontWeight: 700, fontSize: 15, cursor: isSubmitting ? "wait" : "pointer", opacity: isSubmitting ? 0.7 : 1, boxShadow: "var(--glow-soft)" }}
+        >
+          {isSubmitting ? t("sending") : t("send")}
+        </button>
+        {sendError && <span role="alert" style={errorStyle}>{sendError}</span>}
+      </div>
     </form>
   );
 }
