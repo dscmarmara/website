@@ -86,7 +86,12 @@ export default async function MemberPage({
     url: `${SITE_URL}${prefix}/team/${slug}`,
     worksFor: { "@type": "Organization", name: "Data Science Club — Marmara University" },
   };
-  if (m.websiteUrl) personLd.sameAs = [m.websiteUrl];
+  // `sameAs` is how a search engine ties this page to the real-world person:
+  // other profile URLs it can cross-reference. LinkedIn is the strongest such
+  // signal and every member has one, whereas `websiteUrl` is set for exactly
+  // one — so LinkedIn goes first and the list is filtered rather than assumed.
+  const sameAs = [m.linkedin, m.websiteUrl].filter((u): u is string => Boolean(u));
+  if (sameAs.length) personLd.sameAs = sameAs;
 
   const MAXW = 1080;
 
