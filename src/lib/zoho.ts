@@ -168,16 +168,20 @@ export async function sendContactMail(input: ContactMail): Promise<void> {
       // zod already rejects a malformed address, but the sanitiser belongs at the
       // header boundary rather than relying on the validator upstream.
       replyTo: headerSafe(input.email, 200),
-      // Name first, then the subject. Every submission arrives from the club's
-      // own mailbox, so the sender column reads "Me" for all of them and the
-      // subject line is the only field that tells one message from the next.
+      // `[İletişim]` marks the mail as coming from the site form. The club
+      // mailbox also receives ordinary mail and the sender column cannot tell
+      // them apart — a self-addressed message just reads "Me" — so the tag is
+      // the only reliable marker, and it doubles as a stable string to build a
+      // Zoho filter or label on.
+      // Then the name, then the subject: the name is what you scan by, so it
+      // has to come before the part that gets truncated.
       // The visitor's address is deliberately NOT in here: a university address
       // alone runs ~30 characters and would push the real subject past the ~40
       // a mobile inbox shows, while `replyTo` above already makes Reply work and
       // the body carries it as a mailto link.
       // Each part is capped separately — zod allows a 120-char name, which would
       // otherwise crowd the subject out of the line.
-      subject: `${headerSafe(input.name, 60)} · ${headerSafe(input.subject, 120)}`,
+      subject: `[İletişim] ${headerSafe(input.name, 60)} · ${headerSafe(input.subject, 120)}`,
       content,
       mailFormat: "html",
       askReceipt: "no",
