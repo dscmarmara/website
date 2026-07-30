@@ -7,7 +7,7 @@ import { bricolage, hanken, pacifico, condiment } from "@/fonts";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { organizationLd, websiteLd, SITE_NAME, SITE_URL } from "@/lib/seo";
+import { organizationLd, websiteLd, ogLocale, SITE_NAME, SITE_URL } from "@/lib/seo";
 import "../globals.css";
 
 type Params = { locale: string };
@@ -33,7 +33,8 @@ export async function generateMetadata({
     openGraph: {
       type: "website",
       siteName: SITE_NAME,
-      locale,
+      // `en`, not `en_US`, is not a valid og:locale — see ogLocale().
+      locale: ogLocale(locale),
       url: SITE_URL,
     },
     twitter: { card: "summary_large_image" },
