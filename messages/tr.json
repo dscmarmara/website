@@ -1,8 +1,8 @@
 {
   "metadata": {
     "siteName": "Data Science Club",
-    "defaultTitle": "Data Science Club · Marmara Üniversitesi",
-    "titleTemplate": "%s · Data Science Club",
+    "defaultTitle": "DSC Marmara · Data Science Club",
+    "titleTemplate": "%s · DSC Marmara",
     "defaultDescription": "Marmara Üniversitesi Veri Bilimi Kulübü — geleneksel öğrenci kulübü kalıplarını kırıp küresel teknoloji topluluklarıyla ve çevik girişimlerle aynı dili konuşuyoruz.",
     "home": {
       "title": "Anasayfa",

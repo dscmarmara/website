@@ -44,6 +44,9 @@ export async function generateMetadata({
     icons: {
       icon: [
         { url: "/favicon.ico", sizes: "16x16 32x32 48x48", type: "image/x-icon" },
+        // Bing is reported to render favicons more reliably from a larger PNG
+        // than from an ICO, so offer one alongside the ICO and the SVG.
+        { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
         { url: "/icon.svg", type: "image/svg+xml", sizes: "any" },
       ],
       shortcut: [{ url: "/favicon.ico", type: "image/x-icon" }],

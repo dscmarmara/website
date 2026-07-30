@@ -1,8 +1,8 @@
 {
   "metadata": {
     "siteName": "Data Science Club",
-    "defaultTitle": "Data Science Club · Marmara University",
-    "titleTemplate": "%s · Data Science Club",
+    "defaultTitle": "DSC Marmara · Data Science Club",
+    "titleTemplate": "%s · DSC Marmara",
     "defaultDescription": "The Data Science Club of Marmara University — breaking traditional student-club molds and speaking the same language as global tech communities and agile startups.",
     "home": {
       "title": "Home",

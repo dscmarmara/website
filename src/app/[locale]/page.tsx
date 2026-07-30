@@ -20,7 +20,10 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
   return {
-    title: t("home.title"),
+    // No `title` on purpose: `title.template` in the layout does not apply to a
+    // page in the same route segment, so setting one here emitted a bare
+    // "Home" as the homepage <title> (and og:title). Omitting it falls through
+    // to the layout's `title.default`, which carries the brand.
     description: t("home.description"),
     alternates: await buildAlternates("/", locale),
   };
