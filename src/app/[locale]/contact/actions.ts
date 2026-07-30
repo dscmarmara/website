@@ -10,10 +10,13 @@ const schema = z.object({
   name: z.string().trim().min(2).max(120),
   email: z.string().trim().email().max(200),
   subject: z.string().trim().min(2).max(200),
-  // One character is enough — some people really do just write "?" — but the
-  // `.trim()` runs before `.min()`, so a whitespace-only message collapses to
-  // "" and is rejected. That guard is the whole point of the low minimum.
-  message: z.string().trim().min(1).max(5000),
+  // Checked against the trimmed value but stored untrimmed: `.trim()` in zod is
+  // a transform, so it would edit what the visitor wrote. That matters because
+  // trim strips the ends of the whole string, not per line — a pasted indented
+  // code block would lose the indentation of its first line only and arrive
+  // misaligned, and the mail body renders it with `white-space: pre-wrap`.
+  // One character is enough; the refine is what rejects an all-whitespace message.
+  message: z.string().max(5000).refine((s) => s.trim().length > 0),
   /** Honeypot: real users never see this field, bots fill everything. */
   company: z.string().max(200).optional(),
 });

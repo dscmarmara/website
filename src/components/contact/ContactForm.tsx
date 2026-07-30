@@ -46,8 +46,10 @@ export function ContactForm() {
     name: z.string().trim().min(2, t("nameError")),
     email: z.string().trim().regex(EMAIL_RE, t("emailError")),
     subject: z.string().trim().min(2, t("subjectError")),
-    // A single character is enough; trimming first is what blocks blank spaces.
-    message: z.string().trim().min(1, t("messageError")),
+    // Deliberately NOT trimmed — zodResolver hands onSubmit the parsed value, so
+    // a `.trim()` here would edit the message before it is ever sent. One
+    // character is enough; the refine is what rejects an all-whitespace message.
+    message: z.string().refine((s) => s.trim().length > 0, t("messageError")),
     /** Honeypot — hidden from real users; see `company` in the server action. */
     company: z.string().optional(),
   });
