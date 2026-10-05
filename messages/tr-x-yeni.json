@@ -14,7 +14,7 @@
     },
     "team": {
       "title": "Ekip",
-      "description": "Kulübün arkasındaki insanlar — başkan liderliğinde, altı departmanın her birini iki direktör yönetiyor."
+      "description": "Kulübün arkasındaki ekip — başkan liderliğinde, altı departmanın her birini iki direktör yönetiyor."
     },
     "blog": {
       "title": "Blog",
@@ -105,12 +105,12 @@
   },
   "team": {
     "eyebrow": "EKİP",
-    "heroTitle": "Kulübün arkasındaki insanlar",
-    "heroSub": "Başkan liderliğinde, kulübün altı departmanının her birini iki direktör yönetiyor — her biri kendi sayfasına sahip bir üretici.",
+    "heroTitle": "Kulübün arkasındaki ekip",
+    "heroSub": "Başkanın liderliğinde, kulübün altı departmanının her biri iki direktör tarafından yönetiliyor. Her biri kendi alanında aktif olarak üreten ve kulübün gelişimine katkı sağlayan ekip arkadaşlarımız.",
     "vpHeading": "VP",
     "viewProfile": "Profili gör →",
-    "joinTitle": "Gelecek dönem adın burada olabilir",
-    "joinSub": "Her üyeye bir sayfa, bir departman ve çıkaracağı gerçek işler veriliyor.",
+    "joinTitle": "Gelecek dönem sen de burada olabilirsin",
+    "joinSub": "Her üyeye kendi sayfası, bir departmanda sorumluluk ve ortaya koyacağı gerçek işler veriliyor.",
     "joinClub": "Kulübe katıl →"
   },
   "member": {

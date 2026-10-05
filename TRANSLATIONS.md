@@ -18,14 +18,14 @@ ikisi arasında geçip farkları görebilirsin. Adres: `/tr-x-yeni/...`. Bu sayf
 
 `members.json` ve blog yazılarının ayrı bir "yeni" sürümü yok; TR YENİ'de de `tr` değerleri görünür.
 
-Hakkımızda'daki departman "Odak Alanları" için iki görünüm `/tr-x-yeni/odak-deneme` sayfasında yan yana duruyor
-(A: paragraf, B: etiketler; veriler `src/app/[locale]/odak-deneme/page.tsx` içinde). Biri seçilince o veri
-`constants.ts` → `ABOUT_DEPARTMENTS`'a taşınır ve bu sayfa silinir.
+Hakkımızda'daki Türkçe "Odak Alanları" etiketleri yalnızca TR YENİ'de var:
+`src/lib/constants.ts` → `ABOUT_DEPARTMENTS[].focusByLocale["tr-x-yeni"]`. TR ve İngilizce `focus` etiketlerini gösterir.
 
 **Yeni çeviriyi kesinleştirmek** (main'e merge etmeden önce yapılmalı):
 
 1. `messages/tr-x-yeni.json` içeriğini `messages/tr.json`'un üzerine kopyala, ardından `tr-x-yeni.json`'u sil.
 2. `src/lib/constants.ts`'te her `"tr-x-yeni": "…"` değerini aynı nesnedeki `tr:` değerinin yerine koy, `"tr-x-yeni"` satırını sil.
+   `focusByLocale` içindeki `"tr-x-yeni"` anahtarının adını `"tr"` yap.
 3. Kod tarafını kaldır:
    - `src/i18n/routing.ts` içindeki `REVIEW_LOCALE` ve onu kullanan yerler (`src/lib/seo.ts`, `src/app/sitemap.ts`, `src/app/[locale]/layout.tsx`)
    - `src/components/layout/LocaleSwitch.tsx` içindeki `"tr-x-yeni"` satırı

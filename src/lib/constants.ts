@@ -144,6 +144,8 @@ export interface AboutDepartment {
   name: string;
   purpose: Localized;
   focus: string[];
+  /** Focus chips for a specific locale code; locales without an entry use `focus`. */
+  focusByLocale?: Partial<Record<string, string[]>>;
   vision: Localized;
 }
 
@@ -157,6 +159,9 @@ export const ABOUT_DEPARTMENTS: AboutDepartment[] = [
       "tr-x-yeni": "Ham verinin içindeki saklı hikâyeleri keşfetmek, anlamlandırmak ve karar alıcılara rehberlik edecek stratejik içgörülere dönüştürmek.",
     },
     focus: ["EDA", "BI", "Tableau", "Power BI", "Matplotlib"],
+    focusByLocale: {
+      "tr-x-yeni": ["Keşifçi Veri Analizi (EDA)", "Veri temizleme", "İstatistiksel çıkarımlar", "İş zekâsı (BI)", "Veri görselleştirme", "Veri hikâyeleştirme", "Tableau", "Power BI", "Matplotlib / Seaborn"],
+    },
     vision: {
       en: "Make data literacy a default skill for every Marmara student, not a specialism.",
       tr: "Veri okuryazarlığını her Marmara öğrencisi için bir uzmanlık değil, varsayılan bir beceri hâline getirmek.",
@@ -172,6 +177,9 @@ export const ABOUT_DEPARTMENTS: AboutDepartment[] = [
       "tr-x-yeni": "İleri düzey algoritmalar ve matematiksel modeller geliştirerek yapay zekâ teknolojilerini teoriden pratiğe taşımak; bunları ekipler hâlinde Kaggle yarışmalarına ve projelere uygulamak.",
     },
     focus: ["Machine Learning", "Deep Learning", "NLP", "Computer Vision", "Python"],
+    focusByLocale: {
+      "tr-x-yeni": ["Makine Öğrenmesi", "Derin Öğrenme", "Doğal Dil İşleme (NLP)", "Bilgisayarlı Görü", "Python", "Scikit-Learn", "TensorFlow", "PyTorch"],
+    },
     vision: {
       en: "Ship student-built models that solve real problems on and off campus.",
       tr: "Kampüs içinde ve dışında gerçek problemleri çözen, öğrencilerin yaptığı modeller çıkarmak.",
@@ -187,6 +195,9 @@ export const ABOUT_DEPARTMENTS: AboutDepartment[] = [
       "tr-x-yeni": "Milyonlarca satırlık verinin güvenli, hızlı ve kesintisiz akışını sağlayan veri hatlarını inşa etmek. Core AI ve Data Insights ekiplerinin ihtiyaç duyduğu temiz veri altyapısını hazırlamak.",
     },
     focus: ["Data Engineering", "ETL", "Hadoop / Spark", "SQL / NoSQL", "Cloud"],
+    focusByLocale: {
+      "tr-x-yeni": ["Veri Mühendisliği", "ETL süreçleri", "Büyük veri (Hadoop, Spark)", "Veri tabanı yönetimi (SQL, NoSQL)", "Web scraping", "Bulut (AWS, Google Cloud)"],
+    },
     vision: {
       en: "Give every club project a production-grade backbone it can trust.",
       tr: "Her kulüp projesine güvenebileceği üretim düzeyinde bir omurga sağlamak.",
@@ -202,6 +213,9 @@ export const ABOUT_DEPARTMENTS: AboutDepartment[] = [
       "tr-x-yeni": "Kulübün imza niteliğindeki büyük etkinliklerini, ulusal çapta ses getirecek veri yarışmalarını (Datathon/Hackathon) ve veri bilimi zirvelerini baştan sona kurgulamak ve yönetmek.",
     },
     focus: ["Summits", "Award Nights", "Datathon", "Hackathon"],
+    focusByLocale: {
+      "tr-x-yeni": ["Zirve planlaması", "Ödül geceleri", "Datathon", "Hackathon", "Organizasyon ve lojistik"],
+    },
     vision: {
       en: "Make our Datathon the event students in Istanbul circle on their calendars.",
       tr: "Datathon'umuzu İstanbul'daki öğrencilerin takvimlerinde işaretlediği etkinlik hâline getirmek.",
@@ -217,6 +231,9 @@ export const ABOUT_DEPARTMENTS: AboutDepartment[] = [
       "tr-x-yeni": "Kulübün finansal sürdürülebilirliğini sağlamak, bütçeyi yönetmek ve büyük projeler için teknokent firmaları ve global şirketlerle stratejik sponsorluklar ve iş ortaklıkları kurmak.",
     },
     focus: ["Sponsorship", "Budgeting", "Corporate Relations"],
+    focusByLocale: {
+      "tr-x-yeni": ["Sponsorluk dosyaları", "Kurumsal sunumlar", "Bütçe planlaması", "Nakit akışı yönetimi", "Staj ve istihdam köprüleri", "Mezun ağı"],
+    },
     vision: {
       en: "Build a partner network that turns into internships and first jobs for members.",
       tr: "Üyeler için staja ve ilk işlere dönüşen bir partner ağı kurmak.",
@@ -232,6 +249,9 @@ export const ABOUT_DEPARTMENTS: AboutDepartment[] = [
       "tr-x-yeni": "Kulübün dış dünyaya açılan vitrini, sesi ve yüzü olmak; teknik projeleri, büyük etkinlikleri ve marka kimliğini topluluğa ve sektöre en doğru ve etkili şekilde anlatmak.",
     },
     focus: ["Social Media", "Graphic Design", "Content", "Media Relations"],
+    focusByLocale: {
+      "tr-x-yeni": ["Sosyal medya yönetimi", "Grafik tasarım", "Marka kimliği ve kurumsal dil", "Video ve içerik üretimi", "Kriz iletişimi", "Medya ilişkileri"],
+    },
     vision: {
       en: "Become the most recognisable student data brand in Turkey.",
       tr: "Türkiye'nin en tanınan öğrenci veri markası olmak.",
