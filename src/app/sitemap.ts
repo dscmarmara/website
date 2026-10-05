@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getPathname } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
-import { SITE_URL } from "@/lib/seo";
+import { PUBLIC_LOCALES, SITE_URL } from "@/lib/seo";
 import { getMemberSlugs } from "@/lib/members";
 import { getPostSlugs, getPostBySlug } from "@/lib/posts";
 
@@ -10,7 +10,7 @@ async function entry(
   lastModified?: string | Date
 ): Promise<MetadataRoute.Sitemap[number]> {
   const languages: Record<string, string> = {};
-  for (const l of routing.locales) {
+  for (const l of PUBLIC_LOCALES) {
     languages[l] = SITE_URL + (await getPathname({ locale: l, href }));
   }
   return {

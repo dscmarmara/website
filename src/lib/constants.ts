@@ -34,7 +34,7 @@ export const HOME_STATS: HomeStat[] = [
   { num: "6", label: { en: "DEPARTMENTS", tr: "DEPARTMAN" } },
   { num: "400+", label: { en: "ACTIVE MEMBERS", tr: "AKTİF ÜYE" } },
   // { num: "30+", label: { en: "PROJECTS SHIPPED", tr: "YAYINLANAN PROJE" } },
-  { num: "12", label: { en: "EVENTS / YEAR", tr: "YILLIK ETKİNLİK" } },
+  { num: "12", label: { en: "EVENTS / YEAR", tr: "YILLIK ETKİNLİK", "tr-x-yeni": "ETKİNLİK / YIL" } },
 ];
 
 export interface HomeProject {
@@ -90,6 +90,7 @@ export const HOME_DEPARTMENTS: HomeDepartment[] = [
     desc: {
       en: "EDA, BI and storytelling with Tableau, Power BI and Matplotlib.",
       tr: "Tableau, Power BI ve Matplotlib ile keşifsel analiz, iş zekâsı ve hikâye anlatımı.",
+      "tr-x-yeni": "EDA, BI ve Tableau, Power BI ve Matplotlib ile veri hikâyeleştirme.",
     },
   },
   {
@@ -106,6 +107,7 @@ export const HOME_DEPARTMENTS: HomeDepartment[] = [
     desc: {
       en: "Data engineering, ETL, Hadoop/Spark, SQL/NoSQL and the cloud.",
       tr: "Veri mühendisliği, ETL, Hadoop/Spark, SQL/NoSQL ve bulut.",
+      "tr-x-yeni": "Veri mühendisliği, ETL, Hadoop/Spark, SQL/NoSQL ve bulut teknolojileri.",
     },
   },
   {
@@ -114,6 +116,7 @@ export const HOME_DEPARTMENTS: HomeDepartment[] = [
     desc: {
       en: "Summits, award nights and our flagship Datathon & Hackathon.",
       tr: "Zirveler, ödül geceleri ve amiral gemimiz Datathon & Hackathon.",
+      "tr-x-yeni": "Zirveler, ödül geceleri ve amiral gemisi etkinliğimiz Datathon & Hackathon.",
     },
   },
   {
@@ -122,6 +125,7 @@ export const HOME_DEPARTMENTS: HomeDepartment[] = [
     desc: {
       en: "Sponsorship, budgeting and relationships with industry partners.",
       tr: "Sponsorluk, bütçeleme ve sektör partnerleriyle ilişkiler.",
+      "tr-x-yeni": "Sponsorluk, bütçe yönetimi ve sektör paydaşlarıyla ilişkiler.",
     },
   },
   {
@@ -130,6 +134,7 @@ export const HOME_DEPARTMENTS: HomeDepartment[] = [
     desc: {
       en: "Social media, graphic design, content and media relations.",
       tr: "Sosyal medya, grafik tasarım, içerik ve medya ilişkileri.",
+      "tr-x-yeni": "Sosyal medya, grafik tasarım, içerik üretimi ve medya ilişkileri.",
     },
   },
 ];

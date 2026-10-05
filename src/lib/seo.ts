@@ -1,5 +1,5 @@
 import { getPathname } from "@/i18n/navigation";
-import { routing } from "@/i18n/routing";
+import { REVIEW_LOCALE, routing } from "@/i18n/routing";
 import { SOCIALS } from "@/lib/constants";
 
 // Fall back to the live domain, not a placeholder: if NEXT_PUBLIC_SITE_URL is
@@ -20,7 +20,11 @@ export const SITE_LEGAL_NAME = "Data Science Club — Marmara University";
  * valid value.
  */
 const OG_LOCALES: Record<string, string> = { en: "en_US", tr: "tr_TR" };
-export const ogLocale = (locale: string) => OG_LOCALES[locale] ?? "en_US";
+export const ogLocale = (locale: string) =>
+  OG_LOCALES[locale] ?? OG_LOCALES[locale.split("-")[0]] ?? "en_US";
+
+/** Locales advertised to search engines: everything but the review locale. */
+export const PUBLIC_LOCALES = routing.locales.filter((l) => l !== REVIEW_LOCALE);
 
 /** Turkish name for the club. People here search for this, not the English one. */
 const SITE_NAME_TR = "Marmara Üniversitesi Veri Bilimi Kulübü";
@@ -30,7 +34,7 @@ type Href = Parameters<typeof getPathname>[0]["href"];
 /** Canonical + per-locale hreflang alternates for a route, as absolute URLs. */
 export async function buildAlternates(href: Href, locale: string) {
   const languages: Record<string, string> = {};
-  for (const l of routing.locales) {
+  for (const l of PUBLIC_LOCALES) {
     languages[l] = SITE_URL + (await getPathname({ locale: l, href }));
   }
   return {

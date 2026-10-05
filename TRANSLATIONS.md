@@ -6,6 +6,29 @@ aşağıdaki dosyalara bakman yeterli. Kod bilgisi gerekmiyor; sadece tırnak i�
 
 Değişikliği görmek için: `npm run dev` → <http://localhost:3737/tr>
 
+## Geçici: eski / yeni çeviri karşılaştırması
+
+Dil değiştiricide **TR** mevcut çeviriyi, **TR YENİ** önerilen yeni çeviriyi gösterir. Aynı sayfada
+ikisi arasında geçip farkları görebilirsin. Adres: `/tr-x-yeni/...`. Bu sayfalar arama motorlarına kapalıdır.
+
+| | Arayüz metinleri | `constants.ts` alanları |
+|---|---|---|
+| TR (eski) | `messages/tr.json` | `tr:` |
+| TR YENİ | `messages/tr-x-yeni.json` | `"tr-x-yeni":` (yalnızca farklı olan alanlarda; olmayan yerde `tr` kullanılır) |
+
+`members.json` ve blog yazılarının ayrı bir "yeni" sürümü yok; TR YENİ'de de `tr` değerleri görünür.
+
+**Yeni çeviriyi kesinleştirmek** (main'e merge etmeden önce yapılmalı):
+
+1. `messages/tr-x-yeni.json` içeriğini `messages/tr.json`'un üzerine kopyala, ardından `tr-x-yeni.json`'u sil.
+2. `src/lib/constants.ts`'te her `"tr-x-yeni": "…"` değerini aynı nesnedeki `tr:` değerinin yerine koy, `"tr-x-yeni"` satırını sil.
+3. Kod tarafını kaldır:
+   - `src/i18n/routing.ts` içindeki `REVIEW_LOCALE` ve onu kullanan yerler (`src/lib/seo.ts`, `src/app/sitemap.ts`, `src/app/[locale]/layout.tsx`)
+   - `src/components/layout/LocaleSwitch.tsx` içindeki `"tr-x-yeni"` satırı
+   - `src/lib/members.ts` içindeki `Localized` tipinde `"tr-x-yeni"`
+   - `messages/en.json` ve `messages/tr.json` içindeki `nav.turkishNew`
+   - bu bölüm
+
 ## Hızlı harita
 
 | Değiştirmek istediğin | Dosya | Nerede |

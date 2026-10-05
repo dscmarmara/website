@@ -3,10 +3,10 @@
     "siteName": "Data Science Club",
     "defaultTitle": "DSC Marmara · Data Science Club",
     "titleTemplate": "%s · DSC Marmara",
-    "defaultDescription": "Marmara Üniversitesi Veri Bilimi Kulübü — geleneksel öğrenci kulübü kalıplarını kırıp küresel teknoloji topluluklarıyla ve çevik girişimlerle aynı dili konuşuyoruz.",
+    "defaultDescription": "Marmara Üniversitesi Veri Bilimi Kulübü — geleneksel öğrenci kulübü anlayışının dışına çıkıyor; küresel teknoloji toplulukları ve çevik teknoloji start-up'larıyla aynı dili konuşan modern bir yapı kuruyor.",
     "home": {
       "title": "Anasayfa",
-      "description": "Girişim gibi düşünen veri kulübü — altı departman, gerçek projeler ve seni bir üretici gibi gören bir topluluk."
+      "description": "Startup gibi düşünen veri kulübü — altı departman, gerçek projeler ve seni bir üretici gibi gören bir topluluk."
     },
     "about": {
       "title": "Hakkımızda",
@@ -46,7 +46,7 @@
     "university": "Marmara Üniversitesi"
   },
   "footer": {
-    "description": "Marmara Üniversitesi Veri Bilimi Kulübü — geleneksel öğrenci kulübü kalıplarını kırıp küresel teknoloji topluluklarıyla ve çevik girişimlerle aynı dili konuşuyoruz.",
+    "description": "Marmara Üniversitesi Veri Bilimi Kulübü — geleneksel öğrenci kulübü anlayışının dışına çıkıyor; küresel teknoloji toplulukları ve çevik teknoloji start-up'larıyla aynı dili konuşan modern bir yapı kuruyor.",
     "exploreTitle": "Keşfet",
     "departmentsTitle": "Departmanlar",
     "linkHome": "Anasayfa",
@@ -57,15 +57,15 @@
     "tagline": "Öğrenciler tarafından, üretenler için."
   },
   "home": {
-    "heroTitle": "Girişim gibi düşünen veri kulübü.",
-    "heroSub": "Geleneksel öğrenci kulübü kalıplarını kırıyoruz — küresel teknoloji topluluklarıyla ve çevik girişimlerle aynı dili konuşuyoruz.",
+    "heroTitle": "Startup gibi düşünen veri kulübü.",
+    "heroSub": "Klasik öğrenci kulübü kalıplarını yıkıyor; küresel teknoloji toplulukları ve çevik teknoloji start-up'larıyla aynı dili konuşuyoruz.",
     "joinUs": "Aramıza Katıl",
-    "exploreBlog": "Blog'u Keşfet →",
-    "whoEyebrow": "BİZ KİMİZ",
-    "whoTitleLine1": "Biz kimiz &",
+    "exploreBlog": "Blogu Keşfet →",
+    "whoEyebrow": "KİMİZ?",
+    "whoTitleLine1": "Kimiz &",
     "whoTitleLine2": "nasıl çalışıyoruz",
-    "whoP1": "Marmara Üniversitesi'nde, veriye duyulan merakı yayınlanan işlere dönüştüren öğrenci topluluğuyuz. Hiyerarşi ve bürokrasiyle değil; sprintler, kod incelemeleri ve demolarla ilerliyoruz. Üyeler, keşifsel analizden üretim veri mühendisliğine kadar altı departman arasında geçiş yapıyor.",
-    "whoP2": "İster tablolarla ister PyTorch ile gel; sana uygun bir yol var — ve seni bir katılımcı gibi değil, bir üretici gibi gören bir topluluk.",
+    "whoP1": "Marmara Üniversitesi'nde öğrenciler tarafından yürütülen, veri merakını hayata geçen işlere dönüştüren bir topluluğuz. Hiyerarşi ve bürokrasiyle değil; sprintler, code review'lar ve demolarla çalışıyoruz. Üyelerimiz keşifsel analizden üretim ortamındaki veri mühendisliğine uzanan altı farklı departmanda yer alıyor.",
+    "whoP2": "İster Excel'den gel, ister PyTorch'la başla; sana uygun bir yol ve seni sadece katılımcı olarak değil, üreten biri olarak gören bir topluluk var.",
     "readStory": "Tüm hikâyemizi oku →",
     "featuredEyebrow": "ÖNE ÇIKAN PROJELER",
     "featuredTitle": "Neler inşa ediyoruz",
@@ -75,9 +75,9 @@
     "comingSoonSub": "İlk projelerimiz üzerinde çalışıyoruz. Ekibin neler inşa ettiğini görmek için yakında tekrar uğrayın.",
     "deptEyebrow": "ALTI DEPARTMAN",
     "deptTitle": "Tek kulüp, üretmenin altı yolu",
-    "deptSub": "Bir alan seç ya da aralarında geçiş yap — her departman gerçek işler çıkarır.",
-    "ctaTitle": "Veriyle bir şeyler inşa etmeye hazır mısın?",
-    "ctaSub": "Başvurular her dönem açık. Ön koşul yok — sadece merakını getir.",
+    "deptSub": "Bir alan seç ya da departmanlar arasında geçiş yap — her departman gerçek işler üretiyor.",
+    "ctaTitle": "Veriyle bir şeyler üretmeye hazır mısın?",
+    "ctaSub": "Her dönem başvurular açık. Herhangi bir ön koşul yok — sadece merakını yanında getir.",
     "joinClub": "Kulübe katıl →"
   },
   "about": {

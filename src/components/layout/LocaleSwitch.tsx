@@ -9,6 +9,7 @@ import { routing, type Locale } from "@/i18n/routing";
 const LOCALE_UI: Record<string, { label: string; key: string }> = {
   en: { label: "EN", key: "english" },
   tr: { label: "TR", key: "turkish" },
+  "tr-x-yeni": { label: "TR YENİ", key: "turkishNew" },
 };
 
 export function LocaleSwitch({ large = false }: { large?: boolean }) {

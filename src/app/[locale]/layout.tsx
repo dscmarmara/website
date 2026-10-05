@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { routing } from "@/i18n/routing";
+import { REVIEW_LOCALE, routing } from "@/i18n/routing";
 import { bricolage, hanken, pacifico, condiment } from "@/fonts";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
@@ -38,7 +38,8 @@ export async function generateMetadata({
       url: SITE_URL,
     },
     twitter: { card: "summary_large_image" },
-    robots: { index: true, follow: true },
+    // The review locale is a side-by-side copy for proofreading, not a page to rank.
+    robots: locale === REVIEW_LOCALE ? { index: false, follow: false } : { index: true, follow: true },
     // Explicit, query-less icon links. Bing (unlike Google) does not reliably
     // guess /favicon.ico and wants a plain <link rel="icon"> advertising a
     // 32x32 entry; Next's file-convention links carry a cache-busting query.
