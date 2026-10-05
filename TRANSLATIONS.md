@@ -18,6 +18,10 @@ ikisi arasında geçip farkları görebilirsin. Adres: `/tr-x-yeni/...`. Bu sayf
 
 `members.json` ve blog yazılarının ayrı bir "yeni" sürümü yok; TR YENİ'de de `tr` değerleri görünür.
 
+Hakkımızda'daki departman "Odak Alanları" için iki görünüm `/tr-x-yeni/odak-deneme` sayfasında yan yana duruyor
+(A: paragraf, B: etiketler; veriler `src/app/[locale]/odak-deneme/page.tsx` içinde). Biri seçilince o veri
+`constants.ts` → `ABOUT_DEPARTMENTS`'a taşınır ve bu sayfa silinir.
+
 **Yeni çeviriyi kesinleştirmek** (main'e merge etmeden önce yapılmalı):
 
 1. `messages/tr-x-yeni.json` içeriğini `messages/tr.json`'un üzerine kopyala, ardından `tr-x-yeni.json`'u sil.
@@ -27,6 +31,7 @@ ikisi arasında geçip farkları görebilirsin. Adres: `/tr-x-yeni/...`. Bu sayf
    - `src/components/layout/LocaleSwitch.tsx` içindeki `"tr-x-yeni"` satırı
    - `src/lib/members.ts` içindeki `Localized` tipinde `"tr-x-yeni"`
    - `messages/en.json` ve `messages/tr.json` içindeki `nav.turkishNew`
+   - `about.orgSub` artık `tr.json`'da da olur; İngilizce sayfada da görünsün istenirse `en.json`'a İngilizcesi eklenir
    - bu bölüm
 
 ## Hızlı harita

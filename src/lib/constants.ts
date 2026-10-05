@@ -154,11 +154,13 @@ export const ABOUT_DEPARTMENTS: AboutDepartment[] = [
     purpose: {
       en: "Turn raw university and open datasets into clear decisions through exploratory analysis and business intelligence.",
       tr: "Ham üniversite ve açık veri setlerini keşifsel analiz ve iş zekâsı yoluyla net kararlara dönüştürmek.",
+      "tr-x-yeni": "Ham verinin içindeki saklı hikâyeleri keşfetmek, anlamlandırmak ve karar alıcılara rehberlik edecek stratejik içgörülere dönüştürmek.",
     },
     focus: ["EDA", "BI", "Tableau", "Power BI", "Matplotlib"],
     vision: {
       en: "Make data literacy a default skill for every Marmara student, not a specialism.",
       tr: "Veri okuryazarlığını her Marmara öğrencisi için bir uzmanlık değil, varsayılan bir beceri hâline getirmek.",
+      "tr-x-yeni": "Kulüp içindeki ve dışındaki paydaşlara yalnızca grafikler sunan değil, “Veri ne anlatıyor?” sorusuna en net ve çarpıcı yanıtları veren, veri okuryazarlığı yüksek analistler yetiştirmek.",
     },
   },
   {
@@ -167,11 +169,13 @@ export const ABOUT_DEPARTMENTS: AboutDepartment[] = [
     purpose: {
       en: "Research and build intelligent systems — from classic ML to deep learning, language and vision.",
       tr: "Zeki sistemler araştırmak ve inşa etmek — klasik makine öğrenmesinden derin öğrenmeye, dile ve görüye kadar.",
+      "tr-x-yeni": "İleri düzey algoritmalar ve matematiksel modeller geliştirerek yapay zekâ teknolojilerini teoriden pratiğe taşımak; bunları ekipler hâlinde Kaggle yarışmalarına ve projelere uygulamak.",
     },
     focus: ["Machine Learning", "Deep Learning", "NLP", "Computer Vision", "Python"],
     vision: {
       en: "Ship student-built models that solve real problems on and off campus.",
       tr: "Kampüs içinde ve dışında gerçek problemleri çözen, öğrencilerin yaptığı modeller çıkarmak.",
+      "tr-x-yeni": "Yapay zekâyı yalnızca tüketen değil, özgün modeller tasarlayan, küresel trendleri (LLM'ler, Generative AI) yakından takip eden ve geliştirdiği algoritmalarla katma değer üreten bir yapay zekâ mühendisliği kültürü oluşturmak.",
     },
   },
   {
@@ -180,11 +184,13 @@ export const ABOUT_DEPARTMENTS: AboutDepartment[] = [
     purpose: {
       en: "Engineer the plumbing that moves, cleans and stores data reliably at scale.",
       tr: "Veriyi güvenilir biçimde ve ölçekli taşıyan, temizleyen ve depolayan altyapıyı mühendislemek.",
+      "tr-x-yeni": "Milyonlarca satırlık verinin güvenli, hızlı ve kesintisiz akışını sağlayan veri hatlarını inşa etmek. Core AI ve Data Insights ekiplerinin ihtiyaç duyduğu temiz veri altyapısını hazırlamak.",
     },
     focus: ["Data Engineering", "ETL", "Hadoop / Spark", "SQL / NoSQL", "Cloud"],
     vision: {
       en: "Give every club project a production-grade backbone it can trust.",
       tr: "Her kulüp projesine güvenebileceği üretim düzeyinde bir omurga sağlamak.",
+      "tr-x-yeni": "“Büyük veri” kaosunu düzenli ve işlenebilir sistemlere dönüştüren, ölçeklenebilir altyapılar kuran ve kulübü veri mühendisliği alanında ileri taşıyan sistem mimarları yetiştirmek.",
     },
   },
   {
@@ -193,11 +199,13 @@ export const ABOUT_DEPARTMENTS: AboutDepartment[] = [
     purpose: {
       en: "Run the events that bring the community together — summits, award nights and competitions.",
       tr: "Topluluğu bir araya getiren etkinlikleri düzenlemek — zirveler, ödül geceleri ve yarışmalar.",
+      "tr-x-yeni": "Kulübün imza niteliğindeki büyük etkinliklerini, ulusal çapta ses getirecek veri yarışmalarını (Datathon/Hackathon) ve veri bilimi zirvelerini baştan sona kurgulamak ve yönetmek.",
     },
     focus: ["Summits", "Award Nights", "Datathon", "Hackathon"],
     vision: {
       en: "Make our Datathon the event students in Istanbul circle on their calendars.",
       tr: "Datathon'umuzu İstanbul'daki öğrencilerin takvimlerinde işaretlediği etkinlik hâline getirmek.",
+      "tr-x-yeni": "Marmara Üniversitesi'ni Türkiye'nin veri bilimi alanındaki en prestijli etkinlik merkezlerinden biri hâline getirmek; sektör ve akademiyi buluşturan kusursuz katılımcı deneyimleri tasarlamak.",
     },
   },
   {
@@ -206,11 +214,13 @@ export const ABOUT_DEPARTMENTS: AboutDepartment[] = [
     purpose: {
       en: "Keep the club funded and connected through sponsorship, budgeting and industry partnerships.",
       tr: "Kulübü sponsorluk, bütçeleme ve sektör ortaklıklarıyla finanse ve bağlantılı tutmak.",
+      "tr-x-yeni": "Kulübün finansal sürdürülebilirliğini sağlamak, bütçeyi yönetmek ve büyük projeler için teknokent firmaları ve global şirketlerle stratejik sponsorluklar ve iş ortaklıkları kurmak.",
     },
     focus: ["Sponsorship", "Budgeting", "Corporate Relations"],
     vision: {
       en: "Build a partner network that turns into internships and first jobs for members.",
       tr: "Üyeler için staja ve ilk işlere dönüşen bir partner ağı kurmak.",
+      "tr-x-yeni": "Kulübü finansal açıdan bağımsız ve kendi kendine yeten bir yapıya ulaştırmak; kurumsal şirketlerin Marmara Veri Bilimi Kulübü'nü bir “öğrenci topluluğu” olarak değil, profesyonel bir stratejik partner olarak görmesini sağlamak.",
     },
   },
   {
@@ -219,11 +229,13 @@ export const ABOUT_DEPARTMENTS: AboutDepartment[] = [
     purpose: {
       en: "Tell the club's story and grow its voice across every channel.",
       tr: "Kulübün hikâyesini anlatmak ve sesini her kanalda büyütmek.",
+      "tr-x-yeni": "Kulübün dış dünyaya açılan vitrini, sesi ve yüzü olmak; teknik projeleri, büyük etkinlikleri ve marka kimliğini topluluğa ve sektöre en doğru ve etkili şekilde anlatmak.",
     },
     focus: ["Social Media", "Graphic Design", "Content", "Media Relations"],
     vision: {
       en: "Become the most recognisable student data brand in Turkey.",
       tr: "Türkiye'nin en tanınan öğrenci veri markası olmak.",
+      "tr-x-yeni": "Kulübün imajını bir teknoloji start-up'ı netliğinde konumlandırmak; teknik ekiplerin ürettiği karmaşık kodları ve analizleri çarpıcı infografikler ve teknik içeriklerle görünür kılarak kulübün marka değerini yükseltmek.",
     },
   },
 ];

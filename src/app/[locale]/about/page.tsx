@@ -76,6 +76,10 @@ export default async function AboutPage({
           <Reveal style={{ marginBottom: 44 }}>
             <Eyebrow style={{ marginBottom: 12 }}>{t("orgEyebrow")}</Eyebrow>
             <h2 style={h2Style}>{t("orgTitle")}</h2>
+            {/* Only the review locale has this intro so far; EN/TR render without it. */}
+            {t.has("orgSub") && (
+              <p style={{ fontFamily: "var(--font-body-stack)", fontSize: 16, lineHeight: 1.6, color: "var(--text-muted)", maxWidth: "62ch", margin: "14px 0 0" }}>{t("orgSub")}</p>
+            )}
           </Reveal>
           <DepartmentAccordions />
         </div>
