@@ -3,6 +3,7 @@ import type { Localized } from "@/lib/members";
 export const SOCIALS = {
   linkedin: "https://www.linkedin.com/company/datascienceclub-marmara",
   instagram: "https://www.instagram.com/dsc.marmara",
+  github: "https://github.com/dscmarmara",
   /**
    * No Medium account yet, so it is not rendered anywhere. Kept here (and
    * `MediumIcon` is kept in SocialIcons) so switching it back on later is just
