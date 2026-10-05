@@ -17,8 +17,7 @@ export const SITE_LEGAL_NAME = "Data Science Club — Marmara University";
 /**
  * Open Graph wants `language_TERRITORY` (`en_US`), not the bare language tag our
  * routing uses — `og:locale` was being emitted as a plain "en", which is not a
- * valid value. `tr` is kept even though Turkish routes are off, because the i18n
- * infrastructure was deliberately retained.
+ * valid value.
  */
 const OG_LOCALES: Record<string, string> = { en: "en_US", tr: "tr_TR" };
 export const ogLocale = (locale: string) => OG_LOCALES[locale] ?? "en_US";
@@ -45,15 +44,15 @@ export async function buildAlternates(href: Href, locale: string) {
  * prints above the URL in search results; without it, it falls back to the bare
  * domain (which is why results were reading "dscmarmara.com.tr").
  */
-export function websiteLd() {
+export function websiteLd(locale: string) {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: SITE_NAME,
     alternateName: ["Data Science Club", SITE_NAME_TR, SITE_LEGAL_NAME],
-    // The site is written in English although the audience is largely Turkish;
-    // stating it beats letting a crawler infer it from the Turkish brand names.
-    inLanguage: "en",
+    // The page's own language; stating it beats letting a crawler infer it
+    // from the Turkish brand names on an English page.
+    inLanguage: locale,
     url: SITE_URL,
   };
 }

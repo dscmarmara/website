@@ -211,7 +211,7 @@ export default async function MemberPage({
               <div>
                 <h3 className="art-title" style={{ fontFamily: "var(--font-display-stack)", fontWeight: 600, fontSize: 19, margin: "0 0 6px" }}>{p.title}</h3>
                 <span style={{ fontFamily: "var(--font-mono-stack)", fontSize: 12, color: "var(--text-muted)" }}>
-                  {p.category} · {format.dateTime(new Date(p.date), { year: "numeric", month: "short", day: "numeric" }).toUpperCase()}
+                  {p.category} · {format.dateTime(new Date(p.date), { year: "numeric", month: "short", day: "numeric" }).toLocaleUpperCase(locale)}
                 </span>
               </div>
               <span style={{ fontFamily: "var(--font-display-stack)", fontSize: 20, color: "var(--accent)", flex: "none" }}>→</span>

@@ -76,7 +76,7 @@ export default async function BlogPage({
             <div style={{ display: "flex", gap: 12, alignItems: "center", marginBottom: 18, flexWrap: "wrap" }}>
               <span style={{ padding: "5px 13px", borderRadius: 100, background: "var(--grad)", color: "#04190a", fontFamily: "var(--font-mono-stack)", fontSize: 11, letterSpacing: "0.06em", fontWeight: 500 }}>{t("featuredBadge")}</span>
               <span style={{ fontFamily: "var(--font-mono-stack)", fontSize: 12, color: "var(--text-muted)" }}>
-                {format.dateTime(new Date(featured.date), { year: "numeric", month: "short", day: "numeric" }).toUpperCase()} · {featured.readingTime}
+                {format.dateTime(new Date(featured.date), { year: "numeric", month: "short", day: "numeric" }).toLocaleUpperCase(locale)} · {featured.readingTime}
               </span>
             </div>
             <h2 style={{ fontFamily: "var(--font-display-stack)", fontWeight: 700, fontSize: "clamp(28px,4.4vw,46px)", lineHeight: 1.1, margin: "0 0 18px" }}>{featured.title}</h2>

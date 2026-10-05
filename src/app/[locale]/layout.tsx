@@ -75,7 +75,7 @@ export default async function LocaleLayout({
     <html lang={locale} data-scroll-behavior="smooth" className={`dark ${fontVars}`}>
       <body>
         <NextIntlClientProvider>
-          <JsonLd data={websiteLd()} />
+          <JsonLd data={websiteLd(locale)} />
           <JsonLd data={organizationLd()} />
           <Nav />
           <main>{children}</main>

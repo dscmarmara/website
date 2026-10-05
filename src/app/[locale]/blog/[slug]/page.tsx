@@ -89,7 +89,7 @@ export default async function BlogDetailPage({
 
   const dateLabel = format
     .dateTime(new Date(post.date), { year: "numeric", month: "short", day: "numeric" })
-    .toUpperCase();
+    .toLocaleUpperCase(locale);
 
   return (
     <>
