@@ -260,3 +260,69 @@ export const ABOUT_DEPARTMENTS: AboutDepartment[] = [
     },
   },
 ];
+
+/**
+ * WhatsApp number shop orders go to: country code + number, digits only
+ * (e.g. 905xxxxxxxxx). PLACEHOLDER — replace with the club's number before launch.
+ */
+export const SHOP_WHATSAPP = "905555555555";
+
+export interface ShopProduct {
+  id: string;
+  /** Which placeholder drawing to show until there is a product photo. */
+  art: "tshirt" | "hoodie" | "cap";
+  name: Localized;
+  desc: Localized;
+  /** In TRY. */
+  price: number;
+  /** Empty for one-size items. */
+  sizes: string[];
+}
+
+// Example prices and copy — replace with the real ones before launch.
+export const SHOP_PRODUCTS: ShopProduct[] = [
+  {
+    id: "tshirt",
+    art: "tshirt",
+    name: { en: "DSC T-Shirt", tr: "DSC Tişört" },
+    desc: {
+      en: "Heavyweight cotton tee with the DSC logo on the chest.",
+      tr: "Göğsünde DSC logosu olan kalın pamuklu tişört.",
+    },
+    price: 350,
+    sizes: ["S", "M", "L", "XL"],
+  },
+  {
+    id: "hoodie",
+    art: "hoodie",
+    name: { en: "DSC Hoodie", tr: "DSC Hoodie" },
+    desc: {
+      en: "Black hoodie with the club wordmark across the front.",
+      tr: "Önünde kulüp yazısı olan siyah hoodie.",
+    },
+    price: 750,
+    sizes: ["S", "M", "L", "XL", "XXL"],
+  },
+  {
+    id: "zip-hoodie",
+    art: "hoodie",
+    name: { en: "DSC Zip Hoodie", tr: "DSC Fermuarlı Hoodie" },
+    desc: {
+      en: "Full-zip hoodie with a small logo on the chest and a large one on the back.",
+      tr: "Göğsünde küçük, sırtında büyük logo olan fermuarlı hoodie.",
+    },
+    price: 850,
+    sizes: ["S", "M", "L", "XL", "XXL"],
+  },
+  {
+    id: "cap",
+    art: "cap",
+    name: { en: "DSC Cap", tr: "DSC Şapka" },
+    desc: {
+      en: "Embroidered logo, adjustable strap.",
+      tr: "Nakış logolu, ayarlanabilir şapka.",
+    },
+    price: 300,
+    sizes: [],
+  },
+];

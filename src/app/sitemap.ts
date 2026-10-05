@@ -23,7 +23,7 @@ async function entry(
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const entries: MetadataRoute.Sitemap = [];
 
-  for (const href of ["/", "/about", "/team", "/blog", "/contact"]) {
+  for (const href of ["/", "/about", "/team", "/blog", "/shop", "/contact"]) {
     entries.push(await entry(href));
   }
   for (const slug of getMemberSlugs()) {

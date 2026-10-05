@@ -24,6 +24,10 @@
       "title": "Contact",
       "description": "Want to join, sponsor us, or collaborate? Drop us a line — a real student reads every message."
     },
+    "shop": {
+      "title": "Shop",
+      "description": "DSC Marmara club merch: tees, hoodies and caps, ordered over WhatsApp."
+    },
     "notFound": {
       "title": "Page not found",
       "description": "The page you were looking for doesn't exist."
@@ -34,6 +38,7 @@
     "about": "About",
     "team": "Team",
     "blog": "Blog",
+    "shop": "Shop",
     "contact": "Contact",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
@@ -52,6 +57,7 @@
     "linkHome": "Home",
     "linkAbout": "About the Club",
     "linkBlog": "Blog & Columns",
+    "linkShop": "Shop",
     "linkContact": "Contact",
     "copyright": "© 2026 Data Science Club · Marmara University. All rights reserved.",
     "tagline": "Built by students, for builders."
@@ -165,6 +171,17 @@
     "applyTitle": "Ready to apply?",
     "applyBody": "Membership applications open at the start of every semester.",
     "applyNow": "Apply now →"
+  },
+  "shop": {
+    "eyebrow": "SHOP",
+    "heroTitle": "Wear the club",
+    "heroSub": "Club tees, hoodies and caps. Orders go through WhatsApp: pick your item and size, send the message, and we'll sort out payment and pickup with you.",
+    "sizeLabel": "SIZE",
+    "oneSize": "One size",
+    "sizeUnset": "not chosen yet",
+    "order": "Order on WhatsApp →",
+    "orderMessage": "Hi! I'd like to order the {product}. Size: {size}",
+    "photoSoon": "photo coming soon"
   },
   "roles": {
     "president": "PRESIDENT",

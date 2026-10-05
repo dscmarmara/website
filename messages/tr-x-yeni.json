@@ -24,6 +24,10 @@
       "title": "İletişim",
       "description": "Katılmak, sponsor olmak ya da iş birliği yapmak mı istiyorsun? Bize yaz — her mesajı gerçek bir öğrenci okuyor."
     },
+    "shop": {
+      "title": "Mağaza",
+      "description": "DSC Marmara kulüp ürünleri: tişört, hoodie ve şapka; siparişler WhatsApp üzerinden."
+    },
     "notFound": {
       "title": "Sayfa bulunamadı",
       "description": "Aradığın sayfa mevcut değil."
@@ -34,6 +38,7 @@
     "about": "Hakkımızda",
     "team": "Ekip",
     "blog": "Blog",
+    "shop": "Mağaza",
     "contact": "İletişim",
     "openMenu": "Menüyü aç",
     "closeMenu": "Menüyü kapat",
@@ -52,6 +57,7 @@
     "linkHome": "Anasayfa",
     "linkAbout": "Kulüp Hakkında",
     "linkBlog": "Blog & Köşe Yazıları",
+    "linkShop": "Mağaza",
     "linkContact": "İletişim",
     "copyright": "© 2026 Data Science Club · Marmara Üniversitesi. Tüm hakları saklıdır."
   },
@@ -165,6 +171,17 @@
     "applyTitle": "Başvurmaya hazır mısın?",
     "applyBody": "Üyelik başvuruları her dönem başında açılıyor.",
     "applyNow": "Hemen başvur →"
+  },
+  "shop": {
+    "eyebrow": "MAĞAZA",
+    "heroTitle": "Kulübü üzerinde taşı",
+    "heroSub": "Kulüp tişörtleri, hoodie'leri ve şapkaları. Siparişler WhatsApp üzerinden alınıyor: ürünü ve bedeni seç, mesajı gönder; ödemeyi ve teslimatı seninle birlikte ayarlayalım.",
+    "sizeLabel": "BEDEN",
+    "oneSize": "Tek beden",
+    "sizeUnset": "henüz seçmedim",
+    "order": "WhatsApp'tan sipariş ver →",
+    "orderMessage": "Merhaba! Şu ürünü sipariş etmek istiyorum: {product}. Beden: {size}",
+    "photoSoon": "fotoğraf yakında"
   },
   "roles": {
     "president": "BAŞKAN",

@@ -336,6 +336,25 @@
   box-shadow: var(--glow-soft);
 }
 
+/* shop: product grid (4 → 2 → 1 columns without breakpoints) and size picker.
+   Size chips keep their base look in CSS, not inline, so .chip hover/active can win. */
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 24px;
+}
+.size-chip {
+  min-width: 40px;
+  padding: 6px 12px;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  background: var(--bg-elev);
+  color: var(--text-muted);
+  font-family: var(--font-body-stack);
+  font-weight: 600;
+  font-size: 12.5px;
+}
+
 .post-row {
   transition: padding-left 0.3s cubic-bezier(0.4, 0.8, 0.3, 1), border-color 0.3s ease;
 }
@@ -421,11 +440,12 @@
   }
 }
 
-/* nav desktop/mobile switch at the prototype's 880px breakpoint */
+/* nav desktop/mobile switch. Was the prototype's 880px; raised so six links,
+   the brand lockup and the language pill still fit on one line. */
 .nav-mobile {
   display: none;
 }
-@media (max-width: 880px) {
+@media (max-width: 1040px) {
   .nav-desktop {
     display: none !important;
   }
@@ -434,7 +454,7 @@
   }
 }
 /* mobile menu is an inline collapsible below the bar (like the prototype), not a drawer */
-@media (min-width: 881px) {
+@media (min-width: 1041px) {
   .nav-collapse {
     display: none !important;
   }

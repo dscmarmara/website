@@ -28,6 +28,10 @@ Hakkımızda'daki Türkçe "Odak Alanları" etiketleri yalnızca TR YENİ'de var
   ("Built by students, for builders.") ve TR'de şimdilik duruyor. Kaldırılmasına karar verilirse `footer.tagline`'ı
   `messages/en.json` ve `messages/tr.json`'dan da sil; hiçbir dilde kalmazsa `src/components/layout/Footer.tsx`'teki
   `t.has("tagline")` bloğu da silinebilir.
+- **Mağaza yer tutucularla duruyor, yayına almadan önce değiştir.** Hepsi `src/lib/constants.ts` içinde:
+  - WhatsApp numarası `SHOP_WHATSAPP` sahte (`905555555555`).
+  - Fiyatlar ve ürün açıklamaları `SHOP_PRODUCTS` içinde örnek değerler.
+  - Ürün görselleri çizim (`src/components/shop/ProductArt.tsx`). Fotoğraflar gelince kartta `next/image` ile değiştirilir.
 
 **Yeni çeviriyi kesinleştirmek** (main'e merge etmeden önce yapılmalı):
 
@@ -54,6 +58,9 @@ Hakkımızda'daki Türkçe "Odak Alanları" etiketleri yalnızca TR YENİ'de var
 | Blog yazıları | `content/blog/tr/<slug>.mdx` | aşağıdaki "Blog" bölümüne bak |
 | Arama motorlarına verilen Türkçe kulüp adı | `src/lib/seo.ts` | `SITE_NAME_TR` |
 | İletişim formundan kulübe gelen e-posta | `src/lib/zoho.ts` | `sendContactMail` içindeki "Gönderen:", "Konu:"… |
+| Mağaza sayfası yazıları (başlık, buton, WhatsApp mesajı) | `messages/tr.json` | `shop` |
+| Mağaza ürünleri (ad, açıklama, fiyat, beden) | `src/lib/constants.ts` | `SHOP_PRODUCTS` → `name.tr`, `desc.tr`, `price`, `sizes` |
+| Siparişlerin gideceği WhatsApp numarası | `src/lib/constants.ts` | `SHOP_WHATSAPP` |
 
 ## `messages/tr.json`: sitedeki yazıların çoğu
 
@@ -69,6 +76,7 @@ Hakkımızda'daki Türkçe "Odak Alanları" etiketleri yalnızca TR YENİ'de var
 | `member` | Üye profil sayfasındaki etiketler |
 | `blog` | Blog listesi ve yazı sayfasındaki etiketler |
 | `contact` | İletişim sayfası, form etiketleri, hata ve başarı mesajları |
+| `shop` | Mağaza sayfası: başlık, beden etiketi, sipariş butonu, WhatsApp'a giden hazır mesaj (`{product}` ve `{size}` yer tutucularına dokunma) |
 | `roles` | BAŞKAN, DİREKTÖR… |
 | `kpiLabels` | Üye sayfasındaki istatistik etiketleri (MAKALE, ETKİNLİK…) |
 | `notFound` | 404 sayfası |
