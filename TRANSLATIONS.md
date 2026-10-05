@@ -21,6 +21,14 @@ ikisi arasında geçip farkları görebilirsin. Adres: `/tr-x-yeni/...`. Bu sayf
 Hakkımızda'daki Türkçe "Odak Alanları" etiketleri yalnızca TR YENİ'de var:
 `src/lib/constants.ts` → `ABOUT_DEPARTMENTS[].focusByLocale["tr-x-yeni"]`. TR ve İngilizce `focus` etiketlerini gösterir.
 
+**Açık notlar (karar bekliyor):**
+
+- **Footer sloganı TR YENİ'de kaldırıldı.** "Öğrenciler tarafından, üretenler için." `messages/tr-x-yeni.json`'da yok
+  (`footer.tagline` anahtarı silindi; footer anahtar yoksa satırı hiç göstermiyor). İngilizcede
+  ("Built by students, for builders.") ve TR'de şimdilik duruyor. Kaldırılmasına karar verilirse `footer.tagline`'ı
+  `messages/en.json` ve `messages/tr.json`'dan da sil; hiçbir dilde kalmazsa `src/components/layout/Footer.tsx`'teki
+  `t.has("tagline")` bloğu da silinebilir.
+
 **Yeni çeviriyi kesinleştirmek** (main'e merge etmeden önce yapılmalı):
 
 1. `messages/tr-x-yeni.json` içeriğini `messages/tr.json`'un üzerine kopyala, ardından `tr-x-yeni.json`'u sil.
