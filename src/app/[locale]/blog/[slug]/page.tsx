@@ -14,7 +14,7 @@ import {
   LinkedInIcon,
 } from "@/components/common/SocialIcons";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { getPostBySlug, getPostSlugs } from "@/lib/posts";
+import { getPostBySlug, getPostSlugs, localeChain } from "@/lib/posts";
 import { getMemberBySlug, displayRole, pick } from "@/lib/members";
 import { buildAlternates, SITE_URL } from "@/lib/seo";
 import { routing } from "@/i18n/routing";
@@ -26,11 +26,15 @@ export function generateStaticParams() {
 }
 
 async function importBody(locale: string, slug: string) {
-  try {
-    return await import(`@content/blog/${locale}/${slug}.mdx`);
-  } catch {
-    return await import(`@content/blog/${routing.defaultLocale}/${slug}.mdx`);
+  const chain = localeChain(locale);
+  for (const l of chain.slice(0, -1)) {
+    try {
+      return await import(`@content/blog/${l}/${slug}.mdx`);
+    } catch {
+      // Not translated into this locale; try the next one in the chain.
+    }
   }
+  return await import(`@content/blog/${chain[chain.length - 1]}/${slug}.mdx`);
 }
 
 export async function generateMetadata({

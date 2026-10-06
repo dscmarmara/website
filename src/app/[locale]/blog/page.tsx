@@ -93,9 +93,10 @@ export default async function BlogPage({
           </div>
         )}
 
-        {all.length > 0 ? (
+        {/* Only the featured post so far → nothing to list or filter below it. */}
+        {rowData.length > 0 ? (
           <BlogFilter posts={rowData} />
-        ) : (
+        ) : all.length > 0 ? null : (
           /* No posts yet — the category chips would be pointless, so show a placeholder instead. */
           <div
             data-reveal

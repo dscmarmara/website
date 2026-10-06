@@ -23,6 +23,14 @@ export interface Post extends PostFrontmatter {
 
 const localeDir = (locale: string) => path.join(CONTENT_DIR, locale);
 
+/**
+ * Content folders to try for a locale, in order: the locale itself, its base
+ * language ("tr-x-yeni" → "tr"), then the default locale.
+ */
+export function localeChain(locale: string): string[] {
+  return [...new Set([locale, locale.split("-")[0], routing.defaultLocale])];
+}
+
 export function getPostSlugs(): string[] {
   // Slugs are language-independent; the default-locale folder is canonical.
   const dir = localeDir(routing.defaultLocale);
@@ -38,12 +46,11 @@ export function getPostSlugs(): string[] {
 }
 
 function readFrontmatter(slug: string, locale: string): Post | null {
-  let file = path.join(localeDir(locale), `${slug}.mdx`);
-  if (!fs.existsSync(file)) {
-    // Missing translation → fall back to the default locale.
-    file = path.join(localeDir(routing.defaultLocale), `${slug}.mdx`);
-    if (!fs.existsSync(file)) return null;
-  }
+  // Missing translation → fall back along localeChain.
+  const file = localeChain(locale)
+    .map((l) => path.join(localeDir(l), `${slug}.mdx`))
+    .find((f) => fs.existsSync(f));
+  if (!file) return null;
   const { data } = matter(fs.readFileSync(file, "utf8"));
   return { slug, ...(data as PostFrontmatter) };
 }

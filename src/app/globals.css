@@ -650,6 +650,14 @@ details.dsc-acc[open] .acc-title {
   color: var(--text);
   margin: 46px 0 18px;
 }
+.article h3 {
+  font-family: var(--font-display-stack);
+  font-weight: 600;
+  font-size: clamp(20px, 2.2vw, 24px);
+  letter-spacing: normal;
+  color: var(--text);
+  margin: 40px 0 14px;
+}
 .article strong {
   color: var(--text);
   font-weight: 600;
