@@ -72,13 +72,6 @@ export function Footer() {
       <div style={{ borderTop: "1px solid var(--border)" }}>
         <div style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "20px 24px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, flexWrap: "wrap" }}>
           <span style={{ fontFamily: "var(--font-body-stack)", fontSize: 13, color: "var(--text-muted)" }}>{t("copyright")}</span>
-          {/* The review locale (TR YENİ) drops the tagline; EN/TR keep it for now (see TRANSLATIONS.md). */}
-          {t.has("tagline") && (
-            <span style={{ fontFamily: "var(--font-body-stack)", fontSize: 12, letterSpacing: "0.05em", color: "var(--text-muted)", display: "flex", alignItems: "center", gap: 8 }}>
-              <span style={{ width: 7, height: 7, borderRadius: "50%", background: "var(--accent)", boxShadow: "var(--glow-soft)" }} />
-              {t("tagline")}
-            </span>
-          )}
         </div>
       </div>
     </footer>

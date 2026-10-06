@@ -23,11 +23,6 @@ Hakkımızda'daki Türkçe "Odak Alanları" etiketleri yalnızca TR YENİ'de var
 
 **Açık notlar (karar bekliyor):**
 
-- **Footer sloganı TR YENİ'de kaldırıldı.** "Öğrenciler tarafından, üretenler için." `messages/tr-x-yeni.json`'da yok
-  (`footer.tagline` anahtarı silindi; footer anahtar yoksa satırı hiç göstermiyor). İngilizcede
-  ("Built by students, for builders.") ve TR'de şimdilik duruyor. Kaldırılmasına karar verilirse `footer.tagline`'ı
-  `messages/en.json` ve `messages/tr.json`'dan da sil; hiçbir dilde kalmazsa `src/components/layout/Footer.tsx`'teki
-  `t.has("tagline")` bloğu da silinebilir.
 - **Mağaza yer tutucularla duruyor, yayına almadan önce değiştir.** Hepsi `src/lib/constants.ts` içinde:
   - WhatsApp numarası `SHOP_WHATSAPP` sahte (`905555555555`).
   - Fiyatlar ve ürün açıklamaları `SHOP_PRODUCTS` içinde örnek değerler.
