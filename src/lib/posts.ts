@@ -25,7 +25,7 @@ const localeDir = (locale: string) => path.join(CONTENT_DIR, locale);
 
 /**
  * Content folders to try for a locale, in order: the locale itself, its base
- * language ("tr-x-yeni" → "tr"), then the default locale.
+ * language ("tr-x-eski" → "tr"), then the default locale.
  */
 export function localeChain(locale: string): string[] {
   return [...new Set([locale, locale.split("-")[0], routing.defaultLocale])];

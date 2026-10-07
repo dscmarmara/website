@@ -35,7 +35,7 @@ export const HOME_STATS: HomeStat[] = [
   { num: "6", label: { en: "DEPARTMENTS", tr: "DEPARTMAN" } },
   { num: "400+", label: { en: "ACTIVE MEMBERS", tr: "AKTİF ÜYE" } },
   // { num: "30+", label: { en: "PROJECTS SHIPPED", tr: "YAYINLANAN PROJE" } },
-  { num: "12", label: { en: "EVENTS / YEAR", tr: "YILLIK ETKİNLİK", "tr-x-yeni": "ETKİNLİK / YIL" } },
+  { num: "12", label: { en: "EVENTS / YEAR", tr: "ETKİNLİK / YIL", "tr-x-eski": "YILLIK ETKİNLİK" } },
 ];
 
 export interface HomeProject {
@@ -90,8 +90,8 @@ export const HOME_DEPARTMENTS: HomeDepartment[] = [
     name: "Data Insights",
     desc: {
       en: "EDA, BI and storytelling with Tableau, Power BI and Matplotlib.",
-      tr: "Tableau, Power BI ve Matplotlib ile keşifsel analiz, iş zekâsı ve hikâye anlatımı.",
-      "tr-x-yeni": "EDA, BI ve Tableau, Power BI ve Matplotlib ile veri hikâyeleştirme.",
+      tr: "EDA, BI ve Tableau, Power BI ve Matplotlib ile veri hikâyeleştirme.",
+      "tr-x-eski": "Tableau, Power BI ve Matplotlib ile keşifsel analiz, iş zekâsı ve hikâye anlatımı.",
     },
   },
   {
@@ -107,8 +107,8 @@ export const HOME_DEPARTMENTS: HomeDepartment[] = [
     name: "Data Pipelines",
     desc: {
       en: "Data engineering, ETL, Hadoop/Spark, SQL/NoSQL and the cloud.",
-      tr: "Veri mühendisliği, ETL, Hadoop/Spark, SQL/NoSQL ve bulut.",
-      "tr-x-yeni": "Veri mühendisliği, ETL, Hadoop/Spark, SQL/NoSQL ve bulut teknolojileri.",
+      tr: "Veri mühendisliği, ETL, Hadoop/Spark, SQL/NoSQL ve bulut teknolojileri.",
+      "tr-x-eski": "Veri mühendisliği, ETL, Hadoop/Spark, SQL/NoSQL ve bulut.",
     },
   },
   {
@@ -116,8 +116,8 @@ export const HOME_DEPARTMENTS: HomeDepartment[] = [
     name: "Summits & Awards",
     desc: {
       en: "Summits, award nights and our flagship Datathon & Hackathon.",
-      tr: "Zirveler, ödül geceleri ve amiral gemimiz Datathon & Hackathon.",
-      "tr-x-yeni": "Zirveler, ödül geceleri ve amiral gemisi etkinliğimiz Datathon & Hackathon.",
+      tr: "Zirveler, ödül geceleri ve amiral gemisi etkinliğimiz Datathon & Hackathon.",
+      "tr-x-eski": "Zirveler, ödül geceleri ve amiral gemimiz Datathon & Hackathon.",
     },
   },
   {
@@ -125,8 +125,8 @@ export const HOME_DEPARTMENTS: HomeDepartment[] = [
     name: "Finance & Corporate",
     desc: {
       en: "Sponsorship, budgeting and relationships with industry partners.",
-      tr: "Sponsorluk, bütçeleme ve sektör partnerleriyle ilişkiler.",
-      "tr-x-yeni": "Sponsorluk, bütçe yönetimi ve sektör paydaşlarıyla ilişkiler.",
+      tr: "Sponsorluk, bütçe yönetimi ve sektör paydaşlarıyla ilişkiler.",
+      "tr-x-eski": "Sponsorluk, bütçeleme ve sektör partnerleriyle ilişkiler.",
     },
   },
   {
@@ -134,8 +134,8 @@ export const HOME_DEPARTMENTS: HomeDepartment[] = [
     name: "PR",
     desc: {
       en: "Social media, graphic design, content and media relations.",
-      tr: "Sosyal medya, grafik tasarım, içerik ve medya ilişkileri.",
-      "tr-x-yeni": "Sosyal medya, grafik tasarım, içerik üretimi ve medya ilişkileri.",
+      tr: "Sosyal medya, grafik tasarım, içerik üretimi ve medya ilişkileri.",
+      "tr-x-eski": "Sosyal medya, grafik tasarım, içerik ve medya ilişkileri.",
     },
   },
 ];
@@ -156,17 +156,17 @@ export const ABOUT_DEPARTMENTS: AboutDepartment[] = [
     name: "Data Insights",
     purpose: {
       en: "Turn raw university and open datasets into clear decisions through exploratory analysis and business intelligence.",
-      tr: "Ham üniversite ve açık veri setlerini keşifsel analiz ve iş zekâsı yoluyla net kararlara dönüştürmek.",
-      "tr-x-yeni": "Ham verinin içindeki saklı hikâyeleri keşfetmek, anlamlandırmak ve karar alıcılara rehberlik edecek stratejik içgörülere dönüştürmek.",
+      tr: "Ham verinin içindeki saklı hikâyeleri keşfetmek, anlamlandırmak ve karar alıcılara rehberlik edecek stratejik içgörülere dönüştürmek.",
+      "tr-x-eski": "Ham üniversite ve açık veri setlerini keşifsel analiz ve iş zekâsı yoluyla net kararlara dönüştürmek.",
     },
     focus: ["EDA", "BI", "Tableau", "Power BI", "Matplotlib"],
     focusByLocale: {
-      "tr-x-yeni": ["Keşifçi Veri Analizi (EDA)", "Veri temizleme", "İstatistiksel çıkarımlar", "İş zekâsı (BI)", "Veri görselleştirme", "Veri hikâyeleştirme", "Tableau", "Power BI", "Matplotlib / Seaborn"],
+      tr: ["Keşifçi Veri Analizi (EDA)", "Veri temizleme", "İstatistiksel çıkarımlar", "İş zekâsı (BI)", "Veri görselleştirme", "Veri hikâyeleştirme", "Tableau", "Power BI", "Matplotlib / Seaborn"],
     },
     vision: {
       en: "Make data literacy a default skill for every Marmara student, not a specialism.",
-      tr: "Veri okuryazarlığını her Marmara öğrencisi için bir uzmanlık değil, varsayılan bir beceri hâline getirmek.",
-      "tr-x-yeni": "Kulüp içindeki ve dışındaki paydaşlara yalnızca grafikler sunan değil, “Veri ne anlatıyor?” sorusuna en net ve çarpıcı yanıtları veren, veri okuryazarlığı yüksek analistler yetiştirmek.",
+      tr: "Kulüp içindeki ve dışındaki paydaşlara yalnızca grafikler sunan değil, “Veri ne anlatıyor?” sorusuna en net ve çarpıcı yanıtları veren, veri okuryazarlığı yüksek analistler yetiştirmek.",
+      "tr-x-eski": "Veri okuryazarlığını her Marmara öğrencisi için bir uzmanlık değil, varsayılan bir beceri hâline getirmek.",
     },
   },
   {
@@ -174,17 +174,17 @@ export const ABOUT_DEPARTMENTS: AboutDepartment[] = [
     name: "Core AI",
     purpose: {
       en: "Research and build intelligent systems — from classic ML to deep learning, language and vision.",
-      tr: "Zeki sistemler araştırmak ve inşa etmek — klasik makine öğrenmesinden derin öğrenmeye, dile ve görüye kadar.",
-      "tr-x-yeni": "İleri düzey algoritmalar ve matematiksel modeller geliştirerek yapay zekâ teknolojilerini teoriden pratiğe taşımak; bunları ekipler hâlinde Kaggle yarışmalarına ve projelere uygulamak.",
+      tr: "İleri düzey algoritmalar ve matematiksel modeller geliştirerek yapay zekâ teknolojilerini teoriden pratiğe taşımak; bunları ekipler hâlinde Kaggle yarışmalarına ve projelere uygulamak.",
+      "tr-x-eski": "Zeki sistemler araştırmak ve inşa etmek — klasik makine öğrenmesinden derin öğrenmeye, dile ve görüye kadar.",
     },
     focus: ["Machine Learning", "Deep Learning", "NLP", "Computer Vision", "Python"],
     focusByLocale: {
-      "tr-x-yeni": ["Makine Öğrenmesi", "Derin Öğrenme", "Doğal Dil İşleme (NLP)", "Bilgisayarlı Görü", "Python", "Scikit-Learn", "TensorFlow", "PyTorch"],
+      tr: ["Makine Öğrenmesi", "Derin Öğrenme", "Doğal Dil İşleme (NLP)", "Bilgisayarlı Görü", "Python", "Scikit-Learn", "TensorFlow", "PyTorch"],
     },
     vision: {
       en: "Ship student-built models that solve real problems on and off campus.",
-      tr: "Kampüs içinde ve dışında gerçek problemleri çözen, öğrencilerin yaptığı modeller çıkarmak.",
-      "tr-x-yeni": "Yapay zekâyı yalnızca tüketen değil, özgün modeller tasarlayan, küresel trendleri (LLM'ler, Generative AI) yakından takip eden ve geliştirdiği algoritmalarla katma değer üreten bir yapay zekâ mühendisliği kültürü oluşturmak.",
+      tr: "Yapay zekâyı yalnızca tüketen değil, özgün modeller tasarlayan, küresel trendleri (LLM'ler, Generative AI) yakından takip eden ve geliştirdiği algoritmalarla katma değer üreten bir yapay zekâ mühendisliği kültürü oluşturmak.",
+      "tr-x-eski": "Kampüs içinde ve dışında gerçek problemleri çözen, öğrencilerin yaptığı modeller çıkarmak.",
     },
   },
   {
@@ -192,17 +192,17 @@ export const ABOUT_DEPARTMENTS: AboutDepartment[] = [
     name: "Data Pipelines",
     purpose: {
       en: "Engineer the plumbing that moves, cleans and stores data reliably at scale.",
-      tr: "Veriyi güvenilir biçimde ve ölçekli taşıyan, temizleyen ve depolayan altyapıyı mühendislemek.",
-      "tr-x-yeni": "Milyonlarca satırlık verinin güvenli, hızlı ve kesintisiz akışını sağlayan veri hatlarını inşa etmek. Core AI ve Data Insights ekiplerinin ihtiyaç duyduğu temiz veri altyapısını hazırlamak.",
+      tr: "Milyonlarca satırlık verinin güvenli, hızlı ve kesintisiz akışını sağlayan veri hatlarını inşa etmek. Core AI ve Data Insights ekiplerinin ihtiyaç duyduğu temiz veri altyapısını hazırlamak.",
+      "tr-x-eski": "Veriyi güvenilir biçimde ve ölçekli taşıyan, temizleyen ve depolayan altyapıyı mühendislemek.",
     },
     focus: ["Data Engineering", "ETL", "Hadoop / Spark", "SQL / NoSQL", "Cloud"],
     focusByLocale: {
-      "tr-x-yeni": ["Veri Mühendisliği", "ETL süreçleri", "Büyük veri (Hadoop, Spark)", "Veri tabanı yönetimi (SQL, NoSQL)", "Web scraping", "Bulut (AWS, Google Cloud)"],
+      tr: ["Veri Mühendisliği", "ETL süreçleri", "Büyük veri (Hadoop, Spark)", "Veri tabanı yönetimi (SQL, NoSQL)", "Web scraping", "Bulut (AWS, Google Cloud)"],
     },
     vision: {
       en: "Give every club project a production-grade backbone it can trust.",
-      tr: "Her kulüp projesine güvenebileceği üretim düzeyinde bir omurga sağlamak.",
-      "tr-x-yeni": "“Büyük veri” kaosunu düzenli ve işlenebilir sistemlere dönüştüren, ölçeklenebilir altyapılar kuran ve kulübü veri mühendisliği alanında ileri taşıyan sistem mimarları yetiştirmek.",
+      tr: "“Büyük veri” kaosunu düzenli ve işlenebilir sistemlere dönüştüren, ölçeklenebilir altyapılar kuran ve kulübü veri mühendisliği alanında ileri taşıyan sistem mimarları yetiştirmek.",
+      "tr-x-eski": "Her kulüp projesine güvenebileceği üretim düzeyinde bir omurga sağlamak.",
     },
   },
   {
@@ -210,17 +210,17 @@ export const ABOUT_DEPARTMENTS: AboutDepartment[] = [
     name: "Summits & Awards",
     purpose: {
       en: "Run the events that bring the community together — summits, award nights and competitions.",
-      tr: "Topluluğu bir araya getiren etkinlikleri düzenlemek — zirveler, ödül geceleri ve yarışmalar.",
-      "tr-x-yeni": "Kulübün imza niteliğindeki büyük etkinliklerini, ulusal çapta ses getirecek veri yarışmalarını (Datathon/Hackathon) ve veri bilimi zirvelerini baştan sona kurgulamak ve yönetmek.",
+      tr: "Kulübün imza niteliğindeki büyük etkinliklerini, ulusal çapta ses getirecek veri yarışmalarını (Datathon/Hackathon) ve veri bilimi zirvelerini baştan sona kurgulamak ve yönetmek.",
+      "tr-x-eski": "Topluluğu bir araya getiren etkinlikleri düzenlemek — zirveler, ödül geceleri ve yarışmalar.",
     },
     focus: ["Summits", "Award Nights", "Datathon", "Hackathon"],
     focusByLocale: {
-      "tr-x-yeni": ["Zirve planlaması", "Ödül geceleri", "Datathon", "Hackathon", "Organizasyon ve lojistik"],
+      tr: ["Zirve planlaması", "Ödül geceleri", "Datathon", "Hackathon", "Organizasyon ve lojistik"],
     },
     vision: {
       en: "Make our Datathon the event students in Istanbul circle on their calendars.",
-      tr: "Datathon'umuzu İstanbul'daki öğrencilerin takvimlerinde işaretlediği etkinlik hâline getirmek.",
-      "tr-x-yeni": "Marmara Üniversitesi'ni Türkiye'nin veri bilimi alanındaki en prestijli etkinlik merkezlerinden biri hâline getirmek; sektör ve akademiyi buluşturan kusursuz katılımcı deneyimleri tasarlamak.",
+      tr: "Marmara Üniversitesi'ni Türkiye'nin veri bilimi alanındaki en prestijli etkinlik merkezlerinden biri hâline getirmek; sektör ve akademiyi buluşturan kusursuz katılımcı deneyimleri tasarlamak.",
+      "tr-x-eski": "Datathon'umuzu İstanbul'daki öğrencilerin takvimlerinde işaretlediği etkinlik hâline getirmek.",
     },
   },
   {
@@ -228,17 +228,17 @@ export const ABOUT_DEPARTMENTS: AboutDepartment[] = [
     name: "Finance & Corporate Relations",
     purpose: {
       en: "Keep the club funded and connected through sponsorship, budgeting and industry partnerships.",
-      tr: "Kulübü sponsorluk, bütçeleme ve sektör ortaklıklarıyla finanse ve bağlantılı tutmak.",
-      "tr-x-yeni": "Kulübün finansal sürdürülebilirliğini sağlamak, bütçeyi yönetmek ve büyük projeler için teknokent firmaları ve global şirketlerle stratejik sponsorluklar ve iş ortaklıkları kurmak.",
+      tr: "Kulübün finansal sürdürülebilirliğini sağlamak, bütçeyi yönetmek ve büyük projeler için teknokent firmaları ve global şirketlerle stratejik sponsorluklar ve iş ortaklıkları kurmak.",
+      "tr-x-eski": "Kulübü sponsorluk, bütçeleme ve sektör ortaklıklarıyla finanse ve bağlantılı tutmak.",
     },
     focus: ["Sponsorship", "Budgeting", "Corporate Relations"],
     focusByLocale: {
-      "tr-x-yeni": ["Sponsorluk dosyaları", "Kurumsal sunumlar", "Bütçe planlaması", "Nakit akışı yönetimi", "Staj ve istihdam köprüleri", "Mezun ağı"],
+      tr: ["Sponsorluk dosyaları", "Kurumsal sunumlar", "Bütçe planlaması", "Nakit akışı yönetimi", "Staj ve istihdam köprüleri", "Mezun ağı"],
     },
     vision: {
       en: "Build a partner network that turns into internships and first jobs for members.",
-      tr: "Üyeler için staja ve ilk işlere dönüşen bir partner ağı kurmak.",
-      "tr-x-yeni": "Kulübü finansal açıdan bağımsız ve kendi kendine yeten bir yapıya ulaştırmak; kurumsal şirketlerin Marmara Veri Bilimi Kulübü'nü bir “öğrenci topluluğu” olarak değil, profesyonel bir stratejik partner olarak görmesini sağlamak.",
+      tr: "Kulübü finansal açıdan bağımsız ve kendi kendine yeten bir yapıya ulaştırmak; kurumsal şirketlerin Marmara Veri Bilimi Kulübü'nü bir “öğrenci topluluğu” olarak değil, profesyonel bir stratejik partner olarak görmesini sağlamak.",
+      "tr-x-eski": "Üyeler için staja ve ilk işlere dönüşen bir partner ağı kurmak.",
     },
   },
   {
@@ -246,17 +246,17 @@ export const ABOUT_DEPARTMENTS: AboutDepartment[] = [
     name: "PR",
     purpose: {
       en: "Tell the club's story and grow its voice across every channel.",
-      tr: "Kulübün hikâyesini anlatmak ve sesini her kanalda büyütmek.",
-      "tr-x-yeni": "Kulübün dış dünyaya açılan vitrini, sesi ve yüzü olmak; teknik projeleri, büyük etkinlikleri ve marka kimliğini topluluğa ve sektöre en doğru ve etkili şekilde anlatmak.",
+      tr: "Kulübün dış dünyaya açılan vitrini, sesi ve yüzü olmak; teknik projeleri, büyük etkinlikleri ve marka kimliğini topluluğa ve sektöre en doğru ve etkili şekilde anlatmak.",
+      "tr-x-eski": "Kulübün hikâyesini anlatmak ve sesini her kanalda büyütmek.",
     },
     focus: ["Social Media", "Graphic Design", "Content", "Media Relations"],
     focusByLocale: {
-      "tr-x-yeni": ["Sosyal medya yönetimi", "Grafik tasarım", "Marka kimliği ve kurumsal dil", "Video ve içerik üretimi", "Kriz iletişimi", "Medya ilişkileri"],
+      tr: ["Sosyal medya yönetimi", "Grafik tasarım", "Marka kimliği ve kurumsal dil", "Video ve içerik üretimi", "Kriz iletişimi", "Medya ilişkileri"],
     },
     vision: {
       en: "Become the most recognisable student data brand in Turkey.",
-      tr: "Türkiye'nin en tanınan öğrenci veri markası olmak.",
-      "tr-x-yeni": "Kulübün imajını bir teknoloji start-up'ı netliğinde konumlandırmak; teknik ekiplerin ürettiği karmaşık kodları ve analizleri çarpıcı infografikler ve teknik içeriklerle görünür kılarak kulübün marka değerini yükseltmek.",
+      tr: "Kulübün imajını bir teknoloji start-up'ı netliğinde konumlandırmak; teknik ekiplerin ürettiği karmaşık kodları ve analizleri çarpıcı infografikler ve teknik içeriklerle görünür kılarak kulübün marka değerini yükseltmek.",
+      "tr-x-eski": "Türkiye'nin en tanınan öğrenci veri markası olmak.",
     },
   },
 ];

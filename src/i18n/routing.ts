@@ -1,13 +1,13 @@
 import { defineRouting } from "next-intl/routing";
 
 /**
- * TEMPORARY review locale: the proposed new Turkish copy, served at /tr-x-yeni
- * next to the current one at /tr so the two can be compared page by page
- * ("TR YENİ" in the language switch). Kept out of hreflang, the sitemap and
- * search indexes. Remove before merging into main — steps in TRANSLATIONS.md.
+ * TEMPORARY review locale: the previous Turkish copy, kept at /tr-x-eski so it
+ * can still be compared page by page with the new one at /tr ("TR ESKİ" in
+ * the dev options bar). Kept out of hreflang, the sitemap and search indexes.
+ * Remove once nobody needs the old copy — steps in TRANSLATIONS.md.
  * A BCP 47 private-use tag, so Intl still formats dates and casing as Turkish.
  */
-export const REVIEW_LOCALE = "tr-x-yeni";
+export const REVIEW_LOCALE = "tr-x-eski";
 
 export const routing = defineRouting({
   // English served at the root (/about), Turkish under /tr (/tr/about).

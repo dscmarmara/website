@@ -44,7 +44,7 @@
     "closeMenu": "Close menu",
     "english": "English",
     "turkish": "Türkçe",
-    "turkishNew": "Türkçe (yeni çeviri)"
+    "turkishOld": "Türkçe (eski çeviri)"
   },
   "brand": {
     "title": "Data Science Club",

@@ -6,22 +6,23 @@ aşağıdaki dosyalara bakman yeterli. Kod bilgisi gerekmiyor; sadece tırnak i�
 
 Değişikliği görmek için: `npm run dev` → <http://localhost:3737/tr>
 
-## Geçici: eski / yeni çeviri karşılaştırması
+## Geçici: eski çeviri (TR ESKİ)
 
-Menüde tek dil düğmesi var (Türkçede "EN", İngilizcede "TR"). Karşılaştırma, menünün altındaki **DEV OPTIONS**
-şeridinden yapılıyor: **TR** mevcut çeviriyi, **TR YENİ** önerilen yeni çeviriyi gösterir. Aynı sayfada ikisi
-arasında geçip farkları görebilirsin. TR YENİ'nin adresi `/tr-x-yeni/...`, bu sayfalar arama motorlarına kapalıdır.
-Şerit Vercel'in production ortamında (`NEXT_PUBLIC_VERCEL_ENV=production`) kendini gizler; preview'da ve lokalde görünür.
+`/tr` artık **yeni çeviriyi** gösteriyor; düzenlenecek asıl Türkçe metin `messages/tr.json` ve `tr:` alanları.
+Önceki çeviri karşılaştırma için `/tr-x-eski/...` adresinde saklanıyor (arama motorlarına kapalı).
+
+Menüde tek dil düğmesi var (Türkçede "EN", İngilizcede "TR" → `/tr`). Menünün altındaki **DEV OPTIONS** şeridinde
+**TR ESKİ** ve **TR YENİ** düğmeleriyle aynı sayfada iki çeviri arasında geçilir. Şerit Vercel'in production
+ortamında (`NEXT_PUBLIC_VERCEL_ENV=production`) kendini gizler; preview'da ve lokalde görünür.
 
 | | Arayüz metinleri | `constants.ts` alanları |
 |---|---|---|
-| TR (eski) | `messages/tr.json` | `tr:` |
-| TR YENİ | `messages/tr-x-yeni.json` | `"tr-x-yeni":` (yalnızca farklı olan alanlarda; olmayan yerde `tr` kullanılır) |
+| TR YENİ (varsayılan, `/tr`) | `messages/tr.json` | `tr:` |
+| TR ESKİ (`/tr-x-eski`) | `messages/tr-x-eski.json` | `"tr-x-eski":` (yalnızca farklı olan alanlarda; olmayan yerde `tr` kullanılır) |
 
-`members.json` ve blog yazılarının ayrı bir "yeni" sürümü yok; TR YENİ'de de `tr` değerleri görünür.
-
-Hakkımızda'daki Türkçe "Odak Alanları" etiketleri yalnızca TR YENİ'de var:
-`src/lib/constants.ts` → `ABOUT_DEPARTMENTS[].focusByLocale["tr-x-yeni"]`. TR ve İngilizce `focus` etiketlerini gösterir.
+`members.json` ve blog yazılarının ayrı bir "eski" sürümü yok; TR ESKİ'de de `tr` değerleri görünür.
+Hakkımızda'daki Türkçe odak etiketleri `ABOUT_DEPARTMENTS[].focusByLocale.tr` içinde; TR ESKİ'de eskisi gibi
+İngilizce `focus` etiketleri görünür.
 
 **Açık notlar (karar bekliyor):**
 
@@ -30,17 +31,16 @@ Hakkımızda'daki Türkçe "Odak Alanları" etiketleri yalnızca TR YENİ'de var
   - Fiyatlar ve ürün açıklamaları `SHOP_PRODUCTS` içinde örnek değerler.
   - Ürün görselleri çizim (`src/components/shop/ProductArt.tsx`). Fotoğraflar gelince kartta `next/image` ile değiştirilir.
 
-**Yeni çeviriyi kesinleştirmek** (main'e merge etmeden önce yapılmalı):
+**Eski çeviriyi tamamen kaldırmak** (artık karşılaştırma gerekmediğinde; main'e merge etmeden önce önerilir):
 
-1. `messages/tr-x-yeni.json` içeriğini `messages/tr.json`'un üzerine kopyala, ardından `tr-x-yeni.json`'u sil.
-2. `src/lib/constants.ts`'te her `"tr-x-yeni": "…"` değerini aynı nesnedeki `tr:` değerinin yerine koy, `"tr-x-yeni"` satırını sil.
-   `focusByLocale` içindeki `"tr-x-yeni"` anahtarının adını `"tr"` yap.
+1. `messages/tr-x-eski.json`'u sil.
+2. `src/lib/constants.ts`'teki bütün `"tr-x-eski": "…"` satırlarını sil.
 3. Kod tarafını kaldır:
    - `src/i18n/routing.ts` içindeki `REVIEW_LOCALE` ve onu kullanan yerler (`src/lib/seo.ts`, `src/app/sitemap.ts`, `src/app/[locale]/layout.tsx`)
    - `src/components/layout/DevOptions.tsx` ve `Nav.tsx`'teki `<DevOptions />` satırı
-   - `src/lib/members.ts` içindeki `Localized` tipinde `"tr-x-yeni"`
-   - `messages/en.json` ve `messages/tr.json` içindeki `nav.turkishNew`
-   - `about.orgSub` artık `tr.json`'da da olur; İngilizce sayfada da görünsün istenirse `en.json`'a İngilizcesi eklenir
+   - `src/lib/members.ts` içindeki `Localized` tipinde `"tr-x-eski"`
+   - `messages/en.json` ve `messages/tr.json` içindeki `nav.turkishOld`
+   - `about.orgSub` yalnızca `tr.json`'da var; İngilizce sayfada da görünsün istenirse `en.json`'a İngilizcesi eklenir
    - bu bölüm
 
 ## Hızlı harita

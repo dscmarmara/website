@@ -1,11 +1,11 @@
 import data from "@/data/members.json";
 import type { Locale } from "@/i18n/routing";
 
-// "tr-x-yeni" is the temporary review locale (see REVIEW_LOCALE in
-// i18n/routing.ts): set it only where the new Turkish copy differs.
-export type Localized = { en: string; tr: string; "tr-x-yeni"?: string };
+// "tr-x-eski" is the temporary review locale holding the previous Turkish copy
+// (see REVIEW_LOCALE in i18n/routing.ts): set only where it differs from `tr`.
+export type Localized = { en: string; tr: string; "tr-x-eski"?: string };
 
-/** Exact locale, then its base language ("tr-x-yeni" → "tr"), then English. */
+/** Exact locale, then its base language ("tr-x-eski" → "tr"), then English. */
 export function pick(value: Localized, locale: string): string {
   const v = value as Record<string, string | undefined>;
   return v[locale] ?? v[locale.split("-")[0]] ?? value.en;

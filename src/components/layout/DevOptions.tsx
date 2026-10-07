@@ -5,17 +5,17 @@ import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { REVIEW_LOCALE, type Locale } from "@/i18n/routing";
 
-/** TEMPORARY: the two Turkish copies the team is comparing. */
+/** TEMPORARY: the two Turkish copies — the previous one (review locale) and the current default. */
 const OPTIONS: { locale: Locale; label: string; key: string }[] = [
-  { locale: "tr", label: "TR", key: "turkish" },
-  { locale: REVIEW_LOCALE, label: "TR YENİ", key: "turkishNew" },
+  { locale: REVIEW_LOCALE, label: "TR ESKİ", key: "turkishOld" },
+  { locale: "tr", label: "TR YENİ", key: "turkish" },
 ];
 
 const btn = { padding: "4px 12px", fontSize: 11.5 } as const;
 
 /**
  * TEMPORARY dev options bar under the nav: switches the page between the
- * current Turkish copy and the proposed one (TR YENİ) for review. Hidden on
+ * previous Turkish copy (TR ESKİ) and the current default (TR YENİ). Hidden on
  * Vercel production, so it never reaches the live site; remove before merging
  * into main (see TRANSLATIONS.md). Its labels are Turkish on purpose: it is a
  * tool for the club's own team, not for visitors.
