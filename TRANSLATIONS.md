@@ -116,6 +116,8 @@ Aşağıdakiler bilerek tek dilli bırakıldı. Türkçeleştirmek için kod de�
 
 - Departman adları (Data Insights, Core AI…) ve odak etiketleri (EDA, BI…)
 - Üyelerin isimleri ve departman etiketi ("LEADERSHIP" gibi)
+- Üye sayfasındaki yetenek etiketleri (`members.json` → `focus`) düz metinse iki dilde aynı görünür; bir etiketi
+  `{ "en": "Accounting", "tr": "Muhasebe" }` şeklinde yazarsan dile göre görünür
 - Footer'daki departman linkleri (`src/components/layout/Footer.tsx`)
 - Sosyal medya paylaşım görseli (`src/app/[locale]/opengraph-image.tsx`)
 - İletişim e-postasının konu başlığındaki `[İletişim]` etiketi. Inbox filtreleri buna bakıyor, değiştirme.

@@ -186,9 +186,11 @@ export default async function MemberPage({
         <Reveal as="aside" style={{ border: "1px solid var(--border)", borderRadius: 16, background: "var(--bg-elev)", padding: 26 }}>
           <div style={{ fontFamily: "var(--font-mono-stack)", fontSize: 11, letterSpacing: "0.12em", color: "var(--accent)", marginBottom: 16 }}>{t("focusLabel")}</div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 9 }}>
-            {m.focus.map((f) => (
-              <span key={f} style={chipStyle}>{f}</span>
-            ))}
+            {m.focus
+              .map((f) => (typeof f === "string" ? f : pick(f, locale)))
+              .map((f) => (
+                <span key={f} style={chipStyle}>{f}</span>
+              ))}
           </div>
         </Reveal>
       </div>

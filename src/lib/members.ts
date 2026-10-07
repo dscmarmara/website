@@ -35,7 +35,8 @@ export interface Member {
   bio1: Localized;
   bio2: Localized;
   quote: Localized;
-  focus: string[];
+  /** Skill chips: a plain string shows in every locale, `{ en, tr }` per locale. */
+  focus: (string | Localized)[];
   kpis: Kpi[];
 }
 

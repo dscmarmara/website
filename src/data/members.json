@@ -205,14 +205,17 @@
         "tr": "Yönetim kurulumuzun aktif bir üyesi olarak, hem dinamik bir kulüp kültürü inşa etmeye hem de tüm üyelerimize değer katacak nitelikli fırsatlar yaratmaya odaklanıyor."
       },
       "quote": {
-        "en": "A chart that doesn't change a decision is just decoration.",
-        "tr": "Bir kararı değiştirmeyen grafik yalnızca süstür."
+        "en": "Squeeze coal and you get a diamond. Challenge data and you reveal the future.",
+        "tr": "Kömürü sıkıştırırsın, elmas ortaya çıkar. Veriyi sorgularsın, gelecek ortaya çıkar."
       },
       "focus": [
         "EDA",
         "Dashboards",
         "Power BI",
-        "Storytelling"
+        "Storytelling",
+        "Excel",
+        { "en": "Financial Analysis", "tr": "Finansal analiz" },
+        { "en": "Accounting", "tr": "Muhasebe" }
       ],
       "kpis": [
         {
