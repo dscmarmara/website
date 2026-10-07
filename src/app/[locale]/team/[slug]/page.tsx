@@ -5,7 +5,7 @@ import {
   getTranslations,
   setRequestLocale,
 } from "next-intl/server";
-import { Link } from "@/i18n/navigation";
+import { getPathname, Link } from "@/i18n/navigation";
 import { PlexusBg } from "@/components/effects/PlexusBg";
 import { Reveal } from "@/components/effects/Reveal";
 import { Avatar } from "@/components/common/Avatar";
@@ -25,7 +25,6 @@ import {
 } from "@/lib/members";
 import { getPostsByAuthor } from "@/lib/posts";
 import { buildAlternates, SITE_URL } from "@/lib/seo";
-import { routing } from "@/i18n/routing";
 
 export const dynamicParams = false;
 
@@ -77,13 +76,13 @@ export default async function MemberPage({
   const { prev, next } = getPrevNext(slug);
   const posts = getPostsByAuthor(slug, locale);
 
-  const prefix = locale === routing.defaultLocale ? "" : `/${locale}`;
+  const pageUrl = SITE_URL + (await getPathname({ locale, href: `/team/${slug}` }));
   const personLd: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: m.name,
     jobTitle: role,
-    url: `${SITE_URL}${prefix}/team/${slug}`,
+    url: pageUrl,
     worksFor: { "@type": "Organization", name: "Data Science Club — Marmara University" },
   };
   // `sameAs` is how a search engine ties this page to the real-world person:

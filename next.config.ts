@@ -53,6 +53,11 @@ const nextConfig: NextConfig = {
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
   // Allow the LAN origin during `next dev` (e.g. testing the responsive site on a phone).
   allowedDevOrigins: ["192.168.1.89", "192.168.1.89:3737"],
+  async redirects() {
+    // TEMPORARY: the preview lives under /onizleme/tr and /onizleme/en (see
+    // PREVIEW_LOCALES in src/i18n/routing.ts); the bare path opens the Turkish one.
+    return [{ source: "/onizleme", destination: "/onizleme/tr", permanent: false }];
+  },
 };
 
 export default withNextIntl(withMDX(nextConfig));

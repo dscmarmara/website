@@ -5,7 +5,7 @@ import {
   getTranslations,
   setRequestLocale,
 } from "next-intl/server";
-import { Link } from "@/i18n/navigation";
+import { getPathname, Link } from "@/i18n/navigation";
 import { Avatar } from "@/components/common/Avatar";
 import { Reveal } from "@/components/effects/Reveal";
 import { ReadingProgress } from "@/components/blog/ReadingProgress";
@@ -17,7 +17,6 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { getPostBySlug, getPostSlugs, localeChain } from "@/lib/posts";
 import { getMemberBySlug, displayRole, pick } from "@/lib/members";
 import { buildAlternates, SITE_URL } from "@/lib/seo";
-import { routing } from "@/i18n/routing";
 
 export const dynamicParams = false;
 
@@ -77,7 +76,7 @@ export default async function BlogDetailPage({
   const format = await getFormatter();
   const { default: Body } = await importBody(locale, slug);
 
-  const prefix = locale === routing.defaultLocale ? "" : `/${locale}`;
+  const pageUrl = SITE_URL + (await getPathname({ locale, href: `/blog/${slug}` }));
   const blogLd: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -86,7 +85,7 @@ export default async function BlogDetailPage({
     datePublished: post.date,
     articleSection: post.category,
     inLanguage: locale,
-    mainEntityOfPage: `${SITE_URL}${prefix}/blog/${slug}`,
+    mainEntityOfPage: pageUrl,
     publisher: { "@type": "Organization", name: "Data Science Club — Marmara University" },
   };
   if (author) blogLd.author = { "@type": "Person", name: author.name };
