@@ -591,16 +591,16 @@
         "tr": "Akışı yönetir ve kulübün işinin gerçekten görülmesini sağlar."
       },
       "bio1": {
-        "en": "Esma co-directs PR, translating the club's technical wins into stories people outside the room actually care about.",
-        "tr": "Esma, kulübün teknik başarılarını, odanın dışındaki insanların gerçekten önemsediği hikâyelere çevirerek PR'ı birlikte yönetiyor."
+        "en": "Hi! I’m Esma, a Mathematics student at Marmara University. As the PR President of DSC, I actively take part in the club’s communication, organization, and collaboration processes.",
+        "tr": "Merhaba! Ben Esma, Marmara Üniversitesi Matematik Bölümü öğrencisiyim. DSC’de PR Başkanı olarak kulübün iletişim, organizasyon ve iş birlikleri süreçlerinde aktif rol alıyorum."
       },
       "bio2": {
-        "en": "They built the content calendar that turned an empty Instagram into the club's loudest recruiting channel.",
-        "tr": "Boş bir Instagram hesabını kulübün en gür sesli üye toplama kanalına dönüştüren içerik takvimini kurdu."
+        "en": "I aim to develop myself in data science by combining my mathematical background with my interest in the field and turning what I learn into real-world projects. I enjoy meeting new people, creating things, developing ideas, and working as a team to bring meaningful projects to life. As a part of DSC, my goal is to keep learning and growing while also contributing value to our club.",
+        "tr": "Matematik altyapımı veri bilimine olan ilgimle birleştirerek bu alanda kendimi geliştirmeye ve öğrendiklerimi gerçek projelere dönüştürmeye çalışıyorum. Yeni insanlarla tanışmayı, üretmeyi, fikirler geliştirmeyi ve ekip olarak güzel işler ortaya çıkarmayı seviyorum. DSC’nin bir parçası olarak hem kendime yeni şeyler katmayı hem de kulübümüze değer katmayı hedefliyorum."
       },
       "quote": {
-        "en": "If we built it and nobody saw it, did we really ship?",
-        "tr": "Yaptık ama kimse görmediyse, gerçekten çıkardık mı?"
+        "en": "",
+        "tr": ""
       },
       "focus": [
         "Social Media",
