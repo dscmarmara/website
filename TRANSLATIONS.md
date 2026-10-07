@@ -21,13 +21,6 @@ ikisi arasında geçip farkları görebilirsin. Adres: `/tr-x-yeni/...`. Bu sayf
 Hakkımızda'daki Türkçe "Odak Alanları" etiketleri yalnızca TR YENİ'de var:
 `src/lib/constants.ts` → `ABOUT_DEPARTMENTS[].focusByLocale["tr-x-yeni"]`. TR ve İngilizce `focus` etiketlerini gösterir.
 
-**Önizleme (`/onizleme`):** sitenin, yeni çeviri kesinleşince nasıl görüneceği. `/onizleme/tr/...` TR YENİ içeriğini,
-`/onizleme/en/...` İngilizce içeriği gösterir. Tek fark menüde: üçlü buton yerine diğer dile geçen tek bir düğme
-(Türkçede "EN", İngilizcede "TR"). Kendi içeriği yok, yani TR YENİ'de yapılan her değişiklik önizlemeye de yansır.
-Kaldırmak için `src/i18n/routing.ts` içindeki `PREVIEW_LOCALES`, `localePrefix.prefixes` ve iki önizleme dilini,
-`LocaleSwitch.tsx`'teki `PREVIEW_TOGGLE` bloğunu ve `next.config.ts`'teki `/onizleme` yönlendirmesini sil.
-`contentLocale` / `isHiddenLocale` çağrıları önizleme kalkınca etkisiz kalır, istenirse sadeleştirilir.
-
 **Açık notlar (karar bekliyor):**
 
 - **Mağaza yer tutucularla duruyor, yayına almadan önce değiştir.** Hepsi `src/lib/constants.ts` içinde:

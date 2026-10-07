@@ -1,6 +1,6 @@
 import { getRequestConfig } from "next-intl/server";
 import { hasLocale } from "next-intl";
-import { contentLocale, routing } from "./routing";
+import { routing } from "./routing";
 
 export default getRequestConfig(async ({ requestLocale }) => {
   // Typically corresponds to the `[locale]` segment.
@@ -11,7 +11,6 @@ export default getRequestConfig(async ({ requestLocale }) => {
 
   return {
     locale,
-    // Preview locales have no messages file of their own (see PREVIEW_LOCALES).
-    messages: (await import(`../../messages/${contentLocale(locale)}.json`)).default,
+    messages: (await import(`../../messages/${locale}.json`)).default,
   };
 });

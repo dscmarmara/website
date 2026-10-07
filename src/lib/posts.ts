@@ -3,7 +3,7 @@ import path from "node:path";
 import matter from "gray-matter";
 import { getMemberSlugs } from "@/lib/members";
 import { DEPARTMENTS } from "@/lib/constants";
-import { contentLocale, routing } from "@/i18n/routing";
+import { routing } from "@/i18n/routing";
 
 const CONTENT_DIR = path.join(process.cwd(), "content", "blog");
 
@@ -28,8 +28,7 @@ const localeDir = (locale: string) => path.join(CONTENT_DIR, locale);
  * language ("tr-x-yeni" → "tr"), then the default locale.
  */
 export function localeChain(locale: string): string[] {
-  const l = contentLocale(locale);
-  return [...new Set([l, l.split("-")[0], routing.defaultLocale])];
+  return [...new Set([locale, locale.split("-")[0], routing.defaultLocale])];
 }
 
 export function getPostSlugs(): string[] {

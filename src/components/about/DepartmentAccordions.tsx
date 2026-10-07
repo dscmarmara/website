@@ -1,7 +1,6 @@
 import { useLocale, useTranslations } from "next-intl";
 import { ABOUT_DEPARTMENTS } from "@/lib/constants";
 import { pick } from "@/lib/members";
-import { contentLocale } from "@/i18n/routing";
 
 const labelStyle = {
   fontFamily: "var(--font-mono-stack)",
@@ -54,7 +53,7 @@ export function DepartmentAccordions() {
             <div>
               <div style={labelStyle}>{t("focusLabel")}</div>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-                {(d.focusByLocale?.[contentLocale(locale)] ?? d.focus).map((f) => (
+                {(d.focusByLocale?.[locale] ?? d.focus).map((f) => (
                   <span key={f} style={focusChip}>{f}</span>
                 ))}
               </div>
