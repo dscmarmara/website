@@ -8,8 +8,10 @@ Değişikliği görmek için: `npm run dev` → <http://localhost:3737/tr>
 
 ## Geçici: eski / yeni çeviri karşılaştırması
 
-Dil değiştiricide **TR** mevcut çeviriyi, **TR YENİ** önerilen yeni çeviriyi gösterir. Aynı sayfada
-ikisi arasında geçip farkları görebilirsin. Adres: `/tr-x-yeni/...`. Bu sayfalar arama motorlarına kapalıdır.
+Menüde tek dil düğmesi var (Türkçede "EN", İngilizcede "TR"). Karşılaştırma, menünün altındaki **DEV OPTIONS**
+şeridinden yapılıyor: **TR** mevcut çeviriyi, **TR YENİ** önerilen yeni çeviriyi gösterir. Aynı sayfada ikisi
+arasında geçip farkları görebilirsin. TR YENİ'nin adresi `/tr-x-yeni/...`, bu sayfalar arama motorlarına kapalıdır.
+Şerit Vercel'in production ortamında (`NEXT_PUBLIC_VERCEL_ENV=production`) kendini gizler; preview'da ve lokalde görünür.
 
 | | Arayüz metinleri | `constants.ts` alanları |
 |---|---|---|
@@ -35,7 +37,7 @@ Hakkımızda'daki Türkçe "Odak Alanları" etiketleri yalnızca TR YENİ'de var
    `focusByLocale` içindeki `"tr-x-yeni"` anahtarının adını `"tr"` yap.
 3. Kod tarafını kaldır:
    - `src/i18n/routing.ts` içindeki `REVIEW_LOCALE` ve onu kullanan yerler (`src/lib/seo.ts`, `src/app/sitemap.ts`, `src/app/[locale]/layout.tsx`)
-   - `src/components/layout/LocaleSwitch.tsx` içindeki `"tr-x-yeni"` satırı
+   - `src/components/layout/DevOptions.tsx` ve `Nav.tsx`'teki `<DevOptions />` satırı
    - `src/lib/members.ts` içindeki `Localized` tipinde `"tr-x-yeni"`
    - `messages/en.json` ve `messages/tr.json` içindeki `nav.turkishNew`
    - `about.orgSub` artık `tr.json`'da da olur; İngilizce sayfada da görünsün istenirse `en.json`'a İngilizcesi eklenir

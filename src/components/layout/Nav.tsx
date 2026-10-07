@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { LocaleSwitch } from "./LocaleSwitch";
+import { DevOptions } from "./DevOptions";
 
 export const NAV_LINKS = [
   { key: "home", href: "/" },
@@ -89,28 +90,34 @@ export function Nav() {
         </nav>
 
         <div className="nav-mobile">
-          <button
-            type="button"
-            aria-label={menuOpen ? t("closeMenu") : t("openMenu")}
-            aria-expanded={menuOpen}
-            onClick={() => setMenuOpen((o) => !o)}
-            style={{
-              width: 42,
-              height: 42,
-              display: "inline-flex",
-              alignItems: "center",
-              justifyContent: "center",
-              borderRadius: 10,
-              border: "1px solid var(--border)",
-              background: "var(--bg-elev)",
-              color: "var(--text)",
-              cursor: "pointer",
-            }}
-          >
-            {menuOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
+          {/* Language toggle stays in the bar, left of the burger. */}
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <LocaleSwitch large />
+            <button
+              type="button"
+              aria-label={menuOpen ? t("closeMenu") : t("openMenu")}
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen((o) => !o)}
+              style={{
+                width: 42,
+                height: 42,
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                borderRadius: 10,
+                border: "1px solid var(--border)",
+                background: "var(--bg-elev)",
+                color: "var(--text)",
+                cursor: "pointer",
+              }}
+            >
+              {menuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </div>
       </div>
+
+      <DevOptions />
 
       {/* Mobile menu: inline collapsible panel that opens below the bar (matches the prototype) */}
       {menuOpen && (
@@ -136,9 +143,6 @@ export function Nav() {
               {t(l.key)}
             </Link>
           ))}
-          <div style={{ marginTop: 16 }}>
-            <LocaleSwitch large />
-          </div>
         </div>
       )}
     </header>
