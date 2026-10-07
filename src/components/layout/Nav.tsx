@@ -2,9 +2,8 @@
 
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
-import { PREVIEW_LOCALES } from "@/i18n/routing";
 import { LocaleSwitch } from "./LocaleSwitch";
 
 export const NAV_LINKS = [
@@ -26,9 +25,6 @@ export function Nav() {
   const tb = useTranslations("brand");
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
-  // The /onizleme preview's one-button language toggle sits in the mobile bar,
-  // next to the burger, instead of inside the menu panel.
-  const isPreview = useLocale() in PREVIEW_LOCALES;
 
   return (
     <header
@@ -93,29 +89,26 @@ export function Nav() {
         </nav>
 
         <div className="nav-mobile">
-          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-            {isPreview && <LocaleSwitch large />}
-            <button
-              type="button"
-              aria-label={menuOpen ? t("closeMenu") : t("openMenu")}
-              aria-expanded={menuOpen}
-              onClick={() => setMenuOpen((o) => !o)}
-              style={{
-                width: 42,
-                height: 42,
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                borderRadius: 10,
-                border: "1px solid var(--border)",
-                background: "var(--bg-elev)",
-                color: "var(--text)",
-                cursor: "pointer",
-              }}
-            >
-              {menuOpen ? <X size={20} /> : <Menu size={20} />}
-            </button>
-          </div>
+          <button
+            type="button"
+            aria-label={menuOpen ? t("closeMenu") : t("openMenu")}
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((o) => !o)}
+            style={{
+              width: 42,
+              height: 42,
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              borderRadius: 10,
+              border: "1px solid var(--border)",
+              background: "var(--bg-elev)",
+              color: "var(--text)",
+              cursor: "pointer",
+            }}
+          >
+            {menuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
         </div>
       </div>
 
@@ -143,11 +136,9 @@ export function Nav() {
               {t(l.key)}
             </Link>
           ))}
-          {!isPreview && (
-            <div style={{ marginTop: 16 }}>
-              <LocaleSwitch large />
-            </div>
-          )}
+          <div style={{ marginTop: 16 }}>
+            <LocaleSwitch large />
+          </div>
         </div>
       )}
     </header>
