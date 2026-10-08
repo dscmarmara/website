@@ -112,11 +112,11 @@
   "team": {
     "eyebrow": "EKİP",
     "heroTitle": "Kulübün arkasındaki ekip",
-    "heroSub": "Başkanın liderliğinde, kulübün altı departmanının her biri iki direktör tarafından yönetiliyor. Her biri kendi alanında aktif olarak üreten ve kulübün gelişimine katkı sağlayan ekip arkadaşlarımız.",
+    "heroSub": "Başkanımız ve departman liderlerimizin öncülüğündeki üretici ekibimizle tanışın.",
     "vpHeading": "VP",
     "viewProfile": "Profili gör →",
-    "joinTitle": "Gelecek dönem sen de burada olabilirsin",
-    "joinSub": "Her üyeye kendi sayfası, bir departmanda sorumluluk ve ortaya koyacağı gerçek işler veriliyor.",
+    "joinTitle": "Gelecek dönem burada sen de yer alabilirsin",
+    "joinSub": "Ekibini seç, sorumluluk al ve bizimle birlikte üret.",
     "joinClub": "Kulübe katıl →"
   },
   "member": {
