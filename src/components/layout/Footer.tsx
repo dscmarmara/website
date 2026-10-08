@@ -54,7 +54,6 @@ export function Footer() {
             <Link className="dsc-foot-link author-link" href="/" style={footLink}>{t("linkHome")}</Link>
             <Link className="dsc-foot-link author-link" href="/about" style={footLink}>{t("linkAbout")}</Link>
             <Link className="dsc-foot-link author-link" href="/blog" style={footLink}>{t("linkBlog")}</Link>
-            <Link className="dsc-foot-link author-link" href="/shop" style={footLink}>{t("linkShop")}</Link>
             <Link className="dsc-foot-link author-link" href="/contact" style={footLink}>{t("linkContact")}</Link>
           </div>
         </div>

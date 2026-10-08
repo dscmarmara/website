@@ -18,20 +18,28 @@
       "dept": "LEADERSHIP",
       "photo": null,
       "tagline": {
-        "en": "Leads the club's direction and mentors every department — building the bridge between academic research and the agile, ship-fast culture of modern startups.",
-        "tr": "Kulübün yönünü belirler ve her departmana mentorluk yapar — akademik araştırma ile modern girişimlerin çevik, hızlı üretim kültürü arasında köprü kurar."
+        "en": "President of the club.",
+        "tr": "Kulübün başkanı.",
+        "tr-x-eski": "Kulübün yönünü belirler ve her departmana mentorluk yapar — akademik araştırma ile modern girişimlerin çevik, hızlı üretim kültürü arasında köprü kurar.",
+        "en-x-eski": "Leads the club's direction and mentors every department — building the bridge between academic research and the agile, ship-fast culture of modern startups."
       },
       "bio1": {
-        "en": "Ahmet is a final-year statistics student and the president of the Data Science Club. He pushed for it after a summer internship convinced him that the gap between what universities teach and what data teams actually do was a problem worth solving — together, in public.",
-        "tr": "Ahmet son sınıf istatistik öğrencisi ve Veri Bilimi Kulübü'nün başkanı. Bir yaz stajı ona üniversitelerin öğrettikleriyle veri ekiplerinin gerçekte yaptıkları arasındaki uçurumun çözülmeye değer bir problem olduğunu gösterdikten sonra bu işin peşine düştü — birlikte ve açıkça."
+        "en": "Ahmet is the club's president.",
+        "tr": "Ahmet, kulübün başkanı.",
+        "tr-x-eski": "Ahmet son sınıf istatistik öğrencisi ve Veri Bilimi Kulübü'nün başkanı. Bir yaz stajı ona üniversitelerin öğrettikleriyle veri ekiplerinin gerçekte yaptıkları arasındaki uçurumun çözülmeye değer bir problem olduğunu gösterdikten sonra bu işin peşine düştü — birlikte ve açıkça.",
+        "en-x-eski": "Ahmet is a final-year statistics student and the president of the Data Science Club. He pushed for it after a summer internship convinced him that the gap between what universities teach and what data teams actually do was a problem worth solving — together, in public."
       },
       "bio2": {
-        "en": "Today he sets the club's direction, mentors department leads, and still finds time to review pull requests at midnight. He believes the best way to learn is to ship something real with people who care.",
-        "tr": "Bugün kulübün yönünü belirliyor, departman liderlerine mentorluk yapıyor ve gece yarısı pull request incelemeye hâlâ zaman buluyor. Öğrenmenin en iyi yolunun, önemseyen insanlarla gerçek bir şey çıkarmak olduğuna inanıyor."
+        "en": "",
+        "tr": "",
+        "tr-x-eski": "Bugün kulübün yönünü belirliyor, departman liderlerine mentorluk yapıyor ve gece yarısı pull request incelemeye hâlâ zaman buluyor. Öğrenmenin en iyi yolunun, önemseyen insanlarla gerçek bir şey çıkarmak olduğuna inanıyor.",
+        "en-x-eski": "Today he sets the club's direction, mentors department leads, and still finds time to review pull requests at midnight. He believes the best way to learn is to ship something real with people who care."
       },
       "quote": {
-        "en": "Treat students like builders, and they build.",
-        "tr": "Öğrencilere üretici gibi davran, üretsinler."
+        "en": "",
+        "tr": "",
+        "tr-x-eski": "Öğrencilere üretici gibi davran, üretsinler.",
+        "en-x-eski": "Treat students like builders, and they build."
       },
       "focus": [
         "AI",
@@ -63,20 +71,28 @@
       "dept": "LEADERSHIP",
       "photo": null,
       "tagline": {
-        "en": "The president's second — keeps six departments moving in the same direction.",
-        "tr": "Başkanın sağ kolu — altı departmanı aynı yönde ilerletir."
+        "en": "Vice president of the club.",
+        "tr": "Kulübün başkan yardımcısı.",
+        "tr-x-eski": "Başkanın sağ kolu — altı departmanı aynı yönde ilerletir.",
+        "en-x-eski": "The president's second — keeps six departments moving in the same direction."
       },
       "bio1": {
-        "en": "Irmak is the club's vice president, the person who turns the president's direction into a week-by-week plan the departments can actually run on.",
-        "tr": "Irmak kulübün başkan yardımcısı; başkanın belirlediği yönü, departmanların gerçekten uygulayabileceği haftalık bir plana çeviren kişi."
+        "en": "Irmak is the club's vice president.",
+        "tr": "Irmak, kulübün başkan yardımcısı.",
+        "tr-x-eski": "Irmak kulübün başkan yardımcısı; başkanın belirlediği yönü, departmanların gerçekten uygulayabileceği haftalık bir plana çeviren kişi.",
+        "en-x-eski": "Irmak is the club's vice president, the person who turns the president's direction into a week-by-week plan the departments can actually run on."
       },
       "bio2": {
-        "en": "They spend their time unblocking directors, chairing the weekly sync, and making sure decisions get made instead of endlessly discussed.",
-        "tr": "Vaktini direktörlerin önünü açmakla, haftalık senkron toplantısını yönetmekle ve kararların sonsuza dek tartışılmak yerine alınmasını sağlamakla geçiriyor."
+        "en": "",
+        "tr": "",
+        "tr-x-eski": "Vaktini direktörlerin önünü açmakla, haftalık senkron toplantısını yönetmekle ve kararların sonsuza dek tartışılmak yerine alınmasını sağlamakla geçiriyor.",
+        "en-x-eski": "They spend their time unblocking directors, chairing the weekly sync, and making sure decisions get made instead of endlessly discussed."
       },
       "quote": {
-        "en": "Strategy is worthless until someone owns the next step.",
-        "tr": "Bir sonraki adımı biri sahiplenmedikçe strateji beş para etmez."
+        "en": "",
+        "tr": "",
+        "tr-x-eski": "Bir sonraki adımı biri sahiplenmedikçe strateji beş para etmez.",
+        "en-x-eski": "Strategy is worthless until someone owns the next step."
       },
       "focus": [
         "Operations",
@@ -106,20 +122,28 @@
       "dept": "LEADERSHIP",
       "photo": null,
       "tagline": {
-        "en": "Runs the club's operations, minutes and memory so nothing falls through.",
-        "tr": "Kulübün operasyonlarını, tutanaklarını ve hafızasını yürütür; hiçbir şey gözden kaçmasın diye."
+        "en": "Secretary of the club.",
+        "tr": "Kulübün sekreteri.",
+        "tr-x-eski": "Kulübün operasyonlarını, tutanaklarını ve hafızasını yürütür; hiçbir şey gözden kaçmasın diye.",
+        "en-x-eski": "Runs the club's operations, minutes and memory so nothing falls through."
       },
       "bio1": {
-        "en": "Esim is the club's secretary and its institutional memory — agendas, minutes, decisions and follow-ups all pass through them.",
-        "tr": "Esim kulübün sekreteri ve kurumsal hafızası — gündemler, tutanaklar, kararlar ve takipler hep ondan geçiyor."
+        "en": "Esim Ebrar is the club's secretary.",
+        "tr": "Esim Ebrar, kulübün sekreteri.",
+        "tr-x-eski": "Esim kulübün sekreteri ve kurumsal hafızası — gündemler, tutanaklar, kararlar ve takipler hep ondan geçiyor.",
+        "en-x-eski": "Esim is the club's secretary and its institutional memory — agendas, minutes, decisions and follow-ups all pass through them."
       },
       "bio2": {
-        "en": "They built the club's shared knowledge base so that no lesson has to be learned twice.",
-        "tr": "Hiçbir ders iki kez öğrenilmek zorunda kalmasın diye kulübün ortak bilgi tabanını kurdu."
+        "en": "",
+        "tr": "",
+        "tr-x-eski": "Hiçbir ders iki kez öğrenilmek zorunda kalmasın diye kulübün ortak bilgi tabanını kurdu.",
+        "en-x-eski": "They built the club's shared knowledge base so that no lesson has to be learned twice."
       },
       "quote": {
-        "en": "If it isn't written down, it didn't happen.",
-        "tr": "Yazılmadıysa, olmamış demektir."
+        "en": "",
+        "tr": "",
+        "tr-x-eski": "Yazılmadıysa, olmamış demektir.",
+        "en-x-eski": "If it isn't written down, it didn't happen."
       },
       "focus": [
         "Operations",
@@ -149,20 +173,28 @@
       "dept": "DATA INSIGHTS",
       "photo": null,
       "tagline": {
-        "en": "Turns messy datasets into dashboards people actually want to look at.",
-        "tr": "Dağınık veri setlerini, insanların gerçekten bakmak istediği panolara dönüştürür."
+        "en": "Co-directs the Data Insights department.",
+        "tr": "Data Insights departmanını birlikte yönetiyor.",
+        "tr-x-eski": "Dağınık veri setlerini, insanların gerçekten bakmak istediği panolara dönüştürür.",
+        "en-x-eski": "Turns messy datasets into dashboards people actually want to look at."
       },
       "bio1": {
-        "en": "Emirhan leads Data Insights, where storytelling matters as much as statistics. They're the person who can take a 40-column spreadsheet and hand you back a single chart that changes your mind.",
-        "tr": "Emirhan, hikâye anlatımının en az istatistik kadar önemli olduğu Data Insights'ı yönetiyor. 40 sütunluk bir tabloyu alıp size fikrinizi değiştiren tek bir grafik olarak geri verebilen kişi."
+        "en": "Emirhan co-directs the Data Insights department.",
+        "tr": "Emirhan, Data Insights departmanını birlikte yönetiyor.",
+        "tr-x-eski": "Emirhan, hikâye anlatımının en az istatistik kadar önemli olduğu Data Insights'ı yönetiyor. 40 sütunluk bir tabloyu alıp size fikrinizi değiştiren tek bir grafik olarak geri verebilen kişi.",
+        "en-x-eski": "Emirhan leads Data Insights, where storytelling matters as much as statistics. They're the person who can take a 40-column spreadsheet and hand you back a single chart that changes your mind."
       },
       "bio2": {
-        "en": "They run the club's BI workshops and are on a mission to make data literacy a default skill across campus.",
-        "tr": "Kulübün BI atölyelerini yürütüyor ve veri okuryazarlığını kampüs genelinde varsayılan bir beceri hâline getirmeyi görev ediniyor."
+        "en": "",
+        "tr": "",
+        "tr-x-eski": "Kulübün BI atölyelerini yürütüyor ve veri okuryazarlığını kampüs genelinde varsayılan bir beceri hâline getirmeyi görev ediniyor.",
+        "en-x-eski": "They run the club's BI workshops and are on a mission to make data literacy a default skill across campus."
       },
       "quote": {
-        "en": "A good chart ends an argument faster than a meeting.",
-        "tr": "İyi bir grafik, bir tartışmayı toplantıdan daha hızlı bitirir."
+        "en": "",
+        "tr": "",
+        "tr-x-eski": "İyi bir grafik, bir tartışmayı toplantıdan daha hızlı bitirir.",
+        "en-x-eski": "A good chart ends an argument faster than a meeting."
       },
       "focus": [
         "EDA",
@@ -193,8 +225,10 @@
       "dept": "DATA INSIGHTS",
       "photo": null,
       "tagline": {
-        "en": "Lives in the space between a good question and the chart that answers it.",
-        "tr": "İyi bir soru ile onu yanıtlayan grafik arasındaki alanda yaşar."
+        "en": "Co-directs the Data Insights department.",
+        "tr": "Data Insights departmanını birlikte yönetiyor.",
+        "tr-x-eski": "İyi bir soru ile onu yanıtlayan grafik arasındaki alanda yaşar.",
+        "en-x-eski": "Lives in the space between a good question and the chart that answers it."
       },
       "bio1": {
         "en": "A dedicated student at Marmara University, İhsan Sami combines strong academic rigor with practical analytical expertise gained from his experience in budget, reporting, and finance. Driven by a passion for technology, data-driven strategy, and continuous self-improvement, he brings a structured yet innovative approach to team leadership.",
@@ -214,8 +248,14 @@
         "Power BI",
         "Storytelling",
         "Excel",
-        { "en": "Financial Analysis", "tr": "Finansal analiz" },
-        { "en": "Accounting", "tr": "Muhasebe" }
+        {
+          "en": "Financial Analysis",
+          "tr": "Finansal analiz"
+        },
+        {
+          "en": "Accounting",
+          "tr": "Muhasebe"
+        }
       ],
       "kpis": [
         {
@@ -241,20 +281,28 @@
       "website": "sadikcoban.com",
       "websiteUrl": "https://www.sadikcoban.com",
       "tagline": {
-        "en": "NLP and Turkish-language models — turns research into things that ship.",
-        "tr": "NLP ve Türkçe dil modelleri — araştırmayı yayınlanan işlere dönüştürür."
+        "en": "Co-directs the Core AI department.",
+        "tr": "Core AI departmanını birlikte yönetiyor.",
+        "tr-x-eski": "NLP ve Türkçe dil modelleri — araştırmayı yayınlanan işlere dönüştürür.",
+        "en-x-eski": "NLP and Turkish-language models — turns research into things that ship."
       },
       "bio1": {
-        "en": "Sadık co-directs Core AI, where he pushes the club's language work from clever notebooks into deployed, reproducible models. He is happiest with a messy Turkish dataset and a clear evaluation metric.",
-        "tr": "Sadık, kulübün dil çalışmalarını akıllı defterlerden dağıtılmış, tekrar üretilebilir modellere taşıdığı Core AI'ı birlikte yönetiyor. En mutlu olduğu an, dağınık bir Türkçe veri seti ve net bir değerlendirme metriğiyle olduğu andır."
+        "en": "Sadık co-directs the Core AI department.",
+        "tr": "Sadık, Core AI departmanını birlikte yönetiyor.",
+        "tr-x-eski": "Sadık, kulübün dil çalışmalarını akıllı defterlerden dağıtılmış, tekrar üretilebilir modellere taşıdığı Core AI'ı birlikte yönetiyor. En mutlu olduğu an, dağınık bir Türkçe veri seti ve net bir değerlendirme metriğiyle olduğu andır.",
+        "en-x-eski": "Sadık co-directs Core AI, where he pushes the club's language work from clever notebooks into deployed, reproducible models. He is happiest with a messy Turkish dataset and a clear evaluation metric."
       },
       "bio2": {
-        "en": "He mentors new members through their first fine-tune and keeps a running log of experiments on his personal site.",
-        "tr": "Yeni üyelere ilk fine-tune'larında mentorluk yapıyor ve deneylerinin güncel kaydını kişisel sitesinde tutuyor."
+        "en": "",
+        "tr": "",
+        "tr-x-eski": "Yeni üyelere ilk fine-tune'larında mentorluk yapıyor ve deneylerinin güncel kaydını kişisel sitesinde tutuyor.",
+        "en-x-eski": "He mentors new members through their first fine-tune and keeps a running log of experiments on his personal site."
       },
       "quote": {
-        "en": "A model you can't reproduce is a story, not a result.",
-        "tr": "Tekrar üretemediğin bir model bir sonuç değil, bir hikâyedir."
+        "en": "",
+        "tr": "",
+        "tr-x-eski": "Tekrar üretemediğin bir model bir sonuç değil, bir hikâyedir.",
+        "en-x-eski": "A model you can't reproduce is a story, not a result."
       },
       "focus": [
         "NLP",
@@ -285,20 +333,28 @@
       "dept": "CORE AI",
       "photo": null,
       "tagline": {
-        "en": "Computer-vision tinkerer who ships models before slides.",
-        "tr": "Slayt çıkarmadan önce model çıkaran bir bilgisayarlı görü meraklısı."
+        "en": "Co-directs the Core AI department.",
+        "tr": "Core AI departmanını birlikte yönetiyor.",
+        "tr-x-eski": "Slayt çıkarmadan önce model çıkaran bir bilgisayarlı görü meraklısı.",
+        "en-x-eski": "Computer-vision tinkerer who ships models before slides."
       },
       "bio1": {
-        "en": "Ahmet Hamza co-directs Core AI with a bias for building. They would rather have a rough model running on real data by Friday than a perfect plan on Monday.",
-        "tr": "Ahmet Hamza, üretmeye yatkın bir tavırla Core AI'ı birlikte yönetiyor. Pazartesi mükemmel bir plan yerine, cumaya kadar gerçek veride çalışan kaba bir modeli tercih eder."
+        "en": "Ahmet Hamza co-directs the Core AI department.",
+        "tr": "Ahmet Hamza, Core AI departmanını birlikte yönetiyor.",
+        "tr-x-eski": "Ahmet Hamza, üretmeye yatkın bir tavırla Core AI'ı birlikte yönetiyor. Pazartesi mükemmel bir plan yerine, cumaya kadar gerçek veride çalışan kaba bir modeli tercih eder.",
+        "en-x-eski": "Ahmet Hamza co-directs Core AI with a bias for building. They would rather have a rough model running on real data by Friday than a perfect plan on Monday."
       },
       "bio2": {
-        "en": "They mentor the club's first-years through their first training loop and swear by small, honest baselines.",
-        "tr": "Kulübün birinci sınıflarına ilk eğitim döngülerinde mentorluk yapıyor ve küçük, dürüst temel modellere sonuna kadar güveniyor."
+        "en": "",
+        "tr": "",
+        "tr-x-eski": "Kulübün birinci sınıflarına ilk eğitim döngülerinde mentorluk yapıyor ve küçük, dürüst temel modellere sonuna kadar güveniyor.",
+        "en-x-eski": "They mentor the club's first-years through their first training loop and swear by small, honest baselines."
       },
       "quote": {
-        "en": "Ship the baseline first — it tells you what hard actually means.",
-        "tr": "Önce temel modeli çıkar — sana zorun gerçekte ne demek olduğunu söyler."
+        "en": "",
+        "tr": "",
+        "tr-x-eski": "Önce temel modeli çıkar — sana zorun gerçekte ne demek olduğunu söyler.",
+        "en-x-eski": "Ship the baseline first — it tells you what hard actually means."
       },
       "focus": [
         "Computer Vision",
@@ -328,8 +384,10 @@
       "dept": "DATA PIPELINES",
       "photo": null,
       "tagline": {
-        "en": "Keeps the club's data flowing with Spark, Airflow and a lot of caffeine.",
-        "tr": "Kulübün verisini Spark, Airflow ve bir sürü kafeinle akar tutar."
+        "en": "Co-directs the Data Pipelines department.",
+        "tr": "Data Pipelines departmanını birlikte yönetiyor.",
+        "tr-x-eski": "Kulübün verisini Spark, Airflow ve bir sürü kafeinle akar tutar.",
+        "en-x-eski": "Keeps the club's data flowing with Spark, Airflow and a lot of caffeine."
       },
       "bio1": {
         "en": "Hi, I’m Alihan. I’m a fourth-year Statistics student at Marmara University, and I also serve as a Director of the Data Pipelines Department at the Marmara Data Science Club alongside Mustafa Kaan.",
@@ -372,20 +430,28 @@
       "dept": "DATA PIPELINES",
       "photo": null,
       "tagline": {
-        "en": "Believes every dataset deserves a clean, observable path to production.",
-        "tr": "Her veri setinin üretime giden temiz, gözlemlenebilir bir yolu hak ettiğine inanır."
+        "en": "Co-directs the Data Pipelines department.",
+        "tr": "Data Pipelines departmanını birlikte yönetiyor.",
+        "tr-x-eski": "Her veri setinin üretime giden temiz, gözlemlenebilir bir yolu hak ettiğine inanır.",
+        "en-x-eski": "Believes every dataset deserves a clean, observable path to production."
       },
       "bio1": {
-        "en": "Mustafa Kaan co-directs Data Pipelines and treats reliability as a feature. If a job fails at 3am, they want it to fail loudly, clearly, and exactly once.",
-        "tr": "Mustafa Kaan, Data Pipelines'ı birlikte yönetiyor ve güvenilirliği bir özellik olarak görüyor. Bir iş gece 3'te patlarsa, yüksek sesle, net biçimde ve tam olarak bir kez patlamasını ister."
+        "en": "Mustafa Kaan co-directs the Data Pipelines department.",
+        "tr": "Mustafa Kaan, Data Pipelines departmanını birlikte yönetiyor.",
+        "tr-x-eski": "Mustafa Kaan, Data Pipelines'ı birlikte yönetiyor ve güvenilirliği bir özellik olarak görüyor. Bir iş gece 3'te patlarsa, yüksek sesle, net biçimde ve tam olarak bir kez patlamasını ister.",
+        "en-x-eski": "Mustafa Kaan co-directs Data Pipelines and treats reliability as a feature. If a job fails at 3am, they want it to fail loudly, clearly, and exactly once."
       },
       "bio2": {
-        "en": "They're building the club's internal data platform so every squad can trust the numbers they ship.",
-        "tr": "Her takım çıkardığı rakamlara güvenebilsin diye kulübün iç veri platformunu kuruyor."
+        "en": "",
+        "tr": "",
+        "tr-x-eski": "Her takım çıkardığı rakamlara güvenebilsin diye kulübün iç veri platformunu kuruyor.",
+        "en-x-eski": "They're building the club's internal data platform so every squad can trust the numbers they ship."
       },
       "quote": {
-        "en": "Boring pipelines are the ones you can sleep through.",
-        "tr": "Sıkıcı veri hatları, uyuyabildiğin hatlardır."
+        "en": "",
+        "tr": "",
+        "tr-x-eski": "Sıkıcı veri hatları, uyuyabildiğin hatlardır.",
+        "en-x-eski": "Boring pipelines are the ones you can sleep through."
       },
       "focus": [
         "Airflow",
@@ -415,20 +481,28 @@
       "dept": "SUMMITS & AWARDS",
       "photo": null,
       "tagline": {
-        "en": "Runs the Datathon and somehow makes 200-person events look easy.",
-        "tr": "Datathon'u yönetir ve 200 kişilik etkinlikleri bir şekilde kolay gösterir."
+        "en": "Co-directs the Summits & Awards department.",
+        "tr": "Summits & Awards departmanını birlikte yönetiyor.",
+        "tr-x-eski": "Datathon'u yönetir ve 200 kişilik etkinlikleri bir şekilde kolay gösterir.",
+        "en-x-eski": "Runs the Datathon and somehow makes 200-person events look easy."
       },
       "bio1": {
-        "en": "Elif Esma turns the club's energy into events people remember — summits, award nights, and the flagship Datathon. Logistics, sponsors, schedules: they keep all the plates spinning.",
-        "tr": "Elif Esma, kulübün enerjisini insanların hatırladığı etkinliklere dönüştürüyor — zirveler, ödül geceleri ve amiral gemisi Datathon. Lojistik, sponsorlar, programlar: tüm tabakları havada tutan o."
+        "en": "Elif Esma co-directs the Summits & Awards department.",
+        "tr": "Elif Esma, Summits & Awards departmanını birlikte yönetiyor.",
+        "tr-x-eski": "Elif Esma, kulübün enerjisini insanların hatırladığı etkinliklere dönüştürüyor — zirveler, ödül geceleri ve amiral gemisi Datathon. Lojistik, sponsorlar, programlar: tüm tabakları havada tutan o.",
+        "en-x-eski": "Elif Esma turns the club's energy into events people remember — summits, award nights, and the flagship Datathon. Logistics, sponsors, schedules: they keep all the plates spinning."
       },
       "bio2": {
-        "en": "They believe a great event is just a really well-run project with snacks, and they're usually right.",
-        "tr": "Harika bir etkinliğin, atıştırmalıkları olan çok iyi yönetilmiş bir projeden ibaret olduğuna inanıyor ve genellikle haklı."
+        "en": "",
+        "tr": "",
+        "tr-x-eski": "Harika bir etkinliğin, atıştırmalıkları olan çok iyi yönetilmiş bir projeden ibaret olduğuna inanıyor ve genellikle haklı.",
+        "en-x-eski": "They believe a great event is just a really well-run project with snacks, and they're usually right."
       },
       "quote": {
-        "en": "An event is a project with a deadline you can't move.",
-        "tr": "Etkinlik, erteleyemeyeceğin bir son teslim tarihi olan bir projedir."
+        "en": "",
+        "tr": "",
+        "tr-x-eski": "Etkinlik, erteleyemeyeceğin bir son teslim tarihi olan bir projedir.",
+        "en-x-eski": "An event is a project with a deadline you can't move."
       },
       "focus": [
         "Event Ops",
@@ -492,20 +566,28 @@
       "dept": "FINANCE & CORPORATE",
       "photo": null,
       "tagline": {
-        "en": "Connects the club with sponsors and turns budgets into opportunities.",
-        "tr": "Kulübü sponsorlarla buluşturur ve bütçeleri fırsatlara çevirir."
+        "en": "Directs the Finance & Corporate department.",
+        "tr": "Finance & Corporate departmanını yönetiyor.",
+        "tr-x-eski": "Kulübü sponsorlarla buluşturur ve bütçeleri fırsatlara çevirir.",
+        "en-x-eski": "Connects the club with sponsors and turns budgets into opportunities."
       },
       "bio1": {
-        "en": "Cansu keeps the club funded and connected. They write the proposals, run the numbers, and build the relationships that turn into internships and first jobs for members.",
-        "tr": "Cansu, kulübün finansmanını ve bağlantılarını ayakta tutuyor. Teklifleri yazıyor, rakamları hesaplıyor ve üyeler için staja ve ilk işlere dönüşen ilişkileri kuruyor."
+        "en": "Cansu directs the Finance & Corporate department.",
+        "tr": "Cansu, Finance & Corporate departmanını yönetiyor.",
+        "tr-x-eski": "Cansu, kulübün finansmanını ve bağlantılarını ayakta tutuyor. Teklifleri yazıyor, rakamları hesaplıyor ve üyeler için staja ve ilk işlere dönüşen ilişkileri kuruyor.",
+        "en-x-eski": "Cansu keeps the club funded and connected. They write the proposals, run the numbers, and build the relationships that turn into internships and first jobs for members."
       },
       "bio2": {
-        "en": "They're proof that the business side of a data club is every bit as creative as the technical side.",
-        "tr": "Bir veri kulübünün iş tarafının, teknik tarafı kadar yaratıcı olduğunun kanıtı."
+        "en": "",
+        "tr": "",
+        "tr-x-eski": "Bir veri kulübünün iş tarafının, teknik tarafı kadar yaratıcı olduğunun kanıtı.",
+        "en-x-eski": "They're proof that the business side of a data club is every bit as creative as the technical side."
       },
       "quote": {
-        "en": "A cold email is just a warm intro you haven't earned yet.",
-        "tr": "Soğuk bir e-posta, henüz hak etmediğin sıcak bir tanışıklıktan ibarettir."
+        "en": "",
+        "tr": "",
+        "tr-x-eski": "Soğuk bir e-posta, henüz hak etmediğin sıcak bir tanışıklıktan ibarettir.",
+        "en-x-eski": "A cold email is just a warm intro you haven't earned yet."
       },
       "focus": [
         "Sponsorship",
@@ -535,8 +617,10 @@
       "dept": "PR",
       "photo": null,
       "tagline": {
-        "en": "Designer and storyteller behind the club's voice and visuals.",
-        "tr": "Kulübün sesinin ve görsellerinin arkasındaki tasarımcı ve hikâye anlatıcısı."
+        "en": "Co-directs the PR department.",
+        "tr": "PR departmanını birlikte yönetiyor.",
+        "tr-x-eski": "Kulübün sesinin ve görsellerinin arkasındaki tasarımcı ve hikâye anlatıcısı.",
+        "en-x-eski": "Designer and storyteller behind the club's voice and visuals."
       },
       "bio1": {
         "en": "I am a Mathematics student at Marmara University. As the PR Director of the Data Science Club, I am involved in the club’s communication and promotional activities. I contribute to creating social media content, promoting events, and managing the club’s digital communication efforts.",
@@ -578,8 +662,10 @@
       "dept": "PR",
       "photo": null,
       "tagline": {
-        "en": "Runs the feed and makes sure the club's work actually gets seen.",
-        "tr": "Akışı yönetir ve kulübün işinin gerçekten görülmesini sağlar."
+        "en": "Co-directs the PR department.",
+        "tr": "PR departmanını birlikte yönetiyor.",
+        "tr-x-eski": "Akışı yönetir ve kulübün işinin gerçekten görülmesini sağlar.",
+        "en-x-eski": "Runs the feed and makes sure the club's work actually gets seen."
       },
       "bio1": {
         "en": "Hi! I’m Esma, a Mathematics student at Marmara University. As the PR President of DSC, I actively take part in the club’s communication, organization, and collaboration processes.",

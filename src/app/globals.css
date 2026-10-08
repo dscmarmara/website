@@ -440,12 +440,12 @@
   }
 }
 
-/* nav desktop/mobile switch. Was the prototype's 880px; raised so six links,
-   the brand lockup and the language pill still fit on one line. */
+/* nav desktop/mobile switch at the prototype's 880px breakpoint (five links,
+   the brand lockup and the one-button language switch fit above it) */
 .nav-mobile {
   display: none;
 }
-@media (max-width: 1040px) {
+@media (max-width: 880px) {
   .nav-desktop {
     display: none !important;
   }
@@ -454,7 +454,7 @@
   }
 }
 /* mobile menu is an inline collapsible below the bar (like the prototype), not a drawer */
-@media (min-width: 1041px) {
+@media (min-width: 881px) {
   .nav-collapse {
     display: none !important;
   }

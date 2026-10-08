@@ -2,8 +2,9 @@
 
 import { useTransition } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { usePathname, useRouter } from "@/i18n/navigation";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
+import { IS_PRODUCTION } from "@/lib/env";
 
 /** TEMPORARY: per language, the previous copy (review locale) and the current default. */
 const GROUPS: { title: string; options: { locale: Locale; label: string; key: string }[] }[] = [
@@ -28,7 +29,8 @@ const btn = { padding: "4px 12px", fontSize: 11.5 } as const;
 /**
  * TEMPORARY dev options bar under the nav: switches the page between the
  * previous copy (ESKİ) and the current default (YENİ), in Turkish and in
- * English. Hidden on Vercel production, so it never reaches the live site;
+ * English, and links the preview-only pages (the shop). Hidden on Vercel
+ * production, so it never reaches the live site;
  * remove before merging into main (see TRANSLATIONS.md). Its labels are
  * Turkish on purpose: it is a tool for the club's own team, not for visitors.
  */
@@ -39,7 +41,8 @@ export function DevOptions() {
   const router = useRouter();
   const [, startTransition] = useTransition();
 
-  if (process.env.NEXT_PUBLIC_VERCEL_ENV === "production") return null;
+  if (IS_PRODUCTION) return null;
+  const onShop = pathname === "/shop" || pathname.startsWith("/shop/");
 
   return (
     <div style={{ borderTop: "1px solid var(--border)", background: "var(--bg-elev)" }}>
@@ -79,6 +82,15 @@ export function DevOptions() {
             </div>
           </div>
         ))}
+        {/* Preview-only pages, kept out of the nav and the live site. */}
+        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <span style={{ fontFamily: "var(--font-body-stack)", fontSize: 12, color: "var(--text-muted)" }}>Önizleme:</span>
+          <div style={{ display: "inline-flex", border: "1px solid var(--border)", borderRadius: 100, overflow: "hidden" }}>
+            <Link href="/shop" className="lang-btn" data-active={onShop ? "" : undefined} style={{ ...btn, textDecoration: "none" }}>
+              Mağaza →
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );

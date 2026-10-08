@@ -38,6 +38,16 @@ Hakkımızda'daki Türkçe odak etiketleri `ABOUT_DEPARTMENTS[].focusByLocale.tr
   - WhatsApp numarası `SHOP_WHATSAPP` sahte (`905555555555`).
   - Fiyatlar ve ürün açıklamaları `SHOP_PRODUCTS` içinde örnek değerler.
   - Ürün görselleri çizim (`src/components/shop/ProductArt.tsx`). Fotoğraflar gelince kartta `next/image` ile değiştirilir.
+- **Mağaza canlı sürümde kapalı.** Menüde ve footer'da yok, sitemap'te yok; canlıda `/shop` 404 verir
+  (`src/lib/env.ts` → `IS_PRODUCTION`). Preview'da Dev options şeridindeki **"Önizleme: Mağaza →"** linkiyle açılır.
+  Açmak için: `src/app/[locale]/shop/page.tsx`'teki `IS_PRODUCTION` kontrollerini kaldır, `Nav.tsx` `NAV_LINKS`'e
+  `{ key: "shop", href: "/shop" }`, `Footer.tsx`'e `footer.linkShop` linkini, `src/app/sitemap.ts`'e `"/shop"`'u ekle.
+  (Mesaj anahtarları duruyor.)
+- **Üye rakamları (KPI) uydurma, karar bekliyor.** `src/data/members.json` → her üyenin `kpis` listesi (örn. "16 DASHBOARDS").
+  Boş liste (`[]`) verilirse profil sayfasında rakam şeridi gizlenir.
+- **Kendi metnini vermemiş üyelerde sade rol metni var** (ör. "Emirhan, Data Insights departmanını birlikte yönetiyor.").
+  Eski placeholder metinleri `"tr-x-eski"` / `"en-x-eski"` anahtarlarında, ESKİ sürümlerde görünür. Üye kendi metnini
+  gönderince `tr` / `en` değerlerine yazılır.
 
 **Eski metinleri tamamen kaldırmak** (artık karşılaştırma gerekmediğinde; main'e merge etmeden önce önerilir):
 

@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/common/PageHero";
 import { ProductCard } from "@/components/shop/ProductCard";
 import { SHOP_PRODUCTS } from "@/lib/constants";
 import { pick } from "@/lib/members";
 import { buildAlternates } from "@/lib/seo";
+import { IS_PRODUCTION } from "@/lib/env";
+
+// The shop is preview-only for now: a 404 on the live site, reached on
+// previews from the dev options bar. To open it, drop these checks and add it
+// back to NAV_LINKS, the footer and the sitemap (see TRANSLATIONS.md).
 
 export async function generateMetadata({
   params,
@@ -12,6 +18,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  if (IS_PRODUCTION) return {};
   const t = await getTranslations({ locale, namespace: "metadata" });
   return {
     title: t("shop.title"),
@@ -25,6 +32,7 @@ export default async function ShopPage({
 }: {
   params: Promise<{ locale: string }>;
 }) {
+  if (IS_PRODUCTION) notFound();
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("shop");

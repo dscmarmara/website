@@ -12,7 +12,7 @@ export const NAV_LINKS = [
   { key: "about", href: "/about" },
   { key: "team", href: "/team" },
   { key: "blog", href: "/blog" },
-  { key: "shop", href: "/shop" },
+  // The shop is preview-only for now and linked from the dev options bar.
   { key: "contact", href: "/contact" },
 ] as const;
 
