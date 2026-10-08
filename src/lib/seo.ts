@@ -1,5 +1,5 @@
 import { getPathname } from "@/i18n/navigation";
-import { REVIEW_LOCALE, routing } from "@/i18n/routing";
+import { isReviewLocale, routing } from "@/i18n/routing";
 import { SOCIALS } from "@/lib/constants";
 
 // Fall back to the live domain, not a placeholder: if NEXT_PUBLIC_SITE_URL is
@@ -23,8 +23,8 @@ const OG_LOCALES: Record<string, string> = { en: "en_US", tr: "tr_TR" };
 export const ogLocale = (locale: string) =>
   OG_LOCALES[locale] ?? OG_LOCALES[locale.split("-")[0]] ?? "en_US";
 
-/** Locales advertised to search engines: everything but the review locale. */
-export const PUBLIC_LOCALES = routing.locales.filter((l) => l !== REVIEW_LOCALE);
+/** Locales advertised to search engines: everything but the review locales. */
+export const PUBLIC_LOCALES = routing.locales.filter((l) => !isReviewLocale(l));
 
 /** Turkish name for the club. People here search for this, not the English one. */
 const SITE_NAME_TR = "Marmara Üniversitesi Veri Bilimi Kulübü";

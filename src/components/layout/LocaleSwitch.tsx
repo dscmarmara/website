@@ -17,7 +17,9 @@ export function LocaleSwitch({ large = false }: { large?: boolean }) {
   const router = useRouter();
   const [, startTransition] = useTransition();
 
-  const toEnglish = locale !== "en";
+  // By base language, so the review copies (tr-x-eski, en-x-eski) flip to the
+  // other language's current default too.
+  const toEnglish = locale.split("-")[0] !== "en";
   const target: Locale = toEnglish ? "en" : "tr";
 
   return (

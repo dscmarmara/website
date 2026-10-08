@@ -6,21 +6,29 @@ aşağıdaki dosyalara bakman yeterli. Kod bilgisi gerekmiyor; sadece tırnak i�
 
 Değişikliği görmek için: `npm run dev` → <http://localhost:3737/tr>
 
-## Geçici: eski çeviri (TR ESKİ)
+## Geçici: eski metinler (TR ESKİ / EN ESKİ)
 
-`/tr` artık **yeni çeviriyi** gösteriyor; düzenlenecek asıl Türkçe metin `messages/tr.json` ve `tr:` alanları.
-Önceki çeviri karşılaştırma için `/tr-x-eski/...` adresinde saklanıyor (arama motorlarına kapalı).
+`/tr` ve `/` artık **yeni metinleri** gösteriyor; düzenlenecek asıl metinler `messages/tr.json` / `messages/en.json`
+ve `tr:` / `en:` alanları. Önceki metinler karşılaştırma için `/tr-x-eski/...` ve `/en-x-eski/...` adreslerinde
+saklanıyor (arama motorlarına kapalı).
 
-Menüde tek dil düğmesi var (Türkçede "EN", İngilizcede "TR" → `/tr`). Menünün altındaki **DEV OPTIONS** şeridinde
-**TR ESKİ** ve **TR YENİ** düğmeleriyle aynı sayfada iki çeviri arasında geçilir. Şerit Vercel'in production
-ortamında (`NEXT_PUBLIC_VERCEL_ENV=production`) kendini gizler; preview'da ve lokalde görünür.
+Menüde tek dil düğmesi var (Türkçede "EN" → `/`, İngilizcede "TR" → `/tr`). Menünün altındaki **DEV OPTIONS**
+şeridinde **TR ESKİ | TR YENİ** ve **EN ESKİ | EN YENİ** düğmeleriyle aynı sayfada eski ve yeni metin arasında
+geçilir. Şerit Vercel'in production ortamında (`NEXT_PUBLIC_VERCEL_ENV=production`) kendini gizler; preview'da ve
+lokalde görünür.
 
 | | Arayüz metinleri | `constants.ts` alanları |
 |---|---|---|
 | TR YENİ (varsayılan, `/tr`) | `messages/tr.json` | `tr:` |
 | TR ESKİ (`/tr-x-eski`) | `messages/tr-x-eski.json` | `"tr-x-eski":` (yalnızca farklı olan alanlarda; olmayan yerde `tr` kullanılır) |
+| EN YENİ (varsayılan, `/`) | `messages/en.json` | `en:` |
+| EN ESKİ (`/en-x-eski`) | `messages/en-x-eski.json` | `"en-x-eski":` (aynı şekilde; şu an hiçbir alanda farklı değil) |
 
-`members.json` ve blog yazılarının ayrı bir "eski" sürümü yok; TR ESKİ'de de `tr` değerleri görünür.
+Bir metni değiştirirken eskisini karşılaştırmada tutmak istersen: mesaj dosyalarında yeni metni sadece `tr.json` /
+`en.json`'a yaz (ESKİ dosyalar olduğu gibi kalır); `constants.ts` / `members.json`'da eski değeri `"tr-x-eski"` /
+`"en-x-eski"` anahtarına taşı.
+
+`members.json` ve blog yazılarının ayrı bir "eski" sürümü yok; ESKİ sayfalarda da `tr` / `en` değerleri görünür.
 Hakkımızda'daki Türkçe odak etiketleri `ABOUT_DEPARTMENTS[].focusByLocale.tr` içinde; TR ESKİ'de eskisi gibi
 İngilizce `focus` etiketleri görünür.
 
@@ -31,15 +39,15 @@ Hakkımızda'daki Türkçe odak etiketleri `ABOUT_DEPARTMENTS[].focusByLocale.tr
   - Fiyatlar ve ürün açıklamaları `SHOP_PRODUCTS` içinde örnek değerler.
   - Ürün görselleri çizim (`src/components/shop/ProductArt.tsx`). Fotoğraflar gelince kartta `next/image` ile değiştirilir.
 
-**Eski çeviriyi tamamen kaldırmak** (artık karşılaştırma gerekmediğinde; main'e merge etmeden önce önerilir):
+**Eski metinleri tamamen kaldırmak** (artık karşılaştırma gerekmediğinde; main'e merge etmeden önce önerilir):
 
-1. `messages/tr-x-eski.json`'u sil.
-2. `src/lib/constants.ts`'teki bütün `"tr-x-eski": "…"` satırlarını sil.
+1. `messages/tr-x-eski.json` ve `messages/en-x-eski.json`'u sil.
+2. `src/lib/constants.ts` ve `src/data/members.json`'daki bütün `"tr-x-eski"` / `"en-x-eski"` satırlarını sil.
 3. Kod tarafını kaldır:
-   - `src/i18n/routing.ts` içindeki `REVIEW_LOCALE` ve onu kullanan yerler (`src/lib/seo.ts`, `src/app/sitemap.ts`, `src/app/[locale]/layout.tsx`)
+   - `src/i18n/routing.ts` içindeki `REVIEW_LOCALES` / `isReviewLocale` ve onları kullanan yerler (`src/lib/seo.ts`, `src/app/[locale]/layout.tsx`)
    - `src/components/layout/DevOptions.tsx` ve `Nav.tsx`'teki `<DevOptions />` satırı
-   - `src/lib/members.ts` içindeki `Localized` tipinde `"tr-x-eski"`
-   - `messages/en.json` ve `messages/tr.json` içindeki `nav.turkishOld`
+   - `src/lib/members.ts` içindeki `Localized` tipinde `"tr-x-eski"` ve `"en-x-eski"`
+   - `messages/en.json` ve `messages/tr.json` içindeki `nav.turkishOld` ve `nav.englishOld`
    - `about.orgSub` yalnızca `tr.json`'da var; İngilizce sayfada da görünsün istenirse `en.json`'a İngilizcesi eklenir
    - bu bölüm
 
