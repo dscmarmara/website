@@ -340,8 +340,8 @@
         "tr": "Üniversite ve bölüm tercihimden, üniversite hayatım boyunca attığım adımlara kadar kendimi tek bir alanda geliştirmeye odaklandım: veri bilimi. Bu doğrultuda bugüne kadar doğrudan veya dolaylı olarak birçok veri analizi ve makine öğrenimi projesinde yer aldım ve kendimi geliştirmeye devam ediyorum. Özellikle toplumun ürettiği veya toplumsal meseleleri doğrudan ilgilendiren veri setleriyle çalışmaktan; bu verilerin içindeki örüntüleri keşfetmekten, anlamlı sonuçlar çıkarmaktan ve gerçek problemlere veri odaklı çözümler üretmekten büyük keyif alıyorum."
       },
       "quote": {
-        "en": "Your first pipeline should be boring, observable and hard to break.",
-        "tr": "İlk veri hattın sıkıcı, gözlemlenebilir ve kırılması zor olmalı."
+        "en": "",
+        "tr": ""
       },
       "focus": [
         "ETL",
