@@ -449,29 +449,29 @@
       "linkedin": "https://www.linkedin.com/in/elif-esma-tuna-099764327/"
     },
     {
-      "slug": "irmak-yildiz",
-      "name": "Irmak Yıldız",
-      "first": "Irmak",
-      "initials": "IY",
+      "slug": "tarik-emre-ermis",
+      "name": "Tarık Emre Ermiş",
+      "first": "Tarık",
+      "initials": "TE",
       "group": "Summits & Awards",
       "teamRole": "DIRECTOR",
       "dept": "SUMMITS & AWARDS",
       "photo": null,
       "tagline": {
-        "en": "Turns a room full of strangers into teams that ship by sunrise.",
-        "tr": "Yabancılarla dolu bir odayı, gün doğana kadar iş çıkaran takımlara dönüştürür."
+        "en": "Co-directs the Summits & Awards department.",
+        "tr": "Summits & Awards departmanını birlikte yönetiyor."
       },
       "bio1": {
-        "en": "Irmak co-directs Summits & Awards, obsessing over the tiny logistics that decide whether an event feels magic or chaotic.",
-        "tr": "Irmak, bir etkinliğin büyülü mü yoksa kaotik mi hissettireceğini belirleyen küçük lojistik detaylara takıntıyla Summits & Awards'ı birlikte yönetiyor."
+        "en": "Tarık Emre co-directs the Summits & Awards department.",
+        "tr": "Tarık Emre, Summits & Awards departmanını birlikte yönetiyor."
       },
       "bio2": {
-        "en": "They designed the club's mentor-matching format that pairs beginners with seniors during the Datathon.",
-        "tr": "Datathon sırasında yeni başlayanları kıdemlilerle eşleştiren kulübün mentor eşleştirme formatını tasarladı."
+        "en": "",
+        "tr": ""
       },
       "quote": {
-        "en": "Great events are just great projects with snacks.",
-        "tr": "Harika etkinlikler, atıştırmalıkları olan harika projelerdir."
+        "en": "",
+        "tr": ""
       },
       "focus": [
         "Event Ops",
@@ -479,17 +479,8 @@
         "Community",
         "Logistics"
       ],
-      "kpis": [
-        {
-          "num": "7",
-          "label": "EVENTS"
-        },
-        {
-          "num": "2",
-          "label": "DATATHONS"
-        }
-      ],
-      "linkedin": "https://www.linkedin.com/in/irmak-y%C4%B1ld%C4%B1z-561055249/"
+      "kpis": [],
+      "linkedin": "https://www.linkedin.com/in/tar%C4%B1k-emre-ermi%C5%9F-2a68462ba"
     },
     {
       "slug": "cansu-okcu",
