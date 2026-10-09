@@ -26,7 +26,10 @@ export interface Member {
   slug: string;
   name: string;
   first: string;
-  /** Avatar letters: a plain string in every locale, or `{ en, tr, … }` per locale. Read via initialsOf(). */
+  /**
+   * Avatar letters: a plain string in every locale, or `{ en, tr, … }` per locale. Read via initialsOf().
+   * Convention: one letter per name part, so three-part names get three (Ahmet Hamza Mülayim → AHM).
+   */
   initials: string | Localized;
   group: string; // 'president' | 'vp' | <department name>
   teamRole: "PRESIDENT" | "VICE PRESIDENT" | "SECRETARY" | "DIRECTOR";

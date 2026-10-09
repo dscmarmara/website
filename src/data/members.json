@@ -116,7 +116,12 @@
       "slug": "esim-ebrar-gokyaka",
       "name": "Esim Ebrar Gökyaka",
       "first": "Esim",
-      "initials": "EG",
+      "initials": {
+        "en": "EEG",
+        "tr": "EEG",
+        "tr-x-eski": "EG",
+        "en-x-eski": "EG"
+      },
       "group": "vp",
       "teamRole": "SECRETARY",
       "dept": "LEADERSHIP",
@@ -219,7 +224,12 @@
       "slug": "ihsan-sami-ceran",
       "name": "İhsan Sami Ceran",
       "first": "İhsan",
-      "initials": "İC",
+      "initials": {
+        "en": "İSC",
+        "tr": "İSC",
+        "tr-x-eski": "İC",
+        "en-x-eski": "İC"
+      },
       "group": "Data Insights",
       "teamRole": "DIRECTOR",
       "dept": "DATA INSIGHTS",
@@ -327,7 +337,12 @@
       "slug": "ahmet-hamza-mulayim",
       "name": "Ahmet Hamza Mülayim",
       "first": "Ahmet",
-      "initials": "AM",
+      "initials": {
+        "en": "AHM",
+        "tr": "AHM",
+        "tr-x-eski": "AM",
+        "en-x-eski": "AM"
+      },
       "group": "Core AI",
       "teamRole": "DIRECTOR",
       "dept": "CORE AI",
@@ -424,7 +439,12 @@
       "slug": "mustafa-kaan-yildiz",
       "name": "Mustafa Kaan Yıldız",
       "first": "Mustafa",
-      "initials": "MY",
+      "initials": {
+        "en": "MKY",
+        "tr": "MKY",
+        "tr-x-eski": "MY",
+        "en-x-eski": "MY"
+      },
       "group": "Data Pipelines",
       "teamRole": "DIRECTOR",
       "dept": "DATA PIPELINES",
@@ -475,7 +495,12 @@
       "slug": "elif-esma-tuna",
       "name": "Elif Esma Tuna",
       "first": "Elif",
-      "initials": "ET",
+      "initials": {
+        "en": "EET",
+        "tr": "EET",
+        "tr-x-eski": "ET",
+        "en-x-eski": "ET"
+      },
       "group": "Summits & Awards",
       "teamRole": "DIRECTOR",
       "dept": "SUMMITS & AWARDS",
@@ -526,7 +551,12 @@
       "slug": "tarik-emre-ermis",
       "name": "Tarık Emre Ermiş",
       "first": "Tarık",
-      "initials": "TE",
+      "initials": {
+        "en": "TEE",
+        "tr": "TEE",
+        "tr-x-eski": "TE",
+        "en-x-eski": "TE"
+      },
       "group": "Summits & Awards",
       "teamRole": "DIRECTOR",
       "dept": "SUMMITS & AWARDS",
@@ -611,7 +641,12 @@
       "slug": "elif-ayse-sen",
       "name": "Elif Ayşe Şen",
       "first": "Elif",
-      "initials": "EŞ",
+      "initials": {
+        "en": "EAŞ",
+        "tr": "EAŞ",
+        "tr-x-eski": "EŞ",
+        "en-x-eski": "EŞ"
+      },
       "group": "PR",
       "teamRole": "DIRECTOR",
       "dept": "PR",

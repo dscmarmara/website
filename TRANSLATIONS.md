@@ -43,9 +43,6 @@ Hakkımızda'daki Türkçe odak etiketleri `ABOUT_DEPARTMENTS[].focusByLocale.tr
   Açmak için: `src/app/[locale]/shop/page.tsx`'teki `IS_PRODUCTION` kontrollerini kaldır, `Nav.tsx` `NAV_LINKS`'e
   `{ key: "shop", href: "/shop" }`, `Footer.tsx`'e `footer.linkShop` linkini, `src/app/sitemap.ts`'e `"/shop"`'u ekle.
   (Mesaj anahtarları duruyor.)
-- **Ahmet Hamza Mülayim'in avatar kısaltması: "AM" mi "AHM" mi, karar bekliyor.** Şu an "AM". "AHM"ye geçmek için
-  `src/data/members.json`'da onun `"initials": "AM"` satırını `{ "en": "AHM", "tr": "AHM", "tr-x-eski": "AM", "en-x-eski": "AM" }`
-  yap (yeni sürümlerde AHM, eski sürümlerde AM görünür; bütün avatarlar `initialsOf` ile okuyor).
 - **Üye rakamları (KPI) uydurma, şu an kapalı.** Veriler `src/data/members.json` → her üyenin `kpis` listesinde duruyor
   (örn. "16 DASHBOARDS") ama gösterilmiyor; profil sayfasında rakam şeridi de çizilmiyor. Gerçek rakamlar girilince
   `src/app/[locale]/team/[slug]/page.tsx`'teki `SHOW_KPIS`'i `true` yap, şerit geri gelir.
@@ -140,6 +137,9 @@ Aşağıdakiler bilerek tek dilli bırakıldı. Türkçeleştirmek için kod de�
 - Üyelerin isimleri ve departman etiketi ("LEADERSHIP" gibi)
 - Üye sayfasındaki yetenek etiketleri (`members.json` → `focus`) düz metinse iki dilde aynı görünür; bir etiketi
   `{ "en": "Accounting", "tr": "Muhasebe" }` şeklinde yazarsan dile göre görünür
+- Avatar kısaltması (`members.json` → `initials`): **adın her parçasından bir harf**. Üç parçalı adlarda üç harf
+  (Ahmet Hamza Mülayim → AHM, Elif Ayşe Şen → EAŞ). Yeni üye eklerken de bu kurala uy. Mevcut üç isimlilerde eski
+  iki harfli kısaltma `"tr-x-eski"` / `"en-x-eski"`'de duruyor, ESKİ sürümlerde görünür.
 - Footer'daki departman linkleri (`src/components/layout/Footer.tsx`)
 - Sosyal medya paylaşım görseli (`src/app/[locale]/opengraph-image.tsx`)
 - İletişim e-postasının konu başlığındaki `[İletişim]` etiketi. Inbox filtreleri buna bakıyor, değiştirme.
