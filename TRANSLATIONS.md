@@ -44,8 +44,8 @@ Hakkımızda'daki Türkçe odak etiketleri `ABOUT_DEPARTMENTS[].focusByLocale.tr
   `{ key: "shop", href: "/shop" }`, `Footer.tsx`'e `footer.linkShop` linkini, `src/app/sitemap.ts`'e `"/shop"`'u ekle.
   (Mesaj anahtarları duruyor.)
 - **Üye rakamları (KPI) uydurma, şu an kapalı.** Veriler `src/data/members.json` → her üyenin `kpis` listesinde duruyor
-  (örn. "16 DASHBOARDS") ama gösterilmiyor; profil sayfasındaki şerit boş bir ayırıcı olarak kalıyor. Gerçek rakamlar
-  girilince `src/app/[locale]/team/[slug]/page.tsx`'teki `SHOW_KPIS`'i `true` yap.
+  (örn. "16 DASHBOARDS") ama gösterilmiyor; profil sayfasında rakam şeridi de çizilmiyor. Gerçek rakamlar girilince
+  `src/app/[locale]/team/[slug]/page.tsx`'teki `SHOW_KPIS`'i `true` yap, şerit geri gelir.
 - **Kendi metnini vermemiş üyelerde sade rol metni var** (ör. "Emirhan, Data Insights departmanını birlikte yönetiyor.").
   Eski placeholder metinleri `"tr-x-eski"` / `"en-x-eski"` anahtarlarında, ESKİ sürümlerde görünür. Üye kendi metnini
   gönderince `tr` / `en` değerlerine yazılır.
