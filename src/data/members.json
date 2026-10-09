@@ -327,12 +327,7 @@
       "slug": "ahmet-hamza-mulayim",
       "name": "Ahmet Hamza Mülayim",
       "first": "Ahmet",
-      "initials": {
-        "en": "AHM",
-        "tr": "AHM",
-        "tr-x-eski": "AM",
-        "en-x-eski": "AM"
-      },
+      "initials": "AM",
       "group": "Core AI",
       "teamRole": "DIRECTOR",
       "dept": "CORE AI",
