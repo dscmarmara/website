@@ -29,6 +29,13 @@ import { routing } from "@/i18n/routing";
 
 export const dynamicParams = false;
 
+/**
+ * Member KPI figures are switched off until the numbers are confirmed; the
+ * band stays as a divider. The figures remain in members.json (`kpis`) —
+ * set this to true to show them again.
+ */
+const SHOW_KPIS = false;
+
 export function generateStaticParams() {
   return getMemberSlugs().map((slug) => ({ slug }));
 }
@@ -154,9 +161,10 @@ export default async function MemberPage({
         </div>
       </section>
 
-      {/* STATS — omitted for members with no published figures */}
-      {m.kpis.length > 0 && (
-        <section style={{ borderBottom: "1px solid var(--border)", background: "var(--bg-elev)" }}>
+      {/* STATS band. While SHOW_KPIS is off it stays as a plain divider
+          between the hero and the bio, for every member. */}
+      <section style={{ borderBottom: "1px solid var(--border)", background: "var(--bg-elev)" }}>
+        {SHOW_KPIS && m.kpis.length > 0 ? (
           <div data-reveal className="dsc-grid-3" style={{ maxWidth: MAXW, margin: "0 auto", padding: "0 24px" }}>
             {m.kpis.map((k, i) => (
               <div key={k.label + i} style={{ padding: "30px 0", textAlign: "center", borderRight: "1px solid var(--border)" }}>
@@ -165,8 +173,10 @@ export default async function MemberPage({
               </div>
             ))}
           </div>
-        </section>
-      )}
+        ) : (
+          <div aria-hidden style={{ height: 48 }} />
+        )}
+      </section>
 
       {/* ABOUT + FOCUS */}
       <div className="split member-main" style={{ maxWidth: MAXW, margin: "0 auto", padding: "72px 24px 40px", gap: 56, alignItems: "start" }}>
