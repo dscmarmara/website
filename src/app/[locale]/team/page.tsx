@@ -5,7 +5,7 @@ import { Link } from "@/i18n/navigation";
 import { PageHero } from "@/components/common/PageHero";
 import { Avatar } from "@/components/common/Avatar";
 import { MemberCard } from "@/components/cards/MemberCard";
-import { getGroupedTeam, pick } from "@/lib/members";
+import { getGroupedTeam, initialsOf, pick } from "@/lib/members";
 import { buildAlternates } from "@/lib/seo";
 
 export async function generateMetadata({
@@ -61,7 +61,7 @@ export default async function TeamPage({
           href={`/team/${president.slug}`}
           style={{ textDecoration: "none", color: "var(--text)", border: "1px solid var(--accent)", borderRadius: 22, background: "var(--bg-elev)", padding: 34, display: "flex", alignItems: "center", gap: 28, flexWrap: "wrap", boxShadow: "var(--glow-soft)" }}
         >
-          <Avatar photo={president.photo} initials={president.initials} size={88} radius={20} fontSize={30} />
+          <Avatar photo={president.photo} initials={initialsOf(president, locale)} size={88} radius={20} fontSize={30} />
           <div style={{ flex: 1, minWidth: 240 }}>
             <div style={{ fontFamily: "var(--font-mono-stack)", fontSize: 12, letterSpacing: "0.14em", color: "var(--accent)", marginBottom: 8 }}>{tr("president")}</div>
             <h2 style={{ fontFamily: "var(--font-display-stack)", fontWeight: 700, fontSize: "clamp(24px,3vw,32px)", margin: "0 0 10px" }}>{president.name}</h2>

@@ -12,6 +12,11 @@ export function pick(value: Localized, locale: string): string {
   return v[locale] ?? v[locale.split("-")[0]] ?? value.en;
 }
 
+/** A member's avatar letters for a locale. */
+export function initialsOf(m: { initials: string | Localized }, locale: string): string {
+  return typeof m.initials === "string" ? m.initials : pick(m.initials, locale);
+}
+
 export interface Kpi {
   num: string;
   label: string;
@@ -21,7 +26,8 @@ export interface Member {
   slug: string;
   name: string;
   first: string;
-  initials: string;
+  /** Avatar letters: a plain string in every locale, or `{ en, tr, … }` per locale. Read via initialsOf(). */
+  initials: string | Localized;
   group: string; // 'president' | 'vp' | <department name>
   teamRole: "PRESIDENT" | "VICE PRESIDENT" | "SECRETARY" | "DIRECTOR";
   dept: string; // uppercase, e.g. "CORE AI"

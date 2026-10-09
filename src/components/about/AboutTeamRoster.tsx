@@ -2,7 +2,7 @@ import { Link } from "@/i18n/navigation";
 import { Avatar } from "@/components/common/Avatar";
 import { MemberCard } from "@/components/cards/MemberCard";
 import { SocialLink, LinkedInIcon } from "@/components/common/SocialIcons";
-import { pick, type Member } from "@/lib/members";
+import { initialsOf, pick, type Member } from "@/lib/members";
 
 /**
  * The full roster block that used to sit in the About page's team section:
@@ -33,7 +33,7 @@ export function AboutTeamRoster({
       <article data-reveal className="glow-card" style={{ border: "1px solid var(--accent)", borderRadius: 20, background: "var(--bg-elev)", overflow: "hidden", display: "grid", marginBottom: 30, boxShadow: "var(--glow-soft)" }}>
         <div className="split prez">
           <div style={{ position: "relative", background: "repeating-linear-gradient(135deg,var(--bg-elev2),var(--bg-elev2) 10px,transparent 10px,transparent 20px)", minHeight: 240, display: "grid", placeItems: "center", borderRight: "1px solid var(--border)" }}>
-            <Avatar photo={president.photo} initials={president.initials} size={0} variant="clip" fontSize={72} />
+            <Avatar photo={president.photo} initials={initialsOf(president, locale)} size={0} variant="clip" fontSize={72} />
           </div>
           <div style={{ padding: 40, display: "flex", flexDirection: "column", justifyContent: "center" }}>
             <div style={{ fontFamily: "var(--font-mono-stack)", fontSize: 12, letterSpacing: "0.14em", color: "var(--accent)", marginBottom: 14 }}>{presidentRole}</div>

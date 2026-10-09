@@ -1,7 +1,7 @@
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Avatar } from "@/components/common/Avatar";
-import { pick, teamRoleKey, type Member } from "@/lib/members";
+import { initialsOf, pick, teamRoleKey, type Member } from "@/lib/members";
 
 export function MemberCard({ member }: { member: Member }) {
   const locale = useLocale();
@@ -25,7 +25,7 @@ export function MemberCard({ member }: { member: Member }) {
       }}
     >
       <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 18 }}>
-        <Avatar photo={member.photo} initials={member.initials} size={60} radius={16} fontSize={20} />
+        <Avatar photo={member.photo} initials={initialsOf(member, locale)} size={60} radius={16} fontSize={20} />
         <div>
           <h3 style={{ fontFamily: "var(--font-display-stack)", fontWeight: 600, fontSize: 20, margin: "0 0 4px" }}>{member.name}</h3>
           <div style={{ fontFamily: "var(--font-mono-stack)", fontSize: 11, letterSpacing: "0.06em", color: "var(--accent)" }}>

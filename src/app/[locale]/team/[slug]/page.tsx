@@ -21,6 +21,7 @@ import {
   getMemberSlugs,
   getPrevNext,
   displayRole,
+  initialsOf,
   pick,
 } from "@/lib/members";
 import { getPostsByAuthor } from "@/lib/posts";
@@ -122,7 +123,7 @@ export default async function MemberPage({
             <div data-reveal className="avatar-ring" style={{ position: "relative", width: 188, height: 188, flex: "none" }}>
               <div style={{ position: "relative", zIndex: 1, width: "100%", height: "100%", borderRadius: 24, background: "var(--bg-elev)", display: "grid", placeItems: "center", overflow: "hidden", border: "1px solid var(--border)" }}>
                 <div style={{ position: "absolute", inset: 0, background: "repeating-linear-gradient(135deg,var(--bg-elev2),var(--bg-elev2) 10px,transparent 10px,transparent 20px)" }} />
-                <Avatar photo={m.photo} initials={m.initials} size={0} variant="clip" fontSize={64} />
+                <Avatar photo={m.photo} initials={initialsOf(m, locale)} size={0} variant="clip" fontSize={64} />
               </div>
             </div>
             <Reveal>
@@ -236,7 +237,7 @@ export default async function MemberPage({
         <div className="dsc-grid-2" style={{ maxWidth: MAXW, margin: "0 auto", padding: "40px 24px", gap: 20 }}>
           <Link className="glow-card glow-card--sm" href={`/team/${prev.slug}`} style={{ border: "1px solid var(--border)", borderRadius: 14, background: "var(--bg)", padding: 22, textDecoration: "none", color: "var(--text)", display: "flex", alignItems: "center", gap: 16 }}>
             <span style={{ fontFamily: "var(--font-display-stack)", fontSize: 22, color: "var(--accent)" }}>←</span>
-            <Avatar photo={prev.photo} initials={prev.initials} size={46} radius={999} fontSize={15} />
+            <Avatar photo={prev.photo} initials={initialsOf(prev, locale)} size={46} radius={999} fontSize={15} />
             <span style={{ display: "flex", flexDirection: "column" }}>
               <span style={{ fontFamily: "var(--font-mono-stack)", fontSize: 10.5, letterSpacing: "0.1em", color: "var(--text-muted)" }}>{t("previous")}</span>
               <span style={{ fontFamily: "var(--font-display-stack)", fontWeight: 600, fontSize: 16 }}>{prev.name}</span>
@@ -247,7 +248,7 @@ export default async function MemberPage({
               <span style={{ fontFamily: "var(--font-mono-stack)", fontSize: 10.5, letterSpacing: "0.1em", color: "var(--text-muted)" }}>{t("next")}</span>
               <span style={{ fontFamily: "var(--font-display-stack)", fontWeight: 600, fontSize: 16 }}>{next.name}</span>
             </span>
-            <Avatar photo={next.photo} initials={next.initials} size={46} radius={999} fontSize={15} />
+            <Avatar photo={next.photo} initials={initialsOf(next, locale)} size={46} radius={999} fontSize={15} />
             <span style={{ fontFamily: "var(--font-display-stack)", fontSize: 22, color: "var(--accent)" }}>→</span>
           </Link>
         </div>

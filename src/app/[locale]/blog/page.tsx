@@ -10,7 +10,7 @@ import { Avatar } from "@/components/common/Avatar";
 import { BlogFilter } from "@/components/blog/BlogFilter";
 import type { PostRowData } from "@/components/cards/PostRow";
 import { getAllPosts, getFeaturedPost } from "@/lib/posts";
-import { getMemberBySlug, displayRole } from "@/lib/members";
+import { getMemberBySlug, displayRole, initialsOf } from "@/lib/members";
 import { buildAlternates } from "@/lib/seo";
 
 export async function generateMetadata({
@@ -55,7 +55,7 @@ export default async function BlogPage({
         readingTime: p.readingTime,
         authorSlug: a?.slug,
         authorName: a?.name,
-        authorInitials: a?.initials,
+        authorInitials: a ? initialsOf(a, locale) : undefined,
       };
     });
 
@@ -86,7 +86,7 @@ export default async function BlogPage({
               className="author-link"
               style={{ position: "relative", zIndex: 2, display: "inline-flex", alignItems: "center", gap: 12, textDecoration: "none", color: "var(--text)", width: "fit-content" }}
             >
-              <Avatar photo={null} initials={featuredAuthor.initials} size={40} radius={999} fontSize={14} />
+              <Avatar photo={null} initials={initialsOf(featuredAuthor, locale)} size={40} radius={999} fontSize={14} />
               <span className="al-name" style={{ fontFamily: "var(--font-body-stack)", fontWeight: 700, fontSize: 14 }}>{featuredAuthor.name}</span>
               <span style={{ fontFamily: "var(--font-mono-stack)", fontSize: 12, color: "var(--text-muted)" }}>{displayRole(featuredAuthor, tr)}</span>
             </Link>
