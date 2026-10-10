@@ -9,7 +9,7 @@ import {
 import { Link } from "@/i18n/navigation";
 import { PlexusBg } from "@/components/effects/PlexusBg";
 import { Reveal } from "@/components/effects/Reveal";
-import { Avatar } from "@/components/common/Avatar";
+import { Avatar, PHOTO_QUALITY } from "@/components/common/Avatar";
 import {
   SocialLink,
   LinkedInIcon,
@@ -126,7 +126,7 @@ export default async function MemberPage({
               <div style={{ position: "relative", zIndex: 1, width: "100%", height: "100%", borderRadius: 24, background: "var(--bg-elev)", display: "grid", placeItems: "center", overflow: "hidden", border: "1px solid var(--border)" }}>
                 {m.photo ? (
                   // The photo fills the panel; the size-based <Avatar> would render it at 0px here.
-                  <Image src={m.photo} alt={m.name} fill sizes="188px" preload style={{ objectFit: "cover" }} />
+                  <Image src={m.photo} alt={m.name} fill sizes="188px" quality={PHOTO_QUALITY} preload style={{ objectFit: "cover" }} />
                 ) : (
                   <>
                     <div style={{ position: "absolute", inset: 0, background: "repeating-linear-gradient(135deg,var(--bg-elev2),var(--bg-elev2) 10px,transparent 10px,transparent 20px)" }} />

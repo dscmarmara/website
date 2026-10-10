@@ -1,5 +1,8 @@
 import Image from "next/image";
 
+/** Member photos are small faces: a higher quality than next/image's default 75 keeps them crisp. */
+export const PHOTO_QUALITY = 90;
+
 /**
  * Member avatar. Renders the photo when present, otherwise an initials
  * monogram — a green-gradient tile (`tile`) or gradient text-clip (`clip`,
@@ -26,6 +29,7 @@ export function Avatar({
     return (
       <span
         style={{
+          position: "relative",
           width: size,
           height: size,
           borderRadius: radius,
@@ -35,12 +39,15 @@ export function Avatar({
           boxShadow: "var(--glow-soft)",
         }}
       >
+        {/* `fill` + `sizes` (not width/height) so 3x screens get a sharp enough
+            source too; quality must be listed in next.config `images.qualities`. */}
         <Image
           src={photo}
           alt={initials}
-          width={size}
-          height={size}
-          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+          fill
+          sizes={`${size}px`}
+          quality={PHOTO_QUALITY}
+          style={{ objectFit: "cover" }}
         />
       </span>
     );

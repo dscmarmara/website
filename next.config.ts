@@ -53,6 +53,9 @@ const nextConfig: NextConfig = {
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
   // Allow the LAN origin during `next dev` (e.g. testing the responsive site on a phone).
   allowedDevOrigins: ["192.168.1.89", "192.168.1.89:3737"],
+  // next/image only serves qualities listed here (Next 16 default: [75]).
+  // 90 is PHOTO_QUALITY for member photos (src/components/common/Avatar.tsx).
+  images: { qualities: [75, 90] },
   // IS_PRODUCTION (src/lib/env.ts) keeps the shop, the dev options bar and the
   // old-copy locales off the live site. Vercel normally exposes this variable
   // itself; falling back to VERCEL_ENV keeps that gate closed even if the
