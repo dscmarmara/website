@@ -451,11 +451,21 @@
         "tr": ""
       },
       "focus": [
-        "ETL",
-        "Spark",
-        "Airflow",
-        "SQL",
-        "Cloud"
+        {
+          "en": "Machine Learning",
+          "tr": "Makine Öğrenimi"
+        },
+        {
+          "en": "Data Analysis",
+          "tr": "Veri Analizi"
+        },
+        {
+          "en": "Statistics",
+          "tr": "İstatistik"
+        },
+        "Python",
+        "R",
+        "SQL"
       ],
       "kpis": [
         {
