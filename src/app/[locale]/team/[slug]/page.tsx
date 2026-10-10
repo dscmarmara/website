@@ -12,6 +12,7 @@ import { Avatar } from "@/components/common/Avatar";
 import {
   SocialLink,
   LinkedInIcon,
+  GitHubIcon,
   MailIcon,
   GlobeIcon,
 } from "@/components/common/SocialIcons";
@@ -96,9 +97,9 @@ export default async function MemberPage({
   };
   // `sameAs` is how a search engine ties this page to the real-world person:
   // other profile URLs it can cross-reference. LinkedIn is the strongest such
-  // signal and every member has one, whereas `websiteUrl` is set for exactly
-  // one — so LinkedIn goes first and the list is filtered rather than assumed.
-  const sameAs = [m.linkedin, m.websiteUrl].filter((u): u is string => Boolean(u));
+  // signal and nearly every member has one, whereas `github` / `websiteUrl` are
+  // set for few — so LinkedIn goes first and the list is filtered rather than assumed.
+  const sameAs = [m.linkedin, m.github, m.websiteUrl].filter((u): u is string => Boolean(u));
   if (sameAs.length) personLd.sameAs = sameAs;
 
   const MAXW = 1080;
@@ -134,10 +135,13 @@ export default async function MemberPage({
                 <span style={{ padding: "6px 15px", borderRadius: 100, border: "1px solid var(--border)", background: "var(--bg-elev)", fontFamily: "var(--font-mono-stack)", fontSize: 12, letterSpacing: "0.05em", color: "var(--accent)" }}>{m.dept}</span>
                 <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
                   {/* Only rendered for members who actually have one — no dead
-                      "#" links. Fill in `linkedin` / `email` in members.json
+                      "#" links. Fill in `linkedin` / `github` / `email` in members.json
                       (or later, the admin profile form) to switch them on. */}
                   {m.linkedin && (
                     <SocialLink href={m.linkedin} label={t("linkedin")} size={40} external><LinkedInIcon size={17} /></SocialLink>
+                  )}
+                  {m.github && (
+                    <SocialLink href={m.github} label={t("github")} size={40} external><GitHubIcon size={17} /></SocialLink>
                   )}
                   {m.email && (
                     <SocialLink href={`mailto:${m.email}`} label={t("email")} size={40}><MailIcon size={17} /></SocialLink>

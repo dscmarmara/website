@@ -48,6 +48,8 @@ export interface Member {
   websiteUrl?: string;
   /** Full profile URL. The LinkedIn icon is hidden when absent. */
   linkedin?: string;
+  /** Full profile URL. The GitHub icon is hidden when absent. */
+  github?: string;
   /** Public contact address. The mail icon is hidden when absent. */
   email?: string;
   tagline: Localized;
