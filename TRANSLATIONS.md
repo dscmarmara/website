@@ -15,7 +15,8 @@ saklanıyor (arama motorlarına kapalı).
 Menüde tek dil düğmesi var (Türkçede "EN" → `/`, İngilizcede "TR" → `/tr`). Menünün altındaki **DEV OPTIONS**
 şeridinde **TR ESKİ | TR YENİ** ve **EN ESKİ | EN YENİ** düğmeleriyle aynı sayfada eski ve yeni metin arasında
 geçilir. Şerit Vercel'in production ortamında (`NEXT_PUBLIC_VERCEL_ENV=production`) kendini gizler; preview'da ve
-lokalde görünür.
+lokalde görünür. ESKİ adresler (`/tr-x-eski/...`, `/en-x-eski/...`) da canlı sitede 404 verir; sadece preview'da ve
+lokalde açılır.
 
 | | Arayüz metinleri | `constants.ts` alanları |
 |---|---|---|
@@ -31,6 +32,11 @@ Bir metni değiştirirken eskisini karşılaştırmada tutmak istersen: mesaj do
 `members.json` ve blog yazılarının ayrı bir "eski" sürümü yok; ESKİ sayfalarda da `tr` / `en` değerleri görünür.
 Hakkımızda'daki Türkçe odak etiketleri `ABOUT_DEPARTMENTS[].focusByLocale.tr` içinde; TR ESKİ'de eskisi gibi
 İngilizce `focus` etiketleri görünür.
+
+**Yayın akışı:** geliştirme `preview-development` dalında yapılır; her push Vercel Preview'a gider. Yayına almak için
+`git push origin preview-development:main` (ya da GitHub'da `preview-development` → `main` pull request'i). `main`'e
+doğrudan commit atılmadığı sürece bu her seferinde çakışmasız bir fast-forward'dur. Mağaza, DEV OPTIONS, ESKİ sürümler
+ve KPI'lar `main`'e geçse de canlıda kapalı kalır.
 
 **Açık notlar (karar bekliyor):**
 

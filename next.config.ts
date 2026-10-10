@@ -53,6 +53,13 @@ const nextConfig: NextConfig = {
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
   // Allow the LAN origin during `next dev` (e.g. testing the responsive site on a phone).
   allowedDevOrigins: ["192.168.1.89", "192.168.1.89:3737"],
+  // IS_PRODUCTION (src/lib/env.ts) keeps the shop, the dev options bar and the
+  // old-copy locales off the live site. Vercel normally exposes this variable
+  // itself; falling back to VERCEL_ENV keeps that gate closed even if the
+  // project's "expose System Environment Variables" setting is ever turned off.
+  env: {
+    NEXT_PUBLIC_VERCEL_ENV: process.env.NEXT_PUBLIC_VERCEL_ENV || process.env.VERCEL_ENV || "",
+  },
 };
 
 export default withNextIntl(withMDX(nextConfig));

@@ -30,8 +30,8 @@ const btn = { padding: "4px 12px", fontSize: 11.5 } as const;
  * TEMPORARY dev options bar under the nav: switches the page between the
  * previous copy (ESKİ) and the current default (YENİ), in Turkish and in
  * English, and links the preview-only pages (the shop). Hidden on Vercel
- * production, so it never reaches the live site;
- * remove before merging into main (see TRANSLATIONS.md). Its labels are
+ * production, where the old-copy locales 404 as well, so it is safe to merge
+ * into main; remove it once the old copy is dropped (see TRANSLATIONS.md). Its labels are
  * Turkish on purpose: it is a tool for the club's own team, not for visitors.
  */
 export function DevOptions() {

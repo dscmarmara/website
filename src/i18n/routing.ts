@@ -4,7 +4,8 @@ import { defineRouting } from "next-intl/routing";
  * TEMPORARY review locales: the previous Turkish and English copies, kept at
  * /tr-x-eski and /en-x-eski so they can still be compared page by page with
  * the current ones at /tr and / ("TR ESKİ" / "EN ESKİ" in the dev options
- * bar). Kept out of hreflang, the sitemap and search indexes. Remove once
+ * bar). Kept out of hreflang, the sitemap and search indexes, and 404 on the
+ * live site (IS_PRODUCTION in [locale]/layout.tsx) — previews only. Remove once
  * nobody needs the old copy — steps in TRANSLATIONS.md. BCP 47 private-use
  * tags, so Intl still formats dates and casing for their base language.
  */

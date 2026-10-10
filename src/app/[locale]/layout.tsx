@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { isReviewLocale, routing } from "@/i18n/routing";
+import { IS_PRODUCTION } from "@/lib/env";
 import { bricolage, hanken, pacifico, condiment } from "@/fonts";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
@@ -12,8 +13,11 @@ import "../globals.css";
 
 type Params = { locale: string };
 
+/** Review locales (the old copy) exist on previews only; the live site 404s them. */
+const isServedLocale = (locale: string) => !(IS_PRODUCTION && isReviewLocale(locale));
+
 export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
+  return routing.locales.filter(isServedLocale).map((locale) => ({ locale }));
 }
 
 export async function generateMetadata({
@@ -65,7 +69,7 @@ export default async function LocaleLayout({
   params: Promise<Params>;
 }) {
   const { locale } = await params;
-  if (!hasLocale(routing.locales, locale)) {
+  if (!hasLocale(routing.locales, locale) || !isServedLocale(locale)) {
     notFound();
   }
   setRequestLocale(locale);
