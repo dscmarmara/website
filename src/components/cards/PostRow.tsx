@@ -11,6 +11,7 @@ export interface PostRowData {
   category: string;
   date: string;
   readingTime: string;
+  /** Member slug; absent for an author who isn't on the team (shown unlinked). */
   authorSlug?: string;
   authorName?: string;
   authorInitials?: string;
@@ -44,7 +45,7 @@ export function PostRow({ post }: { post: PostRowData }) {
         <p style={{ fontFamily: "var(--font-body-stack)", fontSize: 15, lineHeight: 1.65, color: "var(--text-muted)", margin: "0 0 14px", maxWidth: "60ch" }}>
           {post.excerpt}
         </p>
-        {post.authorSlug && post.authorName && post.authorInitials && (
+        {post.authorName && post.authorInitials && (post.authorSlug ? (
           <Link
             href={`/team/${post.authorSlug}`}
             className="author-link"
@@ -53,7 +54,12 @@ export function PostRow({ post }: { post: PostRowData }) {
             <Avatar photo={null} initials={post.authorInitials} size={26} radius={999} fontSize={10} />
             <span className="al-name" style={{ fontFamily: "var(--font-body-stack)", fontWeight: 600, fontSize: 13 }}>{post.authorName}</span>
           </Link>
-        )}
+        ) : (
+          <span style={{ display: "inline-flex", alignItems: "center", gap: 9, color: "var(--text)" }}>
+            <Avatar photo={null} initials={post.authorInitials} size={26} radius={999} fontSize={10} />
+            <span style={{ fontFamily: "var(--font-body-stack)", fontWeight: 600, fontSize: 13 }}>{post.authorName}</span>
+          </span>
+        ))}
       </div>
       <span className="row-arrow" style={{ fontFamily: "var(--font-display-stack)", fontSize: 22, color: "var(--accent)", alignSelf: "center" }}>→</span>
     </div>

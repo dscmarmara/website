@@ -17,6 +17,15 @@ export function initialsOf(m: { initials: string | Localized }, locale: string):
   return typeof m.initials === "string" ? m.initials : pick(m.initials, locale);
 }
 
+/** Avatar letters for someone not in members.json: one per name part (Mustafa Kaan Yıldız → MKY). */
+export function initialsFromName(name: string): string {
+  return name
+    .split(/\s+/)
+    .filter(Boolean)
+    .map((part) => part[0].toLocaleUpperCase("tr"))
+    .join("");
+}
+
 export interface Kpi {
   num: string;
   label: string;

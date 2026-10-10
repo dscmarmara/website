@@ -127,6 +127,9 @@ Bu dosyalarda çevrilen alanlar `{ en: "…", tr: "…" }` şeklinde yan yana du
 - Çevrilecekler: üstteki `title`, `excerpt`, `readingTime` ("5 DK") alanları ve yazının kendisi.
 - Değiştirilmeyecekler: `author`, `date`, `category`. Bunlar iki dilde de aynı kalır. `category` İngilizce
   departman adı olmalı, yoksa build hata verir.
+- `author` bir üyenin slug'ıdır (`members.json`). Yazar ekipte değilse (veya ekipten ayrıldıysa) `author` yerine
+  `authorName: "Ad Soyad"` yazılır. Ad profil linki, rol ve yazar kutusu olmadan görünür. Örnek: Mustafa Kaan
+  Yıldız'ın risk analizi yazısı.
 - Başlangıç için `content/blog/tr/_template.mdx` dosyasını kopyalayabilirsin.
 
 ## Türkçede de İngilizce kalanlar

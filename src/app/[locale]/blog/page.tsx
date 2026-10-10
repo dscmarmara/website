@@ -9,8 +9,8 @@ import { PageHero } from "@/components/common/PageHero";
 import { Avatar } from "@/components/common/Avatar";
 import { BlogFilter } from "@/components/blog/BlogFilter";
 import type { PostRowData } from "@/components/cards/PostRow";
-import { getAllPosts, getFeaturedPost } from "@/lib/posts";
-import { getMemberBySlug, displayRole, initialsOf } from "@/lib/members";
+import { getAllPosts, getFeaturedPost, getPostAuthor } from "@/lib/posts";
+import { displayRole } from "@/lib/members";
 import { buildAlternates } from "@/lib/seo";
 
 export async function generateMetadata({
@@ -40,12 +40,12 @@ export default async function BlogPage({
 
   const all = getAllPosts(locale);
   const featured = getFeaturedPost(locale);
-  const featuredAuthor = featured ? getMemberBySlug(featured.author) : undefined;
+  const featuredAuthor = featured ? getPostAuthor(featured, locale) : undefined;
 
   const rowData: PostRowData[] = all
     .filter((p) => !p.featured)
     .map((p) => {
-      const a = getMemberBySlug(p.author);
+      const a = getPostAuthor(p, locale);
       return {
         slug: p.slug,
         title: p.title,
@@ -53,9 +53,9 @@ export default async function BlogPage({
         category: p.category,
         date: p.date,
         readingTime: p.readingTime,
-        authorSlug: a?.slug,
+        authorSlug: a?.member?.slug,
         authorName: a?.name,
-        authorInitials: a ? initialsOf(a, locale) : undefined,
+        authorInitials: a?.initials,
       };
     });
 
@@ -70,7 +70,7 @@ export default async function BlogPage({
       />
 
       <div style={{ maxWidth: 920, margin: "0 auto", padding: "64px 24px 96px" }}>
-        {featured && featuredAuthor && (
+        {featured && (
           <div data-reveal style={{ position: "relative", paddingBottom: 44, marginBottom: 20, borderBottom: "1px solid var(--border)" }}>
             <Link href={`/blog/${featured.slug}`} aria-label={featured.title} style={{ position: "absolute", inset: 0, zIndex: 1 }} />
             <div style={{ display: "flex", gap: 12, alignItems: "center", marginBottom: 18, flexWrap: "wrap" }}>
@@ -81,15 +81,23 @@ export default async function BlogPage({
             </div>
             <h2 style={{ fontFamily: "var(--font-display-stack)", fontWeight: 700, fontSize: "clamp(28px,4.4vw,46px)", lineHeight: 1.1, margin: "0 0 18px" }}>{featured.title}</h2>
             <p style={{ fontFamily: "var(--font-body-stack)", fontSize: 18, lineHeight: 1.7, color: "var(--text-muted)", margin: "0 0 22px", maxWidth: "62ch" }}>{featured.excerpt}</p>
-            <Link
-              href={`/team/${featuredAuthor.slug}`}
-              className="author-link"
-              style={{ position: "relative", zIndex: 2, display: "inline-flex", alignItems: "center", gap: 12, textDecoration: "none", color: "var(--text)", width: "fit-content" }}
-            >
-              <Avatar photo={null} initials={initialsOf(featuredAuthor, locale)} size={40} radius={999} fontSize={14} />
-              <span className="al-name" style={{ fontFamily: "var(--font-body-stack)", fontWeight: 700, fontSize: 14 }}>{featuredAuthor.name}</span>
-              <span style={{ fontFamily: "var(--font-mono-stack)", fontSize: 12, color: "var(--text-muted)" }}>{displayRole(featuredAuthor, tr)}</span>
-            </Link>
+            {featuredAuthor?.member ? (
+              <Link
+                href={`/team/${featuredAuthor.member.slug}`}
+                className="author-link"
+                style={{ position: "relative", zIndex: 2, display: "inline-flex", alignItems: "center", gap: 12, textDecoration: "none", color: "var(--text)", width: "fit-content" }}
+              >
+                <Avatar photo={null} initials={featuredAuthor.initials} size={40} radius={999} fontSize={14} />
+                <span className="al-name" style={{ fontFamily: "var(--font-body-stack)", fontWeight: 700, fontSize: 14 }}>{featuredAuthor.name}</span>
+                <span style={{ fontFamily: "var(--font-mono-stack)", fontSize: 12, color: "var(--text-muted)" }}>{displayRole(featuredAuthor.member, tr)}</span>
+              </Link>
+            ) : featuredAuthor ? (
+              /* Not on the team (anymore): name only, no profile to link to. */
+              <span style={{ display: "inline-flex", alignItems: "center", gap: 12, color: "var(--text)" }}>
+                <Avatar photo={null} initials={featuredAuthor.initials} size={40} radius={999} fontSize={14} />
+                <span style={{ fontFamily: "var(--font-body-stack)", fontWeight: 700, fontSize: 14 }}>{featuredAuthor.name}</span>
+              </span>
+            ) : null}
           </div>
         )}
 

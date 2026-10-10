@@ -14,8 +14,9 @@ tarafından yok sayılır, yani bu şablon sitede hiç görünmez. Yazı yayınl
 Frontmatter kuralları: `author` mutlaka `src/data/members.json` içindeki bir üye
 slug'ı, `category` ise `src/lib/constants.ts` içindeki `DEPARTMENTS`
 değerlerinden biri olmalı — aksi halde build açıkça hata verir
-(`assertContentIntegrity`). Yazıyı blog listesinin en üstüne sabitlemek için
-`featured: true` ekle.
+(`assertContentIntegrity`). Yazar ekipte değilse `author` yerine
+`authorName: "Ad Soyad"` yaz; ad profil linki olmadan görünür. Yazıyı blog
+listesinin en üstüne sabitlemek için `featured: true` ekle.
 
 ## Bir bölüm başlığı
 

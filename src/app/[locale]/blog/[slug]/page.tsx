@@ -14,8 +14,8 @@ import {
   LinkedInIcon,
 } from "@/components/common/SocialIcons";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { getPostBySlug, getPostSlugs, localeChain } from "@/lib/posts";
-import { getMemberBySlug, displayRole, initialsOf, pick } from "@/lib/members";
+import { getPostAuthor, getPostBySlug, getPostSlugs, localeChain } from "@/lib/posts";
+import { displayRole, pick } from "@/lib/members";
 import { buildAlternates, SITE_URL } from "@/lib/seo";
 import { routing } from "@/i18n/routing";
 
@@ -45,7 +45,7 @@ export async function generateMetadata({
   const { locale, slug } = await params;
   const post = getPostBySlug(slug, locale);
   if (!post) return {};
-  const author = getMemberBySlug(post.author);
+  const author = getPostAuthor(post, locale);
   return {
     title: post.title,
     description: post.excerpt,
@@ -71,7 +71,9 @@ export default async function BlogDetailPage({
   const post = getPostBySlug(slug, locale);
   if (!post) notFound();
 
-  const author = getMemberBySlug(post.author);
+  const author = getPostAuthor(post, locale);
+  // Only team members get a profile link, role line and bio box.
+  const member = author?.member;
   const t = await getTranslations("blog");
   const tr = await getTranslations("roles");
   const format = await getFormatter();
@@ -119,15 +121,20 @@ export default async function BlogDetailPage({
             {post.title}
           </Reveal>
           <Reveal style={{ display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap", paddingBottom: 34, borderBottom: "1px solid var(--border)" }}>
-            {author && (
-              <Link href={`/team/${author.slug}`} className="author-link" style={{ display: "inline-flex", alignItems: "center", gap: 14, textDecoration: "none", color: "var(--text)" }}>
-                <Avatar photo={null} initials={initialsOf(author, locale)} size={48} radius={999} fontSize={16} />
+            {member && author ? (
+              <Link href={`/team/${member.slug}`} className="author-link" style={{ display: "inline-flex", alignItems: "center", gap: 14, textDecoration: "none", color: "var(--text)" }}>
+                <Avatar photo={null} initials={author.initials} size={48} radius={999} fontSize={16} />
                 <span style={{ display: "flex", flexDirection: "column", lineHeight: 1.4 }}>
                   <span className="al-name" style={{ fontFamily: "var(--font-body-stack)", fontWeight: 700, fontSize: 15 }}>{author.name}</span>
-                  <span style={{ fontFamily: "var(--font-mono-stack)", fontSize: 12, color: "var(--text-muted)" }}>{displayRole(author, tr)}</span>
+                  <span style={{ fontFamily: "var(--font-mono-stack)", fontSize: 12, color: "var(--text-muted)" }}>{displayRole(member, tr)}</span>
                 </span>
               </Link>
-            )}
+            ) : author ? (
+              <span style={{ display: "inline-flex", alignItems: "center", gap: 14, color: "var(--text)" }}>
+                <Avatar photo={null} initials={author.initials} size={48} radius={999} fontSize={16} />
+                <span style={{ fontFamily: "var(--font-body-stack)", fontWeight: 700, fontSize: 15 }}>{author.name}</span>
+              </span>
+            ) : null}
             <span style={{ width: 1, height: 30, background: "var(--border)", margin: "0 6px" }} />
             <span style={{ fontFamily: "var(--font-mono-stack)", fontSize: 12, color: "var(--text-muted)" }}>{dateLabel}</span>
             <span style={{ fontFamily: "var(--font-mono-stack)", fontSize: 12, color: "var(--text-muted)" }}>· {post.readingTime} {t("readSuffix")}</span>
@@ -138,21 +145,21 @@ export default async function BlogDetailPage({
           <Body />
         </div>
 
-        {author && (
+        {member && author && (
           <div style={{ maxWidth: "var(--readw)", margin: "24px auto 0", padding: "0 24px" }}>
             <div style={{ border: "1px solid var(--border)", borderRadius: 18, background: "var(--bg-elev)", padding: 30, display: "flex", gap: 22, alignItems: "flex-start", flexWrap: "wrap" }}>
-              <Link href={`/team/${author.slug}`} className="author-link" style={{ textDecoration: "none" }}>
-                <Avatar photo={null} initials={initialsOf(author, locale)} size={62} radius={999} fontSize={20} />
+              <Link href={`/team/${member.slug}`} className="author-link" style={{ textDecoration: "none" }}>
+                <Avatar photo={null} initials={author.initials} size={62} radius={999} fontSize={20} />
               </Link>
               <div style={{ flex: 1, minWidth: 240 }}>
                 <div style={{ fontFamily: "var(--font-mono-stack)", fontSize: 11, letterSpacing: "0.1em", color: "var(--accent)", marginBottom: 6 }}>{t("writtenBy")}</div>
-                <Link href={`/team/${author.slug}`} className="author-link" style={{ textDecoration: "none", color: "var(--text)" }}>
+                <Link href={`/team/${member.slug}`} className="author-link" style={{ textDecoration: "none", color: "var(--text)" }}>
                   <h3 className="al-name" style={{ fontFamily: "var(--font-display-stack)", fontWeight: 700, fontSize: 21, margin: "0 0 8px" }}>{author.name}</h3>
                 </Link>
-                <p style={{ fontFamily: "var(--font-body-stack)", fontSize: 14.5, lineHeight: 1.7, color: "var(--text-muted)", margin: "0 0 16px" }}>{pick(author.bio1, locale)}</p>
+                <p style={{ fontFamily: "var(--font-body-stack)", fontSize: 14.5, lineHeight: 1.7, color: "var(--text-muted)", margin: "0 0 16px" }}>{pick(member.bio1, locale)}</p>
                 <div style={{ display: "flex", gap: 11 }}>
-                  {author.linkedin && (
-                    <SocialLink href={author.linkedin} label="LinkedIn" size={38} radius={9} external><LinkedInIcon size={16} /></SocialLink>
+                  {member.linkedin && (
+                    <SocialLink href={member.linkedin} label="LinkedIn" size={38} radius={9} external><LinkedInIcon size={16} /></SocialLink>
                   )}
                 </div>
               </div>
