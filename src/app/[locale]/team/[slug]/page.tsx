@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import {
   getFormatter,
   getTranslations,
@@ -123,8 +124,15 @@ export default async function MemberPage({
           <div className="split member-hero" style={{ gap: 44, alignItems: "center" }}>
             <div data-reveal className="avatar-ring" style={{ position: "relative", width: 188, height: 188, flex: "none" }}>
               <div style={{ position: "relative", zIndex: 1, width: "100%", height: "100%", borderRadius: 24, background: "var(--bg-elev)", display: "grid", placeItems: "center", overflow: "hidden", border: "1px solid var(--border)" }}>
-                <div style={{ position: "absolute", inset: 0, background: "repeating-linear-gradient(135deg,var(--bg-elev2),var(--bg-elev2) 10px,transparent 10px,transparent 20px)" }} />
-                <Avatar photo={m.photo} initials={initialsOf(m, locale)} size={0} variant="clip" fontSize={64} />
+                {m.photo ? (
+                  // The photo fills the panel; the size-based <Avatar> would render it at 0px here.
+                  <Image src={m.photo} alt={m.name} fill sizes="188px" preload style={{ objectFit: "cover" }} />
+                ) : (
+                  <>
+                    <div style={{ position: "absolute", inset: 0, background: "repeating-linear-gradient(135deg,var(--bg-elev2),var(--bg-elev2) 10px,transparent 10px,transparent 20px)" }} />
+                    <Avatar photo={null} initials={initialsOf(m, locale)} size={0} variant="clip" fontSize={64} />
+                  </>
+                )}
               </div>
             </div>
             <Reveal>

@@ -85,6 +85,8 @@ export function getPostsByAuthor(slug: string, locale: string): Post[] {
 export interface PostAuthor {
   name: string;
   initials: string;
+  /** The member's photo, if any; otherwise the avatar shows the initials. */
+  photo: string | null;
   /** Set when the author is on the team; the byline then links to their profile. */
   member?: Member;
 }
@@ -92,8 +94,8 @@ export interface PostAuthor {
 /** A post's byline: a team member (`author`) or a plain name (`authorName`). */
 export function getPostAuthor(post: Post, locale: string): PostAuthor | undefined {
   const member = post.author ? getMemberBySlug(post.author) : undefined;
-  if (member) return { name: member.name, initials: initialsOf(member, locale), member };
-  if (post.authorName) return { name: post.authorName, initials: initialsFromName(post.authorName) };
+  if (member) return { name: member.name, initials: initialsOf(member, locale), photo: member.photo, member };
+  if (post.authorName) return { name: post.authorName, initials: initialsFromName(post.authorName), photo: null };
   return undefined;
 }
 

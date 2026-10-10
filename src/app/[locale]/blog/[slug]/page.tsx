@@ -123,7 +123,7 @@ export default async function BlogDetailPage({
           <Reveal style={{ display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap", paddingBottom: 34, borderBottom: "1px solid var(--border)" }}>
             {member && author ? (
               <Link href={`/team/${member.slug}`} className="author-link" style={{ display: "inline-flex", alignItems: "center", gap: 14, textDecoration: "none", color: "var(--text)" }}>
-                <Avatar photo={null} initials={author.initials} size={48} radius={999} fontSize={16} />
+                <Avatar photo={author.photo} initials={author.initials} size={48} radius={999} fontSize={16} />
                 <span style={{ display: "flex", flexDirection: "column", lineHeight: 1.4 }}>
                   <span className="al-name" style={{ fontFamily: "var(--font-body-stack)", fontWeight: 700, fontSize: 15 }}>{author.name}</span>
                   <span style={{ fontFamily: "var(--font-mono-stack)", fontSize: 12, color: "var(--text-muted)" }}>{displayRole(member, tr)}</span>
@@ -131,7 +131,7 @@ export default async function BlogDetailPage({
               </Link>
             ) : author ? (
               <span style={{ display: "inline-flex", alignItems: "center", gap: 14, color: "var(--text)" }}>
-                <Avatar photo={null} initials={author.initials} size={48} radius={999} fontSize={16} />
+                <Avatar photo={author.photo} initials={author.initials} size={48} radius={999} fontSize={16} />
                 <span style={{ fontFamily: "var(--font-body-stack)", fontWeight: 700, fontSize: 15 }}>{author.name}</span>
               </span>
             ) : null}
@@ -149,7 +149,7 @@ export default async function BlogDetailPage({
           <div style={{ maxWidth: "var(--readw)", margin: "24px auto 0", padding: "0 24px" }}>
             <div style={{ border: "1px solid var(--border)", borderRadius: 18, background: "var(--bg-elev)", padding: 30, display: "flex", gap: 22, alignItems: "flex-start", flexWrap: "wrap" }}>
               <Link href={`/team/${member.slug}`} className="author-link" style={{ textDecoration: "none" }}>
-                <Avatar photo={null} initials={author.initials} size={62} radius={999} fontSize={20} />
+                <Avatar photo={author.photo} initials={author.initials} size={62} radius={999} fontSize={20} />
               </Link>
               <div style={{ flex: 1, minWidth: 240 }}>
                 <div style={{ fontFamily: "var(--font-mono-stack)", fontSize: 11, letterSpacing: "0.1em", color: "var(--accent)", marginBottom: 6 }}>{t("writtenBy")}</div>

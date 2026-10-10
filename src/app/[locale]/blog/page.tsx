@@ -56,6 +56,7 @@ export default async function BlogPage({
         authorSlug: a?.member?.slug,
         authorName: a?.name,
         authorInitials: a?.initials,
+        authorPhoto: a?.photo,
       };
     });
 
@@ -87,14 +88,14 @@ export default async function BlogPage({
                 className="author-link"
                 style={{ position: "relative", zIndex: 2, display: "inline-flex", alignItems: "center", gap: 12, textDecoration: "none", color: "var(--text)", width: "fit-content" }}
               >
-                <Avatar photo={null} initials={featuredAuthor.initials} size={40} radius={999} fontSize={14} />
+                <Avatar photo={featuredAuthor.photo} initials={featuredAuthor.initials} size={40} radius={999} fontSize={14} />
                 <span className="al-name" style={{ fontFamily: "var(--font-body-stack)", fontWeight: 700, fontSize: 14 }}>{featuredAuthor.name}</span>
                 <span style={{ fontFamily: "var(--font-mono-stack)", fontSize: 12, color: "var(--text-muted)" }}>{displayRole(featuredAuthor.member, tr)}</span>
               </Link>
             ) : featuredAuthor ? (
               /* Not on the team (anymore): name only, no profile to link to. */
               <span style={{ display: "inline-flex", alignItems: "center", gap: 12, color: "var(--text)" }}>
-                <Avatar photo={null} initials={featuredAuthor.initials} size={40} radius={999} fontSize={14} />
+                <Avatar photo={featuredAuthor.photo} initials={featuredAuthor.initials} size={40} radius={999} fontSize={14} />
                 <span style={{ fontFamily: "var(--font-body-stack)", fontWeight: 700, fontSize: 14 }}>{featuredAuthor.name}</span>
               </span>
             ) : null}

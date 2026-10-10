@@ -15,6 +15,7 @@ export interface PostRowData {
   authorSlug?: string;
   authorName?: string;
   authorInitials?: string;
+  authorPhoto?: string | null;
 }
 
 export function PostRow({ post }: { post: PostRowData }) {
@@ -51,12 +52,12 @@ export function PostRow({ post }: { post: PostRowData }) {
             className="author-link"
             style={{ position: "relative", zIndex: 2, display: "inline-flex", alignItems: "center", gap: 9, textDecoration: "none", color: "var(--text)", width: "fit-content" }}
           >
-            <Avatar photo={null} initials={post.authorInitials} size={26} radius={999} fontSize={10} />
+            <Avatar photo={post.authorPhoto ?? null} initials={post.authorInitials} size={26} radius={999} fontSize={10} />
             <span className="al-name" style={{ fontFamily: "var(--font-body-stack)", fontWeight: 600, fontSize: 13 }}>{post.authorName}</span>
           </Link>
         ) : (
           <span style={{ display: "inline-flex", alignItems: "center", gap: 9, color: "var(--text)" }}>
-            <Avatar photo={null} initials={post.authorInitials} size={26} radius={999} fontSize={10} />
+            <Avatar photo={post.authorPhoto ?? null} initials={post.authorInitials} size={26} radius={999} fontSize={10} />
             <span style={{ fontFamily: "var(--font-body-stack)", fontWeight: 600, fontSize: 13 }}>{post.authorName}</span>
           </span>
         ))}

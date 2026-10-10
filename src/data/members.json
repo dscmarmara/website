@@ -16,7 +16,7 @@
       "group": "president",
       "teamRole": "PRESIDENT",
       "dept": "LEADERSHIP",
-      "photo": null,
+      "photo": "/team/ahmet.jpg",
       "tagline": {
         "en": "Leading DSC Marmara with hands-on field experience and a clear vision for high-impact, real-world tech communities.",
         "tr": "Sahadan gelen pratik tecrübeyi vizyoner liderlikle harmanlayarak DSC Marmara’yı geleceğe taşıyan kulüp başkanı.",
@@ -87,7 +87,7 @@
       "group": "vp",
       "teamRole": "VICE PRESIDENT",
       "dept": "LEADERSHIP",
-      "photo": null,
+      "photo": "/team/irmak-evci.jpg",
       "tagline": {
         "en": "Vice president of the club.",
         "tr": "Kulübün başkan yardımcısıdır.",
@@ -143,7 +143,7 @@
       "group": "vp",
       "teamRole": "SECRETARY",
       "dept": "LEADERSHIP",
-      "photo": null,
+      "photo": "/team/esim-ebrar-gokyaka.jpg",
       "tagline": {
         "en": "Secretary of the club.",
         "tr": "Kulübün sekreteridir.",
@@ -194,7 +194,7 @@
       "group": "Data Insights",
       "teamRole": "DIRECTOR",
       "dept": "DATA INSIGHTS",
-      "photo": null,
+      "photo": "/team/emirhan-kunt.jpg",
       "tagline": {
         "en": "Co-director of the Data Insights department.",
         "tr": "Data Insights departmanını eş direktör olarak yönetmektedir.",
@@ -251,7 +251,7 @@
       "group": "Data Insights",
       "teamRole": "DIRECTOR",
       "dept": "DATA INSIGHTS",
-      "photo": null,
+      "photo": "/team/ihsan-sami-ceran.jpg",
       "tagline": {
         "en": "Co-director of the Data Insights department.",
         "tr": "Data Insights departmanını eş direktör olarak yönetmektedir.",
@@ -305,7 +305,7 @@
       "group": "Core AI",
       "teamRole": "DIRECTOR",
       "dept": "CORE AI",
-      "photo": null,
+      "photo": "/team/sadik.jpg",
       "website": "sadikcoban.com",
       "websiteUrl": "https://www.sadikcoban.com",
       "tagline": {
@@ -378,7 +378,7 @@
       "group": "Core AI",
       "teamRole": "DIRECTOR",
       "dept": "CORE AI",
-      "photo": null,
+      "photo": "/team/ahmet-hamza-mulayim.jpg",
       "tagline": {
         "en": "Co-director of the Core AI department.",
         "tr": "Core AI departmanını eş direktör olarak yönetmektedir.",
@@ -429,7 +429,7 @@
       "group": "Data Pipelines",
       "teamRole": "DIRECTOR",
       "dept": "DATA PIPELINES",
-      "photo": null,
+      "photo": "/team/alihan-telli.jpg",
       "tagline": {
         "en": "Co-director of the Data Pipelines department.",
         "tr": "Data Pipelines departmanını eş direktör olarak yönetmektedir.",
@@ -515,7 +515,7 @@
       "group": "Summits & Awards",
       "teamRole": "DIRECTOR",
       "dept": "SUMMITS & AWARDS",
-      "photo": null,
+      "photo": "/team/elif-esma-tuna.jpg",
       "tagline": {
         "en": "Co-director of the Summits & Awards department.",
         "tr": "Summits & Awards departmanını eş direktör olarak yönetmektedir.",
@@ -605,7 +605,7 @@
       "group": "Finance & Corporate",
       "teamRole": "DIRECTOR",
       "dept": "FINANCE & CORPORATE",
-      "photo": null,
+      "photo": "/team/cansu-okcu.jpg",
       "tagline": {
         "en": "Director of the Finance & Corporate department.",
         "tr": "Finance & Corporate departmanını direktör olarak yönetmektedir.",
@@ -661,7 +661,7 @@
       "group": "PR",
       "teamRole": "DIRECTOR",
       "dept": "PR",
-      "photo": null,
+      "photo": "/team/elif-ayse-sen.jpg",
       "tagline": {
         "en": "Co-director of the PR department.",
         "tr": "PR departmanını eş direktör olarak yönetmektedir.",
@@ -706,7 +706,7 @@
       "group": "PR",
       "teamRole": "DIRECTOR",
       "dept": "PR",
-      "photo": null,
+      "photo": "/team/esma-ozcan.jpg",
       "tagline": {
         "en": "Co-director of the PR department.",
         "tr": "PR departmanını eş direktör olarak yönetmektedir.",
