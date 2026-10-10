@@ -291,35 +291,48 @@
       "website": "sadikcoban.com",
       "websiteUrl": "https://www.sadikcoban.com",
       "tagline": {
-        "en": "Co-director of the Core AI department.",
-        "tr": "Core AI departmanını eş direktör olarak yönetmektedir.",
+        "en": "Bridging statistical theory with modern machine learning and production-grade software.",
+        "tr": "İstatistiksel temelleri modern makine öğrenimi ve üretime hazır yazılım pratikleriyle buluşturan bir veri bilimi meraklısı.",
         "tr-x-eski": "NLP ve Türkçe dil modelleri — araştırmayı yayınlanan işlere dönüştürür.",
         "en-x-eski": "NLP and Turkish-language models — turns research into things that ship."
       },
       "bio1": {
-        "en": "Sadık is a co-director of the Core AI department.",
-        "tr": "Sadık, Core AI departmanını eş direktör olarak yönetmektedir.",
+        "en": "Sadık leads the Core AI department at DSC Marmara, focusing on transforming data-driven research and experiments into reliable, reproducible machine learning systems. With a solid foundation in statistics, his interests center around statistical learning, ensemble methods, and scalable MLOps architectures.",
+        "tr": "Sadık, DSC Marmara bünyesinde Core AI Direktörü olarak görev yapmakta ve ekibin yapay zekâ projelerine liderlik etmektedir. İstatistik kökenli bakış açısını güncel veri bilimi ve yapay zekâ teknolojileriyle harmanlayarak, deneysel çalışmaları sürdürülebilir ve üretime hazır sistemlere dönüştürmeye odaklanır.",
         "tr-x-eski": "Sadık, kulübün dil çalışmalarını akıllı defterlerden dağıtılmış, tekrar üretilebilir modellere taşıdığı Core AI'ı birlikte yönetiyor. En mutlu olduğu an, dağınık bir Türkçe veri seti ve net bir değerlendirme metriğiyle olduğu andır.",
         "en-x-eski": "Sadık co-directs Core AI, where he pushes the club's language work from clever notebooks into deployed, reproducible models. He is happiest with a messy Turkish dataset and a clear evaluation metric."
       },
       "bio2": {
-        "en": "",
-        "tr": "",
+        "en": "Believing that models should create impact beyond standalone notebooks, he works on bridging the gap between mathematical rigor and practical engineering. Within the community, he guides team projects from initial exploration to deployment, championing clean code, proper evaluation, and robust systems.",
+        "tr": "Modellerin yalnızca not defterlerinde kalan birer prototip olmasından ziyade sahada güvenilir ve ölçeklenebilir çözümler üretmesini önemser. Topluluk içerisinde teorik sağlamlık ile yazılım mühendisliği disiplinini bir araya getiren projelerin geliştirilmesine ve paylaşılmasına öncülük eder.",
         "tr-x-eski": "Yeni üyelere ilk fine-tune'larında mentorluk yapıyor ve deneylerinin güncel kaydını kişisel sitesinde tutuyor.",
         "en-x-eski": "He mentors new members through their first fine-tune and keeps a running log of experiments on his personal site."
       },
       "quote": {
-        "en": "",
-        "tr": "",
+        "en": "A model is only as valuable as its reproducibility and real-world impact.",
+        "tr": "Bir modelin gerçek değeri yalnızca teorik başarısında değil; tekrarlanabilirliğinde ve gerçek dünyada ürettiği etkide saklıdır.",
         "tr-x-eski": "Tekrar üretemediğin bir model bir sonuç değil, bir hikâyedir.",
         "en-x-eski": "A model you can't reproduce is a story, not a result."
       },
       "focus": [
-        "NLP",
-        "LLMs",
-        "PyTorch",
-        "Reproducibility",
-        "Python"
+        {
+          "en": "Machine Learning",
+          "tr": "Makine Öğrenimi"
+        },
+        {
+          "en": "Applied Statistics",
+          "tr": "Uygulamalı İstatistik"
+        },
+        "MLOps",
+        {
+          "en": "Ensemble Learning",
+          "tr": "Topluluk Modelleri"
+        },
+        "Python & R",
+        {
+          "en": "System Design",
+          "tr": "Sistem Mimarisi"
+        }
       ],
       "kpis": [
         {
