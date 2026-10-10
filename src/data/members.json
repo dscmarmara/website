@@ -18,36 +18,54 @@
       "dept": "LEADERSHIP",
       "photo": null,
       "tagline": {
-        "en": "President of the club.",
-        "tr": "Kulübün başkanıdır.",
+        "en": "Leading DSC Marmara with hands-on field experience and a clear vision for high-impact, real-world tech communities.",
+        "tr": "Sahadan gelen pratik tecrübeyi vizyoner liderlikle harmanlayarak DSC Marmara’yı geleceğe taşıyan kulüp başkanı.",
         "tr-x-eski": "Kulübün yönünü belirler ve her departmana mentorluk yapar — akademik araştırma ile modern girişimlerin çevik, hızlı üretim kültürü arasında köprü kurar.",
         "en-x-eski": "Leads the club's direction and mentors every department — building the bridge between academic research and the agile, ship-fast culture of modern startups."
       },
       "bio1": {
-        "en": "Ahmet is the club's president.",
-        "tr": "Ahmet, kulübün başkanıdır.",
+        "en": "As the President of DSC Marmara, Ahmet Kipici steers the club’s strategic direction, ecosystem growth, and overall vision. He combines hard-earned field experience with a forward-looking perspective on modern data and technology landscapes.",
+        "tr": "Ahmet Kipici, Data Science Club Marmara'nın Kulüp Başkanı olarak topluluğun stratejik vizyonuna, büyüme hedeflerine ve kurumsal kültürüne liderlik etmektedir. Sektörde ve sahada edindiği doğrudan deneyimi, geleceğin veri ekosistemini doğru okuyan vizyoner bir bakış açısıyla buluşturur.",
         "tr-x-eski": "Ahmet son sınıf istatistik öğrencisi ve Veri Bilimi Kulübü'nün başkanı. Bir yaz stajı ona üniversitelerin öğrettikleriyle veri ekiplerinin gerçekte yaptıkları arasındaki uçurumun çözülmeye değer bir problem olduğunu gösterdikten sonra bu işin peşine düştü — birlikte ve açıkça.",
         "en-x-eski": "Ahmet is a final-year statistics student and the president of the Data Science Club. He pushed for it after a summer internship convinced him that the gap between what universities teach and what data teams actually do was a problem worth solving — together, in public."
       },
       "bio2": {
-        "en": "",
-        "tr": "",
+        "en": "Bridging the critical gap between university foundations and industry realities, Ahmet leads DSC Marmara with an agile, startup-minded approach. Rather than letting the club remain a conventional student organization, he fosters an environment where bold ideas meet pragmatic execution—empowering every department to build projects that solve real-world problems and create lasting value.",
+        "tr": "Kulübü alışılagelmiş öğrenci kulübü kalıplarının ötesine taşıyarak çevik, üretken ve global teknoloji standartlarında düşünen bir yapıya dönüştürmeyi hedefler. Akademik teorinin sahadaki gerçek ihtiyaçlarla buluşmasını sağlarken; departmanlar arası sinerjiyi güçlendirir ve ekibin yalnızca tüketen değil, sahada karşılığı olan somut çıktılar üreten bir topluluk olmasına öncülük eder.",
         "tr-x-eski": "Bugün kulübün yönünü belirliyor, departman liderlerine mentorluk yapıyor ve gece yarısı pull request incelemeye hâlâ zaman buluyor. Öğrenmenin en iyi yolunun, önemseyen insanlarla gerçek bir şey çıkarmak olduğuna inanıyor.",
         "en-x-eski": "Today he sets the club's direction, mentors department leads, and still finds time to review pull requests at midnight. He believes the best way to learn is to ship something real with people who care."
       },
       "quote": {
-        "en": "",
-        "tr": "",
+        "en": "Vision sets where we want to go, but field experience teaches us how to actually build the path to get there.",
+        "tr": "Vizyon nereye gideceğimizi belirler; fakat oraya nasıl ulaşacağımızı sahadaki gerçeklik ve birlikte üretme disiplini gösterir.",
         "tr-x-eski": "Öğrencilere üretici gibi davran, üretsinler.",
         "en-x-eski": "Treat students like builders, and they build."
       },
       "focus": [
-        "AI",
-        "Data Science",
-        "Strategy",
-        "Statistics",
-        "Mentorship",
-        "Python"
+        {
+          "en": "Executive Leadership",
+          "tr": "Topluluk Liderliği"
+        },
+        {
+          "en": "Strategic Vision",
+          "tr": "Stratejik Vizyon"
+        },
+        {
+          "en": "Field Experience",
+          "tr": "Saha Deneyimi"
+        },
+        {
+          "en": "Community & Ecosystem Building",
+          "tr": "Ekosistem Yönetimi"
+        },
+        {
+          "en": "Operational Scaling",
+          "tr": "Operasyonel Ölçekleme"
+        },
+        {
+          "en": "Agile Management",
+          "tr": "Çevik Yönetim"
+        }
       ],
       "kpis": [
         {
