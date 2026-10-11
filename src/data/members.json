@@ -493,22 +493,35 @@
         "tr": "Data Pipelines departmanını eş direktör olarak yönetmektedir."
       },
       "bio1": {
-        "en": "Samet is a co-director of the Data Pipelines department.",
-        "tr": "Samet, Data Pipelines departmanını eş direktör olarak yönetmektedir."
+        "en": "Samet is a senior Statistics student at Marmara University and an active contributor across DSC Marmara's project teams. He focuses on bridging his academic foundation in statistics with applied data science and machine learning, turning theoretical methods into functional, real-world software.",
+        "tr": "Selam, ben Samet. Marmara Üniversitesi İstatistik Bölümü 4. sınıf öğrencisiyim. Aynı zamanda Marmara Üniversitesi Data Science Club’da proje çalışmalarında aktif olarak yer alıyorum.",
+        "tr-x-eski": "Samet, Data Pipelines departmanını eş direktör olarak yönetmektedir.",
+        "en-x-eski": "Samet is a co-director of the Data Pipelines department."
       },
       "bio2": {
-        "en": "",
-        "tr": ""
+        "en": "His hands-on projects include developing a football scouting platform that leverages performance metrics to identify lookalike player profiles, as well as designing a data-driven mobile football game. Driven by uncovering meaningful patterns within complex data, Samet enjoys framing problems through statistical modeling and machine learning, ultimately translating those solutions into usable applications. He continuously sharpens his technical toolkit across Python, R, and SQL.",
+        "tr": "İstatistik eğitimimi veri bilimi ve makine öğrenmesi alanlarına duyduğum ilgiyle birleştirerek teorik bilgilerimi gerçek projelere dönüştürmeye odaklanıyorum. Bugüne kadar futbolcu istatistiklerinden yararlanarak benzer oyuncu profillerini belirleyen bir scouting platformu ve veri odaklı bir mobil futbol oyunu geliştirdim. Özellikle verileri analiz ederek anlamlı örüntüler keşfetmek, istatistiksel ve makine öğrenmesi yöntemleriyle problemleri ele almak ve bu çalışmaları kullanılabilir uygulamalara dönüştürmek ilgimi çekiyor. Python, R ve SQL gibi araçlardan yararlanarak kendimi veri bilimi alanında geliştirmeye devam ediyorum."
       },
       "quote": {
         "en": "",
         "tr": ""
       },
       "focus": [
-        "Airflow",
-        "Spark",
-        "SQL",
-        "Cloud"
+        {
+          "en": "Applied Statistics",
+          "tr": "Uygulamalı İstatistik"
+        },
+        {
+          "en": "Sports Analytics",
+          "tr": "Spor Analitiği"
+        },
+        {
+          "en": "Machine Learning",
+          "tr": "Makine Öğrenimi"
+        },
+        "Python",
+        "R",
+        "SQL"
       ],
       "kpis": []
     },
