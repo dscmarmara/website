@@ -1,5 +1,6 @@
 import data from "@/data/members.json";
 import type { Locale } from "@/i18n/routing";
+import { isKnownSkill } from "@/lib/skills";
 
 // "tr-x-eski" / "en-x-eski" are the temporary review locales holding the
 // previous copy (see REVIEW_LOCALES in i18n/routing.ts): set only where it
@@ -56,8 +57,8 @@ export interface Member {
   bio1: Localized;
   bio2: Localized;
   quote: Localized;
-  /** Skill chips: a plain string shows in every locale, `{ en, tr }` per locale. */
-  focus: (string | Localized)[];
+  /** Skill chips: English keys of SKILLS_TR (src/lib/skills.ts), shown via skillLabel(). */
+  focus: string[];
   kpis: Kpi[];
 }
 
@@ -67,6 +68,18 @@ export interface MembersData {
 }
 
 const db = data as unknown as MembersData;
+
+// Build-time integrity guard: every skill chip must be in the dictionary, so
+// one skill is never worded (or translated) two different ways.
+for (const m of db.members) {
+  for (const skill of m.focus) {
+    if (!isKnownSkill(skill)) {
+      throw new Error(
+        `[content] ${m.slug} has skill chip "${skill}" that is not in src/lib/skills.ts — add it there first.`
+      );
+    }
+  }
+}
 
 export const departmentOrder = db.departmentOrder;
 

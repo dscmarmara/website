@@ -77,6 +77,7 @@ ve KPI'lar `main`'e geçse de canlıda kapalı kalır.
 | Anasayfadaki departman kartları | `src/lib/constants.ts` | `HOME_DEPARTMENTS` → `desc.tr` |
 | Hakkımızda'daki departman açıklamaları | `src/lib/constants.ts` | `ABOUT_DEPARTMENTS` → `purpose.tr`, `vision.tr` |
 | Üye sayfaları (kısa tanıtım, biyografi, alıntı) | `src/data/members.json` | her üyede `tagline.tr`, `bio1.tr`, `bio2.tr`, `quote.tr` |
+| Üye odak alanı etiketleri (Makine Öğrenmesi, İstatistik…) | `src/lib/skills.ts` | `SKILLS_TR`: İngilizce ad → Türkçe ad. Üyenin `focus` listesine sadece İngilizce adı yaz; sözlükte olmayan etiket build'i durdurur |
 | Blog yazıları | `content/blog/tr/<slug>.mdx` | aşağıdaki "Blog" bölümüne bak |
 | Arama motorlarına verilen Türkçe kulüp adı | `src/lib/seo.ts` | `SITE_NAME_TR` |
 | İletişim formundan kulübe gelen e-posta | `src/lib/zoho.ts` | `sendContactMail` içindeki "Gönderen:", "Konu:"… |
@@ -144,8 +145,8 @@ Aşağıdakiler bilerek tek dilli bırakıldı. Türkçeleştirmek için kod de�
 
 - Departman adları (Data Insights, Core AI…) ve odak etiketleri (EDA, BI…)
 - Üyelerin isimleri ve departman etiketi ("LEADERSHIP" gibi)
-- Üye sayfasındaki yetenek etiketleri (`members.json` → `focus`) düz metinse iki dilde aynı görünür; bir etiketi
-  `{ "en": "Accounting", "tr": "Muhasebe" }` şeklinde yazarsan dile göre görünür
+- Araç ve marka adı olan yetenek etiketleri (Python, SQL, Power BI, Notion…). Diğer etiketler Türkçe görünür; hepsi
+  `src/lib/skills.ts`'teki tek sözlükte çevrilir (aşağıdaki "Hızlı harita"ya bak)
 - Avatar kısaltması (`members.json` → `initials`): **adın her parçasından bir harf**. Üç parçalı adlarda üç harf
   (Ahmet Hamza Mülayim → AHM, Elif Ayşe Şen → EAŞ). Yeni üye eklerken de bu kurala uy. Mevcut üç isimlilerde eski
   iki harfli kısaltma `"tr-x-eski"` / `"en-x-eski"`'de duruyor, ESKİ sürümlerde görünür.

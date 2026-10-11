@@ -42,30 +42,12 @@
         "en-x-eski": "Treat students like builders, and they build."
       },
       "focus": [
-        {
-          "en": "Executive Leadership",
-          "tr": "Topluluk Liderliği"
-        },
-        {
-          "en": "Strategic Vision",
-          "tr": "Stratejik Vizyon"
-        },
-        {
-          "en": "Field Experience",
-          "tr": "Saha Deneyimi"
-        },
-        {
-          "en": "Community & Ecosystem Building",
-          "tr": "Ekosistem Yönetimi"
-        },
-        {
-          "en": "Operational Scaling",
-          "tr": "Operasyonel Ölçekleme"
-        },
-        {
-          "en": "Agile Management",
-          "tr": "Çevik Yönetim"
-        }
+        "Executive Leadership",
+        "Strategic Vision",
+        "Field Experience",
+        "Community Management",
+        "Operational Scaling",
+        "Agile Management"
       ],
       "kpis": [
         {
@@ -115,7 +97,7 @@
       "focus": [
         "Operations",
         "Planning",
-        "People",
+        "People Management",
         "Statistics"
       ],
       "kpis": [
@@ -223,7 +205,7 @@
         "EDA",
         "Power BI",
         "Tableau",
-        "Storytelling",
+        "Data Storytelling",
         "SQL"
       ],
       "kpis": [
@@ -274,16 +256,10 @@
         "EDA",
         "Dashboards",
         "Power BI",
-        "Storytelling",
+        "Data Storytelling",
         "Excel",
-        {
-          "en": "Financial Analysis",
-          "tr": "Finansal analiz"
-        },
-        {
-          "en": "Accounting",
-          "tr": "Muhasebe"
-        }
+        "Financial Analysis",
+        "Accounting"
       ],
       "kpis": [
         {
@@ -333,23 +309,11 @@
         "en-x-eski": "A model you can't reproduce is a story, not a result."
       },
       "focus": [
-        {
-          "en": "Machine Learning",
-          "tr": "Makine Öğrenmesi"
-        },
-        {
-          "en": "Applied Statistics",
-          "tr": "Uygulamalı İstatistik"
-        },
-        {
-          "en": "Web Development",
-          "tr": "Web Geliştirme"
-        },
+        "Machine Learning",
+        "Statistics",
+        "Web Development",
         "MLOps",
-        {
-          "en": "Full-Stack Architecture",
-          "tr": "Sistem Mimarisi"
-        },
+        "Full-Stack Architecture",
         "Python"
       ],
       "kpis": [
@@ -451,18 +415,9 @@
         "tr": ""
       },
       "focus": [
-        {
-          "en": "Machine Learning",
-          "tr": "Makine Öğrenmesi"
-        },
-        {
-          "en": "Data Analysis",
-          "tr": "Veri Analizi"
-        },
-        {
-          "en": "Statistics",
-          "tr": "İstatistik"
-        },
+        "Machine Learning",
+        "Data Analysis",
+        "Statistics",
         "Python",
         "R",
         "SQL"
@@ -507,18 +462,9 @@
         "tr": ""
       },
       "focus": [
-        {
-          "en": "Applied Statistics",
-          "tr": "Uygulamalı İstatistik"
-        },
-        {
-          "en": "Sports Analytics",
-          "tr": "Spor Analitiği"
-        },
-        {
-          "en": "Machine Learning",
-          "tr": "Makine Öğrenmesi"
-        },
+        "Statistics",
+        "Sports Analytics",
+        "Machine Learning",
         "Python",
         "R",
         "SQL"
@@ -564,10 +510,9 @@
         "en-x-eski": "An event is a project with a deadline you can't move."
       },
       "focus": [
-        "Event Ops",
+        "Event Management",
         "Hackathons",
-        "Partnerships",
-        "Logistics"
+        "Partnerships"
       ],
       "kpis": [
         {
@@ -612,10 +557,9 @@
         "tr": ""
       },
       "focus": [
-        "Event Ops",
+        "Event Management",
         "Hackathons",
-        "Community",
-        "Logistics"
+        "Community Management"
       ],
       "kpis": [],
       "linkedin": "https://www.linkedin.com/in/tar%C4%B1k-emre-ermi%C5%9F-2a68462ba"
@@ -704,9 +648,9 @@
         "tr": ""
       },
       "focus": [
-        "Brand",
+        "Brand Identity",
         "Graphic Design",
-        "Content",
+        "Content Creation",
         "Social Media"
       ],
       "kpis": [
@@ -750,9 +694,8 @@
       },
       "focus": [
         "Social Media",
-        "Content",
-        "Copywriting",
-        "Community"
+        "Content Creation",
+        "Community Management"
       ],
       "kpis": [
         {
