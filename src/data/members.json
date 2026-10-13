@@ -574,14 +574,14 @@
       "dept": "FINANCE & CORPORATE",
       "photo": "/team/cansu-okcu.jpg",
       "tagline": {
-        "en": "Director of the Finance & Corporate department.",
-        "tr": "Finance & Corporate departmanını direktör olarak yönetmektedir.",
+        "en": "Co-director of the Finance & Corporate department.",
+        "tr": "Finance & Corporate departmanını eş direktör olarak yönetmektedir.",
         "tr-x-eski": "Kulübü sponsorlarla buluşturur ve bütçeleri fırsatlara çevirir.",
         "en-x-eski": "Connects the club with sponsors and turns budgets into opportunities."
       },
       "bio1": {
-        "en": "Cansu is the director of the Finance & Corporate department.",
-        "tr": "Cansu, Finance & Corporate departmanını direktör olarak yönetmektedir.",
+        "en": "Cansu is a co-director of the Finance & Corporate department.",
+        "tr": "Cansu, Finance & Corporate departmanını eş direktör olarak yönetmektedir.",
         "tr-x-eski": "Cansu, kulübün finansmanını ve bağlantılarını ayakta tutuyor. Teklifleri yazıyor, rakamları hesaplıyor ve üyeler için staja ve ilk işlere dönüşen ilişkileri kuruyor.",
         "en-x-eski": "Cansu keeps the club funded and connected. They write the proposals, run the numbers, and build the relationships that turn into internships and first jobs for members."
       },
@@ -614,6 +614,38 @@
         }
       ],
       "linkedin": "https://www.linkedin.com/in/cansu-okcu-165623321/"
+    },
+    {
+      "slug": "cem-evrim",
+      "name": "Cem Evrim",
+      "first": "Cem",
+      "initials": "CE",
+      "group": "Finance & Corporate",
+      "teamRole": "DIRECTOR",
+      "dept": "FINANCE & CORPORATE",
+      "photo": null,
+      "tagline": {
+        "en": "Co-director of the Finance & Corporate department.",
+        "tr": "Finance & Corporate departmanını eş direktör olarak yönetmektedir."
+      },
+      "bio1": {
+        "en": "Cem is a co-director of the Finance & Corporate department.",
+        "tr": "Cem, Finance & Corporate departmanını eş direktör olarak yönetmektedir."
+      },
+      "bio2": {
+        "en": "",
+        "tr": ""
+      },
+      "quote": {
+        "en": "",
+        "tr": ""
+      },
+      "focus": [
+        "Sponsorship",
+        "Budgeting",
+        "Partnerships"
+      ],
+      "kpis": []
     },
     {
       "slug": "elif-ayse-sen",
