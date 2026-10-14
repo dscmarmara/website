@@ -19,8 +19,6 @@ import { displayRole, pick } from "@/lib/members";
 import { buildAlternates, SITE_URL } from "@/lib/seo";
 import { routing } from "@/i18n/routing";
 
-export const dynamicParams = false;
-
 export function generateStaticParams() {
   return getPostSlugs().map((slug) => ({ slug }));
 }

@@ -31,8 +31,6 @@ import { skillLabel } from "@/lib/skills";
 import { buildAlternates, SITE_URL } from "@/lib/seo";
 import { routing } from "@/i18n/routing";
 
-export const dynamicParams = false;
-
 /**
  * Member KPI figures are switched off until the numbers are confirmed, and
  * the band is left out with them. The figures remain in members.json
