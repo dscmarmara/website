@@ -65,7 +65,6 @@ ve KPI'lar `main`'e geçse de canlıda kapalı kalır.
    - `src/components/layout/DevOptions.tsx` ve `Nav.tsx`'teki `<DevOptions />` satırı
    - `src/lib/members.ts` içindeki `Localized` tipinde `"tr-x-eski"` ve `"en-x-eski"`
    - `messages/en.json` ve `messages/tr.json` içindeki `nav.turkishOld` ve `nav.englishOld`
-   - `about.orgSub` yalnızca `tr.json`'da var; İngilizce sayfada da görünsün istenirse `en.json`'a İngilizcesi eklenir
    - bu bölüm
 
 ## Hızlı harita
