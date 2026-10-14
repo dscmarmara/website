@@ -10,9 +10,10 @@ Sitedeki bütün TR/EN metinlerin tek sayfalık dökümü: `SITE_METINLERI.md` (
 
 ## Geçici: eski metinler (TR ESKİ / EN ESKİ)
 
-`/tr` ve `/` artık **yeni metinleri** gösteriyor; düzenlenecek asıl metinler `messages/tr.json` / `messages/en.json`
-ve `tr:` / `en:` alanları. Önceki metinler karşılaştırma için `/tr-x-eski/...` ve `/en-x-eski/...` adreslerinde
-saklanıyor (arama motorlarına kapalı).
+`/tr` ve `/` **yeni metinleri** gösteriyor; düzenlenecek asıl metinler `messages/tr.json` / `messages/en.json` ve
+`tr:` / `en:` alanları. **ESKİ = son yayındaki (canlıdaki) metinler**: `/tr-x-eski/...` ve `/en-x-eski/...`
+adreslerinde, canlıdaki hal ile yeni hal sayfa sayfa karşılaştırılır (arama motorlarına kapalı). Sitenin ilk metinleri
+(eski ESKİ) koddan çıkarıldı ve `ESKI_METINLER.md`'de arşivde.
 
 Menüde tek dil düğmesi var (Türkçede "EN" → `/`, İngilizcede "TR" → `/tr`). Menünün altındaki **DEV OPTIONS**
 şeridinde **TR ESKİ | TR YENİ** ve **EN ESKİ | EN YENİ** düğmeleriyle aynı sayfada eski ve yeni metin arasında
@@ -25,15 +26,19 @@ lokalde açılır.
 | TR YENİ (varsayılan, `/tr`) | `messages/tr.json` | `tr:` |
 | TR ESKİ (`/tr-x-eski`) | `messages/tr-x-eski.json` | `"tr-x-eski":` (yalnızca farklı olan alanlarda; olmayan yerde `tr` kullanılır) |
 | EN YENİ (varsayılan, `/`) | `messages/en.json` | `en:` |
-| EN ESKİ (`/en-x-eski`) | `messages/en-x-eski.json` | `"en-x-eski":` (aynı şekilde; şu an hiçbir alanda farklı değil) |
+| EN ESKİ (`/en-x-eski`) | `messages/en-x-eski.json` | `"en-x-eski":` (aynı şekilde) |
 
 Bir metni değiştirirken eskisini karşılaştırmada tutmak istersen: mesaj dosyalarında yeni metni sadece `tr.json` /
 `en.json`'a yaz (ESKİ dosyalar olduğu gibi kalır); `constants.ts` / `members.json`'da eski değeri `"tr-x-eski"` /
 `"en-x-eski"` anahtarına taşı.
 
-`members.json` ve blog yazılarının ayrı bir "eski" sürümü yok; ESKİ sayfalarda da `tr` / `en` değerleri görünür.
-Hakkımızda'daki Türkçe odak etiketleri `ABOUT_DEPARTMENTS[].focusByLocale.tr` içinde; TR ESKİ'de eskisi gibi
-İngilizce `focus` etiketleri görünür.
+ESKİ'nin diğer parçaları:
+- Hakkımızda odak etiketleri: `ABOUT_DEPARTMENTS[].focusByLocale` → `tr` (yeni TR), `"tr-x-eski"`, `"en-x-eski"`;
+  yeni İngilizce liste `focus`.
+- Üye etiketleri: Türkçesi değişen etiketlerin önceki hali `src/lib/skills.ts` → `SKILLS_TR_ESKI`.
+- Hakkımızda'daki "Departmanlar arası paslaşma" bölümü (`ABOUT_FLOW` + `about.flow*` metinleri) yalnızca yenide var;
+  ESKİ mesaj dosyalarında `about.flowTitle` olmadığı için ESKİ'de çizilmez.
+- Blog yazılarının ve üyelerin kendi biyografilerinin ayrı bir eski sürümü yok.
 
 **Yayın akışı:** geliştirme `preview-development` dalında yapılır; her push Vercel Preview'a gider. Yayına almak için
 `git push origin preview-development:main` (ya da GitHub'da `preview-development` → `main` pull request'i). `main`'e
@@ -54,14 +59,14 @@ ve KPI'lar `main`'e geçse de canlıda kapalı kalır.
 - **Üye rakamları (KPI) uydurma, şu an kapalı.** Veriler `src/data/members.json` → her üyenin `kpis` listesinde duruyor
   (örn. "16 DASHBOARDS") ama gösterilmiyor; profil sayfasında rakam şeridi de çizilmiyor. Gerçek rakamlar girilince
   `src/app/[locale]/team/[slug]/page.tsx`'teki `SHOW_KPIS`'i `true` yap, şerit geri gelir.
-- **Kendi metnini vermemiş üyelerde sade rol metni var** (ör. "Emirhan, Data Insights departmanını birlikte yönetiyor.").
-  Eski placeholder metinleri `"tr-x-eski"` / `"en-x-eski"` anahtarlarında, ESKİ sürümlerde görünür. Üye kendi metnini
-  gönderince `tr` / `en` değerlerine yazılır.
+- **Kendi metnini vermemiş üyelerde sade rol metni var** (ör. "Emirhan, Data Insights departmanını eş direktör olarak
+  yönetiyor."). Üye kendi metnini gönderince `tr` / `en` değerlerine yazılır.
 
 **Eski metinleri tamamen kaldırmak** (artık karşılaştırma gerekmediğinde; main'e merge etmeden önce önerilir):
 
 1. `messages/tr-x-eski.json` ve `messages/en-x-eski.json`'u sil.
-2. `src/lib/constants.ts` ve `src/data/members.json`'daki bütün `"tr-x-eski"` / `"en-x-eski"` satırlarını sil.
+2. `src/lib/constants.ts` ve `src/data/members.json`'daki bütün `"tr-x-eski"` / `"en-x-eski"` satırlarını sil
+   (`focusByLocale` içindekiler dahil) ve `src/lib/skills.ts`'teki `SKILLS_TR_ESKI`'yi kaldır.
 3. Kod tarafını kaldır:
    - `src/i18n/routing.ts` içindeki `REVIEW_LOCALES` / `isReviewLocale` ve onları kullanan yerler (`src/lib/seo.ts`, `src/app/[locale]/layout.tsx`)
    - `src/components/layout/DevOptions.tsx` ve `Nav.tsx`'teki `<DevOptions />` satırı
@@ -149,8 +154,7 @@ Aşağıdakiler bilerek tek dilli bırakıldı. Türkçeleştirmek için kod de�
 - Araç ve marka adı olan yetenek etiketleri (Python, SQL, Power BI, Notion…). Diğer etiketler Türkçe görünür; hepsi
   `src/lib/skills.ts`'teki tek sözlükte çevrilir (aşağıdaki "Hızlı harita"ya bak)
 - Avatar kısaltması (`members.json` → `initials`): **adın her parçasından bir harf**. Üç parçalı adlarda üç harf
-  (Ahmet Hamza Mülayim → AHM, Elif Ayşe Şen → EAŞ). Yeni üye eklerken de bu kurala uy. Mevcut üç isimlilerde eski
-  iki harfli kısaltma `"tr-x-eski"` / `"en-x-eski"`'de duruyor, ESKİ sürümlerde görünür.
+  (Ahmet Hamza Mülayim → AHM, Elif Ayşe Şen → EAŞ). Yeni üye eklerken de bu kurala uy.
 - Footer'daki departman linkleri (`src/components/layout/Footer.tsx`)
 - Sosyal medya paylaşım görseli (`src/app/[locale]/opengraph-image.tsx`)
 - İletişim e-postasının konu başlığındaki `[İletişim]` etiketi. Inbox filtreleri buna bakıyor, değiştirme.

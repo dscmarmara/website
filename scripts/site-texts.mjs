@@ -10,7 +10,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { HOME_STATS, HOME_DEPARTMENTS, ABOUT_DEPARTMENTS } from "../src/lib/constants.ts";
+import { HOME_STATS, HOME_DEPARTMENTS, ABOUT_DEPARTMENTS, ABOUT_FLOW } from "../src/lib/constants.ts";
 import { SKILLS_TR } from "../src/lib/skills.ts";
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -51,9 +51,10 @@ function messageTable(...namespaces) {
   return table(["Anahtar", "Türkçe", "English"], rows);
 }
 
-// Plain role lines ("X, … departmanını eş direktör olarak yönetmektedir.") —
+// Plain role lines ("X, … departmanını eş direktör olarak yönetiyor.") —
 // anything else in bio1 is the member's own text and stays out.
-const ROLE_LINE = /^[^,]{1,40}, (kulübün (başkanıdır|başkan yardımcısıdır|sekreteridir)|.+ departmanını (eş )?direktör olarak yönetmektedir)\.$/;
+const ROLE_LINE =
+  /^[^,]{1,40}, (kulübün (başkanıdır|başkan yardımcısıdır|sekreteridir|.+ yürütüyor)|.+ departmanını (eş )?direktör olarak (yönetmektedir|yönetiyor))\.$/;
 
 const out = [];
 const h = (level, text) => out.push("", `${"#".repeat(level)} ${text}`, "");
@@ -97,6 +98,9 @@ for (const d of ABOUT_DEPARTMENTS) {
     )
   );
 }
+
+h(3, "Departmanlar arası paslaşma (`src/lib/constants.ts` → `ABOUT_FLOW`)");
+out.push(table(["Adım", "Türkçe", "English"], ABOUT_FLOW.map((s, i) => [`${i + 1}. ${s.name}`, s.text.tr, s.text.en])));
 
 h(2, "5. Ekip");
 out.push(messageTable("team", "roles"));

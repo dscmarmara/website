@@ -81,9 +81,9 @@
     "comingSoonSub": "Our first projects are in the works. Check back soon to see what the crew is building.",
     "deptEyebrow": "SIX DEPARTMENTS",
     "deptTitle": "One club, six ways to build",
-    "deptSub": "Pick a lane or move between them — every department ships real work.",
+    "deptSub": "Dive deep or move across teams. We ship real work everywhere.",
     "ctaTitle": "Ready to build something with data?",
-    "ctaSub": "Applications are open every semester. No prerequisites — just bring the curiosity.",
+    "ctaSub": "Applications are open every semester. There are no prerequisites. Just bring your curiosity.",
     "joinClub": "Join the club →"
   },
   "about": {
@@ -97,6 +97,7 @@
     "storyP3": "The result is a community fluent in the same language as global tech communities and agile startups — and ready to speak it the day they graduate.",
     "orgEyebrow": "SIX DEPARTMENTS",
     "orgTitle": "How the club is organised",
+    "orgSub": "The six departments at the core of our club work side by side, from technical production to event management and from financial sustainability to communications.",
     "purposeLabel": "PURPOSE",
     "focusLabel": "FOCUS AREAS",
     "visionLabel": "VISION",
@@ -110,12 +111,12 @@
   },
   "team": {
     "eyebrow": "THE TEAM",
-    "heroTitle": "The people behind the club",
-    "heroSub": "Led by the president, with two directors steering each of the club's six departments — every one a builder with their own page.",
+    "heroTitle": "Meet our leadership team",
+    "heroSub": "Meet our president and department leads.",
     "vpHeading": "VP",
     "viewProfile": "View profile →",
     "joinTitle": "Your name could be here next semester",
-    "joinSub": "Every member gets a page, a department, and real work to ship.",
+    "joinSub": "Find your team, take ownership, and build with us.",
     "joinClub": "Join the club →"
   },
   "member": {
@@ -134,7 +135,7 @@
   "blog": {
     "eyebrow": "THE BLOG",
     "heroTitle": "Columns from the build crew",
-    "heroSub": "Opinions, field notes and lessons from students doing data in public — not press releases.",
+    "heroSub": "Real opinions, field notes, and lessons from students working with data.",
     "featuredBadge": "FEATURED · OPINION",
     "all": "All",
     "backToBlog": "← BACK TO BLOG",
@@ -147,7 +148,7 @@
   "contact": {
     "eyebrow": "SAY HELLO",
     "heroTitle": "Let's build something together",
-    "heroSub": "Want to join, sponsor us, collaborate on a project, or just ask a question? Drop us a line — a real student reads every message.",
+    "heroSub": "Have an idea, want to collaborate, or thinking of joining? Leave us a message.",
     "fullName": "FULL NAME",
     "email": "EMAIL",
     "subject": "SUBJECT",

@@ -5,7 +5,8 @@ import { PageHero } from "@/components/common/PageHero";
 import { Reveal } from "@/components/effects/Reveal";
 import { Eyebrow } from "@/components/common/Eyebrow";
 import { DepartmentAccordions } from "@/components/about/DepartmentAccordions";
-import { getMembers, departmentOrder } from "@/lib/members";
+import { getMembers, departmentOrder, pick } from "@/lib/members";
+import { ABOUT_FLOW } from "@/lib/constants";
 import { buildAlternates } from "@/lib/seo";
 
 export async function generateMetadata({
@@ -84,6 +85,53 @@ export default async function AboutPage({
           <DepartmentAccordions />
         </div>
       </section>
+
+      {/* HANDOFFS: how work moves between the departments. The old-copy
+          locales have no such section and skip it. */}
+      {t.has("flowTitle") && (
+        <section style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "96px 24px 0" }}>
+          <Reveal style={{ marginBottom: 44 }}>
+            <Eyebrow style={{ marginBottom: 12 }}>{t("flowEyebrow")}</Eyebrow>
+            <h2 style={h2Style}>{t("flowTitle")}</h2>
+            <p style={{ fontFamily: "var(--font-body-stack)", fontSize: 16, lineHeight: 1.6, color: "var(--text-muted)", maxWidth: "68ch", margin: "14px 0 0" }}>{t("flowSub")}</p>
+          </Reveal>
+          <ol className="dsc-grid-3" style={{ gap: 22, listStyle: "none", padding: 0, margin: 0 }}>
+            {ABOUT_FLOW.map((step, i) => (
+              <li
+                key={step.name}
+                className="glow-card"
+                data-reveal
+                style={{ border: "1px solid var(--border)", borderRadius: 16, background: "var(--bg-elev)", padding: 28 }}
+              >
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 18 }}>
+                  <span
+                    style={{
+                      width: 44,
+                      height: 44,
+                      display: "grid",
+                      placeItems: "center",
+                      borderRadius: 12,
+                      background: "color-mix(in srgb,var(--accent) 12%,transparent)",
+                      border: "1px solid var(--border)",
+                      color: "var(--accent)",
+                      fontFamily: "var(--font-display-stack)",
+                      fontWeight: 700,
+                      fontSize: 17,
+                    }}
+                  >
+                    {i + 1}
+                  </span>
+                  {i < ABOUT_FLOW.length - 1 && (
+                    <span aria-hidden style={{ fontFamily: "var(--font-display-stack)", fontSize: 20, color: "var(--accent)" }}>→</span>
+                  )}
+                </div>
+                <h3 style={{ fontFamily: "var(--font-display-stack)", fontWeight: 600, fontSize: 18, margin: "0 0 8px" }}>{step.name}</h3>
+                <p style={{ fontFamily: "var(--font-body-stack)", fontSize: 14.5, lineHeight: 1.6, color: "var(--text-muted)", margin: 0 }}>{pick(step.text, locale)}</p>
+              </li>
+            ))}
+          </ol>
+        </section>
+      )}
 
       {/* TEAM */}
       <section style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "96px 24px" }}>

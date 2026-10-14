@@ -18,28 +18,22 @@
       "dept": "LEADERSHIP",
       "photo": "/team/ahmet.jpg",
       "tagline": {
-        "en": "Leading DSC Marmara with hands-on field experience and a clear vision for high-impact, real-world tech communities.",
-        "tr": "Sahadan gelen pratik tecrübeyi vizyoner liderlikle harmanlayarak DSC Marmara’yı geleceğe taşıyan kulüp başkanı.",
-        "tr-x-eski": "Kulübün yönünü belirler ve her departmana mentorluk yapar — akademik araştırma ile modern girişimlerin çevik, hızlı üretim kültürü arasında köprü kurar.",
-        "en-x-eski": "Leads the club's direction and mentors every department — building the bridge between academic research and the agile, ship-fast culture of modern startups."
+        "en": "Club president leading DSC Marmara with hands-on field experience and a clear vision for a builder-focused tech community.",
+        "tr": "Saha deneyimini üretim odaklı bir topluluk vizyonuyla birleştirerek DSC Marmara'ya liderlik eden kulüp başkanı.",
+        "tr-x-eski": "Sahadan gelen pratik tecrübeyi vizyoner liderlikle harmanlayarak DSC Marmara’yı geleceğe taşıyan kulüp başkanı.",
+        "en-x-eski": "Leading DSC Marmara with hands-on field experience and a clear vision for high-impact, real-world tech communities."
       },
       "bio1": {
         "en": "As the President of DSC Marmara, Ahmet Kipici steers the club’s strategic direction, ecosystem growth, and overall vision. He combines hard-earned field experience with a forward-looking perspective on modern data and technology landscapes.",
-        "tr": "Ahmet Kipici, Data Science Club Marmara'nın Kulüp Başkanı olarak topluluğun stratejik vizyonuna, büyüme hedeflerine ve kurumsal kültürüne liderlik etmektedir. Sektörde ve sahada edindiği doğrudan deneyimi, geleceğin veri ekosistemini doğru okuyan vizyoner bir bakış açısıyla buluşturur.",
-        "tr-x-eski": "Ahmet son sınıf istatistik öğrencisi ve Veri Bilimi Kulübü'nün başkanı. Bir yaz stajı ona üniversitelerin öğrettikleriyle veri ekiplerinin gerçekte yaptıkları arasındaki uçurumun çözülmeye değer bir problem olduğunu gösterdikten sonra bu işin peşine düştü — birlikte ve açıkça.",
-        "en-x-eski": "Ahmet is a final-year statistics student and the president of the Data Science Club. He pushed for it after a summer internship convinced him that the gap between what universities teach and what data teams actually do was a problem worth solving — together, in public."
+        "tr": "Ahmet Kipici, Data Science Club Marmara'nın Kulüp Başkanı olarak topluluğun stratejik vizyonuna, büyüme hedeflerine ve kurumsal kültürüne liderlik etmektedir. Sektörde ve sahada edindiği doğrudan deneyimi, geleceğin veri ekosistemini doğru okuyan vizyoner bir bakış açısıyla buluşturur."
       },
       "bio2": {
         "en": "Bridging the critical gap between university foundations and industry realities, Ahmet leads DSC Marmara with an agile, startup-minded approach. Rather than letting the club remain a conventional student organization, he fosters an environment where bold ideas meet pragmatic execution—empowering every department to build projects that solve real-world problems and create lasting value.",
-        "tr": "Kulübü alışılagelmiş öğrenci kulübü kalıplarının ötesine taşıyarak çevik, üretken ve global teknoloji standartlarında düşünen bir yapıya dönüştürmeyi hedefler. Akademik teorinin sahadaki gerçek ihtiyaçlarla buluşmasını sağlarken; departmanlar arası sinerjiyi güçlendirir ve ekibin yalnızca tüketen değil, sahada karşılığı olan somut çıktılar üreten bir topluluk olmasına öncülük eder.",
-        "tr-x-eski": "Bugün kulübün yönünü belirliyor, departman liderlerine mentorluk yapıyor ve gece yarısı pull request incelemeye hâlâ zaman buluyor. Öğrenmenin en iyi yolunun, önemseyen insanlarla gerçek bir şey çıkarmak olduğuna inanıyor.",
-        "en-x-eski": "Today he sets the club's direction, mentors department leads, and still finds time to review pull requests at midnight. He believes the best way to learn is to ship something real with people who care."
+        "tr": "Kulübü alışılagelmiş öğrenci kulübü kalıplarının ötesine taşıyarak çevik, üretken ve global teknoloji standartlarında düşünen bir yapıya dönüştürmeyi hedefler. Akademik teorinin sahadaki gerçek ihtiyaçlarla buluşmasını sağlarken; departmanlar arası sinerjiyi güçlendirir ve ekibin yalnızca tüketen değil, sahada karşılığı olan somut çıktılar üreten bir topluluk olmasına öncülük eder."
       },
       "quote": {
         "en": "Vision sets where we want to go, but field experience teaches us how to actually build the path to get there.",
-        "tr": "Vizyon nereye gideceğimizi belirler; fakat oraya nasıl ulaşacağımızı sahadaki gerçeklik ve birlikte üretme disiplini gösterir.",
-        "tr-x-eski": "Öğrencilere üretici gibi davran, üretsinler.",
-        "en-x-eski": "Treat students like builders, and they build."
+        "tr": "Vizyon nereye gideceğimizi belirler; fakat oraya nasıl ulaşacağımızı sahadaki gerçeklik ve birlikte üretme disiplini gösterir."
       },
       "focus": [
         "Executive Leadership",
@@ -72,27 +66,23 @@
       "photo": "/team/irmak-evci.jpg",
       "tagline": {
         "en": "Vice president of the club.",
-        "tr": "Kulübün başkan yardımcısıdır.",
-        "tr-x-eski": "Başkanın sağ kolu — altı departmanı aynı yönde ilerletir.",
-        "en-x-eski": "The president's second — keeps six departments moving in the same direction."
+        "tr": "Kulübün başkan yardımcısı.",
+        "tr-x-eski": "Kulübün başkan yardımcısıdır.",
+        "en-x-eski": "Vice president of the club."
       },
       "bio1": {
-        "en": "Irmak is the club's vice president.",
-        "tr": "Irmak, kulübün başkan yardımcısıdır.",
-        "tr-x-eski": "Irmak kulübün başkan yardımcısı; başkanın belirlediği yönü, departmanların gerçekten uygulayabileceği haftalık bir plana çeviren kişi.",
-        "en-x-eski": "Irmak is the club's vice president, the person who turns the president's direction into a week-by-week plan the departments can actually run on."
+        "en": "Irmak serves as the club's vice president.",
+        "tr": "Irmak, kulübün başkan yardımcılığını yürütüyor.",
+        "tr-x-eski": "Irmak, kulübün başkan yardımcısıdır.",
+        "en-x-eski": "Irmak is the club's vice president."
       },
       "bio2": {
         "en": "",
-        "tr": "",
-        "tr-x-eski": "Vaktini direktörlerin önünü açmakla, haftalık senkron toplantısını yönetmekle ve kararların sonsuza dek tartışılmak yerine alınmasını sağlamakla geçiriyor.",
-        "en-x-eski": "They spend their time unblocking directors, chairing the weekly sync, and making sure decisions get made instead of endlessly discussed."
+        "tr": ""
       },
       "quote": {
         "en": "",
-        "tr": "",
-        "tr-x-eski": "Bir sonraki adımı biri sahiplenmedikçe strateji beş para etmez.",
-        "en-x-eski": "Strategy is worthless until someone owns the next step."
+        "tr": ""
       },
       "focus": [
         "Operations",
@@ -116,39 +106,30 @@
       "slug": "esim-ebrar-gokyaka",
       "name": "Esim Ebrar Gökyaka",
       "first": "Esim",
-      "initials": {
-        "en": "EEG",
-        "tr": "EEG",
-        "tr-x-eski": "EG",
-        "en-x-eski": "EG"
-      },
+      "initials": "EEG",
       "group": "vp",
       "teamRole": "SECRETARY",
       "dept": "LEADERSHIP",
       "photo": "/team/esim-ebrar-gokyaka.jpg",
       "tagline": {
         "en": "Secretary of the club.",
-        "tr": "Kulübün sekreteridir.",
-        "tr-x-eski": "Kulübün operasyonlarını, tutanaklarını ve hafızasını yürütür; hiçbir şey gözden kaçmasın diye.",
-        "en-x-eski": "Runs the club's operations, minutes and memory so nothing falls through."
+        "tr": "Kulübün sekreteri.",
+        "tr-x-eski": "Kulübün sekreteridir.",
+        "en-x-eski": "Secretary of the club."
       },
       "bio1": {
-        "en": "Esim Ebrar is the club's secretary.",
-        "tr": "Esim Ebrar, kulübün sekreteridir.",
-        "tr-x-eski": "Esim kulübün sekreteri ve kurumsal hafızası — gündemler, tutanaklar, kararlar ve takipler hep ondan geçiyor.",
-        "en-x-eski": "Esim is the club's secretary and its institutional memory — agendas, minutes, decisions and follow-ups all pass through them."
+        "en": "Esim Ebrar serves as the club's secretary.",
+        "tr": "Esim Ebrar, kulübün sekreterlik görevini yürütüyor.",
+        "tr-x-eski": "Esim Ebrar, kulübün sekreteridir.",
+        "en-x-eski": "Esim Ebrar is the club's secretary."
       },
       "bio2": {
         "en": "",
-        "tr": "",
-        "tr-x-eski": "Hiçbir ders iki kez öğrenilmek zorunda kalmasın diye kulübün ortak bilgi tabanını kurdu.",
-        "en-x-eski": "They built the club's shared knowledge base so that no lesson has to be learned twice."
+        "tr": ""
       },
       "quote": {
         "en": "",
-        "tr": "",
-        "tr-x-eski": "Yazılmadıysa, olmamış demektir.",
-        "en-x-eski": "If it isn't written down, it didn't happen."
+        "tr": ""
       },
       "focus": [
         "Operations",
@@ -179,27 +160,23 @@
       "photo": "/team/emirhan-kunt.jpg",
       "tagline": {
         "en": "Co-director of the Data Insights department.",
-        "tr": "Data Insights departmanını eş direktör olarak yönetmektedir.",
-        "tr-x-eski": "Dağınık veri setlerini, insanların gerçekten bakmak istediği panolara dönüştürür.",
-        "en-x-eski": "Turns messy datasets into dashboards people actually want to look at."
+        "tr": "Data Insights departmanının eş direktörü.",
+        "tr-x-eski": "Data Insights departmanını eş direktör olarak yönetmektedir.",
+        "en-x-eski": "Co-director of the Data Insights department."
       },
       "bio1": {
-        "en": "Emirhan is a co-director of the Data Insights department.",
-        "tr": "Emirhan, Data Insights departmanını eş direktör olarak yönetmektedir.",
-        "tr-x-eski": "Emirhan, hikâye anlatımının en az istatistik kadar önemli olduğu Data Insights'ı yönetiyor. 40 sütunluk bir tabloyu alıp size fikrinizi değiştiren tek bir grafik olarak geri verebilen kişi.",
-        "en-x-eski": "Emirhan leads Data Insights, where storytelling matters as much as statistics. They're the person who can take a 40-column spreadsheet and hand you back a single chart that changes your mind."
+        "en": "Emirhan co-directs the Data Insights department.",
+        "tr": "Emirhan, Data Insights departmanını eş direktör olarak yönetiyor.",
+        "tr-x-eski": "Emirhan, Data Insights departmanını eş direktör olarak yönetmektedir.",
+        "en-x-eski": "Emirhan is a co-director of the Data Insights department."
       },
       "bio2": {
         "en": "",
-        "tr": "",
-        "tr-x-eski": "Kulübün BI atölyelerini yürütüyor ve veri okuryazarlığını kampüs genelinde varsayılan bir beceri hâline getirmeyi görev ediniyor.",
-        "en-x-eski": "They run the club's BI workshops and are on a mission to make data literacy a default skill across campus."
+        "tr": ""
       },
       "quote": {
         "en": "",
-        "tr": "",
-        "tr-x-eski": "İyi bir grafik, bir tartışmayı toplantıdan daha hızlı bitirir.",
-        "en-x-eski": "A good chart ends an argument faster than a meeting."
+        "tr": ""
       },
       "focus": [
         "EDA",
@@ -224,21 +201,16 @@
       "slug": "ihsan-sami-ceran",
       "name": "İhsan Sami Ceran",
       "first": "İhsan",
-      "initials": {
-        "en": "İSC",
-        "tr": "İSC",
-        "tr-x-eski": "İC",
-        "en-x-eski": "İC"
-      },
+      "initials": "İSC",
       "group": "Data Insights",
       "teamRole": "DIRECTOR",
       "dept": "DATA INSIGHTS",
       "photo": "/team/ihsan-sami-ceran.jpg",
       "tagline": {
         "en": "Co-director of the Data Insights department.",
-        "tr": "Data Insights departmanını eş direktör olarak yönetmektedir.",
-        "tr-x-eski": "İyi bir soru ile onu yanıtlayan grafik arasındaki alanda yaşar.",
-        "en-x-eski": "Lives in the space between a good question and the chart that answers it."
+        "tr": "Data Insights departmanının eş direktörü.",
+        "tr-x-eski": "Data Insights departmanını eş direktör olarak yönetmektedir.",
+        "en-x-eski": "Co-director of the Data Insights department."
       },
       "bio1": {
         "en": "A dedicated student at Marmara University, İhsan Sami combines strong academic rigor with practical analytical expertise gained from his experience in budget, reporting, and finance. Driven by a passion for technology, data-driven strategy, and continuous self-improvement, he brings a structured yet innovative approach to team leadership.",
@@ -285,28 +257,22 @@
       "website": "sadikcoban.com",
       "websiteUrl": "https://www.sadikcoban.com",
       "tagline": {
-        "en": "Bridging statistical theory, modern machine learning, and the digital infrastructure powering DSC Marmara.",
-        "tr": "İstatistiksel temelleri modern yapay zekâ sistemleri ve web mimarileriyle buluşturan geliştirici.",
-        "tr-x-eski": "NLP ve Türkçe dil modelleri — araştırmayı yayınlanan işlere dönüştürür.",
-        "en-x-eski": "NLP and Turkish-language models — turns research into things that ship."
+        "en": "Developer connecting statistical theory, modern machine learning systems, and the web infrastructure behind DSC Marmara.",
+        "tr": "İstatistik teorisini, modern makine öğrenmesi sistemlerini ve DSC Marmara'nın web altyapısını bir araya getiren geliştirici.",
+        "tr-x-eski": "İstatistiksel temelleri modern yapay zekâ sistemleri ve web mimarileriyle buluşturan geliştirici.",
+        "en-x-eski": "Bridging statistical theory, modern machine learning, and the digital infrastructure powering DSC Marmara."
       },
       "bio1": {
         "en": "Sadık serves as the Core AI Director at DSC Marmara, where he leads the community's artificial intelligence initiatives while building and maintaining its official web platform and digital infrastructure.",
-        "tr": "Sadık, DSC Marmara bünyesinde Core AI Direktörü olarak görev yaparken aynı zamanda kulübün web platformunun ve dijital altyapısının geliştirilmesini ve yönetimini üstlenmektedir.",
-        "tr-x-eski": "Sadık, kulübün dil çalışmalarını akıllı defterlerden dağıtılmış, tekrar üretilebilir modellere taşıdığı Core AI'ı birlikte yönetiyor. En mutlu olduğu an, dağınık bir Türkçe veri seti ve net bir değerlendirme metriğiyle olduğu andır.",
-        "en-x-eski": "Sadık co-directs Core AI, where he pushes the club's language work from clever notebooks into deployed, reproducible models. He is happiest with a messy Turkish dataset and a clear evaluation metric."
+        "tr": "Sadık, DSC Marmara bünyesinde Core AI Direktörü olarak görev yaparken aynı zamanda kulübün web platformunun ve dijital altyapısının geliştirilmesini ve yönetimini üstlenmektedir."
       },
       "bio2": {
         "en": "With a strong foundation in statistics, his work revolves around applied machine learning, reproducible data pipelines, and full-stack development. Sadık believes that meaningful technology lives at the intersection of solid mathematical foundations and reliable engineering—whether that means turning complex models into production-ready deployments or delivering fast, scalable web experiences for the community.",
-        "tr": "İstatistik kökenli analitik bakış açısını güncel makine öğrenimi ve tam yığın (full-stack) yazılım pratikleriyle bir araya getirir. Modellerin yalnızca not defterlerinde kalan birer taslak olmasından ziyade sahada çalışan, ölçeklenebilir ve sürdürülebilir ürünlere dönüşmesine odaklanır. Topluluk bünyesinde hem yapay zekâ projelerinin mimarisine liderlik eder hem de kulübün dijital yüzünü oluşturan platformları hayata geçirir.",
-        "tr-x-eski": "Yeni üyelere ilk fine-tune'larında mentorluk yapıyor ve deneylerinin güncel kaydını kişisel sitesinde tutuyor.",
-        "en-x-eski": "He mentors new members through their first fine-tune and keeps a running log of experiments on his personal site."
+        "tr": "İstatistik kökenli analitik bakış açısını güncel makine öğrenimi ve tam yığın (full-stack) yazılım pratikleriyle bir araya getirir. Modellerin yalnızca not defterlerinde kalan birer taslak olmasından ziyade sahada çalışan, ölçeklenebilir ve sürdürülebilir ürünlere dönüşmesine odaklanır. Topluluk bünyesinde hem yapay zekâ projelerinin mimarisine liderlik eder hem de kulübün dijital yüzünü oluşturan platformları hayata geçirir."
       },
       "quote": {
         "en": "From the statistical model to the platform that delivers it, true impact is defined by what actually ships.",
-        "tr": "İstatistiksel bir modelden onu sunan web platformuna kadar; gerçek değer, fikrin sahada çalışan sağlam bir ürüne dönüşmesindedir.",
-        "tr-x-eski": "Tekrar üretemediğin bir model bir sonuç değil, bir hikâyedir.",
-        "en-x-eski": "A model you can't reproduce is a story, not a result."
+        "tr": "İstatistiksel bir modelden onu sunan web platformuna kadar; gerçek değer, fikrin sahada çalışan sağlam bir ürüne dönüşmesindedir."
       },
       "focus": [
         "Machine Learning",
@@ -333,39 +299,30 @@
       "slug": "ahmet-hamza-mulayim",
       "name": "Ahmet Hamza Mülayim",
       "first": "Ahmet",
-      "initials": {
-        "en": "AHM",
-        "tr": "AHM",
-        "tr-x-eski": "AM",
-        "en-x-eski": "AM"
-      },
+      "initials": "AHM",
       "group": "Core AI",
       "teamRole": "DIRECTOR",
       "dept": "CORE AI",
       "photo": "/team/ahmet-hamza-mulayim.jpg",
       "tagline": {
         "en": "Co-director of the Core AI department.",
-        "tr": "Core AI departmanını eş direktör olarak yönetmektedir.",
-        "tr-x-eski": "Slayt çıkarmadan önce model çıkaran bir bilgisayarlı görü meraklısı.",
-        "en-x-eski": "Computer-vision tinkerer who ships models before slides."
+        "tr": "Core AI departmanının eş direktörü.",
+        "tr-x-eski": "Core AI departmanını eş direktör olarak yönetmektedir.",
+        "en-x-eski": "Co-director of the Core AI department."
       },
       "bio1": {
-        "en": "Ahmet Hamza is a co-director of the Core AI department.",
-        "tr": "Ahmet Hamza, Core AI departmanını eş direktör olarak yönetmektedir.",
-        "tr-x-eski": "Ahmet Hamza, üretmeye yatkın bir tavırla Core AI'ı birlikte yönetiyor. Pazartesi mükemmel bir plan yerine, cumaya kadar gerçek veride çalışan kaba bir modeli tercih eder.",
-        "en-x-eski": "Ahmet Hamza co-directs Core AI with a bias for building. They would rather have a rough model running on real data by Friday than a perfect plan on Monday."
+        "en": "Ahmet Hamza co-directs the Core AI department.",
+        "tr": "Ahmet Hamza, Core AI departmanını eş direktör olarak yönetiyor.",
+        "tr-x-eski": "Ahmet Hamza, Core AI departmanını eş direktör olarak yönetmektedir.",
+        "en-x-eski": "Ahmet Hamza is a co-director of the Core AI department."
       },
       "bio2": {
         "en": "",
-        "tr": "",
-        "tr-x-eski": "Kulübün birinci sınıflarına ilk eğitim döngülerinde mentorluk yapıyor ve küçük, dürüst temel modellere sonuna kadar güveniyor.",
-        "en-x-eski": "They mentor the club's first-years through their first training loop and swear by small, honest baselines."
+        "tr": ""
       },
       "quote": {
         "en": "",
-        "tr": "",
-        "tr-x-eski": "Önce temel modeli çıkar — sana zorun gerçekte ne demek olduğunu söyler.",
-        "en-x-eski": "Ship the baseline first — it tells you what hard actually means."
+        "tr": ""
       },
       "focus": [
         "Computer Vision",
@@ -396,15 +353,13 @@
       "photo": "/team/alihan-telli.jpg",
       "tagline": {
         "en": "Co-director of the Data Pipelines department.",
-        "tr": "Data Pipelines departmanını eş direktör olarak yönetmektedir.",
-        "tr-x-eski": "Kulübün verisini Spark, Airflow ve bir sürü kafeinle akar tutar.",
-        "en-x-eski": "Keeps the club's data flowing with Spark, Airflow and a lot of caffeine."
+        "tr": "Data Pipelines departmanının eş direktörü.",
+        "tr-x-eski": "Data Pipelines departmanını eş direktör olarak yönetmektedir.",
+        "en-x-eski": "Co-director of the Data Pipelines department."
       },
       "bio1": {
         "en": "Hi, I’m Alihan. I’m a fourth-year Statistics student at Marmara University, and I also serve as a Director of the Data Pipelines Department at the Marmara Data Science Club.",
-        "tr": "Selam, ben Alihan. Marmara Üniversitesi İstatistik Bölümü 4. sınıf öğrencisiyim. Aynı zamanda Marmara Veri Bilimi Kulübü’nde Data Pipelines Departmanı Direktörü olarak görev alıyorum.",
-        "tr-x-eski": "Selam, ben Alihan. Marmara Üniversitesi İstatistik Bölümü 4. sınıf öğrencisiyim. Aynı zamanda Mustafa Kaan ile birlikte Marmara Veri Bilimi Kulübü’nde Data Pipelines Departmanı Direktörü olarak görev alıyorum.",
-        "en-x-eski": "Hi, I’m Alihan. I’m a fourth-year Statistics student at Marmara University, and I also serve as a Director of the Data Pipelines Department at the Marmara Data Science Club alongside Mustafa Kaan."
+        "tr": "Selam, ben Alihan. Marmara Üniversitesi İstatistik Bölümü 4. sınıf öğrencisiyim. Aynı zamanda Marmara Veri Bilimi Kulübü’nde Data Pipelines Departmanı Direktörü olarak görev alıyorum."
       },
       "bio2": {
         "en": "From choosing my university and major to the steps I’ve taken throughout my university years, I’ve focused on developing myself in one field: data science. Along the way, I’ve worked on various data analysis and machine learning projects, both directly and indirectly, and I’m continuing to build my skills. I especially enjoy working with datasets generated by society or related directly to social issues. I find it exciting to uncover patterns in data, turn them into meaningful insights, and develop data-driven solutions to real-world problems.",
@@ -445,13 +400,13 @@
       "photo": "/team/samet-demirkaya.jpg",
       "tagline": {
         "en": "Co-director of the Data Pipelines department.",
-        "tr": "Data Pipelines departmanını eş direktör olarak yönetmektedir."
+        "tr": "Data Pipelines departmanının eş direktörü.",
+        "tr-x-eski": "Data Pipelines departmanını eş direktör olarak yönetmektedir.",
+        "en-x-eski": "Co-director of the Data Pipelines department."
       },
       "bio1": {
         "en": "Samet is a senior Statistics student at Marmara University and an active contributor across DSC Marmara's project teams. He focuses on bridging his academic foundation in statistics with applied data science and machine learning, turning theoretical methods into functional, real-world software.",
-        "tr": "Selam, ben Samet. Marmara Üniversitesi İstatistik Bölümü 4. sınıf öğrencisiyim. Aynı zamanda Marmara Üniversitesi Data Science Club’da proje çalışmalarında aktif olarak yer alıyorum.",
-        "tr-x-eski": "Samet, Data Pipelines departmanını eş direktör olarak yönetmektedir.",
-        "en-x-eski": "Samet is a co-director of the Data Pipelines department."
+        "tr": "Selam, ben Samet. Marmara Üniversitesi İstatistik Bölümü 4. sınıf öğrencisiyim. Aynı zamanda Marmara Üniversitesi Data Science Club’da proje çalışmalarında aktif olarak yer alıyorum."
       },
       "bio2": {
         "en": "His hands-on projects include developing a football scouting platform that leverages performance metrics to identify lookalike player profiles, as well as designing a data-driven mobile football game. Driven by uncovering meaningful patterns within complex data, Samet enjoys framing problems through statistical modeling and machine learning, ultimately translating those solutions into usable applications. He continuously sharpens his technical toolkit across Python, R, and SQL.",
@@ -475,39 +430,30 @@
       "slug": "elif-esma-tuna",
       "name": "Elif Esma Tuna",
       "first": "Elif",
-      "initials": {
-        "en": "EET",
-        "tr": "EET",
-        "tr-x-eski": "ET",
-        "en-x-eski": "ET"
-      },
+      "initials": "EET",
       "group": "Summits & Awards",
       "teamRole": "DIRECTOR",
       "dept": "SUMMITS & AWARDS",
       "photo": "/team/elif-esma-tuna.jpg",
       "tagline": {
         "en": "Co-director of the Summits & Awards department.",
-        "tr": "Summits & Awards departmanını eş direktör olarak yönetmektedir.",
-        "tr-x-eski": "Datathon'u yönetir ve 200 kişilik etkinlikleri bir şekilde kolay gösterir.",
-        "en-x-eski": "Runs the Datathon and somehow makes 200-person events look easy."
+        "tr": "Summits & Awards departmanının eş direktörü.",
+        "tr-x-eski": "Summits & Awards departmanını eş direktör olarak yönetmektedir.",
+        "en-x-eski": "Co-director of the Summits & Awards department."
       },
       "bio1": {
-        "en": "Elif Esma is a co-director of the Summits & Awards department.",
-        "tr": "Elif Esma, Summits & Awards departmanını eş direktör olarak yönetmektedir.",
-        "tr-x-eski": "Elif Esma, kulübün enerjisini insanların hatırladığı etkinliklere dönüştürüyor — zirveler, ödül geceleri ve amiral gemisi Datathon. Lojistik, sponsorlar, programlar: tüm tabakları havada tutan o.",
-        "en-x-eski": "Elif Esma turns the club's energy into events people remember — summits, award nights, and the flagship Datathon. Logistics, sponsors, schedules: they keep all the plates spinning."
+        "en": "Elif Esma co-directs the Summits & Awards department.",
+        "tr": "Elif Esma, Summits & Awards departmanını eş direktör olarak yönetiyor.",
+        "tr-x-eski": "Elif Esma, Summits & Awards departmanını eş direktör olarak yönetmektedir.",
+        "en-x-eski": "Elif Esma is a co-director of the Summits & Awards department."
       },
       "bio2": {
         "en": "",
-        "tr": "",
-        "tr-x-eski": "Harika bir etkinliğin, atıştırmalıkları olan çok iyi yönetilmiş bir projeden ibaret olduğuna inanıyor ve genellikle haklı.",
-        "en-x-eski": "They believe a great event is just a really well-run project with snacks, and they're usually right."
+        "tr": ""
       },
       "quote": {
         "en": "",
-        "tr": "",
-        "tr-x-eski": "Etkinlik, erteleyemeyeceğin bir son teslim tarihi olan bir projedir.",
-        "en-x-eski": "An event is a project with a deadline you can't move."
+        "tr": ""
       },
       "focus": [
         "Event Management",
@@ -530,23 +476,22 @@
       "slug": "tarik-emre-ermis",
       "name": "Tarık Emre Ermiş",
       "first": "Tarık",
-      "initials": {
-        "en": "TEE",
-        "tr": "TEE",
-        "tr-x-eski": "TE",
-        "en-x-eski": "TE"
-      },
+      "initials": "TEE",
       "group": "Summits & Awards",
       "teamRole": "DIRECTOR",
       "dept": "SUMMITS & AWARDS",
       "photo": "/team/tarik-emre-ermis.jpg",
       "tagline": {
         "en": "Co-director of the Summits & Awards department.",
-        "tr": "Summits & Awards departmanını eş direktör olarak yönetmektedir."
+        "tr": "Summits & Awards departmanının eş direktörü.",
+        "tr-x-eski": "Summits & Awards departmanını eş direktör olarak yönetmektedir.",
+        "en-x-eski": "Co-director of the Summits & Awards department."
       },
       "bio1": {
-        "en": "Tarık Emre is a co-director of the Summits & Awards department.",
-        "tr": "Tarık Emre, Summits & Awards departmanını eş direktör olarak yönetmektedir."
+        "en": "Tarık Emre co-directs the Summits & Awards department.",
+        "tr": "Tarık Emre, Summits & Awards departmanını eş direktör olarak yönetiyor.",
+        "tr-x-eski": "Tarık Emre, Summits & Awards departmanını eş direktör olarak yönetmektedir.",
+        "en-x-eski": "Tarık Emre is a co-director of the Summits & Awards department."
       },
       "bio2": {
         "en": "",
@@ -575,27 +520,23 @@
       "photo": "/team/cansu-okcu.jpg",
       "tagline": {
         "en": "Co-director of the Finance & Corporate department.",
-        "tr": "Finance & Corporate departmanını eş direktör olarak yönetmektedir.",
-        "tr-x-eski": "Kulübü sponsorlarla buluşturur ve bütçeleri fırsatlara çevirir.",
-        "en-x-eski": "Connects the club with sponsors and turns budgets into opportunities."
+        "tr": "Finance & Corporate departmanının eş direktörü.",
+        "tr-x-eski": "Finance & Corporate departmanını eş direktör olarak yönetmektedir.",
+        "en-x-eski": "Co-director of the Finance & Corporate department."
       },
       "bio1": {
-        "en": "Cansu is a co-director of the Finance & Corporate department.",
-        "tr": "Cansu, Finance & Corporate departmanını eş direktör olarak yönetmektedir.",
-        "tr-x-eski": "Cansu, kulübün finansmanını ve bağlantılarını ayakta tutuyor. Teklifleri yazıyor, rakamları hesaplıyor ve üyeler için staja ve ilk işlere dönüşen ilişkileri kuruyor.",
-        "en-x-eski": "Cansu keeps the club funded and connected. They write the proposals, run the numbers, and build the relationships that turn into internships and first jobs for members."
+        "en": "Cansu co-directs the Finance & Corporate department.",
+        "tr": "Cansu, Finance & Corporate departmanını eş direktör olarak yönetiyor.",
+        "tr-x-eski": "Cansu, Finance & Corporate departmanını eş direktör olarak yönetmektedir.",
+        "en-x-eski": "Cansu is a co-director of the Finance & Corporate department."
       },
       "bio2": {
         "en": "",
-        "tr": "",
-        "tr-x-eski": "Bir veri kulübünün iş tarafının, teknik tarafı kadar yaratıcı olduğunun kanıtı.",
-        "en-x-eski": "They're proof that the business side of a data club is every bit as creative as the technical side."
+        "tr": ""
       },
       "quote": {
         "en": "",
-        "tr": "",
-        "tr-x-eski": "Soğuk bir e-posta, henüz hak etmediğin sıcak bir tanışıklıktan ibarettir.",
-        "en-x-eski": "A cold email is just a warm intro you haven't earned yet."
+        "tr": ""
       },
       "focus": [
         "Sponsorship",
@@ -626,11 +567,15 @@
       "photo": null,
       "tagline": {
         "en": "Co-director of the Finance & Corporate department.",
-        "tr": "Finance & Corporate departmanını eş direktör olarak yönetmektedir."
+        "tr": "Finance & Corporate departmanının eş direktörü.",
+        "tr-x-eski": "Finance & Corporate departmanını eş direktör olarak yönetmektedir.",
+        "en-x-eski": "Co-director of the Finance & Corporate department."
       },
       "bio1": {
-        "en": "Cem is a co-director of the Finance & Corporate department.",
-        "tr": "Cem, Finance & Corporate departmanını eş direktör olarak yönetmektedir."
+        "en": "Cem co-directs the Finance & Corporate department.",
+        "tr": "Cem, Finance & Corporate departmanını eş direktör olarak yönetiyor.",
+        "tr-x-eski": "Cem, Finance & Corporate departmanını eş direktör olarak yönetmektedir.",
+        "en-x-eski": "Cem is a co-director of the Finance & Corporate department."
       },
       "bio2": {
         "en": "",
@@ -651,21 +596,16 @@
       "slug": "elif-ayse-sen",
       "name": "Elif Ayşe Şen",
       "first": "Elif",
-      "initials": {
-        "en": "EAŞ",
-        "tr": "EAŞ",
-        "tr-x-eski": "EŞ",
-        "en-x-eski": "EŞ"
-      },
+      "initials": "EAŞ",
       "group": "PR",
       "teamRole": "DIRECTOR",
       "dept": "PR",
       "photo": "/team/elif-ayse-sen.jpg",
       "tagline": {
         "en": "Co-director of the PR department.",
-        "tr": "PR departmanını eş direktör olarak yönetmektedir.",
-        "tr-x-eski": "Kulübün sesinin ve görsellerinin arkasındaki tasarımcı ve hikâye anlatıcısı.",
-        "en-x-eski": "Designer and storyteller behind the club's voice and visuals."
+        "tr": "PR departmanının eş direktörü.",
+        "tr-x-eski": "PR departmanını eş direktör olarak yönetmektedir.",
+        "en-x-eski": "Co-director of the PR department."
       },
       "bio1": {
         "en": "I am a Mathematics student at Marmara University. As the PR Director of the Data Science Club, I am involved in the club’s communication and promotional activities. I contribute to creating social media content, promoting events, and managing the club’s digital communication efforts.",
@@ -708,9 +648,9 @@
       "photo": "/team/esma-ozcan.jpg",
       "tagline": {
         "en": "Co-director of the PR department.",
-        "tr": "PR departmanını eş direktör olarak yönetmektedir.",
-        "tr-x-eski": "Akışı yönetir ve kulübün işinin gerçekten görülmesini sağlar.",
-        "en-x-eski": "Runs the feed and makes sure the club's work actually gets seen."
+        "tr": "PR departmanının eş direktörü.",
+        "tr-x-eski": "PR departmanını eş direktör olarak yönetmektedir.",
+        "en-x-eski": "Co-director of the PR department."
       },
       "bio1": {
         "en": "Hi! I’m Esma, a Mathematics student at Marmara University. As the PR President of DSC, I actively take part in the club’s communication, organization, and collaboration processes.",
