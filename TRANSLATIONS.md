@@ -6,6 +6,8 @@ aşağıdaki dosyalara bakman yeterli. Kod bilgisi gerekmiyor; sadece tırnak i�
 
 Değişikliği görmek için: `npm run dev` → <http://localhost:3737/tr>
 
+Sitedeki bütün TR/EN metinlerin tek sayfalık dökümü: `SITE_METINLERI.md` (`npm run site-texts` ile yenilenir).
+
 ## Geçici: eski metinler (TR ESKİ / EN ESKİ)
 
 `/tr` ve `/` artık **yeni metinleri** gösteriyor; düzenlenecek asıl metinler `messages/tr.json` / `messages/en.json`
