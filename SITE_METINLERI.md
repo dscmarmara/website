@@ -1,6 +1,6 @@
 # DSC Marmara: sitedeki Türkçe ve İngilizce metinler
 
-> Bu dosya otomatik üretilir (2026-10-14); elle düzenleme. Bir metni değiştirmek için
+> Bu dosya otomatik üretilir (2026-10-15); elle düzenleme. Bir metni değiştirmek için
 > `TRANSLATIONS.md`'de gösterilen dosyayı düzenle, sonra `npm run site-texts` ile bu dosyayı yenile.
 >
 > Dahil değil: üyelerin kendi yazdığı biyografi ve alıntılar, blog yazıları, mağaza, gizli KPI etiketleri,
@@ -166,7 +166,7 @@
 | Vizyon | Kulübümüzün imajını bir teknoloji start-up'ı netliğinde konumlandırmak; teknik ekiplerin çıkardığı karmaşık kodları ve analizleri çarpıcı infografiklerle ve teknik blog yazılarıyla görünür kılarak kulübün marka değerini büyütmek. | Position our club's image with the clarity of a tech startup, and grow our brand value by turning the complex code and analyses built by our technical teams into clear infographics and technical blog posts. |
 | Odak etiketleri | Sosyal medya yönetimi (LinkedIn, Instagram, Medium) · Grafik tasarım · Marka kimliği ve kurumsal dil · Video ve içerik üretimi · Kriz iletişimi · Medya ilişkileri | Social media management (LinkedIn, Instagram, Medium) · Graphic design · Brand identity & tone of voice · Video & content production · Crisis communications · Media relations |
 
-### Departmanlar arası paslaşma (`src/lib/constants.ts` → `ABOUT_FLOW`)
+### Departmanlar arası paslaşma (`src/lib/constants.ts` → `ABOUT_FLOW`; önizleme: DEV OPTIONS → Paslaşma)
 
 | Adım | Türkçe | English |
 |---|---|---|
@@ -366,6 +366,5 @@ Kendi biyografisini vermemiş üyelerde profilde görünen kalıp cümle.
 Bilerek çevrilmeyenler (ayrıntı: `TRANSLATIONS.md` → "Türkçede de İngilizce kalanlar"):
 
 - Departman adları (Data Insights, Core AI, Data Pipelines, Summits & Awards, Finance & Corporate, PR) ve footer'daki departman linkleri
-- Sosyal medya paylaşım görseli: "DATA SCIENCE CLUB", "Marmara University"
 - İletişim formundan kulübe gelen e-postanın konusundaki `[İletişim]` etiketi
 - Araç ve marka adı olan etiketler (Python, SQL, Power BI, Notion…)

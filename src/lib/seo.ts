@@ -11,8 +11,8 @@ export const SITE_URL = (
 
 /** Short name we want search engines to show as the site name. */
 export const SITE_NAME = "DSC Marmara";
-/** Full name for the organisation entity. */
-export const SITE_LEGAL_NAME = "Data Science Club — Marmara University";
+/** Full English name for the organisation entity. */
+export const SITE_LEGAL_NAME = "Marmara University Data Science Club";
 
 /**
  * Open Graph wants `language_TERRITORY` (`en_US`), not the bare language tag our
@@ -28,6 +28,9 @@ export const PUBLIC_LOCALES = routing.locales.filter((l) => !isReviewLocale(l));
 
 /** Turkish name for the club. People here search for this, not the English one. */
 const SITE_NAME_TR = "Marmara Üniversitesi Veri Bilimi Kulübü";
+
+/** The club's full name in the page's language (JSON-LD organisation, publisher, worksFor). */
+export const orgName = (locale: string) => (locale.split("-")[0] === "tr" ? SITE_NAME_TR : SITE_LEGAL_NAME);
 
 type Href = Parameters<typeof getPathname>[0]["href"];
 
@@ -61,13 +64,19 @@ export function websiteLd(locale: string) {
   };
 }
 
-/** schema.org EducationalOrganization for the club (home / layout). */
-export function organizationLd() {
+/**
+ * schema.org EducationalOrganization for the club (layout), named in the
+ * page's language with the other language's name as an alternate.
+ * `description` is the site's default meta description for that language.
+ */
+export function organizationLd(locale: string, description: string) {
+  const name = orgName(locale);
   return {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
-    name: SITE_LEGAL_NAME,
-    alternateName: [SITE_NAME, SITE_NAME_TR],
+    name,
+    alternateName: [SITE_NAME, name === SITE_NAME_TR ? SITE_LEGAL_NAME : SITE_NAME_TR],
+    description,
     url: SITE_URL,
     // Not the brand SVG: it carries only a viewBox, no width/height, so it has
     // no intrinsic pixel size for a crawler to check against Google's minimum.

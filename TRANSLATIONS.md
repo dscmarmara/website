@@ -36,8 +36,10 @@ ESKİ'nin diğer parçaları:
 - Hakkımızda odak etiketleri: `ABOUT_DEPARTMENTS[].focusByLocale` → `tr` (yeni TR), `"tr-x-eski"`, `"en-x-eski"`;
   yeni İngilizce liste `focus`.
 - Üye etiketleri: Türkçesi değişen etiketlerin önceki hali `src/lib/skills.ts` → `SKILLS_TR_ESKI`.
-- Hakkımızda'daki "Departmanlar arası paslaşma" bölümü (`ABOUT_FLOW` + `about.flow*` metinleri) yalnızca yenide var;
-  ESKİ mesaj dosyalarında `about.flowTitle` olmadığı için ESKİ'de çizilmez.
+- Hakkımızda'daki "Departmanlar arası paslaşma" bölümü (`ABOUT_FLOW` + `about.flow*` metinleri) **önizleme**:
+  DEV OPTIONS'taki **"Paslaşma"** düğmesiyle açılıp kapanır (tarayıcı hatırlar), canlıda hiç görünmez
+  (`src/components/dev/DevFlagGate.tsx`). Yalnızca yenide var; ESKİ mesaj dosyalarında `about.flowTitle` olmadığı için
+  ESKİ'de çizilmez. Kalıcı yapmak için `about/page.tsx`'teki `<DevFlagGate flag="flow">` sarmalını kaldır.
 - Blog yazılarının ve üyelerin kendi biyografilerinin ayrı bir eski sürümü yok.
 
 **Yayın akışı:** geliştirme `preview-development` dalında yapılır; her push Vercel Preview'a gider. Yayına almak için
@@ -85,7 +87,8 @@ ve KPI'lar `main`'e geçse de canlıda kapalı kalır.
 | Üye sayfaları (kısa tanıtım, biyografi, alıntı) | `src/data/members.json` | her üyede `tagline.tr`, `bio1.tr`, `bio2.tr`, `quote.tr` |
 | Üye odak alanı etiketleri (Makine Öğrenmesi, İstatistik…) | `src/lib/skills.ts` | `SKILLS_TR`: İngilizce ad → Türkçe ad. Üyenin `focus` listesine sadece İngilizce adı yaz; sözlükte olmayan etiket build'i durdurur |
 | Blog yazıları | `content/blog/tr/<slug>.mdx` | aşağıdaki "Blog" bölümüne bak |
-| Arama motorlarına verilen Türkçe kulüp adı | `src/lib/seo.ts` | `SITE_NAME_TR` |
+| Arama motorlarına verilen kulüp adı (TR / EN) | `src/lib/seo.ts` | `SITE_NAME_TR` / `SITE_LEGAL_NAME` |
+| Sosyal medya paylaşım görseli | `messages/tr.json` / `en.json` | `home.heroTitle` (büyük yazı) ve `brand.title`, `brand.university`; görsel `src/app/[locale]/opengraph-image.tsx` |
 | İletişim formundan kulübe gelen e-posta | `src/lib/zoho.ts` | `sendContactMail` içindeki "Gönderen:", "Konu:"… |
 | Mağaza sayfası yazıları (başlık, buton, WhatsApp mesajı) | `messages/tr.json` | `shop` |
 | Mağaza ürünleri (ad, açıklama, fiyat, beden) | `src/lib/constants.ts` | `SHOP_PRODUCTS` → `name.tr`, `desc.tr`, `price`, `sizes` |
@@ -156,5 +159,4 @@ Aşağıdakiler bilerek tek dilli bırakıldı. Türkçeleştirmek için kod de�
 - Avatar kısaltması (`members.json` → `initials`): **adın her parçasından bir harf**. Üç parçalı adlarda üç harf
   (Ahmet Hamza Mülayim → AHM, Elif Ayşe Şen → EAŞ). Yeni üye eklerken de bu kurala uy.
 - Footer'daki departman linkleri (`src/components/layout/Footer.tsx`)
-- Sosyal medya paylaşım görseli (`src/app/[locale]/opengraph-image.tsx`)
 - İletişim e-postasının konu başlığındaki `[İletişim]` etiketi. Inbox filtreleri buna bakıyor, değiştirme.

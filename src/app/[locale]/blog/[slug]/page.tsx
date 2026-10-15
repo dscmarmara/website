@@ -16,7 +16,7 @@ import {
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getPostAuthor, getPostBySlug, getPostSlugs, localeChain } from "@/lib/posts";
 import { displayRole, pick } from "@/lib/members";
-import { buildAlternates, SITE_URL } from "@/lib/seo";
+import { buildAlternates, orgName, SITE_URL } from "@/lib/seo";
 import { routing } from "@/i18n/routing";
 
 export function generateStaticParams() {
@@ -87,7 +87,7 @@ export default async function BlogDetailPage({
     articleSection: post.category,
     inLanguage: locale,
     mainEntityOfPage: `${SITE_URL}${prefix}/blog/${slug}`,
-    publisher: { "@type": "Organization", name: "Data Science Club — Marmara University" },
+    publisher: { "@type": "Organization", name: orgName(locale) },
   };
   if (author) blogLd.author = { "@type": "Person", name: author.name };
 

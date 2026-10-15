@@ -28,7 +28,7 @@ import {
 } from "@/lib/members";
 import { getPostsByAuthor } from "@/lib/posts";
 import { skillLabel } from "@/lib/skills";
-import { buildAlternates, SITE_URL } from "@/lib/seo";
+import { buildAlternates, orgName, SITE_URL } from "@/lib/seo";
 import { routing } from "@/i18n/routing";
 
 /**
@@ -93,7 +93,7 @@ export default async function MemberPage({
     name: m.name,
     jobTitle: role,
     url: `${SITE_URL}${prefix}/team/${slug}`,
-    worksFor: { "@type": "Organization", name: "Data Science Club — Marmara University" },
+    worksFor: { "@type": "Organization", name: orgName(locale) },
   };
   // `sameAs` is how a search engine ties this page to the real-world person:
   // other profile URLs it can cross-reference. LinkedIn is the strongest such

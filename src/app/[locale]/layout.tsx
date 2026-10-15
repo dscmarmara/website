@@ -73,6 +73,7 @@ export default async function LocaleLayout({
     notFound();
   }
   setRequestLocale(locale);
+  const tMeta = await getTranslations({ locale, namespace: "metadata" });
 
   const fontVars = `${bricolage.variable} ${hanken.variable} ${pacifico.variable} ${condiment.variable}`;
 
@@ -81,7 +82,7 @@ export default async function LocaleLayout({
       <body>
         <NextIntlClientProvider>
           <JsonLd data={websiteLd(locale)} />
-          <JsonLd data={organizationLd()} />
+          <JsonLd data={organizationLd(locale, tMeta("defaultDescription"))} />
           <Nav />
           <main>{children}</main>
           <Footer />

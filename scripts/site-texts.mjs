@@ -99,7 +99,7 @@ for (const d of ABOUT_DEPARTMENTS) {
   );
 }
 
-h(3, "Departmanlar arası paslaşma (`src/lib/constants.ts` → `ABOUT_FLOW`)");
+h(3, "Departmanlar arası paslaşma (`src/lib/constants.ts` → `ABOUT_FLOW`; önizleme: DEV OPTIONS → Paslaşma)");
 out.push(table(["Adım", "Türkçe", "English"], ABOUT_FLOW.map((s, i) => [`${i + 1}. ${s.name}`, s.text.tr, s.text.en])));
 
 h(2, "5. Ekip");
@@ -138,7 +138,6 @@ out.push(
   "Bilerek çevrilmeyenler (ayrıntı: `TRANSLATIONS.md` → \"Türkçede de İngilizce kalanlar\"):",
   "",
   "- Departman adları (Data Insights, Core AI, Data Pipelines, Summits & Awards, Finance & Corporate, PR) ve footer'daki departman linkleri",
-  "- Sosyal medya paylaşım görseli: \"DATA SCIENCE CLUB\", \"Marmara University\"",
   "- İletişim formundan kulübe gelen e-postanın konusundaki `[İletişim]` etiketi",
   "- Araç ve marka adı olan etiketler (Python, SQL, Power BI, Notion…)"
 );

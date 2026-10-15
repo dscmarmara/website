@@ -5,6 +5,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import { IS_PRODUCTION } from "@/lib/env";
+import { setDevFlag, useDevFlag } from "@/lib/devFlags";
 
 /** TEMPORARY: per language, the previous copy (review locale) and the current default. */
 const GROUPS: { title: string; options: { locale: Locale; label: string; key: string }[] }[] = [
@@ -29,7 +30,8 @@ const btn = { padding: "4px 12px", fontSize: 11.5 } as const;
 /**
  * TEMPORARY dev options bar under the nav: switches the page between the
  * previous copy (ESKİ) and the current default (YENİ), in Turkish and in
- * English, and links the preview-only pages (the shop). Hidden on Vercel
+ * English, links the preview-only pages (the shop) and toggles preview-only
+ * sections (the About page's department handoffs). Hidden on Vercel
  * production, where the old-copy locales 404 as well, so it is safe to merge
  * into main; remove it once the old copy is dropped (see TRANSLATIONS.md). Its labels are
  * Turkish on purpose: it is a tool for the club's own team, not for visitors.
@@ -40,9 +42,15 @@ export function DevOptions() {
   const pathname = usePathname();
   const router = useRouter();
   const [, startTransition] = useTransition();
+  const flowOn = useDevFlag("flow");
 
   if (IS_PRODUCTION) return null;
   const onShop = pathname === "/shop" || pathname.startsWith("/shop/");
+  const toggleFlow = () => {
+    setDevFlag("flow", !flowOn);
+    // Turning it on elsewhere jumps to the page that shows it.
+    if (!flowOn && pathname !== "/about") router.push("/about");
+  };
 
   return (
     <div style={{ borderTop: "1px solid var(--border)", background: "var(--bg-elev)" }}>
@@ -89,6 +97,20 @@ export function DevOptions() {
             <Link href="/shop" className="lang-btn" data-active={onShop ? "" : undefined} style={{ ...btn, textDecoration: "none" }}>
               Mağaza →
             </Link>
+          </div>
+          {/* Preview-only sections: a switch, remembered per browser. */}
+          <div style={{ display: "inline-flex", border: "1px solid var(--border)", borderRadius: 100, overflow: "hidden" }}>
+            <button
+              type="button"
+              className="lang-btn"
+              data-active={flowOn ? "" : undefined}
+              aria-pressed={flowOn}
+              title="Hakkımızda: departmanlar arası paslaşma bölümü"
+              onClick={toggleFlow}
+              style={btn}
+            >
+              Paslaşma {flowOn ? "AÇIK" : "KAPALI"}
+            </button>
           </div>
         </div>
       </div>
