@@ -285,7 +285,7 @@ export const ABOUT_DEPARTMENTS: AboutDepartment[] = [
     },
     vision: {
       en: "Position our club's image with the clarity of a tech startup, and grow our brand value by turning the complex code and analyses built by our technical teams into clear infographics and technical blog posts.",
-      tr: "Kulübümüzün imajını bir teknoloji start-up'ı netliğinde konumlandırmak; teknik ekiplerin çıkardığı karmaşık kodları ve analizleri çarpıcı infografiklerle ve teknik blog yazılarıyla görünür kılarak kulübün marka değerini büyütmek.",
+      tr: "Kulübümüzün imajını bir teknoloji startup'ı netliğinde konumlandırmak; teknik ekiplerin çıkardığı karmaşık kodları ve analizleri çarpıcı infografiklerle ve teknik blog yazılarıyla görünür kılarak kulübün marka değerini büyütmek.",
       "tr-x-eski": "Kulübün imajını bir teknoloji start-up'ı netliğinde konumlandırmak; teknik ekiplerin ürettiği karmaşık kodları ve analizleri çarpıcı infografikler ve teknik içeriklerle görünür kılarak kulübün marka değerini yükseltmek.",
       "en-x-eski": "Become the most recognisable student data brand in Turkey.",
     },

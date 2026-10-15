@@ -12,9 +12,9 @@
 |---|---|---|
 | `metadata.defaultTitle` | DSC Marmara · Data Science Club | DSC Marmara · Data Science Club |
 | `metadata.titleTemplate` | %s · DSC Marmara | %s · DSC Marmara |
-| `metadata.defaultDescription` | Marmara Üniversitesi Veri Bilimi Kulübü. Geleneksel öğrenci kulübü kalıplarını yıkan, küresel teknoloji toplulukları ve çevik teknoloji start-up'larıyla aynı dili konuşan modern bir yapı kuruyoruz. | The Data Science Club at Marmara University. We break traditional student club molds and build a modern community that speaks the same language as global tech communities and agile startups. |
+| `metadata.defaultDescription` | Marmara Üniversitesi Veri Bilimi Kulübü. Geleneksel öğrenci kulübü kalıplarını yıkan, küresel teknoloji toplulukları ve çevik teknoloji startup'larıyla aynı dili konuşan modern bir yapı kuruyoruz. | The Data Science Club at Marmara University. We break traditional student club molds and build a modern community that speaks the same language as global tech communities and agile startups. |
 | `metadata.home.title` | Anasayfa | Home |
-| `metadata.home.description` | Start-up gibi çalışan veri kulübü. Altı departman, gerçek projeler ve seni ilk günden üretimin parçası gören bir topluluk. | The data club that works like a startup. Six departments, real projects, and a community where you build from day one. |
+| `metadata.home.description` | Startup gibi çalışan veri kulübü. Altı departman, gerçek projeler ve seni ilk günden üretimin parçası gören bir topluluk. | The data club that works like a startup. Six departments, real projects, and a community where you build from day one. |
 | `metadata.about.title` | Hakkımızda | About |
 | `metadata.about.description` | Bir üretim ekibi gibi çalışıyoruz. Hikâyemiz, çalışma yapımız ve kulübün omurgasını oluşturan altı departman. | We work like a product team. Our story, how the club is structured, and the six departments at our core. |
 | `metadata.team.title` | Ekip | Team |
@@ -46,8 +46,8 @@
 
 | Anahtar | Türkçe | English |
 |---|---|---|
-| `home.heroTitle` | Start-up gibi çalışan veri kulübü. | The data club that thinks like a startup. |
-| `home.heroSub` | Geleneksel öğrenci kulübü kalıplarını yıkıyor, küresel teknoloji toplulukları ve çevik teknoloji start-up'larıyla aynı dili konuşan modern bir yapı kuruyoruz. | Breaking traditional student club molds and building a modern structure that speaks the same language as global tech communities and agile tech startups. |
+| `home.heroTitle` | Startup gibi çalışan veri kulübü. | The data club that thinks like a startup. |
+| `home.heroSub` | Geleneksel öğrenci kulübü kalıplarını yıkıyor, küresel teknoloji toplulukları ve çevik teknoloji startup'larıyla aynı dili konuşan modern bir yapı kuruyoruz. | Breaking traditional student club molds and building a modern structure that speaks the same language as global tech communities and agile tech startups. |
 | `home.joinUs` | Aramıza Katıl | Join Us |
 | `home.exploreBlog` | Blogu Keşfet → | Explore the Blog → |
 | `home.whoEyebrow` | BİZ KİMİZ? | WHO WE ARE |
@@ -95,16 +95,16 @@
 | `about.eyebrow` | KULÜP HAKKINDA | ABOUT THE CLUB |
 | `about.heroTitle` | Klasik bir kulüp gibi değil, bir üretim ekibi gibi çalışıyoruz. | We work like a build crew, not a traditional student club. |
 | `about.storyTitle` | Hikâyemiz | Our story |
-| `about.storyP1` | Çoğu öğrenci kulübü toplantılar, tutanaklar ve hiyerarşi etrafında döner. Biz Veri Bilimi Kulübü'nü tam tersi bir anlayışla kurduk: Geleneksel öğrenci kulübü kalıplarını yıkan, örnek aldığımız teknoloji şirketlerindeki veri ekipleri ve çevik start-up'larla aynı dili konuşan modern bir yapı kurmak istedik. | Most university clubs revolve around meetings, minutes, and hierarchy. We started the Data Science Club because we wanted the opposite: a modern structure that breaks traditional student club molds and works like the data teams at the tech companies and agile startups we admire. |
+| `about.storyP1` | Çoğu öğrenci kulübü toplantılar, tutanaklar ve hiyerarşi etrafında döner. Biz Veri Bilimi Kulübü'nü tam tersi bir anlayışla kurduk: Geleneksel öğrenci kulübü kalıplarını yıkan, örnek aldığımız teknoloji şirketlerindeki veri ekipleri ve çevik startup'larla aynı dili konuşan modern bir yapı kurmak istedik. | Most university clubs revolve around meetings, minutes, and hierarchy. We started the Data Science Club because we wanted the opposite: a modern structure that breaks traditional student club molds and works like the data teams at the tech companies and agile startups we admire. |
 | `about.storyP2` | Çalışma düzenimizi de buna göre kurduk. Altı departman, birbirini tamamlayan ekipler halinde paslaşarak çalışır. Projeler sprintlerle ilerler. Bilgi birkaç kişinin elinde toplanmaz; kod incelemeleri, açık demolar ve ortak üretimle paylaşılır. Yeni üyeler daha ilk aylarında çalışan bir iş çıkarır: bir grafik, bir model ya da bir veri hattı. | So we built our workflow around that idea. Six departments work together as cross-functional squads. Projects move forward in sprints. Knowledge is shared openly through code reviews and demos rather than kept in silos. New members ship something tangible in their first month, whether it's a chart, a model, or a data pipeline. |
 | `about.pullQuote` | Veriyi işlenmeyi bekleyen bir hammadde değil, üzerinde üretim yapılan verimli bir toprak olarak görüyoruz. Amacımız bu toprakta nasıl üretim yapılacağını birlikte öğrenmek. | Rather than treating data as a raw commodity, we treat it like fertile ground and learn how to grow real products in it together. |
-| `about.storyP3` | Böylece küresel teknoloji toplulukları ve çevik start-up'larla aynı dili konuşan, birlikte öğrenip üreten bir topluluk ortaya çıkıyor. Hedefimiz, üyelerimizin mezun olduklarında bu çalışma kültürünü gerçek projelerde bizzat deneyimlemiş olmaları. | This creates a community that speaks the same language as global tech communities and agile startups. Our goal is for members to graduate having already practiced this engineering culture on real projects. |
+| `about.storyP3` | Böylece küresel teknoloji toplulukları ve çevik startup'larla aynı dili konuşan, birlikte öğrenip üreten bir topluluk ortaya çıkıyor. Hedefimiz, üyelerimizin mezun olduklarında bu çalışma kültürünü gerçek projelerde bizzat deneyimlemiş olmaları. | This creates a community that speaks the same language as global tech communities and agile startups. Our goal is for members to graduate having already practiced this engineering culture on real projects. |
 | `about.orgEyebrow` | ALTI DEPARTMAN | SIX DEPARTMENTS |
 | `about.orgTitle` | Kulüp nasıl çalışıyor? | How the club is structured |
 | `about.orgSub` | Kulübümüzün omurgasını oluşturan altı ana departman; teknik üretimden etkinlik yönetimine, finansal sürdürülebilirlikten iletişime kadar net görev sınırlarıyla birbirine paslaşarak çalışır. | The six core departments that form the backbone of our club work hand in hand with clear responsibilities, spanning technical production, event operations, financial sustainability, and communications. |
 | `about.flowEyebrow` | NASIL ÇALIŞIYORUZ | HOW WE WORK |
 | `about.flowTitle` | Departmanlar arası paslaşma | How work flows between departments |
-| `about.flowSub` | Marmara Üniversitesi Veri Bilimi Kulübü olarak, geleneksel öğrenci kulübü kalıplarını yıkan, küresel teknoloji toplulukları ve çevik teknoloji start-up'larıyla aynı dili konuşan modern bir yapı inşa ediyoruz. Kulübümüzün omurgasını oluşturan altı ana departman, hem birbirleriyle olan paslaşma hatlarını netleştirmek hem de ortak vizyonumuza hizmet ederken profesyonel sınırlarını korumak üzere bir arada çalışır. | As the Marmara University Data Science Club, we are building a modern structure that breaks traditional student club molds and speaks the same language as global tech communities and agile tech startups. The six core departments that form our backbone work together with clear handoffs and well-defined responsibilities toward a shared vision. |
+| `about.flowSub` | Marmara Üniversitesi Veri Bilimi Kulübü olarak, geleneksel öğrenci kulübü kalıplarını yıkan, küresel teknoloji toplulukları ve çevik teknoloji startup'larıyla aynı dili konuşan modern bir yapı inşa ediyoruz. Kulübümüzün omurgasını oluşturan altı ana departman, hem birbirleriyle olan paslaşma hatlarını netleştirmek hem de ortak vizyonumuza hizmet ederken profesyonel sınırlarını korumak üzere bir arada çalışır. | As the Marmara University Data Science Club, we are building a modern structure that breaks traditional student club molds and speaks the same language as global tech communities and agile tech startups. The six core departments that form our backbone work together with clear handoffs and well-defined responsibilities toward a shared vision. |
 | `about.purposeLabel` | AMAÇ | PURPOSE |
 | `about.focusLabel` | ODAK ALANLARI | FOCUS AREAS |
 | `about.visionLabel` | VİZYON | VISION |
@@ -163,7 +163,7 @@
 |  | Türkçe | English |
 |---|---|---|
 | Amaç | Kulübün dış dünyaya açılan vitrini, sesi ve yüzü olmak. Kulübün ürettiği teknik projeleri, düzenlediği büyük etkinlikleri ve marka kimliğini topluluğa ve sektöre en estetik ve doğru dille anlatmak. | Serve as the club's outward-facing showcase, voice, and face. Communicate the club's technical projects, major events, and brand identity to the community and industry with a clear and well-crafted voice. |
-| Vizyon | Kulübümüzün imajını bir teknoloji start-up'ı netliğinde konumlandırmak; teknik ekiplerin çıkardığı karmaşık kodları ve analizleri çarpıcı infografiklerle ve teknik blog yazılarıyla görünür kılarak kulübün marka değerini büyütmek. | Position our club's image with the clarity of a tech startup, and grow our brand value by turning the complex code and analyses built by our technical teams into clear infographics and technical blog posts. |
+| Vizyon | Kulübümüzün imajını bir teknoloji startup'ı netliğinde konumlandırmak; teknik ekiplerin çıkardığı karmaşık kodları ve analizleri çarpıcı infografiklerle ve teknik blog yazılarıyla görünür kılarak kulübün marka değerini büyütmek. | Position our club's image with the clarity of a tech startup, and grow our brand value by turning the complex code and analyses built by our technical teams into clear infographics and technical blog posts. |
 | Odak etiketleri | Sosyal medya yönetimi (LinkedIn, Instagram, Medium) · Grafik tasarım · Marka kimliği ve kurumsal dil · Video ve içerik üretimi · Kriz iletişimi · Medya ilişkileri | Social media management (LinkedIn, Instagram, Medium) · Graphic design · Brand identity & tone of voice · Video & content production · Crisis communications · Media relations |
 
 ### Departmanlar arası paslaşma (`src/lib/constants.ts` → `ABOUT_FLOW`; önizleme: DEV OPTIONS → Paslaşma)
@@ -344,7 +344,7 @@ Kendi biyografisini vermemiş üyelerde profilde görünen kalıp cümle.
 
 | Anahtar | Türkçe | English |
 |---|---|---|
-| `footer.description` | Marmara Üniversitesi Veri Bilimi Kulübü. Geleneksel öğrenci kulübü kalıplarını yıkan, küresel teknoloji toplulukları ve çevik teknoloji start-up'larıyla aynı dili konuşan modern bir yapı kuruyoruz. | The Data Science Club at Marmara University. We break traditional student club molds and build a modern community that speaks the same language as global tech communities and agile startups. |
+| `footer.description` | Marmara Üniversitesi Veri Bilimi Kulübü. Geleneksel öğrenci kulübü kalıplarını yıkan, küresel teknoloji toplulukları ve çevik teknoloji startup'larıyla aynı dili konuşan modern bir yapı kuruyoruz. | The Data Science Club at Marmara University. We break traditional student club molds and build a modern community that speaks the same language as global tech communities and agile startups. |
 | `footer.exploreTitle` | Keşfet | Explore |
 | `footer.departmentsTitle` | Departmanlar | Departments |
 | `footer.linkHome` | Anasayfa | Home |
