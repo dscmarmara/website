@@ -81,12 +81,12 @@
 
 | Departman | Türkçe | English |
 |---|---|---|
-| 01 Data Insights | Keşifçi veri analizi (EDA), iş zekâsı (BI) ve Tableau, Power BI, Matplotlib ile veri hikâyeleştirme. | Exploratory data analysis (EDA), business intelligence (BI), and data storytelling with Tableau, Power BI, and Matplotlib. |
-| 02 Core AI | Python ile makine öğrenmesi, derin öğrenme, doğal dil işleme (NLP) ve bilgisayarlı görü. | Machine learning, deep learning, NLP, and computer vision in Python. |
-| 03 Data Pipelines | Veri mühendisliği, ETL süreçleri, Hadoop/Spark, SQL/NoSQL ve bulut sistemleri. | Data engineering, ETL pipelines, Hadoop/Spark, SQL/NoSQL, and cloud systems. |
-| 04 Summits & Awards | Yıllık büyük zirveler, ödül geceleri ve büyük ödüllü Datathon & Hackathon yarışmaları. | Major annual summits, award nights, and our flagship Datathon & Hackathon competitions. |
-| 05 Finance & Corporate | Sponsorluklar, bütçe yönetimi, mezun ağı ve teknokent/global şirketlerle iş ortaklıkları. | Sponsorships, budgeting, alumni network, and partnerships with technopark and global companies. |
-| 06 PR | Sosyal medya, grafik tasarım, marka kimliği, teknik içerik üretimi ve medya ilişkileri. | Social media, graphic design, brand identity, content production, and media relations. |
+| 01 Data Insights | EDA, BI ve Tableau, Power BI ve Matplotlib ile veri hikâyeleştirme. | EDA, BI and storytelling with Tableau, Power BI and Matplotlib. |
+| 02 Core AI | Python ile makine öğrenmesi, derin öğrenme, NLP ve bilgisayarlı görü. | Machine learning, deep learning, NLP and computer vision in Python. |
+| 03 Data Pipelines | Veri mühendisliği, ETL, Hadoop/Spark, SQL/NoSQL ve bulut teknolojileri. | Data engineering, ETL, Hadoop/Spark, SQL/NoSQL and the cloud. |
+| 04 Summits & Awards | Zirveler, ödül geceleri ve amiral gemisi etkinliğimiz Datathon & Hackathon. | Summits, award nights and our flagship Datathon & Hackathon. |
+| 05 Finance & Corporate | Sponsorluk, bütçe yönetimi ve sektör paydaşlarıyla ilişkiler. | Sponsorship, budgeting and relationships with industry partners. |
+| 06 PR | Sosyal medya, grafik tasarım, içerik üretimi ve medya ilişkileri. | Social media, graphic design, content and media relations. |
 
 ## 4. Hakkımızda
 
@@ -122,49 +122,49 @@
 
 |  | Türkçe | English |
 |---|---|---|
-| Amaç | Ham verinin içindeki saklı hikâyeleri keşfetmek, anlamlandırmak ve karar alıcılara rehberlik edecek stratejik içgörülere dönüştürmek. | Turn raw university and open datasets into clear decisions through exploratory analysis and business intelligence. |
-| Vizyon | Kulüp içindeki ve dışındaki paydaşlara yalnızca grafikler sunan değil, “Veri ne anlatıyor?” sorusuna en net ve çarpıcı yanıtları veren, veri okuryazarlığı yüksek analistler yetiştirmek. | Make data literacy a default skill for every Marmara student, not a specialism. |
-| Odak etiketleri | Keşifçi Veri Analizi (EDA) · Veri temizleme · İstatistiksel çıkarımlar · İş zekâsı (BI) · Veri görselleştirme · Veri hikâyeleştirme · Tableau · Power BI · Matplotlib / Seaborn | EDA · BI · Tableau · Power BI · Matplotlib |
+| Amaç | Ham verinin içindeki saklı hikâyeleri keşfetmek, anlamlandırmak ve karar alıcılara rehberlik edecek stratejik öngörülere dönüştürmek. Veri bilimi dünyasına adım atan üyelerin analitik kaslarını geliştireceği ilk duraktır. | Discover and make sense of the stories hidden in raw data, turning them into strategic insights that guide decision-makers. This is the first stop where members stepping into data science build their analytical muscles. |
+| Vizyon | Kulüp içindeki ve dışındaki paydaşlara yalnızca grafikler sunan değil, “Veri ne anlatıyor?” sorusuna en net ve çarpıcı yanıtları veren, veri okuryazarlığı yüksek analistler yetiştirmek. | Train analysts with strong data literacy who don't just present charts to internal and external stakeholders, but give the clearest and most compelling answers to the question, "What is the data telling us?" |
+| Odak etiketleri | Keşifçi Veri Analizi (EDA) · Veri temizleme · İstatistiksel çıkarımlar · İş zekâsı (BI) · Veri görselleştirme · Veri hikâyeleştirme · Tableau · Power BI · Matplotlib / Seaborn | Exploratory Data Analysis (EDA) · Data cleaning · Statistical inference · Business Intelligence (BI) · Data visualization · Data storytelling · Tableau · Power BI · Matplotlib / Seaborn |
 
 #### 02 Core AI
 
 |  | Türkçe | English |
 |---|---|---|
-| Amaç | İleri düzey algoritmalar ve matematiksel modeller geliştirerek yapay zekâ teknolojilerini teoriden pratiğe taşımak; bunları ekipler hâlinde Kaggle yarışmalarına ve projelere uygulamak. | Research and build intelligent systems — from classic ML to deep learning, language and vision. |
-| Vizyon | Yapay zekâyı yalnızca tüketen değil, özgün modeller tasarlayan, küresel trendleri (LLM'ler, Generative AI) yakından takip eden ve geliştirdiği algoritmalarla katma değer üreten bir yapay zekâ mühendisliği kültürü oluşturmak. | Ship student-built models that solve real problems on and off campus. |
-| Odak etiketleri | Makine Öğrenmesi · Derin Öğrenme · Doğal Dil İşleme (NLP) · Bilgisayarlı Görü · Python · Scikit-Learn · TensorFlow · PyTorch | Machine Learning · Deep Learning · NLP · Computer Vision · Python |
+| Amaç | İleri düzey algoritmalar ve matematiksel modeller geliştirerek yapay zekâ teknolojilerini teoriden pratiğe dökmek; ayrıca takımlar hâlinde Kaggle platformundaki yarışmalara ve projelere taşımak. Bu kulübün en derin, teknik ve modelleme odaklı yapay zekâ mutfağıdır. | Bring AI technologies from theory into practice by developing advanced algorithms and mathematical models, and take them into Kaggle competitions and projects as teams. This is the club's deepest, most technical, and modeling-focused AI kitchen. |
+| Vizyon | Yapay zekâyı yalnızca tüketen değil, özgün modeller tasarlayan, küresel trendleri (LLM'ler, Generative AI) yakından takip eden ve ürettiği algoritmalarla katma değer sağlayan bir yapay zekâ mühendisliği ekolü yaratmak. | Create an AI engineering culture that doesn't just consume AI, but designs original models, closely tracks global trends (LLMs, Generative AI), and adds real value through the algorithms it builds. |
+| Odak etiketleri | Makine Öğrenmesi · Derin Öğrenme · Doğal Dil İşleme (NLP) · Bilgisayarlı Görü · Python · Scikit-Learn · TensorFlow · PyTorch | Machine Learning · Deep Learning · Natural Language Processing (NLP) · Computer Vision · Python · Scikit-Learn · TensorFlow · PyTorch |
 
 #### 03 Data Pipelines
 
 |  | Türkçe | English |
 |---|---|---|
-| Amaç | Milyonlarca satırlık verinin güvenli, hızlı ve kesintisiz akışını sağlayan veri hatlarını inşa etmek. Core AI ve Data Insights ekiplerinin ihtiyaç duyduğu temiz veri altyapısını hazırlamak. | Engineer the plumbing that moves, cleans and stores data reliably at scale. |
-| Vizyon | “Büyük veri” kaosunu düzenli ve işlenebilir sistemlere dönüştüren, ölçeklenebilir altyapılar kuran ve kulübü veri mühendisliği alanında ileri taşıyan sistem mimarları yetiştirmek. | Give every club project a production-grade backbone it can trust. |
-| Odak etiketleri | Veri Mühendisliği · ETL süreçleri · Büyük veri (Hadoop, Spark) · Veri tabanı yönetimi (SQL, NoSQL) · Web scraping · Bulut (AWS, Google Cloud) | Data Engineering · ETL · Hadoop / Spark · SQL / NoSQL · Cloud |
+| Amaç | Milyonlarca satırlık büyük verilerin güvenli, hızlı ve kesintisiz akışını sağlayacak dijital otoyolları (veri hatlarını) inşa etmek. Core AI ve Data Insights ekiplerinin çalışabilmesi için gerekli olan temiz veri altyapısını hazırlar. | Build the digital highways (data pipelines) that keep millions of rows of big data flowing safely, quickly, and without interruption. It prepares the clean data infrastructure that the Core AI and Data Insights teams need to work. |
+| Vizyon | “Büyük veri” kaosunu düzenli ve işlenebilir bir sisteme dönüştüren, ölçeklenebilir altyapı mimarileri kurarak kulübü veri mühendisliği alanında lider konuma taşıyan sistem mimarları yetiştirmek. | Train system architects who turn "big data" chaos into organized, workable systems and build scalable infrastructure architectures that put the club in a leading position in data engineering. |
+| Odak etiketleri | Veri Mühendisliği · ETL süreçleri · Büyük veri (Hadoop, Spark) · Veri tabanı yönetimi (SQL, NoSQL) · Web scraping · Bulut (AWS, Google Cloud) | Data Engineering · ETL processes · Big data (Hadoop, Spark) · Database management (SQL, NoSQL) · Web scraping · Cloud (AWS, Google Cloud) |
 
 #### 04 Summits & Awards
 
 |  | Türkçe | English |
 |---|---|---|
-| Amaç | Kulübün imza niteliğindeki büyük etkinliklerini, ulusal çapta ses getirecek veri yarışmalarını (Datathon/Hackathon) ve veri bilimi zirvelerini baştan sona kurgulamak ve yönetmek. | Run the events that bring the community together — summits, award nights and competitions. |
-| Vizyon | Marmara Üniversitesi'ni Türkiye'nin veri bilimi alanındaki en prestijli etkinlik merkezlerinden biri hâline getirmek; sektör ve akademiyi buluşturan kusursuz katılımcı deneyimleri tasarlamak. | Make our Datathon the event students in Istanbul circle on their calendars. |
-| Odak etiketleri | Zirve planlaması · Ödül geceleri · Datathon · Hackathon · Organizasyon ve lojistik | Summits · Award Nights · Datathon · Hackathon |
+| Amaç | Kulübün imza niteliğindeki makro etkinliklerini, ulusal çapta ses getirecek büyük ödüllü veri yarışmalarını (Datathon/Hackathon) ve yılın en prestijli veri bilimi zirvelerini baştan sona kurgulamak ve yönetmek. | Design and run the club's signature large-scale events, national prize-winning data competitions (Datathon/Hackathon), and the year's most prestigious data science summits from start to finish. |
+| Vizyon | Marmara Üniversitesi'ni Türkiye'nin veri bilimi alanındaki en prestijli etkinlik merkezi hâline getirmek; sektörü ve akademiyi buluşturan kusursuz katılımcı deneyimleri tasarlamak. | Turn Marmara University into Turkey's most prestigious event hub for data science, and design seamless participant experiences that bring industry and academia together. |
+| Odak etiketleri | Zirve planlaması · Ödül geceleri · Datathon · Hackathon · Organizasyon ve lojistik | Summit planning · Award nights · Datathon · Hackathon · Operations and logistics |
 
 #### 05 Finance & Corporate Relations
 
 |  | Türkçe | English |
 |---|---|---|
-| Amaç | Kulübün finansal sürdürülebilirliğini sağlamak, bütçeyi yönetmek ve büyük projeler için teknokent firmaları ve global şirketlerle stratejik sponsorluklar ve iş ortaklıkları kurmak. | Keep the club funded and connected through sponsorship, budgeting and industry partnerships. |
-| Vizyon | Kulübü finansal açıdan bağımsız ve kendi kendine yeten bir yapıya ulaştırmak; kurumsal şirketlerin Marmara Veri Bilimi Kulübü'nü bir “öğrenci topluluğu” olarak değil, profesyonel bir stratejik partner olarak görmesini sağlamak. | Build a partner network that turns into internships and first jobs for members. |
-| Odak etiketleri | Sponsorluk dosyaları · Kurumsal sunumlar · Bütçe planlaması · Nakit akışı yönetimi · Staj ve istihdam köprüleri · Mezun ağı | Sponsorship · Budgeting · Corporate Relations |
+| Amaç | Kulübün tüm finansal sürdürülebilirliğini sağlamak, bütçe yönetimini yapmak ve büyük projelerimiz (zirve, ödül gecesi, Datathon) için teknokent firmaları ve global şirketlerle stratejik sponsorluklar ve iş ortaklıkları kurmak. | Ensure the club's financial sustainability, manage the budget, and build strategic sponsorships and partnerships with technopark companies and global enterprises for our major projects (summit, award night, Datathon). |
+| Vizyon | Kulübü finansal açıdan tamamen bağımsız ve kendi kendine yeten bir yapıya ulaştırmak; kurumsal şirketlerin Marmara Veri Bilimi Kulübü'nü bir “öğrenci topluluğu” olarak değil, profesyonel bir “stratejik partner” olarak görmesini sağlamak. | Make the club financially independent and self-sustaining, so corporate companies view the Marmara Data Science Club not as a "student group," but as a professional "strategic partner." |
+| Odak etiketleri | Sponsorluk dosyaları · Kurumsal sunumlar · Bütçe planlaması · Nakit akışı yönetimi · Staj ve istihdam köprüleri · Mezun ağı | Sponsorship decks · Corporate presentations · Budget planning · Cash flow management · Internship and career bridges · Alumni network |
 
 #### 06 PR
 
 |  | Türkçe | English |
 |---|---|---|
-| Amaç | Kulübün dış dünyaya açılan vitrini, sesi ve yüzü olmak; teknik projeleri, büyük etkinlikleri ve marka kimliğini topluluğa ve sektöre en doğru ve etkili şekilde anlatmak. | Tell the club's story and grow its voice across every channel. |
-| Vizyon | Kulübün imajını bir teknoloji start-up'ı netliğinde konumlandırmak; teknik ekiplerin ürettiği karmaşık kodları ve analizleri çarpıcı infografikler ve teknik içeriklerle görünür kılarak kulübün marka değerini yükseltmek. | Become the most recognisable student data brand in Turkey. |
-| Odak etiketleri | Sosyal medya yönetimi · Grafik tasarım · Marka kimliği ve kurumsal dil · Video ve içerik üretimi · Kriz iletişimi · Medya ilişkileri | Social Media · Graphic Design · Content · Media Relations |
+| Amaç | Kulübün dış dünyaya açılan vitrini, sesi ve yüzü olmak; kulübün ürettiği teknik projeleri, düzenlediği büyük etkinlikleri ve marka kimliğini topluluğa ve sektöre en estetik ve en doğru dille anlatmak. | Be the club's outward-facing showcase, voice, and face; communicate the technical projects we build, the major events we run, and our brand identity to the community and industry in the sharpest, most effective way. |
+| Vizyon | Kulübün imajını bir teknoloji startup'ı netliğinde konumlandırmak; teknik ekiplerin ürettiği karmaşık kodları ve analizleri çarpıcı infografiklerle ve teknik blog yazılarıyla görünür kılarak kulübün marka değerini zirveye çıkarmak. | Position our club's image with the clarity of a tech startup, and take the club's brand value to the top by turning the complex code and analyses produced by our technical teams into striking infographics and technical blog posts. |
+| Odak etiketleri | Sosyal medya yönetimi · Grafik tasarım · Marka kimliği ve kurumsal dil · Video ve içerik üretimi · Kriz iletişimi · Medya ilişkileri | Social media management · Graphic design · Brand identity and corporate voice · Video and content production · Crisis communications · Media relations |
 
 ### Departmanlar arası paslaşma (`src/lib/constants.ts` → `ABOUT_FLOW`; önizleme: DEV OPTIONS → Paslaşma)
 
@@ -344,7 +344,7 @@ Kendi biyografisini vermemiş üyelerde profilde görünen kalıp cümle.
 
 | Anahtar | Türkçe | English |
 |---|---|---|
-| `footer.description` | Marmara Üniversitesi Veri Bilimi Kulübü, geleneksel öğrenci kulübü anlayışının dışına çıkıyor ve küresel teknoloji toplulukları ile çevik teknoloji startup'larıyla aynı dili konuşan modern bir yapı kuruyor. | The Data Science Club of Marmara University breaks traditional student-club molds and speaks the same language as global tech communities and agile startups. |
+| `footer.description` | Marmara Üniversitesi Veri Bilimi Kulübü, geleneksel öğrenci kulübü anlayışının dışına çıkıyor; küresel teknoloji toplulukları ve çevik teknoloji startup'larıyla aynı dili konuşan modern bir yapı kuruyor. | The Data Science Club of Marmara University breaks traditional student-club molds and speaks the same language as global tech communities and agile startups. |
 | `footer.exploreTitle` | Keşfet | Explore |
 | `footer.departmentsTitle` | Departmanlar | Departments |
 | `footer.linkHome` | Anasayfa | Home |

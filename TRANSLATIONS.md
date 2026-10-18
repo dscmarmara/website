@@ -21,9 +21,10 @@ Preview'da metnin üç sürümü yan yana duruyor (arama motorlarına kapalı, c
 Sürüm anahtarları (`"tr-x-v1"` gibi) yalnızca o sürümde metnin farklı olduğu alanlarda yazılı; olmayan yerde `tr` / `en`
 değeri görünür. Sitenin ilk metinleri koddan çıkarıldı, `ESKI_METINLER.md`'de arşivde.
 
-YENİ 2'de Ekip, üye profilleri ve Hakkımızda canlıdaki metinle aynı. Hakkımızda'da yalnızca "Hikâyemiz" metni
-(`about.storyP1`–`storyP3`, `about.pullQuote`) yeni, footer'da da `footer.description` yeni. Anasayfa, Blog ve İletişim
-YENİ 2 metniyle.
+YENİ 2'de Ekip ve üye profilleri önceki canlı metinle aynı. Hakkımızda'da "Hikâyemiz" metni
+(`about.storyP1`–`storyP3`, `about.pullQuote`) ve departmanların Amaç / Vizyon / Odak alanları kulübün altyapı
+sunumundan (DSC_ALTYAPI_TANITIM) uyarlanmış metinler. Anasayfa departman kartları önceki canlıdaki kısa metinler.
+`footer.description` yeni.
 
 **Karşılaştırma:**
 - Menünün altındaki **DEV OPTIONS** şeridinde **TR ESKİ | TR YENİ 1 | TR YENİ 2** ve İngilizcesi; aynı sayfada sürümler
