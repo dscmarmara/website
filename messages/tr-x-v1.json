@@ -1,0 +1,225 @@
+{
+  "metadata": {
+    "siteName": "Data Science Club",
+    "defaultTitle": "DSC Marmara · Data Science Club",
+    "titleTemplate": "%s · DSC Marmara",
+    "defaultDescription": "Marmara Üniversitesi Veri Bilimi Kulübü. Geleneksel öğrenci kulübü kalıplarını yıkan, küresel teknoloji toplulukları ve çevik teknoloji startup'larıyla aynı dili konuşan modern bir yapı kuruyoruz.",
+    "home": {
+      "title": "Anasayfa",
+      "description": "Startup gibi çalışan veri kulübü. Altı departman, gerçek projeler ve seni ilk günden üretimin parçası gören bir topluluk."
+    },
+    "about": {
+      "title": "Hakkımızda",
+      "description": "Bir üretim ekibi gibi çalışıyoruz. Hikâyemiz, çalışma yapımız ve kulübün omurgasını oluşturan altı departman."
+    },
+    "team": {
+      "title": "Ekip",
+      "description": "Kulübü yürüten ekip. Başkan liderliğinde, altı departmanın her birini iki eş direktör yönetiyor."
+    },
+    "blog": {
+      "title": "Blog",
+      "description": "Üretim ekibinden yazılar. Veriyle çalışan öğrencilerden görüşler, saha notları ve proje deneyimleri."
+    },
+    "contact": {
+      "title": "İletişim",
+      "description": "Aramıza katılmak, sponsor olmak ya da iş birliği yapmak mı istiyorsun? Bize yaz, her mesajı ekibimizden bir öğrenci okuyor."
+    },
+    "shop": {
+      "title": "Mağaza",
+      "description": "DSC Marmara kulüp ürünleri: tişört, hoodie ve şapka; siparişler WhatsApp üzerinden."
+    },
+    "notFound": {
+      "title": "Sayfa bulunamadı",
+      "description": "Aradığın sayfayı bulamadık."
+    }
+  },
+  "nav": {
+    "home": "Anasayfa",
+    "about": "Hakkımızda",
+    "team": "Ekip",
+    "blog": "Blog",
+    "shop": "Mağaza",
+    "contact": "İletişim",
+    "openMenu": "Menüyü aç",
+    "closeMenu": "Menüyü kapat",
+    "english": "English",
+    "englishOld": "English (old copy)",
+    "turkish": "Türkçe",
+    "turkishOld": "Türkçe (eski çeviri)"
+  },
+  "brand": {
+    "title": "Data Science Club",
+    "university": "Marmara Üniversitesi"
+  },
+  "footer": {
+    "description": "Marmara Üniversitesi Veri Bilimi Kulübü. Geleneksel öğrenci kulübü kalıplarını yıkan, küresel teknoloji toplulukları ve çevik teknoloji startup'larıyla aynı dili konuşan modern bir yapı kuruyoruz.",
+    "exploreTitle": "Keşfet",
+    "departmentsTitle": "Departmanlar",
+    "linkHome": "Anasayfa",
+    "linkAbout": "Kulüp Hakkında",
+    "linkBlog": "Blog & Köşe Yazıları",
+    "linkShop": "Mağaza",
+    "linkContact": "İletişim",
+    "copyright": "© 2026 Data Science Club · Marmara Üniversitesi. Tüm hakları saklıdır."
+  },
+  "home": {
+    "heroTitle": "Startup gibi çalışan veri kulübü.",
+    "heroSub": "Geleneksel öğrenci kulübü kalıplarını yıkıyor, küresel teknoloji toplulukları ve çevik teknoloji startup'larıyla aynı dili konuşan modern bir yapı kuruyoruz.",
+    "joinUs": "Aramıza Katıl",
+    "exploreBlog": "Blogu Keşfet →",
+    "whoEyebrow": "BİZ KİMİZ?",
+    "whoTitleLine1": "Biz kimiz &",
+    "whoTitleLine2": "nasıl çalışıyoruz",
+    "whoP1": "Marmara Üniversitesi'nde öğrencilerin yürüttüğü, veri merakını çalışan projelere dönüştüren bir topluluğuz. Hiyerarşi ve bürokrasi yerine sprintler, kod incelemeleri ve demolarla ilerliyoruz. Üyelerimiz keşifçi veri analizinden canlı ortamdaki veri mühendisliğine uzanan altı departmanda birlikte üretiyor.",
+    "whoP2": "İster veriyle Excel'de yeni tanışıyor ol ister PyTorch modelleri geliştiriyor ol, burada sana uygun bir ekip var. Etkinlikleri dışarıdan izleyen bir katılımcı olmak yerine, ilk günden üretime katılan bir ekibin parçası olursun.",
+    "readStory": "Tüm hikâyemizi oku →",
+    "featuredEyebrow": "ÖNE ÇIKAN PROJELER",
+    "featuredTitle": "Neler üretiyoruz",
+    "allProjects": "Tüm projeler →",
+    "viewDetails": "Detayları gör →",
+    "comingSoon": "Çok yakında",
+    "comingSoonSub": "İlk projelerimiz üzerinde çalışıyoruz. Ekibin neler ürettiğini görmek için yakında tekrar uğra.",
+    "deptEyebrow": "ALTI DEPARTMAN",
+    "deptTitle": "Tek kulüp, üretmenin altı yolu",
+    "deptSub": "Tek bir alanda derinleş ya da ekipler arasında geçiş yap. Her departmanda çalışan işler çıkarıyoruz.",
+    "ctaTitle": "Veriyle bir şeyler üretmeye hazır mısın?",
+    "ctaSub": "Başvurular her dönem açık. Ön koşul aramıyoruz; öğrenme hevesin ve merakınla gelmen yeterli.",
+    "joinClub": "Kulübe katıl →"
+  },
+  "about": {
+    "eyebrow": "KULÜP HAKKINDA",
+    "heroTitle": "Klasik bir kulüp gibi değil, bir üretim ekibi gibi çalışıyoruz.",
+    "storyTitle": "Hikâyemiz",
+    "storyEst": "KURULUŞ 2024 · İSTANBUL",
+    "storyP1": "Çoğu öğrenci kulübü toplantılar, tutanaklar ve hiyerarşi etrafında döner. Biz Veri Bilimi Kulübü'nü tam tersi bir anlayışla kurduk: Geleneksel öğrenci kulübü kalıplarını yıkan, örnek aldığımız teknoloji şirketlerindeki veri ekipleri ve çevik startup'larla aynı dili konuşan modern bir yapı kurmak istedik.",
+    "storyP2": "Çalışma düzenimizi de buna göre kurduk. Altı departman, birbirini tamamlayan ekipler halinde paslaşarak çalışır. Projeler sprintlerle ilerler. Bilgi birkaç kişinin elinde toplanmaz; kod incelemeleri, açık demolar ve ortak üretimle paylaşılır. Yeni üyeler daha ilk aylarında çalışan bir iş çıkarır: bir grafik, bir model ya da bir veri hattı.",
+    "pullQuote": "Veriyi işlenmeyi bekleyen bir hammadde değil, üzerinde üretim yapılan verimli bir toprak olarak görüyoruz. Amacımız bu toprakta nasıl üretim yapılacağını birlikte öğrenmek.",
+    "storyP3": "Böylece küresel teknoloji toplulukları ve çevik startup'larla aynı dili konuşan, birlikte öğrenip üreten bir topluluk ortaya çıkıyor. Hedefimiz, üyelerimizin mezun olduklarında bu çalışma kültürünü gerçek projelerde bizzat deneyimlemiş olmaları.",
+    "orgEyebrow": "ALTI DEPARTMAN",
+    "orgTitle": "Kulüp nasıl çalışıyor?",
+    "orgSub": "Kulübümüzün omurgasını oluşturan altı ana departman; teknik üretimden etkinlik yönetimine, finansal sürdürülebilirlikten iletişime kadar net görev sınırlarıyla birbirine paslaşarak çalışır.",
+    "flowEyebrow": "NASIL ÇALIŞIYORUZ",
+    "flowTitle": "Departmanlar arası paslaşma",
+    "flowSub": "Marmara Üniversitesi Veri Bilimi Kulübü olarak, geleneksel öğrenci kulübü kalıplarını yıkan, küresel teknoloji toplulukları ve çevik teknoloji startup'larıyla aynı dili konuşan modern bir yapı inşa ediyoruz. Kulübümüzün omurgasını oluşturan altı ana departman, hem birbirleriyle olan paslaşma hatlarını netleştirmek hem de ortak vizyonumuza hizmet ederken profesyonel sınırlarını korumak üzere bir arada çalışır.",
+    "purposeLabel": "AMAÇ",
+    "focusLabel": "ODAK ALANLARI",
+    "visionLabel": "VİZYON",
+    "teamEyebrow": "EKİBİMİZ",
+    "teamTitle": "Bu yapının arkasındaki ekip",
+    "meetEveryone": "Ekibi keşfet →",
+    "peopleLabel": "KİŞİ",
+    "departmentsLabel": "DEPARTMAN",
+    "viewFullProfile": "Tüm profili gör →",
+    "viewProfile": "Profili gör →"
+  },
+  "team": {
+    "eyebrow": "EKİP",
+    "heroTitle": "Kulüp yönetimimiz",
+    "heroSub": "Başkanımız, yönetim kurulumuz ve departman liderlerimizle tanış.",
+    "vpHeading": "VP",
+    "viewProfile": "Profili gör →",
+    "joinTitle": "Gelecek dönem burada sen de yer alabilirsin",
+    "joinSub": "Ekibini seç, sorumluluk al ve bizimle birlikte üret.",
+    "joinClub": "Kulübe katıl →"
+  },
+  "member": {
+    "backToTeam": "← EKİP",
+    "about": "{name} hakkında",
+    "focusLabel": "ODAK ALANLARI",
+    "writingTitle": "Son yazılar",
+    "allPosts": "Tüm yazılar →",
+    "previous": "ÖNCEKİ",
+    "next": "SONRAKİ",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "email": "E-posta",
+    "website": "Web Sitesi"
+  },
+  "blog": {
+    "eyebrow": "BLOG",
+    "heroTitle": "Üretim ekibinden köşe yazıları",
+    "heroSub": "Veriyle çalışan öğrencilerden görüşler, saha notları ve proje deneyimleri.",
+    "featuredBadge": "ÖNE ÇIKAN · GÖRÜŞ",
+    "all": "Tümü",
+    "backToBlog": "← BLOG'A DÖN",
+    "writtenBy": "YAZAN",
+    "readSuffix": "OKUMA",
+    "readArticle": "Yazıyı oku",
+    "comingSoon": "Yazılar çok yakında",
+    "comingSoonSub": "İlk köşe yazılarımız üzerinde çalışıyoruz. Ekibin veri üzerine neler yazdığını okumak için yakında tekrar uğra."
+  },
+  "contact": {
+    "eyebrow": "BİZE MERHABA DE",
+    "heroTitle": "Birlikte bir şeyler üretelim",
+    "heroSub": "Bir fikrin varsa, iş birliği yapmak istiyorsan ya da kulübe katılmayı düşünüyorsan bize mesaj bırakman yeterli.",
+    "fullName": "AD SOYAD",
+    "email": "E-POSTA",
+    "subject": "KONU",
+    "message": "MESAJ",
+    "send": "Mesajı gönder →",
+    "sending": "Gönderiliyor…",
+    "sendError": "Mesajın gönderilemedi. Lütfen tekrar dene ya da doğrudan bize e-posta at.",
+    "rateError": "Çok kısa sürede fazla mesaj gönderildi. Birkaç dakika bekleyip tekrar dene.",
+    "namePlaceholder": "Ada Lovelace",
+    "emailPlaceholder": "sen@ornek.com",
+    "subjectPlaceholder": "Kulübe katılmak istiyorum",
+    "messagePlaceholder": "Neler üretmek istediğini anlat…",
+    "nameError": "Lütfen adını yaz.",
+    "emailError": "Lütfen geçerli bir e-posta adresi yaz.",
+    "subjectError": "Lütfen bir konu yaz.",
+    "messageError": "Lütfen mesajını yaz.",
+    "successTitle": "Mesajın ulaştı!",
+    "successBody": "Bize yazdığın için teşekkürler. Birkaç gün içinde sana döneceğiz.",
+    "sendAnother": "Yeni mesaj gönder",
+    "emailUs": "BİZE YAZ",
+    "follow": "TAKİP ET",
+    "applyTitle": "Başvurmaya hazır mısın?",
+    "applyBody": "Üyelik başvuruları her dönem başında açılıyor.",
+    "applyNow": "Hemen başvur →"
+  },
+  "shop": {
+    "eyebrow": "MAĞAZA",
+    "heroTitle": "Kulübü üzerinde taşı",
+    "heroSub": "Kulüp tişörtleri, hoodie'leri ve şapkaları. Siparişler WhatsApp üzerinden alınıyor: ürünü ve bedeni seç, mesajı gönder; ödemeyi ve teslimatı seninle birlikte ayarlayalım.",
+    "sizeLabel": "BEDEN",
+    "oneSize": "Tek beden",
+    "sizeUnset": "henüz seçmedim",
+    "order": "WhatsApp'tan sipariş ver →",
+    "orderMessage": "Merhaba! Şu ürünü sipariş etmek istiyorum: {product}. Beden: {size}",
+    "photoSoon": "fotoğraf yakında"
+  },
+  "roles": {
+    "president": "BAŞKAN",
+    "presidentFull": "KULÜP BAŞKANI",
+    "vicePresident": "BAŞKAN YARDIMCISI",
+    "secretary": "SEKRETER",
+    "director": "DİREKTÖR"
+  },
+  "kpiLabels": {
+    "ARTICLES": "MAKALE",
+    "PROJECTS LED": "YÖNETİLEN PROJE",
+    "EVENTS": "ETKİNLİK",
+    "DEPARTMENTS": "DEPARTMAN",
+    "SYNCS": "SENKRON",
+    "MINUTES": "TUTANAK",
+    "WIKI": "WIKI",
+    "DASHBOARDS": "PANO",
+    "WORKSHOPS": "ATÖLYE",
+    "MODELS": "MODEL",
+    "TALKS": "KONUŞMA",
+    "PIPELINES": "VERİ HATTI",
+    "DATASETS": "VERİ SETİ",
+    "DATATHONS": "DATATHON",
+    "SPONSORS": "SPONSOR",
+    "RAISED": "TOPLANAN",
+    "PARTNERS": "PARTNER",
+    "POSTS": "GÖNDERİ",
+    "BRAND": "MARKA",
+    "CAMPAIGNS": "KAMPANYA"
+  },
+  "notFound": {
+    "title": "Sayfa bulunamadı",
+    "body": "Aradığın sayfa kaldırılmış ya da taşınmış olabilir.",
+    "home": "Anasayfaya dön →"
+  }
+}

@@ -1,0 +1,225 @@
+{
+  "metadata": {
+    "siteName": "Data Science Club",
+    "defaultTitle": "DSC Marmara · Data Science Club",
+    "titleTemplate": "%s · DSC Marmara",
+    "defaultDescription": "The Data Science Club at Marmara University. We break traditional student club molds and build a modern community that speaks the same language as global tech communities and agile startups.",
+    "home": {
+      "title": "Home",
+      "description": "The data club that works like a startup. Six departments, real projects, and a community where you build from day one."
+    },
+    "about": {
+      "title": "About",
+      "description": "We work like a product team. Our story, how the club is structured, and the six departments at our core."
+    },
+    "team": {
+      "title": "Team",
+      "description": "The people behind the club. Led by the president, with two co-directors running each of our six departments."
+    },
+    "blog": {
+      "title": "Blog",
+      "description": "Articles from the build crew. Opinions, field notes, and project lessons from students working with data in the open."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Want to join, sponsor us, or collaborate? Drop us a line. A student on our team reads every message."
+    },
+    "shop": {
+      "title": "Shop",
+      "description": "DSC Marmara club merch: tees, hoodies and caps, ordered over WhatsApp."
+    },
+    "notFound": {
+      "title": "Page not found",
+      "description": "We couldn't find the page you were looking for."
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "team": "Team",
+    "blog": "Blog",
+    "shop": "Shop",
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "english": "English",
+    "englishOld": "English (old copy)",
+    "turkish": "Türkçe",
+    "turkishOld": "Türkçe (eski çeviri)"
+  },
+  "brand": {
+    "title": "Data Science Club",
+    "university": "Marmara University"
+  },
+  "footer": {
+    "description": "The Data Science Club at Marmara University. We break traditional student club molds and build a modern community that speaks the same language as global tech communities and agile startups.",
+    "exploreTitle": "Explore",
+    "departmentsTitle": "Departments",
+    "linkHome": "Home",
+    "linkAbout": "About the Club",
+    "linkBlog": "Blog & Columns",
+    "linkShop": "Shop",
+    "linkContact": "Contact",
+    "copyright": "© 2026 Data Science Club · Marmara University. All rights reserved."
+  },
+  "home": {
+    "heroTitle": "The data club that thinks like a startup.",
+    "heroSub": "Breaking traditional student club molds and building a modern structure that speaks the same language as global tech communities and agile tech startups.",
+    "joinUs": "Join Us",
+    "exploreBlog": "Explore the Blog →",
+    "whoEyebrow": "WHO WE ARE",
+    "whoTitleLine1": "Who we are &",
+    "whoTitleLine2": "how we work",
+    "whoP1": "We're a student-run community at Marmara University turning curiosity about data into projects that ship. Instead of hierarchy and bureaucracy, we run on sprints, code reviews, and demos. Members work across six departments, ranging from exploratory analysis to production data engineering.",
+    "whoP2": "Whether you're starting out with spreadsheets or already training models in PyTorch, there's a track for you here. You join a community that treats you as an active builder from day one rather than a passive attendee.",
+    "readStory": "Read our full story →",
+    "featuredEyebrow": "FEATURED PROJECTS",
+    "featuredTitle": "What we're building",
+    "allProjects": "All projects →",
+    "viewDetails": "View details →",
+    "comingSoon": "Coming soon",
+    "comingSoonSub": "Our first projects are in the works. Check back soon to see what the crew is building.",
+    "deptEyebrow": "SIX DEPARTMENTS",
+    "deptTitle": "One club, six ways to build",
+    "deptSub": "Go deep in one track or move across teams. We ship real work in every department.",
+    "ctaTitle": "Ready to build something with data?",
+    "ctaSub": "Applications open every semester. There are no prerequisites; just bring your curiosity and drive to learn.",
+    "joinClub": "Join the club →"
+  },
+  "about": {
+    "eyebrow": "ABOUT THE CLUB",
+    "heroTitle": "We work like a build crew, not a traditional student club.",
+    "storyTitle": "Our story",
+    "storyEst": "EST. 2024 · ISTANBUL",
+    "storyP1": "Most university clubs revolve around meetings, minutes, and hierarchy. We started the Data Science Club because we wanted the opposite: a modern structure that breaks traditional student club molds and works like the data teams at the tech companies and agile startups we admire.",
+    "storyP2": "So we built our workflow around that idea. Six departments work together as cross-functional squads. Projects move forward in sprints. Knowledge is shared openly through code reviews and demos rather than kept in silos. New members ship something tangible in their first month, whether it's a chart, a model, or a data pipeline.",
+    "pullQuote": "Rather than treating data as a raw commodity, we treat it like fertile ground and learn how to grow real products in it together.",
+    "storyP3": "This creates a community that speaks the same language as global tech communities and agile startups. Our goal is for members to graduate having already practiced this engineering culture on real projects.",
+    "orgEyebrow": "SIX DEPARTMENTS",
+    "orgTitle": "How the club is structured",
+    "orgSub": "The six core departments that form the backbone of our club work hand in hand with clear responsibilities, spanning technical production, event operations, financial sustainability, and communications.",
+    "flowEyebrow": "HOW WE WORK",
+    "flowTitle": "How work flows between departments",
+    "flowSub": "As the Marmara University Data Science Club, we are building a modern structure that breaks traditional student club molds and speaks the same language as global tech communities and agile tech startups. The six core departments that form our backbone work together with clear handoffs and well-defined responsibilities toward a shared vision.",
+    "purposeLabel": "PURPOSE",
+    "focusLabel": "FOCUS AREAS",
+    "visionLabel": "VISION",
+    "teamEyebrow": "OUR TEAM",
+    "teamTitle": "The people behind it",
+    "meetEveryone": "Meet everyone →",
+    "peopleLabel": "PEOPLE",
+    "departmentsLabel": "DEPARTMENTS",
+    "viewFullProfile": "View full profile →",
+    "viewProfile": "View profile →"
+  },
+  "team": {
+    "eyebrow": "THE TEAM",
+    "heroTitle": "Meet our leadership team",
+    "heroSub": "Meet our president, board, and department leads.",
+    "vpHeading": "VP",
+    "viewProfile": "View profile →",
+    "joinTitle": "Your name could be here next semester",
+    "joinSub": "Pick your team, take ownership, and build with us.",
+    "joinClub": "Join the club →"
+  },
+  "member": {
+    "backToTeam": "← THE TEAM",
+    "about": "About {name}",
+    "focusLabel": "FOCUS AREAS",
+    "writingTitle": "Latest writing",
+    "allPosts": "All posts →",
+    "previous": "PREVIOUS",
+    "next": "NEXT",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "email": "Email",
+    "website": "Website"
+  },
+  "blog": {
+    "eyebrow": "THE BLOG",
+    "heroTitle": "Columns from the build crew",
+    "heroSub": "Opinions, field notes, and project lessons from students working with data.",
+    "featuredBadge": "FEATURED · OPINION",
+    "all": "All",
+    "backToBlog": "← BACK TO BLOG",
+    "writtenBy": "WRITTEN BY",
+    "readSuffix": "READ",
+    "readArticle": "Read article",
+    "comingSoon": "Posts coming soon",
+    "comingSoonSub": "Our first columns are in the works. Check back soon to read what the crew is writing about data."
+  },
+  "contact": {
+    "eyebrow": "SAY HELLO",
+    "heroTitle": "Let's build something together",
+    "heroSub": "Have an idea, want to collaborate, or thinking of joining? Leave us a message.",
+    "fullName": "FULL NAME",
+    "email": "EMAIL",
+    "subject": "SUBJECT",
+    "message": "MESSAGE",
+    "send": "Send message →",
+    "sending": "Sending…",
+    "sendError": "Your message couldn't be sent. Please try again or email us directly.",
+    "rateError": "Too many messages sent in a short time. Please wait a few minutes and try again.",
+    "namePlaceholder": "Ada Lovelace",
+    "emailPlaceholder": "you@example.com",
+    "subjectPlaceholder": "I'd like to join the club",
+    "messagePlaceholder": "Tell us what you want to build…",
+    "nameError": "Please enter your name.",
+    "emailError": "Please enter a valid email address.",
+    "subjectError": "Please add a subject.",
+    "messageError": "Please write a message.",
+    "successTitle": "Message sent!",
+    "successBody": "Thanks for reaching out. We'll get back to you within a couple of days.",
+    "sendAnother": "Send another",
+    "emailUs": "EMAIL US",
+    "follow": "FOLLOW",
+    "applyTitle": "Ready to apply?",
+    "applyBody": "Membership applications open at the start of every semester.",
+    "applyNow": "Apply now →"
+  },
+  "shop": {
+    "eyebrow": "SHOP",
+    "heroTitle": "Wear the club",
+    "heroSub": "Club tees, hoodies and caps. Orders go through WhatsApp: pick your item and size, send the message, and we'll sort out payment and pickup with you.",
+    "sizeLabel": "SIZE",
+    "oneSize": "One size",
+    "sizeUnset": "not chosen yet",
+    "order": "Order on WhatsApp →",
+    "orderMessage": "Hi! I'd like to order the {product}. Size: {size}",
+    "photoSoon": "photo coming soon"
+  },
+  "roles": {
+    "president": "PRESIDENT",
+    "presidentFull": "CLUB PRESIDENT",
+    "vicePresident": "VICE PRESIDENT",
+    "secretary": "SECRETARY",
+    "director": "DIRECTOR"
+  },
+  "kpiLabels": {
+    "ARTICLES": "ARTICLES",
+    "PROJECTS LED": "PROJECTS LED",
+    "EVENTS": "EVENTS",
+    "DEPARTMENTS": "DEPARTMENTS",
+    "SYNCS": "SYNCS",
+    "MINUTES": "MINUTES",
+    "WIKI": "WIKI",
+    "DASHBOARDS": "DASHBOARDS",
+    "WORKSHOPS": "WORKSHOPS",
+    "MODELS": "MODELS",
+    "TALKS": "TALKS",
+    "PIPELINES": "PIPELINES",
+    "DATASETS": "DATASETS",
+    "DATATHONS": "DATATHONS",
+    "SPONSORS": "SPONSORS",
+    "RAISED": "RAISED",
+    "PARTNERS": "PARTNERS",
+    "POSTS": "POSTS",
+    "BRAND": "BRAND",
+    "CAMPAIGNS": "CAMPAIGNS"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "The page you were looking for may have been removed or moved.",
+    "home": "Back to home →"
+  }
+}

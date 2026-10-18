@@ -8,39 +8,45 @@ Değişikliği görmek için: `npm run dev` → <http://localhost:3737/tr>
 
 Sitedeki bütün TR/EN metinlerin tek sayfalık dökümü: `SITE_METINLERI.md` (`npm run site-texts` ile yenilenir).
 
-## Geçici: eski metinler (TR ESKİ / EN ESKİ)
+## Geçici: metin sürümleri (ESKİ / YENİ 1 / YENİ 2)
 
-`/tr` ve `/` **yeni metinleri** gösteriyor; düzenlenecek asıl metinler `messages/tr.json` / `messages/en.json` ve
-`tr:` / `en:` alanları. **ESKİ = son yayındaki (canlıdaki) metinler**: `/tr-x-eski/...` ve `/en-x-eski/...`
-adreslerinde, canlıdaki hal ile yeni hal sayfa sayfa karşılaştırılır (arama motorlarına kapalı). Sitenin ilk metinleri
-(eski ESKİ) koddan çıkarıldı ve `ESKI_METINLER.md`'de arşivde.
+Preview'da metnin üç sürümü yan yana duruyor (arama motorlarına kapalı, canlıda 404):
 
-Menüde tek dil düğmesi var (Türkçede "EN" → `/`, İngilizcede "TR" → `/tr`). Menünün altındaki **DEV OPTIONS**
-şeridinde **TR ESKİ | TR YENİ** ve **EN ESKİ | EN YENİ** düğmeleriyle aynı sayfada eski ve yeni metin arasında
-geçilir. Şerit Vercel'in production ortamında (`NEXT_PUBLIC_VERCEL_ENV=production`) kendini gizler; preview'da ve
-lokalde görünür. ESKİ adresler (`/tr-x-eski/...`, `/en-x-eski/...`) da canlı sitede 404 verir; sadece preview'da ve
-lokalde açılır.
+| Sürüm | Adres | Ne | Arayüz metinleri | `constants.ts` / `members.json` alanları |
+|---|---|---|---|---|
+| TR / EN YENİ 2 (varsayılan) | `/tr`, `/` | en yeni metin, yayına alınacak aday | `messages/tr.json`, `en.json` | `tr:` / `en:` |
+| TR / EN YENİ 1 | `/tr-x-v1`, `/en-x-v1` | ilk yeni metin | `messages/tr-x-v1.json`, `en-x-v1.json` | `"tr-x-v1":` / `"en-x-v1":` |
+| TR / EN ESKİ | `/tr-x-eski`, `/en-x-eski` | şu an canlıdaki (`main`) metin | `messages/tr-x-eski.json`, `en-x-eski.json` | `"tr-x-eski":` / `"en-x-eski":` |
 
-| | Arayüz metinleri | `constants.ts` alanları |
-|---|---|---|
-| TR YENİ (varsayılan, `/tr`) | `messages/tr.json` | `tr:` |
-| TR ESKİ (`/tr-x-eski`) | `messages/tr-x-eski.json` | `"tr-x-eski":` (yalnızca farklı olan alanlarda; olmayan yerde `tr` kullanılır) |
-| EN YENİ (varsayılan, `/`) | `messages/en.json` | `en:` |
-| EN ESKİ (`/en-x-eski`) | `messages/en-x-eski.json` | `"en-x-eski":` (aynı şekilde) |
+Sürüm anahtarları (`"tr-x-v1"` gibi) yalnızca o sürümde metnin farklı olduğu alanlarda yazılı; olmayan yerde `tr` / `en`
+değeri görünür. Sitenin ilk metinleri koddan çıkarıldı, `ESKI_METINLER.md`'de arşivde.
 
-Bir metni değiştirirken eskisini karşılaştırmada tutmak istersen: mesaj dosyalarında yeni metni sadece `tr.json` /
-`en.json`'a yaz (ESKİ dosyalar olduğu gibi kalır); `constants.ts` / `members.json`'da eski değeri `"tr-x-eski"` /
-`"en-x-eski"` anahtarına taşı.
+**Karşılaştırma:**
+- Menünün altındaki **DEV OPTIONS** şeridinde **TR ESKİ | TR YENİ 1 | TR YENİ 2** ve İngilizcesi; aynı sayfada sürümler
+  arasında geçilir.
+- **Yan yana:** şeritteki **"Yan yana →"** ya da `/karsilastir` adresi. İki sürüm seçilir (ör. sol TR YENİ 2, sağ
+  EN YENİ 2) ve aynı sayfa iki çerçevede açılır. Bir tarafta linke tıklanınca öbürü de aynı sayfaya gider; kaydırma
+  eşlenir. Seçimler adreste durur (`?sol=…&sag=…&sayfa=…`), link paylaşılabilir.
+- Şerit ve `/karsilastir` Vercel production'da (`NEXT_PUBLIC_VERCEL_ENV=production`) yok; sürüm adresleri canlıda 404.
 
-ESKİ'nin diğer parçaları:
-- Hakkımızda odak etiketleri: `ABOUT_DEPARTMENTS[].focusByLocale` → `tr` (yeni TR), `"tr-x-eski"`, `"en-x-eski"`;
-  yeni İngilizce liste `focus`.
-- Üye etiketleri: Türkçesi değişen etiketlerin önceki hali `src/lib/skills.ts` → `SKILLS_TR_ESKI`.
+Menüdeki tek dil düğmesi (Türkçede "EN" → `/`, İngilizcede "TR" → `/tr`) her zaman öteki dilin YENİ 2'sine gider.
+
+Bir metni değiştirirken öncekini karşılaştırmada tutmak istersen: mesaj dosyalarında yeni metni sadece `tr.json` /
+`en.json`'a yaz; `constants.ts` / `members.json`'da eski değeri ilgili sürüm anahtarına taşı.
+
+Sürümlerin diğer parçaları:
+- Hakkımızda odak etiketleri: `ABOUT_DEPARTMENTS[].focusByLocale` → `tr` (TR YENİ 2) ve sürüm listeleri; İngilizce
+  YENİ 2 listesi `focus`.
+- Üye etiketleri: bir sürümde farklı okunan etiketler `src/lib/skills.ts` → `SKILLS_TR_BY_VERSION`.
 - Hakkımızda'daki "Departmanlar arası paslaşma" bölümü (`ABOUT_FLOW` + `about.flow*` metinleri) **önizleme**:
-  DEV OPTIONS'taki **"Paslaşma"** düğmesiyle açılıp kapanır (tarayıcı hatırlar), canlıda hiç görünmez
-  (`src/components/dev/DevFlagGate.tsx`). Yalnızca yenide var; ESKİ mesaj dosyalarında `about.flowTitle` olmadığı için
-  ESKİ'de çizilmez. Kalıcı yapmak için `about/page.tsx`'teki `<DevFlagGate flag="flow">` sarmalını kaldır.
-- Blog yazılarının ve üyelerin kendi biyografilerinin ayrı bir eski sürümü yok.
+  DEV OPTIONS'taki ya da yan yana sayfasındaki **"Paslaşma"** düğmesiyle açılıp kapanır (tarayıcı hatırlar), canlıda
+  hiç görünmez (`src/components/dev/DevFlagGate.tsx`). YENİ 1 ve YENİ 2'de var, ESKİ'de yok. Kalıcı yapmak için
+  `about/page.tsx`'teki `<DevFlagGate flag="flow">` sarmalını kaldır.
+- Blog yazılarının ve üyelerin kendi biyografilerinin ayrı sürümleri yok.
+
+**Bir sürümü kaldırmak** (ör. YENİ 1 artık gerekmiyorsa): `messages/*-x-v1.json`'u sil; `constants.ts` /
+`members.json`'daki `"tr-x-v1"` / `"en-x-v1"` girdilerini ve `SKILLS_TR_BY_VERSION["tr-x-v1"]`'i kaldır;
+`src/i18n/routing.ts` → `REVIEW_LOCALES` ve `src/lib/copyVersions.ts` → `COPY_VERSIONS`'tan çıkar.
 
 **Yayın akışı:** geliştirme `preview-development` dalında yapılır; her push Vercel Preview'a gider. Yayına almak için
 `git push origin preview-development:main` (ya da GitHub'da `preview-development` → `main` pull request'i). `main`'e
@@ -64,15 +70,17 @@ ve KPI'lar `main`'e geçse de canlıda kapalı kalır.
 - **Kendi metnini vermemiş üyelerde sade rol metni var** (ör. "Emirhan, Data Insights departmanını eş direktör olarak
   yönetiyor."). Üye kendi metnini gönderince `tr` / `en` değerlerine yazılır.
 
-**Eski metinleri tamamen kaldırmak** (artık karşılaştırma gerekmediğinde; main'e merge etmeden önce önerilir):
+**Bütün sürüm karşılaştırmasını kaldırmak** (artık gerekmediğinde):
 
-1. `messages/tr-x-eski.json` ve `messages/en-x-eski.json`'u sil.
-2. `src/lib/constants.ts` ve `src/data/members.json`'daki bütün `"tr-x-eski"` / `"en-x-eski"` satırlarını sil
-   (`focusByLocale` içindekiler dahil) ve `src/lib/skills.ts`'teki `SKILLS_TR_ESKI`'yi kaldır.
+1. `messages/*-x-eski.json` ve `messages/*-x-v1.json`'u sil.
+2. `src/lib/constants.ts` ve `src/data/members.json`'daki bütün `"*-x-eski"` / `"*-x-v1"` satırlarını sil
+   (`focusByLocale` içindekiler dahil) ve `src/lib/skills.ts`'teki `SKILLS_TR_BY_VERSION`'ı kaldır.
 3. Kod tarafını kaldır:
    - `src/i18n/routing.ts` içindeki `REVIEW_LOCALES` / `isReviewLocale` ve onları kullanan yerler (`src/lib/seo.ts`, `src/app/[locale]/layout.tsx`)
-   - `src/components/layout/DevOptions.tsx` ve `Nav.tsx`'teki `<DevOptions />` satırı
-   - `src/lib/members.ts` içindeki `Localized` tipinde `"tr-x-eski"` ve `"en-x-eski"`
+   - `src/components/layout/DevOptions.tsx` ve `Nav.tsx`'teki `<DevOptions />` satırı, `src/lib/copyVersions.ts`
+   - `src/app/karsilastir/`, `src/components/dev/CompareView.tsx`, `globals.css`'teki `.cmp*` kuralları ve
+     `src/proxy.ts`'teki `karsilastir` istisnası
+   - `src/lib/members.ts` içindeki `Localized` tipinde sürüm anahtarları
    - `messages/en.json` ve `messages/tr.json` içindeki `nav.turkishOld` ve `nav.englishOld`
    - bu bölüm
 

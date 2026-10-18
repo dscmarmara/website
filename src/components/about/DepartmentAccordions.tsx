@@ -53,7 +53,7 @@ export function DepartmentAccordions() {
             <div>
               <div style={labelStyle}>{t("focusLabel")}</div>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-                {(d.focusByLocale?.[locale] ?? d.focus).map((f) => (
+                {(d.focusByLocale?.[locale] ?? d.focusByLocale?.[locale.split("-")[0]] ?? d.focus).map((f) => (
                   <span key={f} style={focusChip}>{f}</span>
                 ))}
               </div>

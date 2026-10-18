@@ -18,10 +18,12 @@
       "dept": "LEADERSHIP",
       "photo": "/team/ahmet.jpg",
       "tagline": {
-        "en": "Club president leading DSC Marmara with hands-on field experience and a clear vision for a builder-focused tech community.",
-        "tr": "Saha deneyimini üretim odaklı bir topluluk vizyonuyla birleştirerek DSC Marmara'ya liderlik eden kulüp başkanı.",
+        "en": "Club president leading DSC Marmara with field experience and a hands-on engineering culture.",
+        "tr": "DSC Marmara'yı saha deneyimi ve üretim odaklı çalışma kültürüyle yöneten kulüp başkanı.",
         "tr-x-eski": "Sahadan gelen pratik tecrübeyi vizyoner liderlikle harmanlayarak DSC Marmara’yı geleceğe taşıyan kulüp başkanı.",
-        "en-x-eski": "Leading DSC Marmara with hands-on field experience and a clear vision for high-impact, real-world tech communities."
+        "en-x-eski": "Leading DSC Marmara with hands-on field experience and a clear vision for high-impact, real-world tech communities.",
+        "tr-x-v1": "Saha deneyimini üretim odaklı bir topluluk vizyonuyla birleştirerek DSC Marmara'ya liderlik eden kulüp başkanı.",
+        "en-x-v1": "Club president leading DSC Marmara with hands-on field experience and a clear vision for a builder-focused tech community."
       },
       "bio1": {
         "en": "As the President of DSC Marmara, Ahmet Kipici steers the club’s strategic direction, ecosystem growth, and overall vision. He combines hard-earned field experience with a forward-looking perspective on modern data and technology landscapes.",
@@ -71,10 +73,10 @@
         "en-x-eski": "Vice president of the club."
       },
       "bio1": {
-        "en": "Irmak serves as the club's vice president.",
-        "tr": "Irmak, kulübün başkan yardımcılığını yürütüyor.",
-        "tr-x-eski": "Irmak, kulübün başkan yardımcısıdır.",
-        "en-x-eski": "Irmak is the club's vice president."
+        "en": "Irmak is the club's vice president.",
+        "tr": "Irmak, kulübün başkan yardımcısıdır.",
+        "tr-x-v1": "Irmak, kulübün başkan yardımcılığını yürütüyor.",
+        "en-x-v1": "Irmak serves as the club's vice president."
       },
       "bio2": {
         "en": "",
@@ -118,10 +120,10 @@
         "en-x-eski": "Secretary of the club."
       },
       "bio1": {
-        "en": "Esim Ebrar serves as the club's secretary.",
-        "tr": "Esim Ebrar, kulübün sekreterlik görevini yürütüyor.",
-        "tr-x-eski": "Esim Ebrar, kulübün sekreteridir.",
-        "en-x-eski": "Esim Ebrar is the club's secretary."
+        "en": "Esim Ebrar is the club's secretary.",
+        "tr": "Esim Ebrar, kulübün sekreteridir.",
+        "tr-x-v1": "Esim Ebrar, kulübün sekreterlik görevini yürütüyor.",
+        "en-x-v1": "Esim Ebrar serves as the club's secretary."
       },
       "bio2": {
         "en": "",
@@ -165,10 +167,10 @@
         "en-x-eski": "Co-director of the Data Insights department."
       },
       "bio1": {
-        "en": "Emirhan co-directs the Data Insights department.",
+        "en": "Emirhan is a co-director of the Data Insights department.",
         "tr": "Emirhan, Data Insights departmanını eş direktör olarak yönetiyor.",
         "tr-x-eski": "Emirhan, Data Insights departmanını eş direktör olarak yönetmektedir.",
-        "en-x-eski": "Emirhan is a co-director of the Data Insights department."
+        "en-x-v1": "Emirhan co-directs the Data Insights department."
       },
       "bio2": {
         "en": "",
@@ -257,10 +259,12 @@
       "website": "sadikcoban.com",
       "websiteUrl": "https://www.sadikcoban.com",
       "tagline": {
-        "en": "Developer connecting statistical theory, modern machine learning systems, and the web infrastructure behind DSC Marmara.",
-        "tr": "İstatistik teorisini, modern makine öğrenmesi sistemlerini ve DSC Marmara'nın web altyapısını bir araya getiren geliştirici.",
+        "en": "Developer working across statistics and machine learning while building DSC Marmara's web infrastructure.",
+        "tr": "İstatistik ve makine öğrenmesi modelleri kurarken DSC Marmara'nın web altyapısını da geliştiren yazılımcı.",
         "tr-x-eski": "İstatistiksel temelleri modern yapay zekâ sistemleri ve web mimarileriyle buluşturan geliştirici.",
-        "en-x-eski": "Bridging statistical theory, modern machine learning, and the digital infrastructure powering DSC Marmara."
+        "en-x-eski": "Bridging statistical theory, modern machine learning, and the digital infrastructure powering DSC Marmara.",
+        "tr-x-v1": "İstatistik teorisini, modern makine öğrenmesi sistemlerini ve DSC Marmara'nın web altyapısını bir araya getiren geliştirici.",
+        "en-x-v1": "Developer connecting statistical theory, modern machine learning systems, and the web infrastructure behind DSC Marmara."
       },
       "bio1": {
         "en": "Sadık serves as the Core AI Director at DSC Marmara, where he leads the community's artificial intelligence initiatives while building and maintaining its official web platform and digital infrastructure.",
@@ -311,10 +315,10 @@
         "en-x-eski": "Co-director of the Core AI department."
       },
       "bio1": {
-        "en": "Ahmet Hamza co-directs the Core AI department.",
+        "en": "Ahmet Hamza is a co-director of the Core AI department.",
         "tr": "Ahmet Hamza, Core AI departmanını eş direktör olarak yönetiyor.",
         "tr-x-eski": "Ahmet Hamza, Core AI departmanını eş direktör olarak yönetmektedir.",
-        "en-x-eski": "Ahmet Hamza is a co-director of the Core AI department."
+        "en-x-v1": "Ahmet Hamza co-directs the Core AI department."
       },
       "bio2": {
         "en": "",
@@ -443,10 +447,10 @@
         "en-x-eski": "Co-director of the Summits & Awards department."
       },
       "bio1": {
-        "en": "Elif Esma co-directs the Summits & Awards department.",
+        "en": "Elif Esma is a co-director of the Summits & Awards department.",
         "tr": "Elif Esma, Summits & Awards departmanını eş direktör olarak yönetiyor.",
         "tr-x-eski": "Elif Esma, Summits & Awards departmanını eş direktör olarak yönetmektedir.",
-        "en-x-eski": "Elif Esma is a co-director of the Summits & Awards department."
+        "en-x-v1": "Elif Esma co-directs the Summits & Awards department."
       },
       "bio2": {
         "en": "",
@@ -489,10 +493,10 @@
         "en-x-eski": "Co-director of the Summits & Awards department."
       },
       "bio1": {
-        "en": "Tarık Emre co-directs the Summits & Awards department.",
+        "en": "Tarık Emre is a co-director of the Summits & Awards department.",
         "tr": "Tarık Emre, Summits & Awards departmanını eş direktör olarak yönetiyor.",
         "tr-x-eski": "Tarık Emre, Summits & Awards departmanını eş direktör olarak yönetmektedir.",
-        "en-x-eski": "Tarık Emre is a co-director of the Summits & Awards department."
+        "en-x-v1": "Tarık Emre co-directs the Summits & Awards department."
       },
       "bio2": {
         "en": "",
@@ -526,10 +530,10 @@
         "en-x-eski": "Co-director of the Finance & Corporate department."
       },
       "bio1": {
-        "en": "Cansu co-directs the Finance & Corporate department.",
+        "en": "Cansu is a co-director of the Finance & Corporate department.",
         "tr": "Cansu, Finance & Corporate departmanını eş direktör olarak yönetiyor.",
         "tr-x-eski": "Cansu, Finance & Corporate departmanını eş direktör olarak yönetmektedir.",
-        "en-x-eski": "Cansu is a co-director of the Finance & Corporate department."
+        "en-x-v1": "Cansu co-directs the Finance & Corporate department."
       },
       "bio2": {
         "en": "",
@@ -573,10 +577,10 @@
         "en-x-eski": "Co-director of the Finance & Corporate department."
       },
       "bio1": {
-        "en": "Cem co-directs the Finance & Corporate department.",
+        "en": "Cem is a co-director of the Finance & Corporate department.",
         "tr": "Cem, Finance & Corporate departmanını eş direktör olarak yönetiyor.",
         "tr-x-eski": "Cem, Finance & Corporate departmanını eş direktör olarak yönetmektedir.",
-        "en-x-eski": "Cem is a co-director of the Finance & Corporate department."
+        "en-x-v1": "Cem co-directs the Finance & Corporate department."
       },
       "bio2": {
         "en": "",

@@ -16,14 +16,14 @@ export const SKILLS_TR: Record<string, string> = {
   "Data Analysis": "Veri Analizi",
   "Sports Analytics": "Spor Analitiği",
   "Computer Vision": "Bilgisayarlı Görü",
-  "Data Storytelling": "Veri Hikayeciliği",
+  "Data Storytelling": "Veri Hikâyeleştirme",
   Dashboards: "Gösterge Panelleri",
-  EDA: "Keşifçi Veri Analizi (EDA)",
+  EDA: "EDA",
   MLOps: "MLOps",
 
   // Engineering
   "Web Development": "Web Geliştirme",
-  "Full-Stack Architecture": "Full-Stack Mimari",
+  "Full-Stack Architecture": "Sistem Mimarisi",
 
   // Tools
   Python: "Python",
@@ -41,7 +41,7 @@ export const SKILLS_TR: Record<string, string> = {
   Sponsorship: "Sponsorluk",
   Budgeting: "Bütçe Planlaması",
   Negotiation: "Müzakere",
-  Partnerships: "İş Ortaklıkları",
+  Partnerships: "İş Birlikleri",
 
   // Leadership & operations
   "Executive Leadership": "Topluluk Liderliği",
@@ -68,20 +68,26 @@ export const SKILLS_TR: Record<string, string> = {
 };
 
 /**
- * TEMPORARY: the previous Turkish label of chips whose wording changed, shown
- * in the TR ESKİ comparison (tr-x-eski). Chips not listed read the same there.
+ * TEMPORARY: per review locale, the Turkish label of chips that read
+ * differently in that version of the copy — tr-x-eski is the live copy,
+ * tr-x-v1 the earlier draft (see REVIEW_LOCALES). Chips not listed read as in
+ * SKILLS_TR.
  */
-const SKILLS_TR_ESKI: Record<string, string> = {
-  "Data Storytelling": "Veri Hikâyeleştirme",
-  EDA: "EDA",
-  "Full-Stack Architecture": "Sistem Mimarisi",
-  Partnerships: "İş Birlikleri",
+const SKILLS_TR_BY_VERSION: Partial<Record<string, Record<string, string>>> = {
+  "tr-x-eski": {},
+  "tr-x-v1": {
+    "Data Storytelling": "Veri Hikayeciliği",
+    EDA: "Keşifçi Veri Analizi (EDA)",
+    "Full-Stack Architecture": "Full-Stack Mimari",
+    Partnerships: "İş Ortaklıkları",
+  },
 };
 
 export const isKnownSkill = (skill: string): boolean => Object.hasOwn(SKILLS_TR, skill);
 
-/** A chip's label for a locale: Turkish for the tr family (tr, tr-x-eski), English otherwise. */
+/** A chip's label for a locale: Turkish for the tr family (tr, tr-x-…), English otherwise. */
 export function skillLabel(skill: string, locale: string): string {
-  if (locale === "tr-x-eski" && Object.hasOwn(SKILLS_TR_ESKI, skill)) return SKILLS_TR_ESKI[skill];
+  const version = SKILLS_TR_BY_VERSION[locale];
+  if (version && Object.hasOwn(version, skill)) return version[skill];
   return locale.split("-")[0] === "tr" ? (SKILLS_TR[skill] ?? skill) : skill;
 }

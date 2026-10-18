@@ -2,10 +2,17 @@ import data from "@/data/members.json";
 import type { Locale } from "@/i18n/routing";
 import { isKnownSkill } from "@/lib/skills";
 
-// "tr-x-eski" / "en-x-eski" are the temporary review locales holding the
-// previous copy (see REVIEW_LOCALES in i18n/routing.ts): set only where it
-// differs from `tr` / `en`.
-export type Localized = { en: string; tr: string; "tr-x-eski"?: string; "en-x-eski"?: string };
+// The *-x-eski (live copy) and *-x-v1 (earlier draft) keys belong to the
+// temporary review locales (see REVIEW_LOCALES in i18n/routing.ts): set only
+// where that version differs from `tr` / `en`.
+export type Localized = {
+  en: string;
+  tr: string;
+  "tr-x-eski"?: string;
+  "en-x-eski"?: string;
+  "tr-x-v1"?: string;
+  "en-x-v1"?: string;
+};
 
 /** Exact locale, then its base language ("tr-x-eski" → "tr"), then English. */
 export function pick(value: Localized, locale: string): string {
