@@ -57,6 +57,8 @@ export function CompareView() {
   const [versions, setVersions] = useState<Record<Side, Locale>>({ left: initial.left, right: initial.right });
   const [path, setPath] = useState(initial.path);
   const [syncScroll, setSyncScroll] = useState(true);
+  // A frame we cannot read (e.g. an error page or a host that refuses framing).
+  const [blocked, setBlocked] = useState<Record<Side, boolean>>({ left: false, right: false });
   const flowOn = useDevFlag("flow");
 
   const frames = useRef<Record<Side, HTMLIFrameElement | null>>({ left: null, right: null });
@@ -121,8 +123,10 @@ export function CompareView() {
           if (!win || win.location.href === "about:blank") continue;
           pathname = win.location.pathname;
         } catch {
+          setBlocked((prev) => (prev[side] ? prev : { ...prev, [side]: true }));
           continue;
         }
+        setBlocked((prev) => (prev[side] ? { ...prev, [side]: false } : prev));
         const doc = win.document;
         if (doc.readyState !== "loading" && !hooked.current.has(doc)) {
           hooked.current.add(doc);
@@ -226,6 +230,11 @@ export function CompareView() {
             <div className="cmp-pane-label">
               <strong style={{ color: "var(--accent)" }}>{labelOf(versions[side])}</strong>
               <span>{versionHref(versions[side], path)}</span>
+              {blocked[side] && (
+                <a href={versionHref(versions[side], path)} target="_blank" rel="noopener noreferrer" style={{ color: "#ff8a8a" }}>
+                  çerçevede açılamadı · yeni sekmede aç ↗
+                </a>
+              )}
             </div>
             <iframe
               ref={(el) => {
