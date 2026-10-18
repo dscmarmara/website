@@ -18,7 +18,7 @@
 | `metadata.about.title` | Hakkımızda | About |
 | `metadata.about.description` | Biz bir kulüp değil, bir üretim ekibiyiz. Hikâyemiz, kulübün nasıl örgütlendiği ve arkasındaki altı departman. | We're not a club, we're a build crew. Our story, how the club is organised, and the six departments behind it. |
 | `metadata.team.title` | Ekip | Team |
-| `metadata.team.description` | Kulübün arkasındaki ekip. Başkan liderliğinde, altı departmanın her birini iki eş direktör yönetiyor. | The people behind the club. Led by the president, with two co-directors steering each of the six departments. |
+| `metadata.team.description` | Kulübün arkasındaki ekip — başkan liderliğinde, altı departmanın her birini iki direktör yönetiyor. | The people behind the club — led by the president, with two directors steering each of the six departments. |
 | `metadata.blog.title` | Blog | Blog |
 | `metadata.blog.description` | Üretim ekibinden köşe yazıları. Veriyle açıkça çalışan öğrencilerden görüşler, saha notları ve çıkarılan dersler. | Columns from the build crew. Opinions, field notes, and lessons from students working with data in public. |
 | `metadata.contact.title` | İletişim | Contact |
@@ -95,13 +95,13 @@
 | `about.eyebrow` | KULÜP HAKKINDA | ABOUT THE CLUB |
 | `about.heroTitle` | Biz bir kulüp değiliz. Bir üretim ekibiyiz. | We're not a club. We're a build crew. |
 | `about.storyTitle` | Hikâyemiz | Our story |
-| `about.storyP1` | Çoğu üniversite kulübü toplantılar, tutanaklar ve hiyerarşi etrafında şekillenir. Biz Veri Bilimi Kulübü’nü bunun tam tersini istediğimiz için kurduk: Geleneksel öğrenci kulübü kalıplarını yıkan, küresel teknoloji toplulukları ve çevik teknoloji startup’larıyla aynı dili konuşan modern bir yapı inşa etmek istedik. | Most university clubs run on meetings, minutes, and hierarchy. We started the Data Science Club because we wanted the opposite: to build a modern structure that breaks traditional student-club molds and speaks the same language as global tech communities and agile tech startups. |
-| `about.storyP2` | Biz de böyle bir yapı kurduk. Altı departman, farklı alanları bir araya getiren ekipler olarak birbirleriyle paslaşarak çalışıyor. Projeler sprintlerle ilerliyor. Bilgi birkaç kişinin elinde tutulmuyor; kod incelemeleri, açık demolar ve birlikte üretim üzerinden paylaşılıyor. Yeni üyeler daha ilk aylarında somut bir şey ortaya koyuyor: bir grafik, bir model ya da çalışan bir veri hattı. | So we built one. Six departments operate like cross-functional squads with clear handoffs between them. Work happens in sprints. Knowledge is shared in code reviews and open demos, not gatekept. New members ship something real in their first month, whether that's a chart, a model, or a working data pipeline. |
-| `about.pullQuote` | Veri yeni petrol değil. Yeni toprak. Biz de bir kuşağa bu toprakta nasıl bir şeyler yetiştirileceğini öğretiyoruz. | Data isn't the new oil. It's the new soil, and we teach a generation how to grow things in it. |
-| `about.storyP3` | Ortaya, küresel teknoloji toplulukları ve çevik startup’larla aynı dili konuşan, üreten ve birlikte öğrenen bir topluluk çıkıyor. Amacımız, üyelerimizin mezun olduklarında bu dili sadece biliyor olmaları değil, gerçek projelerde kullanabiliyor olmaları. | The result is a community fluent in the same language as global tech communities and agile startups, ready to use it in real projects the day they graduate. |
+| `about.storyP1` | Çoğu üniversite kulübü toplantılar, tutanaklar ve hiyerarşi etrafında şekillenir. Biz Veri Bilimi Kulübü’nü bunun tam tersini istediğimiz için kurduk. Geleneksel öğrenci kulübü kalıplarının dışına çıkan, küresel teknoloji toplulukları ve çevik startup’larla aynı dili konuşan modern bir yapı kurmak istedik. | Most university clubs run on meetings, minutes and hierarchy. We started the Data Science Club because we wanted the opposite: a place that felt like the data teams at the companies we admired. |
+| `about.storyP2` | Biz de böyle bir yapı kurduk. Altı departman, farklı alanları bir araya getiren ekipler olarak birlikte çalışıyor. Projeler sprintlerle ilerliyor. Bilgi birkaç kişinin elinde tutulmuyor; kod incelemeleri, açık demolar ve birlikte üretim üzerinden paylaşılıyor. Yeni üyeler daha ilk aylarında bir grafik, bir model ya da çalışan bir veri hattı gibi somut bir şey ortaya koyuyor. | So we built one. Six departments operate like cross-functional squads. Work happens in sprints. Knowledge is shared in code reviews and open demos, not gatekept. New members ship something real in their first month, whether that's a chart, a model, or a data pipeline. |
+| `about.pullQuote` | Veri yeni petrol değil, yeni toprak. Biz de bir kuşağa bu toprakta nasıl bir şeyler yetiştirileceğini öğretiyoruz. | Data isn't the new oil. It's the new soil, and we teach a generation how to grow things in it. |
+| `about.storyP3` | Ortaya, küresel teknoloji toplulukları ve çevik startup’larla aynı dili konuşan, üreten ve birlikte öğrenen bir topluluk çıkıyor. Amacımız, üyelerimizin mezun olduklarında bu dili sadece biliyor olmaları değil, gerçek projelerde kullanabiliyor olmaları. | The result is a community fluent in the same language as global tech communities and agile startups, and ready to speak it the day they graduate. |
 | `about.orgEyebrow` | ALTI DEPARTMAN | SIX DEPARTMENTS |
 | `about.orgTitle` | Kulüp nasıl örgütlendi? | How the club is organised |
-| `about.orgSub` | Kulübümüzün omurgasını oluşturan altı ana departman; hem birbirleriyle olan paslaşma hatlarını netleştirmek hem de ortak vizyonumuza hizmet ederken profesyonel sınırlarını korumak üzere birlikte çalışır: Data Pipelines ham veriyi toplar ve temizler, Core AI o veriyle model eğitir, Data Insights sonuçları analiz edip görselleştirir; Summits & Awards büyük etkinlik ve yarışmaları kurgular, Finance & Corporate Relations sponsorluk ve bütçeyi sağlar, PR ise tüm bu üretimi Türkiye'ye duyurur. | The six core departments that form the backbone of our club work together with clear handoffs and well-defined boundaries to serve our shared vision: Data Pipelines collects and cleans raw data, Core AI trains models on that data, and Data Insights analyzes and visualizes the results; Summits & Awards designs major events and competitions, Finance & Corporate Relations secures sponsorships and budgets, and PR shares this work across Turkey. |
+| `about.orgSub` | Kulübümüzün omurgasını oluşturan altı departman, teknik üretimden etkinlik yönetimine, finansal sürdürülebilirlikten iletişime kadar farklı alanlarda birlikte çalışır. | The six departments at the core of our club work side by side, from technical production to event management and from financial sustainability to communications. |
 | `about.flowEyebrow` | NASIL ÇALIŞIYORUZ | HOW WE WORK |
 | `about.flowTitle` | Departmanlar arası paslaşma | How work flows between departments |
 | `about.flowSub` | Marmara Üniversitesi Veri Bilimi Kulübü olarak, geleneksel öğrenci kulübü kalıplarını yıkan, küresel teknoloji toplulukları ve çevik teknoloji startup'larıyla aynı dili konuşan modern bir yapı inşa ediyoruz. Kulübümüzün omurgasını oluşturan altı ana departman, hem birbirleriyle olan paslaşma hatlarını netleştirmek hem de ortak vizyonumuza hizmet ederken profesyonel sınırlarını korumak üzere bir arada çalışır. | As the Marmara University Data Science Club, we are building a modern structure that breaks traditional student club molds and speaks the same language as global tech communities and agile tech startups. The six core departments that form our backbone work together with clear handoffs and well-defined responsibilities toward a shared vision. |
@@ -122,49 +122,49 @@
 
 |  | Türkçe | English |
 |---|---|---|
-| Amaç | Ham verinin içindeki saklı hikâyeleri keşfetmek, anlamlandırmak ve karar alıcılara rehberlik edecek stratejik öngörülere dönüştürmek. Veri bilimi dünyasına adım atan üyelerin analitik kaslarını geliştireceği ilk duraktır. | Discover and make sense of the stories hidden in raw data, turning them into strategic insights that guide decision-makers. This is the first stop where members stepping into data science build their analytical muscles. |
-| Vizyon | Kulüp içindeki ve dışındaki paydaşlara yalnızca grafikler sunan değil, “Veri ne anlatıyor?” sorusuna en net ve çarpıcı yanıtları veren, veri okuryazarlığı yüksek analistler yetiştirmek. | Train analysts with strong data literacy who don't just present charts to internal and external stakeholders, but give the clearest and most compelling answers to the question, "What is the data telling us?" |
-| Odak etiketleri | Keşifçi Veri Analizi (EDA) · Veri temizleme · İstatistiksel çıkarımlar · İş zekâsı (BI) · Veri görselleştirme · Veri hikâyeleştirme · Tableau · Power BI · Matplotlib / Seaborn | Exploratory Data Analysis (EDA) · Data cleaning · Statistical inference · Business Intelligence (BI) · Data visualization · Data storytelling · Tableau · Power BI · Matplotlib / Seaborn |
+| Amaç | Ham verinin içindeki saklı hikâyeleri keşfetmek, anlamlandırmak ve karar alıcılara rehberlik edecek stratejik içgörülere dönüştürmek. | Turn raw university and open datasets into clear decisions through exploratory analysis and business intelligence. |
+| Vizyon | Kulüp içindeki ve dışındaki paydaşlara yalnızca grafikler sunan değil, “Veri ne anlatıyor?” sorusuna en net ve çarpıcı yanıtları veren, veri okuryazarlığı yüksek analistler yetiştirmek. | Make data literacy a default skill for every Marmara student, not a specialism. |
+| Odak etiketleri | Keşifçi Veri Analizi (EDA) · Veri temizleme · İstatistiksel çıkarımlar · İş zekâsı (BI) · Veri görselleştirme · Veri hikâyeleştirme · Tableau · Power BI · Matplotlib / Seaborn | EDA · BI · Tableau · Power BI · Matplotlib |
 
 #### 02 Core AI
 
 |  | Türkçe | English |
 |---|---|---|
-| Amaç | İleri düzey algoritmalar ve matematiksel modeller geliştirerek yapay zekâ teknolojilerini teoriden pratiğe dökmek; ayrıca takımlar hâlinde Kaggle platformundaki yarışmalara ve projelere taşımak. Bu kulübün en derin, teknik ve modelleme odaklı yapay zekâ mutfağıdır. | Bring AI technologies from theory into practice by developing advanced algorithms and mathematical models, and take them into Kaggle competitions and projects as teams. This is the club's deepest, most technical, and modeling-focused AI kitchen. |
-| Vizyon | Yapay zekâyı yalnızca tüketen değil, özgün modeller tasarlayan, küresel trendleri (LLM'ler, Generative AI) yakından takip eden ve ürettiği algoritmalarla katma değer sağlayan bir yapay zekâ mühendisliği ekolü yaratmak. | Create an AI engineering school of thought that doesn't just consume AI, but designs original models, closely tracks global trends (LLMs, Generative AI), and adds real value through the algorithms it builds. |
-| Odak etiketleri | Makine Öğrenmesi · Derin Öğrenme · Doğal Dil İşleme (NLP) · Bilgisayarlı Görü · Python · Scikit-Learn · TensorFlow · PyTorch | Machine Learning · Deep Learning · Natural Language Processing (NLP) · Computer Vision · Python · Scikit-Learn · TensorFlow · PyTorch |
+| Amaç | İleri düzey algoritmalar ve matematiksel modeller geliştirerek yapay zekâ teknolojilerini teoriden pratiğe taşımak; bunları ekipler hâlinde Kaggle yarışmalarına ve projelere uygulamak. | Research and build intelligent systems — from classic ML to deep learning, language and vision. |
+| Vizyon | Yapay zekâyı yalnızca tüketen değil, özgün modeller tasarlayan, küresel trendleri (LLM'ler, Generative AI) yakından takip eden ve geliştirdiği algoritmalarla katma değer üreten bir yapay zekâ mühendisliği kültürü oluşturmak. | Ship student-built models that solve real problems on and off campus. |
+| Odak etiketleri | Makine Öğrenmesi · Derin Öğrenme · Doğal Dil İşleme (NLP) · Bilgisayarlı Görü · Python · Scikit-Learn · TensorFlow · PyTorch | Machine Learning · Deep Learning · NLP · Computer Vision · Python |
 
 #### 03 Data Pipelines
 
 |  | Türkçe | English |
 |---|---|---|
-| Amaç | Milyonlarca satırlık büyük verilerin güvenli, hızlı ve kesintisiz akışını sağlayacak dijital otoyolları (veri hatlarını) inşa etmek. Core AI ve Data Insights ekiplerinin çalışabilmesi için gerekli olan temiz veri altyapısını hazırlar. | Build the digital highways (data pipelines) that keep millions of rows of big data flowing safely, quickly, and without interruption. It prepares the clean data infrastructure that the Core AI and Data Insights teams need to work. |
-| Vizyon | “Büyük veri” kaosunu düzenli ve işlenebilir bir sisteme dönüştüren, ölçeklenebilir altyapı mimarileri kurarak kulübü veri mühendisliği alanında lider konuma taşıyan sistem mimarları yetiştirmek. | Train system architects who turn "big data" chaos into organized, workable systems and build scalable infrastructure architectures that put the club in a leading position in data engineering. |
-| Odak etiketleri | Veri Mühendisliği · ETL süreçleri · Büyük veri (Hadoop, Spark) · Veri tabanı yönetimi (SQL, NoSQL) · Web scraping · Bulut (AWS, Google Cloud) | Data Engineering · ETL processes · Big data (Hadoop, Spark) · Database management (SQL, NoSQL) · Web scraping · Cloud (AWS, Google Cloud) |
+| Amaç | Milyonlarca satırlık verinin güvenli, hızlı ve kesintisiz akışını sağlayan veri hatlarını inşa etmek. Core AI ve Data Insights ekiplerinin ihtiyaç duyduğu temiz veri altyapısını hazırlamak. | Engineer the plumbing that moves, cleans and stores data reliably at scale. |
+| Vizyon | “Büyük veri” kaosunu düzenli ve işlenebilir sistemlere dönüştüren, ölçeklenebilir altyapılar kuran ve kulübü veri mühendisliği alanında ileri taşıyan sistem mimarları yetiştirmek. | Give every club project a production-grade backbone it can trust. |
+| Odak etiketleri | Veri Mühendisliği · ETL süreçleri · Büyük veri (Hadoop, Spark) · Veri tabanı yönetimi (SQL, NoSQL) · Web scraping · Bulut (AWS, Google Cloud) | Data Engineering · ETL · Hadoop / Spark · SQL / NoSQL · Cloud |
 
 #### 04 Summits & Awards
 
 |  | Türkçe | English |
 |---|---|---|
-| Amaç | Kulübün imza niteliğindeki makro etkinliklerini, ulusal çapta ses getirecek büyük ödüllü veri yarışmalarını (Datathon/Hackathon) ve yılın en prestijli veri bilimi zirvelerini baştan sona kurgulamak ve yönetmek. | Design and run the club's signature large-scale events, national prize-winning data competitions (Datathon/Hackathon), and the year's most prestigious data science summits from start to finish. |
-| Vizyon | Marmara Üniversitesi'ni Türkiye'nin veri bilimi alanındaki en prestijli etkinlik merkezlerinden biri hâline getirmek; sektörü ve akademiyi buluşturan kusursuz katılımcı deneyimleri tasarlamak. | Turn Marmara University into one of Turkey's most prestigious event hubs for data science, and design seamless participant experiences that bring industry and academia together. |
-| Odak etiketleri | Zirve planlaması · Ödül geceleri · Datathon · Hackathon · Organizasyon ve lojistik | Summit planning · Award nights · Datathon · Hackathon · Operations and logistics |
+| Amaç | Kulübün imza niteliğindeki büyük etkinliklerini, ulusal çapta ses getirecek veri yarışmalarını (Datathon/Hackathon) ve veri bilimi zirvelerini baştan sona kurgulamak ve yönetmek. | Run the events that bring the community together — summits, award nights and competitions. |
+| Vizyon | Marmara Üniversitesi'ni Türkiye'nin veri bilimi alanındaki en prestijli etkinlik merkezlerinden biri hâline getirmek; sektör ve akademiyi buluşturan kusursuz katılımcı deneyimleri tasarlamak. | Make our Datathon the event students in Istanbul circle on their calendars. |
+| Odak etiketleri | Zirve planlaması · Ödül geceleri · Datathon · Hackathon · Organizasyon ve lojistik | Summits · Award Nights · Datathon · Hackathon |
 
 #### 05 Finance & Corporate Relations
 
 |  | Türkçe | English |
 |---|---|---|
-| Amaç | Kulübün tüm finansal sürdürülebilirliğini sağlamak, bütçe yönetimini yapmak ve büyük projelerimiz (zirve, ödül gecesi, Datathon) için teknokent firmaları ve global şirketlerle stratejik sponsorluklar ve iş ortaklıkları kurmak. | Ensure the club's financial sustainability, manage the budget, and build strategic sponsorships and partnerships with technopark companies and global enterprises for our major projects (summit, award night, Datathon). |
-| Vizyon | Kulübü finansal açıdan tamamen bağımsız ve kendi kendine yeten bir yapıya ulaştırmak; kurumsal şirketlerin Marmara Veri Bilimi Kulübü'nü bir “öğrenci topluluğu” olarak değil, profesyonel bir “stratejik partner” olarak görmesini sağlamak. | Make the club financially independent and self-sustaining, so corporate companies view the Marmara Data Science Club not as a "student group," but as a professional "strategic partner." |
-| Odak etiketleri | Sponsorluk dosyaları · Kurumsal sunumlar · Bütçe planlaması · Nakit akışı yönetimi · Staj ve istihdam köprüleri · Mezun ağı | Sponsorship decks · Corporate presentations · Budget planning · Cash flow management · Internship and career bridges · Alumni network |
+| Amaç | Kulübün finansal sürdürülebilirliğini sağlamak, bütçeyi yönetmek ve büyük projeler için teknokent firmaları ve global şirketlerle stratejik sponsorluklar ve iş ortaklıkları kurmak. | Keep the club funded and connected through sponsorship, budgeting and industry partnerships. |
+| Vizyon | Kulübü finansal açıdan bağımsız ve kendi kendine yeten bir yapıya ulaştırmak; kurumsal şirketlerin Marmara Veri Bilimi Kulübü'nü bir “öğrenci topluluğu” olarak değil, profesyonel bir stratejik partner olarak görmesini sağlamak. | Build a partner network that turns into internships and first jobs for members. |
+| Odak etiketleri | Sponsorluk dosyaları · Kurumsal sunumlar · Bütçe planlaması · Nakit akışı yönetimi · Staj ve istihdam köprüleri · Mezun ağı | Sponsorship · Budgeting · Corporate Relations |
 
 #### 06 PR
 
 |  | Türkçe | English |
 |---|---|---|
-| Amaç | Kulübün dış dünyaya açılan vitrini, sesi ve yüzü olmak; kulübün ürettiği teknik projeleri, düzenlediği büyük etkinlikleri ve marka kimliğini topluluğa ve sektöre en estetik ve en doğru dille anlatmak. | Be the club's outward-facing showcase, voice, and face; communicate the technical projects we build, the major events we run, and our brand identity to the community and industry in the sharpest, most effective way. |
-| Vizyon | Kulübün imajını bir teknoloji startup'ı netliğinde konumlandırmak; teknik ekiplerin ürettiği karmaşık kodları ve analizleri çarpıcı infografiklerle ve teknik blog yazılarıyla görünür kılarak kulübün marka değerini zirveye çıkarmak. | Position our club's image with the clarity of a tech startup, and take the club's brand value to the top by turning the complex code and analyses produced by our technical teams into striking infographics and technical blog posts. |
-| Odak etiketleri | Sosyal medya yönetimi · Grafik tasarım · Marka kimliği ve kurumsal dil · Video ve içerik üretimi · Kriz iletişimi · Medya ilişkileri | Social media management · Graphic design · Brand identity and corporate voice · Video and content production · Crisis communications · Media relations |
+| Amaç | Kulübün dış dünyaya açılan vitrini, sesi ve yüzü olmak; teknik projeleri, büyük etkinlikleri ve marka kimliğini topluluğa ve sektöre en doğru ve etkili şekilde anlatmak. | Tell the club's story and grow its voice across every channel. |
+| Vizyon | Kulübün imajını bir teknoloji start-up'ı netliğinde konumlandırmak; teknik ekiplerin ürettiği karmaşık kodları ve analizleri çarpıcı infografikler ve teknik içeriklerle görünür kılarak kulübün marka değerini yükseltmek. | Become the most recognisable student data brand in Turkey. |
+| Odak etiketleri | Sosyal medya yönetimi · Grafik tasarım · Marka kimliği ve kurumsal dil · Video ve içerik üretimi · Kriz iletişimi · Medya ilişkileri | Social Media · Graphic Design · Content · Media Relations |
 
 ### Departmanlar arası paslaşma (`src/lib/constants.ts` → `ABOUT_FLOW`; önizleme: DEV OPTIONS → Paslaşma)
 
@@ -215,21 +215,21 @@
 
 | Üye | Türkçe | English |
 |---|---|---|
-| Ahmet Kipici | DSC Marmara'yı saha deneyimi ve üretim odaklı çalışma kültürüyle yöneten kulüp başkanı. | Club president leading DSC Marmara with field experience and a hands-on engineering culture. |
-| Irmak Evci | Kulübün başkan yardımcısı. | Vice president of the club. |
-| Esim Ebrar Gökyaka | Kulübün sekreteri. | Secretary of the club. |
-| Emirhan Kunt | Data Insights departmanının eş direktörü. | Co-director of the Data Insights department. |
-| İhsan Sami Ceran | Data Insights departmanının eş direktörü. | Co-director of the Data Insights department. |
-| Sadık Çoban | İstatistik ve makine öğrenmesi modelleri kurarken DSC Marmara'nın web altyapısını da geliştiren yazılımcı. | Developer working across statistics and machine learning while building DSC Marmara's web infrastructure. |
-| Ahmet Hamza Mülayim | Core AI departmanının eş direktörü. | Co-director of the Core AI department. |
-| Alihan Telli | Data Pipelines departmanının eş direktörü. | Co-director of the Data Pipelines department. |
-| Samet Demirkaya | Data Pipelines departmanının eş direktörü. | Co-director of the Data Pipelines department. |
-| Elif Esma Tuna | Summits & Awards departmanının eş direktörü. | Co-director of the Summits & Awards department. |
-| Tarık Emre Ermiş | Summits & Awards departmanının eş direktörü. | Co-director of the Summits & Awards department. |
-| Cansu Okcu | Finance & Corporate departmanının eş direktörü. | Co-director of the Finance & Corporate department. |
-| Cem Evrim | Finance & Corporate departmanının eş direktörü. | Co-director of the Finance & Corporate department. |
-| Elif Ayşe Şen | PR departmanının eş direktörü. | Co-director of the PR department. |
-| Esma Özcan | PR departmanının eş direktörü. | Co-director of the PR department. |
+| Ahmet Kipici | Sahadan gelen pratik tecrübeyi vizyoner liderlikle harmanlayarak DSC Marmara’yı geleceğe taşıyan kulüp başkanı. | Leading DSC Marmara with hands-on field experience and a clear vision for high-impact, real-world tech communities. |
+| Irmak Evci | Kulübün başkan yardımcısıdır. | Vice president of the club. |
+| Esim Ebrar Gökyaka | Kulübün sekreteridir. | Secretary of the club. |
+| Emirhan Kunt | Data Insights departmanını eş direktör olarak yönetmektedir. | Co-director of the Data Insights department. |
+| İhsan Sami Ceran | Data Insights departmanını eş direktör olarak yönetmektedir. | Co-director of the Data Insights department. |
+| Sadık Çoban | İstatistiksel temelleri modern yapay zekâ sistemleri ve web mimarileriyle buluşturan geliştirici. | Bridging statistical theory, modern machine learning, and the digital infrastructure powering DSC Marmara. |
+| Ahmet Hamza Mülayim | Core AI departmanını eş direktör olarak yönetmektedir. | Co-director of the Core AI department. |
+| Alihan Telli | Data Pipelines departmanını eş direktör olarak yönetmektedir. | Co-director of the Data Pipelines department. |
+| Samet Demirkaya | Data Pipelines departmanını eş direktör olarak yönetmektedir. | Co-director of the Data Pipelines department. |
+| Elif Esma Tuna | Summits & Awards departmanını eş direktör olarak yönetmektedir. | Co-director of the Summits & Awards department. |
+| Tarık Emre Ermiş | Summits & Awards departmanını eş direktör olarak yönetmektedir. | Co-director of the Summits & Awards department. |
+| Cansu Okcu | Finance & Corporate departmanını eş direktör olarak yönetmektedir. | Co-director of the Finance & Corporate department. |
+| Cem Evrim | Finance & Corporate departmanını eş direktör olarak yönetmektedir. | Co-director of the Finance & Corporate department. |
+| Elif Ayşe Şen | PR departmanını eş direktör olarak yönetmektedir. | Co-director of the PR department. |
+| Esma Özcan | PR departmanını eş direktör olarak yönetmektedir. | Co-director of the PR department. |
 
 ### Standart rol metinleri (`src/data/members.json` → `bio1`)
 
@@ -239,12 +239,12 @@ Kendi biyografisini vermemiş üyelerde profilde görünen kalıp cümle.
 |---|---|---|
 | Irmak Evci | Irmak, kulübün başkan yardımcısıdır. | Irmak is the club's vice president. |
 | Esim Ebrar Gökyaka | Esim Ebrar, kulübün sekreteridir. | Esim Ebrar is the club's secretary. |
-| Emirhan Kunt | Emirhan, Data Insights departmanını eş direktör olarak yönetiyor. | Emirhan is a co-director of the Data Insights department. |
-| Ahmet Hamza Mülayim | Ahmet Hamza, Core AI departmanını eş direktör olarak yönetiyor. | Ahmet Hamza is a co-director of the Core AI department. |
-| Elif Esma Tuna | Elif Esma, Summits & Awards departmanını eş direktör olarak yönetiyor. | Elif Esma is a co-director of the Summits & Awards department. |
-| Tarık Emre Ermiş | Tarık Emre, Summits & Awards departmanını eş direktör olarak yönetiyor. | Tarık Emre is a co-director of the Summits & Awards department. |
-| Cansu Okcu | Cansu, Finance & Corporate departmanını eş direktör olarak yönetiyor. | Cansu is a co-director of the Finance & Corporate department. |
-| Cem Evrim | Cem, Finance & Corporate departmanını eş direktör olarak yönetiyor. | Cem is a co-director of the Finance & Corporate department. |
+| Emirhan Kunt | Emirhan, Data Insights departmanını eş direktör olarak yönetmektedir. | Emirhan is a co-director of the Data Insights department. |
+| Ahmet Hamza Mülayim | Ahmet Hamza, Core AI departmanını eş direktör olarak yönetmektedir. | Ahmet Hamza is a co-director of the Core AI department. |
+| Elif Esma Tuna | Elif Esma, Summits & Awards departmanını eş direktör olarak yönetmektedir. | Elif Esma is a co-director of the Summits & Awards department. |
+| Tarık Emre Ermiş | Tarık Emre, Summits & Awards departmanını eş direktör olarak yönetmektedir. | Tarık Emre is a co-director of the Summits & Awards department. |
+| Cansu Okcu | Cansu, Finance & Corporate departmanını eş direktör olarak yönetmektedir. | Cansu is a co-director of the Finance & Corporate department. |
+| Cem Evrim | Cem, Finance & Corporate departmanını eş direktör olarak yönetmektedir. | Cem is a co-director of the Finance & Corporate department. |
 
 ## 7. Odak alanı etiketleri (`src/lib/skills.ts`)
 
@@ -344,7 +344,7 @@ Kendi biyografisini vermemiş üyelerde profilde görünen kalıp cümle.
 
 | Anahtar | Türkçe | English |
 |---|---|---|
-| `footer.description` | Marmara Üniversitesi Veri Bilimi Kulübü. Geleneksel öğrenci kulübü kalıplarını yıkan, küresel teknoloji toplulukları ve çevik teknoloji startup'larıyla aynı dili konuşan modern bir yapı inşa ediyoruz. | The Data Science Club of Marmara University. We are building a modern structure that breaks traditional student-club molds and speaks the same language as global tech communities and agile tech startups. |
+| `footer.description` | Marmara Üniversitesi Veri Bilimi Kulübü, geleneksel öğrenci kulübü anlayışının dışına çıkıyor ve küresel teknoloji toplulukları ile çevik teknoloji startup'larıyla aynı dili konuşan modern bir yapı kuruyor. | The Data Science Club of Marmara University breaks traditional student-club molds and speaks the same language as global tech communities and agile startups. |
 | `footer.exploreTitle` | Keşfet | Explore |
 | `footer.departmentsTitle` | Departmanlar | Departments |
 | `footer.linkHome` | Anasayfa | Home |

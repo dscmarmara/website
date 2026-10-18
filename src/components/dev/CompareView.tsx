@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { COPY_VERSIONS, isCopyVersion, stripLocale, versionHref } from "@/lib/copyVersions";
+import { COPY_VERSIONS, isCopyVersion, stripLocale, textVersionOf, versionHref } from "@/lib/copyVersions";
 import { routing, type Locale } from "@/i18n/routing";
 import { setDevFlag, useDevFlag } from "@/lib/devFlags";
 
@@ -163,6 +163,16 @@ export function CompareView() {
     </select>
   );
   const labelOf = (locale: Locale) => COPY_VERSIONS.find((v) => v.locale === locale)?.label ?? locale;
+  // Text differences between the two sides (the defaults when both are the same version, e.g. TR vs EN).
+  const diffHref = (() => {
+    const once = textVersionOf(versions.left);
+    const sonra = textVersionOf(versions.right);
+    const q = once === sonra ? new URLSearchParams() : new URLSearchParams({ once, sonra });
+    const lang = versions.left.split("-")[0];
+    if (lang === versions.right.split("-")[0]) q.set("dil", lang);
+    const query = q.toString();
+    return `/karsilastir/farklar${query ? `?${query}` : ""}`;
+  })();
 
   return (
     <div className="cmp">
@@ -223,6 +233,9 @@ export function CompareView() {
             Paslaşma {flowOn ? "AÇIK" : "KAPALI"}
           </button>
         </div>
+        <a href={diffHref} style={{ ...caption, color: "var(--accent)", textDecoration: "none" }} title="İki sürüm arasındaki metin farkları">
+          Farklar →
+        </a>
       </div>
       <div className="cmp-frames">
         {(["left", "right"] as Side[]).map((side) => (

@@ -5,7 +5,7 @@ import { useLocale } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { IS_PRODUCTION } from "@/lib/env";
 import { setDevFlag, useDevFlag } from "@/lib/devFlags";
-import { COPY_VERSIONS } from "@/lib/copyVersions";
+import { COPY_VERSIONS, textVersionOf } from "@/lib/copyVersions";
 
 /** TEMPORARY: per language, the copy versions (see copyVersions.ts). */
 const GROUPS = [
@@ -22,7 +22,8 @@ const noopSubscribe = () => () => {};
 /**
  * TEMPORARY dev options bar under the nav: switches the page between the copy
  * versions (ESKİ = live, YENİ 1, YENİ 2 = default) in Turkish and in English,
- * opens the side-by-side view (/karsilastir), links the preview-only pages
+ * opens the side-by-side view (/karsilastir) and the text differences
+ * (/karsilastir/farklar), links the preview-only pages
  * (the shop) and toggles preview-only sections (the About page's department
  * handoffs). Hidden on Vercel production, where the review locales 404 as
  * well, so it is safe to merge into main; remove it once the extra versions
@@ -49,6 +50,13 @@ export function DevOptions() {
     sol: locale,
     sag: locale.split("-")[0] === "tr" ? "en" : "tr",
     sayfa: pathname,
+  })}`;
+  // Text differences: live copy → this version (→ YENİ 2 when on the live copy), in this language.
+  const current = textVersionOf(locale);
+  const diffHref = `/karsilastir/farklar?${new URLSearchParams({
+    once: "eski",
+    sonra: current === "eski" ? "v2" : current,
+    dil: locale.split("-")[0],
   })}`;
 
   return (
@@ -97,6 +105,9 @@ export function DevOptions() {
             {/* Plain <a>: /karsilastir lives outside the locale routes. */}
             <a href={compareHref} className="lang-btn" style={{ ...btn, textDecoration: "none" }} title="Bu sayfayı iki sürümde yan yana aç">
               Yan yana →
+            </a>
+            <a href={diffHref} className="lang-btn" style={{ ...btn, textDecoration: "none" }} title="Canlıdaki metinle bu sürüm arasındaki farklar">
+              Farklar →
             </a>
           </div>
           <div style={pill}>

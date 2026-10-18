@@ -12,6 +12,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { HOME_STATS, HOME_DEPARTMENTS, ABOUT_DEPARTMENTS, ABOUT_FLOW } from "../src/lib/constants.ts";
 import { SKILLS_TR } from "../src/lib/skills.ts";
+import { isExcludedMessageKey } from "../src/lib/siteTextKeys.ts";
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const readJson = (p) => JSON.parse(fs.readFileSync(path.join(root, p), "utf8"));
@@ -19,15 +20,9 @@ const en = readJson("messages/en.json");
 const tr = readJson("messages/tr.json");
 const { members } = readJson("src/data/members.json");
 
-// Message keys that never show on the live site. Any key not listed here is
-// documented automatically.
-const EXCLUDED = [
-  /^shop\./, /^metadata\.shop\./, "nav.shop", "footer.linkShop", // shop: preview only
-  /^kpiLabels\./, // member KPIs are switched off
-  "nav.englishOld", "nav.turkishOld", // dev options bar
-  "metadata.siteName", "about.storyEst", "about.viewFullProfile", "blog.readArticle", // unused in code
-];
-const isExcluded = (key) => EXCLUDED.some((x) => (typeof x === "string" ? x === key : x.test(key)));
+// Message keys that never show on the live site (src/lib/siteTextKeys.ts). Any
+// key not listed there is documented automatically.
+const isExcluded = isExcludedMessageKey;
 
 const flatten = (obj, prefix = "") =>
   Object.entries(obj).flatMap(([k, v]) =>

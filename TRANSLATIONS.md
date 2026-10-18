@@ -21,13 +21,23 @@ Preview'da metnin üç sürümü yan yana duruyor (arama motorlarına kapalı, c
 Sürüm anahtarları (`"tr-x-v1"` gibi) yalnızca o sürümde metnin farklı olduğu alanlarda yazılı; olmayan yerde `tr` / `en`
 değeri görünür. Sitenin ilk metinleri koddan çıkarıldı, `ESKI_METINLER.md`'de arşivde.
 
+YENİ 2'de Ekip, üye profilleri ve Hakkımızda canlıdaki metinle aynı. Hakkımızda'da yalnızca "Hikâyemiz" metni
+(`about.storyP1`–`storyP3`, `about.pullQuote`) yeni, footer'da da `footer.description` yeni. Anasayfa, Blog ve İletişim
+YENİ 2 metniyle.
+
 **Karşılaştırma:**
 - Menünün altındaki **DEV OPTIONS** şeridinde **TR ESKİ | TR YENİ 1 | TR YENİ 2** ve İngilizcesi; aynı sayfada sürümler
   arasında geçilir.
 - **Yan yana:** şeritteki **"Yan yana →"** ya da `/karsilastir` adresi. İki sürüm seçilir (ör. sol TR YENİ 2, sağ
   EN YENİ 2) ve aynı sayfa iki çerçevede açılır. Bir tarafta linke tıklanınca öbürü de aynı sayfaya gider; kaydırma
   eşlenir. Seçimler adreste durur (`?sol=…&sag=…&sayfa=…`), link paylaşılabilir.
-- Şerit ve `/karsilastir` Vercel production'da (`NEXT_PUBLIC_VERCEL_ENV=production`) yok; sürüm adresleri canlıda 404.
+- **Farklar:** şeritteki ya da yan yana sayfasındaki **"Farklar →"**, ya da `/karsilastir/farklar` adresi. İki sürüm
+  arasında değişen bütün metinler sayfa sayfa listelenir (varsayılan ESKİ → YENİ 2); silinen kelimeler kırmızı ve üstü
+  çizili, eklenenler yeşil. Dil süzgeci (TR / EN / ikisi) ve "Değişmeyenleri de göster" var; her bölümdeki
+  "Sayfada gör →" o sayfayı iki sürümde yan yana açar. Seçimler adreste durur (`?once=eski&sonra=v2&dil=tr`). Metinler
+  `src/lib/textInventory.ts`'te sitenin kendi okuma kurallarıyla toplanır; blog yazıları dahil değil.
+- Şerit, `/karsilastir` ve `/karsilastir/farklar` Vercel production'da (`NEXT_PUBLIC_VERCEL_ENV=production`) yok; sürüm
+  adresleri canlıda 404.
 
 Menüdeki tek dil düğmesi (Türkçede "EN" → `/`, İngilizcede "TR" → `/tr`) her zaman öteki dilin YENİ 2'sine gider.
 
@@ -46,7 +56,8 @@ Sürümlerin diğer parçaları:
 
 **Bir sürümü kaldırmak** (ör. YENİ 1 artık gerekmiyorsa): `messages/*-x-v1.json`'u sil; `constants.ts` /
 `members.json`'daki `"tr-x-v1"` / `"en-x-v1"` girdilerini ve `SKILLS_TR_BY_VERSION["tr-x-v1"]`'i kaldır;
-`src/i18n/routing.ts` → `REVIEW_LOCALES` ve `src/lib/copyVersions.ts` → `COPY_VERSIONS`'tan çıkar.
+`src/i18n/routing.ts` → `REVIEW_LOCALES` ve `src/lib/copyVersions.ts` → `COPY_VERSIONS` / `TEXT_VERSIONS`'tan çıkar;
+`src/lib/textInventory.ts`'teki `messages/*-x-v1.json` importlarını kaldır.
 
 **Yayın akışı:** geliştirme `preview-development` dalında yapılır; her push Vercel Preview'a gider. Yayına almak için
 `git push origin preview-development:main` (ya da GitHub'da `preview-development` → `main` pull request'i). `main`'e
@@ -78,8 +89,9 @@ ve KPI'lar `main`'e geçse de canlıda kapalı kalır.
 3. Kod tarafını kaldır:
    - `src/i18n/routing.ts` içindeki `REVIEW_LOCALES` / `isReviewLocale` ve onları kullanan yerler (`src/lib/seo.ts`, `src/app/[locale]/layout.tsx`)
    - `src/components/layout/DevOptions.tsx` ve `Nav.tsx`'teki `<DevOptions />` satırı, `src/lib/copyVersions.ts`
-   - `src/app/karsilastir/`, `src/components/dev/CompareView.tsx`, `globals.css`'teki `.cmp*` kuralları ve
-     `src/proxy.ts`'teki `karsilastir` istisnası
+   - `src/app/karsilastir/` (farklar sayfası dahil), `src/components/dev/CompareView.tsx` ve `DiffView.tsx`,
+     `src/lib/textInventory.ts`, `src/lib/wordDiff.ts`, `globals.css`'teki `.cmp*` ve `.dif*` kuralları ve
+     `src/proxy.ts`'teki `karsilastir` istisnası (`src/lib/siteTextKeys.ts` kalır, `npm run site-texts` kullanıyor)
    - `src/lib/members.ts` içindeki `Localized` tipinde sürüm anahtarları
    - `messages/en.json` ve `messages/tr.json` içindeki `nav.turkishOld` ve `nav.englishOld`
    - bu bölüm

@@ -18,10 +18,8 @@
       "dept": "LEADERSHIP",
       "photo": "/team/ahmet.jpg",
       "tagline": {
-        "en": "Club president leading DSC Marmara with field experience and a hands-on engineering culture.",
-        "tr": "DSC Marmara'yı saha deneyimi ve üretim odaklı çalışma kültürüyle yöneten kulüp başkanı.",
-        "tr-x-eski": "Sahadan gelen pratik tecrübeyi vizyoner liderlikle harmanlayarak DSC Marmara’yı geleceğe taşıyan kulüp başkanı.",
-        "en-x-eski": "Leading DSC Marmara with hands-on field experience and a clear vision for high-impact, real-world tech communities.",
+        "en": "Leading DSC Marmara with hands-on field experience and a clear vision for high-impact, real-world tech communities.",
+        "tr": "Sahadan gelen pratik tecrübeyi vizyoner liderlikle harmanlayarak DSC Marmara’yı geleceğe taşıyan kulüp başkanı.",
         "tr-x-v1": "Saha deneyimini üretim odaklı bir topluluk vizyonuyla birleştirerek DSC Marmara'ya liderlik eden kulüp başkanı.",
         "en-x-v1": "Club president leading DSC Marmara with hands-on field experience and a clear vision for a builder-focused tech community."
       },
@@ -68,9 +66,8 @@
       "photo": "/team/irmak-evci.jpg",
       "tagline": {
         "en": "Vice president of the club.",
-        "tr": "Kulübün başkan yardımcısı.",
-        "tr-x-eski": "Kulübün başkan yardımcısıdır.",
-        "en-x-eski": "Vice president of the club."
+        "tr": "Kulübün başkan yardımcısıdır.",
+        "tr-x-v1": "Kulübün başkan yardımcısı."
       },
       "bio1": {
         "en": "Irmak is the club's vice president.",
@@ -115,9 +112,8 @@
       "photo": "/team/esim-ebrar-gokyaka.jpg",
       "tagline": {
         "en": "Secretary of the club.",
-        "tr": "Kulübün sekreteri.",
-        "tr-x-eski": "Kulübün sekreteridir.",
-        "en-x-eski": "Secretary of the club."
+        "tr": "Kulübün sekreteridir.",
+        "tr-x-v1": "Kulübün sekreteri."
       },
       "bio1": {
         "en": "Esim Ebrar is the club's secretary.",
@@ -162,14 +158,13 @@
       "photo": "/team/emirhan-kunt.jpg",
       "tagline": {
         "en": "Co-director of the Data Insights department.",
-        "tr": "Data Insights departmanının eş direktörü.",
-        "tr-x-eski": "Data Insights departmanını eş direktör olarak yönetmektedir.",
-        "en-x-eski": "Co-director of the Data Insights department."
+        "tr": "Data Insights departmanını eş direktör olarak yönetmektedir.",
+        "tr-x-v1": "Data Insights departmanının eş direktörü."
       },
       "bio1": {
         "en": "Emirhan is a co-director of the Data Insights department.",
-        "tr": "Emirhan, Data Insights departmanını eş direktör olarak yönetiyor.",
-        "tr-x-eski": "Emirhan, Data Insights departmanını eş direktör olarak yönetmektedir.",
+        "tr": "Emirhan, Data Insights departmanını eş direktör olarak yönetmektedir.",
+        "tr-x-v1": "Emirhan, Data Insights departmanını eş direktör olarak yönetiyor.",
         "en-x-v1": "Emirhan co-directs the Data Insights department."
       },
       "bio2": {
@@ -210,9 +205,8 @@
       "photo": "/team/ihsan-sami-ceran.jpg",
       "tagline": {
         "en": "Co-director of the Data Insights department.",
-        "tr": "Data Insights departmanının eş direktörü.",
-        "tr-x-eski": "Data Insights departmanını eş direktör olarak yönetmektedir.",
-        "en-x-eski": "Co-director of the Data Insights department."
+        "tr": "Data Insights departmanını eş direktör olarak yönetmektedir.",
+        "tr-x-v1": "Data Insights departmanının eş direktörü."
       },
       "bio1": {
         "en": "A dedicated student at Marmara University, İhsan Sami combines strong academic rigor with practical analytical expertise gained from his experience in budget, reporting, and finance. Driven by a passion for technology, data-driven strategy, and continuous self-improvement, he brings a structured yet innovative approach to team leadership.",
@@ -259,10 +253,8 @@
       "website": "sadikcoban.com",
       "websiteUrl": "https://www.sadikcoban.com",
       "tagline": {
-        "en": "Developer working across statistics and machine learning while building DSC Marmara's web infrastructure.",
-        "tr": "İstatistik ve makine öğrenmesi modelleri kurarken DSC Marmara'nın web altyapısını da geliştiren yazılımcı.",
-        "tr-x-eski": "İstatistiksel temelleri modern yapay zekâ sistemleri ve web mimarileriyle buluşturan geliştirici.",
-        "en-x-eski": "Bridging statistical theory, modern machine learning, and the digital infrastructure powering DSC Marmara.",
+        "en": "Bridging statistical theory, modern machine learning, and the digital infrastructure powering DSC Marmara.",
+        "tr": "İstatistiksel temelleri modern yapay zekâ sistemleri ve web mimarileriyle buluşturan geliştirici.",
         "tr-x-v1": "İstatistik teorisini, modern makine öğrenmesi sistemlerini ve DSC Marmara'nın web altyapısını bir araya getiren geliştirici.",
         "en-x-v1": "Developer connecting statistical theory, modern machine learning systems, and the web infrastructure behind DSC Marmara."
       },
@@ -310,14 +302,13 @@
       "photo": "/team/ahmet-hamza-mulayim.jpg",
       "tagline": {
         "en": "Co-director of the Core AI department.",
-        "tr": "Core AI departmanının eş direktörü.",
-        "tr-x-eski": "Core AI departmanını eş direktör olarak yönetmektedir.",
-        "en-x-eski": "Co-director of the Core AI department."
+        "tr": "Core AI departmanını eş direktör olarak yönetmektedir.",
+        "tr-x-v1": "Core AI departmanının eş direktörü."
       },
       "bio1": {
         "en": "Ahmet Hamza is a co-director of the Core AI department.",
-        "tr": "Ahmet Hamza, Core AI departmanını eş direktör olarak yönetiyor.",
-        "tr-x-eski": "Ahmet Hamza, Core AI departmanını eş direktör olarak yönetmektedir.",
+        "tr": "Ahmet Hamza, Core AI departmanını eş direktör olarak yönetmektedir.",
+        "tr-x-v1": "Ahmet Hamza, Core AI departmanını eş direktör olarak yönetiyor.",
         "en-x-v1": "Ahmet Hamza co-directs the Core AI department."
       },
       "bio2": {
@@ -357,9 +348,8 @@
       "photo": "/team/alihan-telli.jpg",
       "tagline": {
         "en": "Co-director of the Data Pipelines department.",
-        "tr": "Data Pipelines departmanının eş direktörü.",
-        "tr-x-eski": "Data Pipelines departmanını eş direktör olarak yönetmektedir.",
-        "en-x-eski": "Co-director of the Data Pipelines department."
+        "tr": "Data Pipelines departmanını eş direktör olarak yönetmektedir.",
+        "tr-x-v1": "Data Pipelines departmanının eş direktörü."
       },
       "bio1": {
         "en": "Hi, I’m Alihan. I’m a fourth-year Statistics student at Marmara University, and I also serve as a Director of the Data Pipelines Department at the Marmara Data Science Club.",
@@ -404,9 +394,8 @@
       "photo": "/team/samet-demirkaya.jpg",
       "tagline": {
         "en": "Co-director of the Data Pipelines department.",
-        "tr": "Data Pipelines departmanının eş direktörü.",
-        "tr-x-eski": "Data Pipelines departmanını eş direktör olarak yönetmektedir.",
-        "en-x-eski": "Co-director of the Data Pipelines department."
+        "tr": "Data Pipelines departmanını eş direktör olarak yönetmektedir.",
+        "tr-x-v1": "Data Pipelines departmanının eş direktörü."
       },
       "bio1": {
         "en": "Samet is a senior Statistics student at Marmara University and an active contributor across DSC Marmara's project teams. He focuses on bridging his academic foundation in statistics with applied data science and machine learning, turning theoretical methods into functional, real-world software.",
@@ -442,14 +431,13 @@
       "photo": "/team/elif-esma-tuna.jpg",
       "tagline": {
         "en": "Co-director of the Summits & Awards department.",
-        "tr": "Summits & Awards departmanının eş direktörü.",
-        "tr-x-eski": "Summits & Awards departmanını eş direktör olarak yönetmektedir.",
-        "en-x-eski": "Co-director of the Summits & Awards department."
+        "tr": "Summits & Awards departmanını eş direktör olarak yönetmektedir.",
+        "tr-x-v1": "Summits & Awards departmanının eş direktörü."
       },
       "bio1": {
         "en": "Elif Esma is a co-director of the Summits & Awards department.",
-        "tr": "Elif Esma, Summits & Awards departmanını eş direktör olarak yönetiyor.",
-        "tr-x-eski": "Elif Esma, Summits & Awards departmanını eş direktör olarak yönetmektedir.",
+        "tr": "Elif Esma, Summits & Awards departmanını eş direktör olarak yönetmektedir.",
+        "tr-x-v1": "Elif Esma, Summits & Awards departmanını eş direktör olarak yönetiyor.",
         "en-x-v1": "Elif Esma co-directs the Summits & Awards department."
       },
       "bio2": {
@@ -488,14 +476,13 @@
       "photo": "/team/tarik-emre-ermis.jpg",
       "tagline": {
         "en": "Co-director of the Summits & Awards department.",
-        "tr": "Summits & Awards departmanının eş direktörü.",
-        "tr-x-eski": "Summits & Awards departmanını eş direktör olarak yönetmektedir.",
-        "en-x-eski": "Co-director of the Summits & Awards department."
+        "tr": "Summits & Awards departmanını eş direktör olarak yönetmektedir.",
+        "tr-x-v1": "Summits & Awards departmanının eş direktörü."
       },
       "bio1": {
         "en": "Tarık Emre is a co-director of the Summits & Awards department.",
-        "tr": "Tarık Emre, Summits & Awards departmanını eş direktör olarak yönetiyor.",
-        "tr-x-eski": "Tarık Emre, Summits & Awards departmanını eş direktör olarak yönetmektedir.",
+        "tr": "Tarık Emre, Summits & Awards departmanını eş direktör olarak yönetmektedir.",
+        "tr-x-v1": "Tarık Emre, Summits & Awards departmanını eş direktör olarak yönetiyor.",
         "en-x-v1": "Tarık Emre co-directs the Summits & Awards department."
       },
       "bio2": {
@@ -525,14 +512,13 @@
       "photo": "/team/cansu-okcu.jpg",
       "tagline": {
         "en": "Co-director of the Finance & Corporate department.",
-        "tr": "Finance & Corporate departmanının eş direktörü.",
-        "tr-x-eski": "Finance & Corporate departmanını eş direktör olarak yönetmektedir.",
-        "en-x-eski": "Co-director of the Finance & Corporate department."
+        "tr": "Finance & Corporate departmanını eş direktör olarak yönetmektedir.",
+        "tr-x-v1": "Finance & Corporate departmanının eş direktörü."
       },
       "bio1": {
         "en": "Cansu is a co-director of the Finance & Corporate department.",
-        "tr": "Cansu, Finance & Corporate departmanını eş direktör olarak yönetiyor.",
-        "tr-x-eski": "Cansu, Finance & Corporate departmanını eş direktör olarak yönetmektedir.",
+        "tr": "Cansu, Finance & Corporate departmanını eş direktör olarak yönetmektedir.",
+        "tr-x-v1": "Cansu, Finance & Corporate departmanını eş direktör olarak yönetiyor.",
         "en-x-v1": "Cansu co-directs the Finance & Corporate department."
       },
       "bio2": {
@@ -572,14 +558,13 @@
       "photo": null,
       "tagline": {
         "en": "Co-director of the Finance & Corporate department.",
-        "tr": "Finance & Corporate departmanının eş direktörü.",
-        "tr-x-eski": "Finance & Corporate departmanını eş direktör olarak yönetmektedir.",
-        "en-x-eski": "Co-director of the Finance & Corporate department."
+        "tr": "Finance & Corporate departmanını eş direktör olarak yönetmektedir.",
+        "tr-x-v1": "Finance & Corporate departmanının eş direktörü."
       },
       "bio1": {
         "en": "Cem is a co-director of the Finance & Corporate department.",
-        "tr": "Cem, Finance & Corporate departmanını eş direktör olarak yönetiyor.",
-        "tr-x-eski": "Cem, Finance & Corporate departmanını eş direktör olarak yönetmektedir.",
+        "tr": "Cem, Finance & Corporate departmanını eş direktör olarak yönetmektedir.",
+        "tr-x-v1": "Cem, Finance & Corporate departmanını eş direktör olarak yönetiyor.",
         "en-x-v1": "Cem co-directs the Finance & Corporate department."
       },
       "bio2": {
@@ -608,9 +593,8 @@
       "photo": "/team/elif-ayse-sen.jpg",
       "tagline": {
         "en": "Co-director of the PR department.",
-        "tr": "PR departmanının eş direktörü.",
-        "tr-x-eski": "PR departmanını eş direktör olarak yönetmektedir.",
-        "en-x-eski": "Co-director of the PR department."
+        "tr": "PR departmanını eş direktör olarak yönetmektedir.",
+        "tr-x-v1": "PR departmanının eş direktörü."
       },
       "bio1": {
         "en": "I am a Mathematics student at Marmara University. As the PR Director of the Data Science Club, I am involved in the club’s communication and promotional activities. I contribute to creating social media content, promoting events, and managing the club’s digital communication efforts.",
@@ -653,9 +637,8 @@
       "photo": "/team/esma-ozcan.jpg",
       "tagline": {
         "en": "Co-director of the PR department.",
-        "tr": "PR departmanının eş direktörü.",
-        "tr-x-eski": "PR departmanını eş direktör olarak yönetmektedir.",
-        "en-x-eski": "Co-director of the PR department."
+        "tr": "PR departmanını eş direktör olarak yönetmektedir.",
+        "tr-x-v1": "PR departmanının eş direktörü."
       },
       "bio1": {
         "en": "Hi! I’m Esma, a Mathematics student at Marmara University. As the PR President of DSC, I actively take part in the club’s communication, organization, and collaboration processes.",
