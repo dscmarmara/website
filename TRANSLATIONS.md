@@ -35,7 +35,8 @@ YENİ 2 metniyle.
   arasında değişen bütün metinler sayfa sayfa listelenir (varsayılan ESKİ → YENİ 2); silinen kelimeler kırmızı ve üstü
   çizili, eklenenler yeşil. Dil süzgeci (TR / EN / ikisi) ve "Değişmeyenleri de göster" var; her bölümdeki
   "Sayfada gör →" o sayfayı iki sürümde yan yana açar. Seçimler adreste durur (`?once=eski&sonra=v2&dil=tr`). Metinler
-  `src/lib/textInventory.ts`'te sitenin kendi okuma kurallarıyla toplanır; blog yazıları dahil değil.
+  `src/lib/textInventory.ts`'te sitenin kendi okuma kurallarıyla toplanır; blog yazıları dahil değil. Paslaşma
+  bölümünün metinleri, sayfadaki gibi yalnızca **Paslaşma AÇIK** iken listelenir.
 - Şerit, `/karsilastir` ve `/karsilastir/farklar` Vercel production'da (`NEXT_PUBLIC_VERCEL_ENV=production`) yok; sürüm
   adresleri canlıda 404.
 

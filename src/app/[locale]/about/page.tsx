@@ -8,6 +8,7 @@ import { DepartmentAccordions } from "@/components/about/DepartmentAccordions";
 import { DevFlagGate } from "@/components/dev/DevFlagGate";
 import { getMembers, departmentOrder, pick } from "@/lib/members";
 import { ABOUT_FLOW } from "@/lib/constants";
+import { IS_PRODUCTION } from "@/lib/env";
 import { buildAlternates } from "@/lib/seo";
 
 export async function generateMetadata({
@@ -89,8 +90,9 @@ export default async function AboutPage({
 
       {/* HANDOFFS: how work moves between the departments. Preview-only for
           now: shown when "Paslaşma" is on in the dev options bar, never on
-          the live site. The old-copy locales have no such section. */}
-      {t.has("flowTitle") && (
+          the live site (checked here too, so its markup is not even sent
+          there). The old-copy locales have no such section. */}
+      {!IS_PRODUCTION && t.has("flowTitle") && (
         <DevFlagGate flag="flow">
           <section style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "96px 24px 0" }}>
             <Reveal style={{ marginBottom: 44 }}>

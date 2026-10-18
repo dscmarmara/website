@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { TEXT_VERSIONS, isTextVersion, versionHref, type TextVersion } from "@/lib/copyVersions";
+import { setDevFlag, useDevFlag } from "@/lib/devFlags";
 import type { TextRow, TextSection } from "@/lib/textInventory";
 import { wordDiff } from "@/lib/wordDiff";
 
@@ -61,6 +62,7 @@ export function DiffView({ sections }: { sections: TextSection[] }) {
   const [after, setAfter] = useState(initial.after);
   const [lang, setLang] = useState<LangFilter>(initial.lang);
   const [showSame, setShowSame] = useState(initial.showSame);
+  const flowOn = useDevFlag("flow");
 
   useEffect(() => {
     const q = new URLSearchParams({ once: before, sonra: after });
@@ -70,12 +72,22 @@ export function DiffView({ sections }: { sections: TextSection[] }) {
   }, [before, after, lang, showSame]);
 
   const langs: Lang[] = lang === "both" ? ["tr", "en"] : [lang];
+  // Preview-only texts count only while their switch is on, like on the page itself.
+  const { visible, hiddenChanges } = useMemo(() => {
+    const on = { flow: flowOn };
+    const isOn = (r: TextRow) => r.flag === undefined || on[r.flag];
+    const hidden = sections.flatMap((s) => s.rows).filter((r) => !isOn(r));
+    return {
+      visible: sections.map((s) => ({ ...s, rows: s.rows.filter(isOn) })),
+      hiddenChanges: hidden.filter((r) => changedIn(r, "tr", before, after)).length + hidden.filter((r) => changedIn(r, "en", before, after)).length,
+    };
+  }, [sections, flowOn, before, after]);
   const totals = useMemo(() => {
-    const count = (l: Lang) => sections.reduce((n, s) => n + s.rows.filter((r) => changedIn(r, l, before, after)).length, 0);
+    const count = (l: Lang) => visible.reduce((n, s) => n + s.rows.filter((r) => changedIn(r, l, before, after)).length, 0);
     return { tr: count("tr"), en: count("en") };
-  }, [sections, before, after]);
+  }, [visible, before, after]);
 
-  const shown = sections
+  const shown = visible
     .map((s) => ({
       ...s,
       changed: s.rows.filter((r) => langs.some((l) => changedIn(r, l, before, after))).length,
@@ -138,6 +150,19 @@ export function DiffView({ sections }: { sections: TextSection[] }) {
             Değişmeyenleri de göster {showSame ? "AÇIK" : "KAPALI"}
           </button>
         </div>
+        <div style={pill}>
+          <button
+            type="button"
+            className="lang-btn"
+            data-active={flowOn ? "" : undefined}
+            aria-pressed={flowOn}
+            title="Hakkımızda: departmanlar arası paslaşma bölümü"
+            onClick={() => setDevFlag("flow", !flowOn)}
+            style={toggle}
+          >
+            Paslaşma {flowOn ? "AÇIK" : "KAPALI"}
+          </button>
+        </div>
       </div>
 
       <main className="dif-main">
@@ -151,9 +176,13 @@ export function DiffView({ sections }: { sections: TextSection[] }) {
           )}
         </p>
         <p className="dif-legend">
-          <del className="dif-del">silinen</del> <ins className="dif-ins">eklenen</ins> · Sekme başlıkları ve arama motoru açıklamaları sayfada görünmez. Paslaşma
-          bölümü yalnızca önizlemede (DEV OPTIONS → Paslaşma).
+          <del className="dif-del">silinen</del> <ins className="dif-ins">eklenen</ins> · Sekme başlıkları ve arama motoru açıklamaları sayfada görünmez.
         </p>
+        {hiddenChanges > 0 && (
+          <p className="dif-note" data-testid="diff-hidden" style={{ margin: "-12px 0 24px" }}>
+            {`Paslaşma bölümü kapalı: ${hiddenChanges} önizleme metni gizli (Hakkımızda'da yalnızca Paslaşma AÇIK iken görünür).`}
+          </p>
+        )}
 
         {shown.length === 0 && <p className="dif-note">Bu iki sürüm arasında {lang === "both" ? "" : `${lang.toUpperCase()} `}metin farkı yok.</p>}
 

@@ -6,6 +6,7 @@ import enV1 from "../../messages/en-x-v1.json";
 import trV1 from "../../messages/tr-x-v1.json";
 import { ABOUT_DEPARTMENTS, ABOUT_FLOW, HOME_DEPARTMENTS, HOME_STATS } from "@/lib/constants";
 import { TEXT_VERSIONS, type TextVersion } from "@/lib/copyVersions";
+import type { DevFlag } from "@/lib/devFlags";
 import { getMembers, pick, type Localized } from "@/lib/members";
 import { isExcludedMessageKey } from "@/lib/siteTextKeys";
 import { SKILLS_TR, skillLabel } from "@/lib/skills";
@@ -18,6 +19,8 @@ export interface TextRow {
   label: string;
   /** The label is a message key (shown in monospace). */
   isKey: boolean;
+  /** Preview-only text: on the page only while this dev flag is on. */
+  flag?: DevFlag;
   tr: VersionValues;
   en: VersionValues;
 }
@@ -50,6 +53,9 @@ const values = (read: (locale: string) => string | null | undefined): Pick<TextR
 };
 const localized = (field: Localized) => values((locale) => pick(field, locale));
 const row = (id: string, label: string, vals: Pick<TextRow, "tr" | "en">, isKey = false): TextRow => ({ id, label, isKey, ...vals });
+// The About page's handoff section: behind the "flow" dev flag, and drawn only where about.flowTitle exists.
+const flowFlag = (r: TextRow): TextRow => (r.id.startsWith("about.flow") ? { ...r, flag: "flow" } : r);
+const hasFlow = (locale: string) => MESSAGES.get(locale)?.has("about.flowTitle") ?? false;
 
 /**
  * TEMPORARY preview tool: every text the site shows, in all three copy
@@ -81,7 +87,7 @@ export function getTextInventory(): TextSection[] {
       title: "Hakkımızda",
       path: "/about",
       rows: [
-        ...messageRows("about"),
+        ...messageRows("about").map(flowFlag),
         ...ABOUT_DEPARTMENTS.flatMap((d) => [
           row(`dept:${d.no}:purpose`, `${d.no} ${d.name}: Amaç`, localized(d.purpose)),
           row(
@@ -91,7 +97,10 @@ export function getTextInventory(): TextSection[] {
           ),
           row(`dept:${d.no}:vision`, `${d.no} ${d.name}: Vizyon`, localized(d.vision)),
         ]),
-        ...ABOUT_FLOW.map((s, i) => row(`flow:${i}`, `Paslaşma ${i + 1}. adım: ${s.name} (önizleme)`, localized(s.text))),
+        ...ABOUT_FLOW.map((s, i): TextRow => ({
+          ...row(`flow:${i}`, `Paslaşma ${i + 1}. adım: ${s.name}`, values((locale) => (hasFlow(locale) ? pick(s.text, locale) : null))),
+          flag: "flow",
+        })),
       ],
     },
     { title: "Ekip", path: "/team", rows: messageRows("team", "roles") },
