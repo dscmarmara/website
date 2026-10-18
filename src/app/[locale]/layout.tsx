@@ -39,7 +39,8 @@ export async function generateMetadata({
       siteName: SITE_NAME,
       // `en`, not `en_US`, is not a valid og:locale — see ogLocale().
       locale: ogLocale(locale),
-      url: SITE_URL,
+      // No `url` here: it would be inherited by every page, so all of them
+      // claimed to be the homepage. Pages rely on their canonical link instead.
     },
     twitter: { card: "summary_large_image" },
     // Review locales are side-by-side copies for proofreading, not pages to rank.

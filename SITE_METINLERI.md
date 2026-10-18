@@ -10,19 +10,19 @@
 
 | Anahtar | Türkçe | English |
 |---|---|---|
-| `metadata.defaultTitle` | DSC Marmara · Data Science Club | DSC Marmara · Data Science Club |
+| `metadata.defaultTitle` | DSC Marmara · Marmara Üniversitesi Veri Bilimi Kulübü | DSC Marmara · Marmara University Data Science Club |
 | `metadata.titleTemplate` | %s · DSC Marmara | %s · DSC Marmara |
-| `metadata.defaultDescription` | Marmara Üniversitesi Veri Bilimi Kulübü. Geleneksel öğrenci kulübü kalıplarını yıkan, küresel teknoloji toplulukları ve çevik teknoloji startup'larıyla aynı dili konuşan modern bir yapı inşa ediyoruz. | The Data Science Club of Marmara University. We are building a modern structure that breaks traditional student-club molds and speaks the same language as global tech communities and agile tech startups. |
+| `metadata.defaultDescription` | Marmara Üniversitesi Veri Bilimi Kulübü, geleneksel öğrenci kulübü kalıplarını yıkıyor; küresel teknoloji toplulukları ve çevik startup'larla aynı dili konuşuyor. | The Data Science Club of Marmara University breaks traditional student-club molds and speaks the same language as global tech communities and agile startups. |
 | `metadata.home.title` | Anasayfa | Home |
-| `metadata.home.description` | Startup gibi düşünen veri kulübü. Altı departman, gerçek projeler ve seni sadece katılımcı değil, üreten biri olarak gören bir topluluk. | The data club that thinks like a startup. Six departments, real projects, and a community that treats you like a builder. |
+| `metadata.home.description` | Startup gibi düşünen veri kulübü. Marmara Üniversitesi'nde altı departman, gerçek projeler ve seni üreten biri olarak gören bir öğrenci topluluğu. | The data club that thinks like a startup. Six departments, real projects, and a student community at Marmara University that treats you like a builder. |
 | `metadata.about.title` | Hakkımızda | About |
-| `metadata.about.description` | Biz bir kulüp değil, bir üretim ekibiyiz. Hikâyemiz, kulübün nasıl örgütlendiği ve arkasındaki altı departman. | We're not a club, we're a build crew. Our story, how the club is organised, and the six departments behind it. |
+| `metadata.about.description` | Biz bir kulüp değiliz, bir üretim ekibiyiz. Altı departmanımız: Data Insights, Core AI, Data Pipelines, Summits & Awards, Finance & Corporate Relations ve PR. | We're not a club, we're a build crew. Our six departments: Data Insights, Core AI, Data Pipelines, Summits & Awards, Finance & Corporate Relations and PR. |
 | `metadata.team.title` | Ekip | Team |
-| `metadata.team.description` | Kulübün arkasındaki ekip — başkan liderliğinde, altı departmanın her birini iki direktör yönetiyor. | The people behind the club — led by the president, with two directors steering each of the six departments. |
+| `metadata.team.description` | DSC Marmara'nın yönetim ekibi: başkan, başkan yardımcısı, sekreter ve altı departmanın her birini yöneten iki direktörle tanışın. | Meet the team behind DSC Marmara: the president, vice president, secretary, and the two directors leading each of the six departments. |
 | `metadata.blog.title` | Blog | Blog |
-| `metadata.blog.description` | Üretim ekibinden köşe yazıları. Veriyle açıkça çalışan öğrencilerden görüşler, saha notları ve çıkarılan dersler. | Columns from the build crew. Opinions, field notes, and lessons from students working with data in public. |
+| `metadata.blog.description` | DSC Marmara blogu: veriyle çalışan öğrencilerden gerçek görüşler, saha notları ve deneyimler. Üretim ekibinden köşe yazıları. | The DSC Marmara blog: real opinions, field notes, and lessons from students working with data. Columns from the build crew. |
 | `metadata.contact.title` | İletişim | Contact |
-| `metadata.contact.description` | Katılmak, sponsor olmak ya da iş birliği yapmak mı istiyorsun? Bize yaz, her mesajı gerçek bir öğrenci okuyor. | Want to join, sponsor us, or collaborate? Drop us a line. A real student reads every message. |
+| `metadata.contact.description` | DSC Marmara'ya katılmak, projelerimize ortak olmak ya da sponsor olmak mı istiyorsun? Bize bir mesaj bırak; her mesajı gerçek bir öğrenci okuyor. | Want to join DSC Marmara, collaborate on a project, or sponsor us? Leave us a message. A real student reads every message. |
 | `metadata.notFound.title` | Sayfa bulunamadı | Page not found |
 | `metadata.notFound.description` | Aradığın sayfa bulunamadı. | The page you were looking for doesn't exist. |
 

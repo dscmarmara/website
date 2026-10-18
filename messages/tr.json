@@ -1,28 +1,28 @@
 {
   "metadata": {
     "siteName": "Data Science Club",
-    "defaultTitle": "DSC Marmara · Data Science Club",
+    "defaultTitle": "DSC Marmara · Marmara Üniversitesi Veri Bilimi Kulübü",
     "titleTemplate": "%s · DSC Marmara",
-    "defaultDescription": "Marmara Üniversitesi Veri Bilimi Kulübü. Geleneksel öğrenci kulübü kalıplarını yıkan, küresel teknoloji toplulukları ve çevik teknoloji startup'larıyla aynı dili konuşan modern bir yapı inşa ediyoruz.",
+    "defaultDescription": "Marmara Üniversitesi Veri Bilimi Kulübü, geleneksel öğrenci kulübü kalıplarını yıkıyor; küresel teknoloji toplulukları ve çevik startup'larla aynı dili konuşuyor.",
     "home": {
       "title": "Anasayfa",
-      "description": "Startup gibi düşünen veri kulübü. Altı departman, gerçek projeler ve seni sadece katılımcı değil, üreten biri olarak gören bir topluluk."
+      "description": "Startup gibi düşünen veri kulübü. Marmara Üniversitesi'nde altı departman, gerçek projeler ve seni üreten biri olarak gören bir öğrenci topluluğu."
     },
     "about": {
       "title": "Hakkımızda",
-      "description": "Biz bir kulüp değil, bir üretim ekibiyiz. Hikâyemiz, kulübün nasıl örgütlendiği ve arkasındaki altı departman."
+      "description": "Biz bir kulüp değiliz, bir üretim ekibiyiz. Altı departmanımız: Data Insights, Core AI, Data Pipelines, Summits & Awards, Finance & Corporate Relations ve PR."
     },
     "team": {
       "title": "Ekip",
-      "description": "Kulübün arkasındaki ekip — başkan liderliğinde, altı departmanın her birini iki direktör yönetiyor."
+      "description": "DSC Marmara'nın yönetim ekibi: başkan, başkan yardımcısı, sekreter ve altı departmanın her birini yöneten iki direktörle tanışın."
     },
     "blog": {
       "title": "Blog",
-      "description": "Üretim ekibinden köşe yazıları. Veriyle açıkça çalışan öğrencilerden görüşler, saha notları ve çıkarılan dersler."
+      "description": "DSC Marmara blogu: veriyle çalışan öğrencilerden gerçek görüşler, saha notları ve deneyimler. Üretim ekibinden köşe yazıları."
     },
     "contact": {
       "title": "İletişim",
-      "description": "Katılmak, sponsor olmak ya da iş birliği yapmak mı istiyorsun? Bize yaz, her mesajı gerçek bir öğrenci okuyor."
+      "description": "DSC Marmara'ya katılmak, projelerimize ortak olmak ya da sponsor olmak mı istiyorsun? Bize bir mesaj bırak; her mesajı gerçek bir öğrenci okuyor."
     },
     "shop": {
       "title": "Mağaza",

@@ -66,6 +66,11 @@ Sürümlerin diğer parçaları:
 doğrudan commit atılmadığı sürece bu her seferinde çakışmasız bir fast-forward'dur. Mağaza, DEV OPTIONS, ESKİ sürümler
 ve KPI'lar `main`'e geçse de canlıda kapalı kalır.
 
+**Yayından sonra arama motorları:** Vercel canlı deploy'u bitince `npm run indexnow` çalıştır. Canlı sitemap'teki
+bütün adresleri IndexNow'a (Bing, Yandex vb.) bildirir; anahtar `public/<anahtar>.txt` dosyası. Google IndexNow
+kullanmıyor: Google Search Console → Site haritaları'ndan `sitemap.xml`'i yeniden gönder. Arama sonuçlarındaki başlık ve
+açıklamalar `messages/*.json` → `metadata.*`'tan gelir (≤ ~160 karakter tut).
+
 **Açık notlar (karar bekliyor):**
 
 - **Mağaza yer tutucularla duruyor, yayına almadan önce değiştir.** Hepsi `src/lib/constants.ts` içinde:

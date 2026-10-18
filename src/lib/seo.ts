@@ -23,6 +23,20 @@ const OG_LOCALES: Record<string, string> = { en: "en_US", tr: "tr_TR" };
 export const ogLocale = (locale: string) =>
   OG_LOCALES[locale] ?? OG_LOCALES[locale.split("-")[0]] ?? "en_US";
 
+/**
+ * Open Graph fields every page shares: site name, locale and the share card
+ * from [locale]/opengraph-image.tsx (keep `alt` in step with that file). A
+ * page's own `openGraph` replaces the layout's entirely, so a page that sets
+ * one spreads this, or its share preview loses the image.
+ */
+export function openGraphBase(locale: string) {
+  return {
+    siteName: SITE_NAME,
+    locale: ogLocale(locale),
+    images: [{ url: `/${locale}/opengraph-image`, width: 1200, height: 630, alt: "DSC Marmara · Data Science Club", type: "image/png" }],
+  };
+}
+
 /** Locales advertised to search engines: everything but the review locales. */
 export const PUBLIC_LOCALES = routing.locales.filter((l) => !isReviewLocale(l));
 

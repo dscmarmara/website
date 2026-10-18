@@ -16,7 +16,7 @@ import {
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getPostAuthor, getPostBySlug, getPostSlugs, localeChain } from "@/lib/posts";
 import { displayRole, pick } from "@/lib/members";
-import { buildAlternates, orgName, SITE_URL } from "@/lib/seo";
+import { buildAlternates, openGraphBase, orgName, SITE_URL } from "@/lib/seo";
 import { routing } from "@/i18n/routing";
 
 export function generateStaticParams() {
@@ -44,18 +44,24 @@ export async function generateMetadata({
   const post = getPostBySlug(slug, locale);
   if (!post) return {};
   const author = getPostAuthor(post, locale);
+  const alternates = await buildAlternates(`/blog/${slug}`, locale);
+  const og = openGraphBase(locale);
   return {
     title: post.title,
     description: post.excerpt,
-    alternates: await buildAlternates(`/blog/${slug}`, locale),
+    alternates,
+    // Replaces the layout's openGraph and twitter, so the shared fields and the share card are restated.
     openGraph: {
+      ...og,
       type: "article",
+      url: alternates.canonical,
       title: post.title,
       description: post.excerpt,
       publishedTime: post.date,
       authors: author ? [author.name] : undefined,
       section: post.category,
     },
+    twitter: { card: "summary_large_image", title: post.title, description: post.excerpt, images: og.images },
   };
 }
 

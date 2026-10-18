@@ -1,28 +1,28 @@
 {
   "metadata": {
     "siteName": "Data Science Club",
-    "defaultTitle": "DSC Marmara · Data Science Club",
+    "defaultTitle": "DSC Marmara · Marmara University Data Science Club",
     "titleTemplate": "%s · DSC Marmara",
-    "defaultDescription": "The Data Science Club of Marmara University. We are building a modern structure that breaks traditional student-club molds and speaks the same language as global tech communities and agile tech startups.",
+    "defaultDescription": "The Data Science Club of Marmara University breaks traditional student-club molds and speaks the same language as global tech communities and agile startups.",
     "home": {
       "title": "Home",
-      "description": "The data club that thinks like a startup. Six departments, real projects, and a community that treats you like a builder."
+      "description": "The data club that thinks like a startup. Six departments, real projects, and a student community at Marmara University that treats you like a builder."
     },
     "about": {
       "title": "About",
-      "description": "We're not a club, we're a build crew. Our story, how the club is organised, and the six departments behind it."
+      "description": "We're not a club, we're a build crew. Our six departments: Data Insights, Core AI, Data Pipelines, Summits & Awards, Finance & Corporate Relations and PR."
     },
     "team": {
       "title": "Team",
-      "description": "The people behind the club — led by the president, with two directors steering each of the six departments."
+      "description": "Meet the team behind DSC Marmara: the president, vice president, secretary, and the two directors leading each of the six departments."
     },
     "blog": {
       "title": "Blog",
-      "description": "Columns from the build crew. Opinions, field notes, and lessons from students working with data in public."
+      "description": "The DSC Marmara blog: real opinions, field notes, and lessons from students working with data. Columns from the build crew."
     },
     "contact": {
       "title": "Contact",
-      "description": "Want to join, sponsor us, or collaborate? Drop us a line. A real student reads every message."
+      "description": "Want to join DSC Marmara, collaborate on a project, or sponsor us? Leave us a message. A real student reads every message."
     },
     "shop": {
       "title": "Shop",
