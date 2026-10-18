@@ -549,9 +549,9 @@
     },
     {
       "slug": "cem-evrim",
-      "name": "Cem Evrim",
+      "name": "Cem Evrim Kılıçdoğan",
       "first": "Cem",
-      "initials": "CE",
+      "initials": "CEK",
       "group": "Finance & Corporate",
       "teamRole": "DIRECTOR",
       "dept": "FINANCE & CORPORATE",
@@ -562,10 +562,10 @@
         "tr-x-v1": "Finance & Corporate departmanının eş direktörü."
       },
       "bio1": {
-        "en": "Cem is a co-director of the Finance & Corporate department.",
-        "tr": "Cem, Finance & Corporate departmanını eş direktör olarak yönetmektedir.",
-        "tr-x-v1": "Cem, Finance & Corporate departmanını eş direktör olarak yönetiyor.",
-        "en-x-v1": "Cem co-directs the Finance & Corporate department."
+        "en": "Cem Evrim is a co-director of the Finance & Corporate department.",
+        "tr": "Cem Evrim, Finance & Corporate departmanını eş direktör olarak yönetmektedir.",
+        "tr-x-v1": "Cem Evrim, Finance & Corporate departmanını eş direktör olarak yönetiyor.",
+        "en-x-v1": "Cem Evrim co-directs the Finance & Corporate department."
       },
       "bio2": {
         "en": "",

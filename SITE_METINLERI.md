@@ -227,7 +227,7 @@
 | Elif Esma Tuna | Summits & Awards departmanını eş direktör olarak yönetmektedir. | Co-director of the Summits & Awards department. |
 | Tarık Emre Ermiş | Summits & Awards departmanını eş direktör olarak yönetmektedir. | Co-director of the Summits & Awards department. |
 | Cansu Okcu | Finance & Corporate departmanını eş direktör olarak yönetmektedir. | Co-director of the Finance & Corporate department. |
-| Cem Evrim | Finance & Corporate departmanını eş direktör olarak yönetmektedir. | Co-director of the Finance & Corporate department. |
+| Cem Evrim Kılıçdoğan | Finance & Corporate departmanını eş direktör olarak yönetmektedir. | Co-director of the Finance & Corporate department. |
 | Elif Ayşe Şen | PR departmanını eş direktör olarak yönetmektedir. | Co-director of the PR department. |
 | Esma Özcan | PR departmanını eş direktör olarak yönetmektedir. | Co-director of the PR department. |
 
@@ -244,7 +244,7 @@ Kendi biyografisini vermemiş üyelerde profilde görünen kalıp cümle.
 | Elif Esma Tuna | Elif Esma, Summits & Awards departmanını eş direktör olarak yönetmektedir. | Elif Esma is a co-director of the Summits & Awards department. |
 | Tarık Emre Ermiş | Tarık Emre, Summits & Awards departmanını eş direktör olarak yönetmektedir. | Tarık Emre is a co-director of the Summits & Awards department. |
 | Cansu Okcu | Cansu, Finance & Corporate departmanını eş direktör olarak yönetmektedir. | Cansu is a co-director of the Finance & Corporate department. |
-| Cem Evrim | Cem, Finance & Corporate departmanını eş direktör olarak yönetmektedir. | Cem is a co-director of the Finance & Corporate department. |
+| Cem Evrim Kılıçdoğan | Cem Evrim, Finance & Corporate departmanını eş direktör olarak yönetmektedir. | Cem Evrim is a co-director of the Finance & Corporate department. |
 
 ## 7. Odak alanı etiketleri (`src/lib/skills.ts`)
 
