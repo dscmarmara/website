@@ -28,7 +28,7 @@ import {
 } from "@/lib/members";
 import { getPostsByAuthor } from "@/lib/posts";
 import { skillLabel } from "@/lib/skills";
-import { buildAlternates, orgName, SITE_URL } from "@/lib/seo";
+import { buildAlternates, clampDescription, openGraphBase, orgName, SITE_URL } from "@/lib/seo";
 import { routing } from "@/i18n/routing";
 
 /**
@@ -50,10 +50,23 @@ export async function generateMetadata({
   const { locale, slug } = await params;
   const m = getMemberBySlug(slug);
   if (!m) return {};
+  const t = await getTranslations({ locale, namespace: "metadata" });
+  const tagline = pick(m.tagline, locale);
+  // The tagline alone ("Secretary of the club.") says neither who nor which club;
+  // the club's name goes in whenever the snippet still fits.
+  const withClub = t("member.description", { name: m.name, tagline });
+  const description = withClub.length <= 160 ? withClub : clampDescription(`${m.name}: ${tagline}`);
+  const alternates = await buildAlternates(`/team/${slug}`, locale);
+  const og = openGraphBase(locale);
+  // Shared profiles show the member's (square) photo instead of the club card.
+  const images = m.photo ? [{ url: m.photo, alt: m.name }] : og.images;
+  const title = t("titleTemplate").replace("%s", m.name);
   return {
     title: m.name,
-    description: pick(m.tagline, locale),
-    alternates: await buildAlternates(`/team/${slug}`, locale),
+    description,
+    alternates,
+    openGraph: { ...og, type: "profile", url: alternates.canonical, title, description, images },
+    twitter: { card: m.photo ? "summary" : "summary_large_image", title, description, images },
   };
 }
 
@@ -87,14 +100,26 @@ export default async function MemberPage({
   const posts = getPostsByAuthor(slug, locale);
 
   const prefix = locale === routing.defaultLocale ? "" : `/${locale}`;
+  // The on-page role label is uppercase styling ("DİREKTÖR · CORE AI"); search engines get a plain title.
+  const tm = await getTranslations("metadata");
+  const jobTitle =
+    m.teamRole === "PRESIDENT"
+      ? tm("jobTitle.president")
+      : m.teamRole === "VICE PRESIDENT"
+        ? tm("jobTitle.vicePresident")
+        : m.teamRole === "SECRETARY"
+          ? tm("jobTitle.secretary")
+          : tm("jobTitle.director", { dept: m.group });
   const personLd: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: m.name,
-    jobTitle: role,
+    jobTitle,
+    description: pick(m.tagline, locale),
     url: `${SITE_URL}${prefix}/team/${slug}`,
-    worksFor: { "@type": "Organization", name: orgName(locale) },
+    worksFor: { "@type": "Organization", name: orgName(locale), url: SITE_URL },
   };
+  if (m.photo) personLd.image = `${SITE_URL}${m.photo}`;
   // `sameAs` is how a search engine ties this page to the real-world person:
   // other profile URLs it can cross-reference. LinkedIn is the strongest such
   // signal and nearly every member has one, whereas `github` / `websiteUrl` are

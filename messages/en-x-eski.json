@@ -31,6 +31,15 @@
     "notFound": {
       "title": "Page not found",
       "description": "The page you were looking for doesn't exist."
+    },
+    "member": {
+      "description": "{name}: {tagline} DSC Marmara, the Marmara University Data Science Club."
+    },
+    "jobTitle": {
+      "president": "President",
+      "vicePresident": "Vice President",
+      "secretary": "Secretary",
+      "director": "Co-director, {dept}"
     }
   },
   "nav": {

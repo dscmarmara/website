@@ -31,6 +31,15 @@
     "notFound": {
       "title": "Sayfa bulunamadı",
       "description": "Aradığın sayfa mevcut değil."
+    },
+    "member": {
+      "description": "{name}: {tagline} DSC Marmara, Marmara Üniversitesi Veri Bilimi Kulübü."
+    },
+    "jobTitle": {
+      "president": "Kulüp Başkanı",
+      "vicePresident": "Başkan Yardımcısı",
+      "secretary": "Sekreter",
+      "director": "{dept} Eş Direktörü"
     }
   },
   "nav": {

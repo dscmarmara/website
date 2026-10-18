@@ -25,6 +25,11 @@
 | `metadata.contact.description` | DSC Marmara'ya katılmak, projelerimize ortak olmak ya da sponsor olmak mı istiyorsun? Bize bir mesaj bırak; her mesajı gerçek bir öğrenci okuyor. | Want to join DSC Marmara, collaborate on a project, or sponsor us? Leave us a message. A real student reads every message. |
 | `metadata.notFound.title` | Sayfa bulunamadı | Page not found |
 | `metadata.notFound.description` | Aradığın sayfa bulunamadı. | The page you were looking for doesn't exist. |
+| `metadata.member.description` | {name}: {tagline} DSC Marmara, Marmara Üniversitesi Veri Bilimi Kulübü. | {name}: {tagline} DSC Marmara, the Marmara University Data Science Club. |
+| `metadata.jobTitle.president` | Kulüp Başkanı | President |
+| `metadata.jobTitle.vicePresident` | Başkan Yardımcısı | Vice President |
+| `metadata.jobTitle.secretary` | Sekreter | Secretary |
+| `metadata.jobTitle.director` | {dept} Eş Direktörü | Co-director, {dept} |
 
 ## 2. Menü ve logo
 

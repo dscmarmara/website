@@ -16,7 +16,7 @@ import {
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getPostAuthor, getPostBySlug, getPostSlugs, localeChain } from "@/lib/posts";
 import { displayRole, pick } from "@/lib/members";
-import { buildAlternates, openGraphBase, orgName, SITE_URL } from "@/lib/seo";
+import { buildAlternates, clampDescription, openGraphBase, orgName, SITE_URL } from "@/lib/seo";
 import { routing } from "@/i18n/routing";
 
 export function generateStaticParams() {
@@ -46,9 +46,13 @@ export async function generateMetadata({
   const author = getPostAuthor(post, locale);
   const alternates = await buildAlternates(`/blog/${slug}`, locale);
   const og = openGraphBase(locale);
+  const t = await getTranslations({ locale, namespace: "metadata" });
+  // Search results show ~60 characters of a title: a long post title goes without the " · DSC Marmara" suffix.
+  const title = t("titleTemplate").replace("%s", post.title).length > 60 ? { absolute: post.title } : post.title;
+  const description = clampDescription(post.excerpt);
   return {
-    title: post.title,
-    description: post.excerpt,
+    title,
+    description,
     alternates,
     // Replaces the layout's openGraph and twitter, so the shared fields and the share card are restated.
     openGraph: {
@@ -56,12 +60,12 @@ export async function generateMetadata({
       type: "article",
       url: alternates.canonical,
       title: post.title,
-      description: post.excerpt,
+      description,
       publishedTime: post.date,
       authors: author ? [author.name] : undefined,
       section: post.category,
     },
-    twitter: { card: "summary_large_image", title: post.title, description: post.excerpt, images: og.images },
+    twitter: { card: "summary_large_image", title: post.title, description, images: og.images },
   };
 }
 
@@ -92,8 +96,16 @@ export default async function BlogDetailPage({
     datePublished: post.date,
     articleSection: post.category,
     inLanguage: locale,
+    url: `${SITE_URL}${prefix}/blog/${slug}`,
     mainEntityOfPage: `${SITE_URL}${prefix}/blog/${slug}`,
-    publisher: { "@type": "Organization", name: orgName(locale) },
+    // The post's share card; Google's article results want an image.
+    image: `${SITE_URL}/${locale}/opengraph-image`,
+    publisher: {
+      "@type": "Organization",
+      name: orgName(locale),
+      url: SITE_URL,
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/icon-192.png` },
+    },
   };
   if (author) blogLd.author = { "@type": "Person", name: author.name };
 

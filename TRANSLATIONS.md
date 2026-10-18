@@ -115,6 +115,7 @@ açıklamalar `messages/*.json` → `metadata.*`'tan gelir (≤ ~160 karakter tu
 | Üye odak alanı etiketleri (Makine Öğrenmesi, İstatistik…) | `src/lib/skills.ts` | `SKILLS_TR`: İngilizce ad → Türkçe ad. Üyenin `focus` listesine sadece İngilizce adı yaz; sözlükte olmayan etiket build'i durdurur |
 | Blog yazıları | `content/blog/tr/<slug>.mdx` | aşağıdaki "Blog" bölümüne bak |
 | Arama motorlarına verilen kulüp adı (TR / EN) | `src/lib/seo.ts` | `SITE_NAME_TR` / `SITE_LEGAL_NAME` |
+| Üye profilinin arama açıklaması ve unvanı | `messages/tr.json` / `en.json` | `metadata.member.description` ({name}: {tagline} + kulüp adı; 160 karakteri aşarsa kulüp adı düşer), `metadata.jobTitle.*`; 6 mesaj dosyasında da olmalı |
 | Sosyal medya paylaşım görseli | `messages/tr.json` / `en.json` | `home.heroTitle` (büyük yazı) ve `brand.title`, `brand.university`; görsel `src/app/[locale]/opengraph-image.tsx` |
 | İletişim formundan kulübe gelen e-posta | `src/lib/zoho.ts` | `sendContactMail` içindeki "Gönderen:", "Konu:"… |
 | Mağaza sayfası yazıları (başlık, buton, WhatsApp mesajı) | `messages/tr.json` | `shop` |
