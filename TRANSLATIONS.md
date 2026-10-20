@@ -79,8 +79,11 @@ Sürümlerin diğer parçaları:
 1. Geliştirme `preview-development`'ta yapılır; her push bir Vercel Preview'dır.
 2. Hazır olunca staging'e terfi edilir: `git push origin preview-development:staging`.
 3. Staging adresinde site canlıdaki haliyle kontrol edilir:
-   - Adres Vercel'in dal adresi (`…-git-staging-….vercel.app`) ya da GitHub'da commit'in "Deployments" bağlantısı;
-     açmak için Vercel girişi gerekir.
+   - Adres: https://website-git-staging-coolsadik11s-projects.vercel.app (Vercel'in dal adresi, her zaman staging'in
+     son halini gösterir; açmak için Vercel girişi gerekir). Önizlemenin karşılığı:
+     https://website-git-preview-development-coolsadik11s-projects.vercel.app
+   - Vercel bir dalı ancak o dala yeni commit gelince deploy eder. Dal yalnızca var olan bir commit'le açıldıysa
+     (ilk kurulumda olduğu gibi) adres `DEPLOYMENT_NOT_FOUND` verir. Bir sonraki terfi deploy'u başlatır.
    - İstenirse Vercel → Settings → Domains'ten `staging.dscmarmara.com.tr` gibi bir alt alan adı bu dala
      bağlanabilir (DNS kaydı da gerekir).
    - SEO denetimi:
