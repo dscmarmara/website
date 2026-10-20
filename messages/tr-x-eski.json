@@ -157,7 +157,8 @@
     "readArticle": "Yazıyı oku",
     "comingSoon": "Yazılar çok yakında",
     "comingSoonSub": "İlk köşe yazılarımız üzerinde çalışıyoruz. Ekibin veriyle ilgili neler yazdığını okumak için yakında tekrar uğrayın.",
-    "related": "Diğer yazılar"
+    "related": "Diğer yazılar",
+    "draftNote": "Taslak: bu yazı yalnızca önizlemede görünür, canlı sitede yayınlanmaz."
   },
   "article": {
     "toc": "İçindekiler",

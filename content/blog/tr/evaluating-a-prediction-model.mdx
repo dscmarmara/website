@@ -1,0 +1,101 @@
+---
+title: "Bir tahmin modeli ne kadar iyi? MAE, RMSE ve R² ne söyler"
+author: "sadik"
+date: "2026-10-20"
+category: "Core AI"
+readingTime: "6 DK"
+excerpt: "Tek bir skor, modelin nerede ve ne kadar yanıldığını anlatmaya yetmez. Üç temel ölçünün neyi ölçtüğü, taban modelle karşılaştırmanın önemi ve zamana bağlı veride doğru doğrulama."
+draft: true
+---
+
+Bir regresyon modelini bitirdiğinizde ilk sorulan soru genellikle "skoru kaç?" oluyor. Ama "R² 0,87" ya da "hata 2,1" tek başına pek bir şey söylemiyor: neye göre iyi, hangi durumda yanılıyor, gerçek hayatta kullanılabilir mi? Bu yazıda üç temel ölçünün neyi ölçtüğünü ve bir modeli değerlendirirken skorun yanına neleri koymak gerektiğini anlatıyorum.
+
+## Hatayı nasıl ölçüyoruz
+
+Üç ölçünün de çıkış noktası aynı: her gözlem için gerçek değer ile tahmin arasındaki fark, yani **hata**. Ayrıştıkları yer, bu hataları nasıl topladıkları.
+
+### MAE: ortalama mutlak hata
+
+Hataların mutlak değerlerinin ortalaması. En kolay yorumlanan ölçü, çünkü hedefle aynı birimde: "model ortalamada 2 dakika şaşıyor" demek mümkün. Her hatayı eşit tartar; 10 dakikalık bir hata, 1 dakikalık on hatayla aynı ağırlıktadır.
+
+### RMSE: büyük hatalara daha sert
+
+Hataların karelerinin ortalamasının karekökü. Kare alındığı için büyük hatalar orantısız biçimde büyür. Bu yüzden RMSE hiçbir zaman MAE'den küçük olmaz; ikisi arasındaki fark ne kadar açıksa, model o kadar sık **büyük** hatalar yapıyor demektir.
+
+### R²: açıklanan varyans
+
+Modelin, hedefteki değişkenliğin ne kadarını açıkladığını gösterir: 1 kusursuz tahmin, 0 ise "her seferinde ortalamayı söylemek" kadar iyi olmak demek.[^1] Birimsiz olduğu için farklı modelleri aynı veri setinde kıyaslamakta işe yarar, ama farklı veri setleri arasında karşılaştırmak yanıltıcıdır: hedefin kendisi az değişiyorsa, iyi bir model de düşük R² alabilir.
+
+| Ölçü | Birim | Neye duyarlı | Ne zaman işe yarar |
+|---|---|---|---|
+| MAE | Hedefle aynı | Her hatayı eşit tartar | "Ortalamada ne kadar şaşıyor?" |
+| RMSE | Hedefle aynı | Büyük hatalar | Büyük hatanın pahalı olduğu işler |
+| R² | Birimsiz | Hedefin değişkenliği | Aynı veride modelleri kıyaslamak |
+
+<Chart
+  type="bar"
+  caption="Aynı MAE, farklı RMSE"
+  x="olcu"
+  y={["a", "b"]}
+  names={{ a: "Model A", b: "Model B" }}
+  yTitle="Hata (birim)"
+  height={260}
+  data={[{ "olcu": "MAE", "a": 2.0, "b": 2.0 }, { "olcu": "RMSE", "a": 2.1, "b": 3.1 }]}
+  note="Örnek değerler. Model A her gözlemde 2 civarında şaşıyor; Model B çoğu zaman 1 birim şaşıyor ama arada 7-8 birimlik hatalar yapıyor."
+/>
+
+<Callout tone="finding">
+
+İki model de aynı MAE'ye sahip, ama Model B'nin RMSE'si belirgin biçimde yüksek: arada bir **çok** yanılıyor. Hangisinin daha iyi olduğu, büyük bir hatanın sizin için ne kadar pahalı olduğuna bağlı. Yalnızca MAE'ye bakan biri bu farkı hiç görmez.
+
+</Callout>
+
+## Taban modelle karşılaştırın
+
+"Hata 2,1" iyi mi? Bunu ancak çok basit bir yöntemin ne kadar hata yaptığını bilince söyleyebiliriz. Buna **taban model** (baseline) denir:
+
+- Her zaman eğitim verisinin ortalamasını tahmin etmek
+- Zamana bağlı veride bir önceki değeri tekrarlamak ("dün ne olduysa bugün de o")
+- Mevsimsel veride geçen haftanın aynı gününü kullanmak
+
+Modelin değeri, taban modele göre ne kadar iyi olduğudur. Bunu tek sayıyla göstermenin kolay bir yolu, hatadaki göreli düşüş: taban modelin MAE'si 4 iken modelinki 2 ise, model hatayı yarıya indirmiş demektir.
+
+```python
+import numpy as np
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+
+mae = mean_absolute_error(y_test, y_pred)
+rmse = np.sqrt(mean_squared_error(y_test, y_pred))
+r2 = r2_score(y_test, y_pred)
+
+# Taban model: bir önceki değeri tekrarla
+y_naive = y_test.shift(1).bfill()
+skill = 1 - mae / mean_absolute_error(y_test, y_naive)
+```
+
+`skill` sıfırın altındaysa, model "dün ne olduysa bugün de o" demekten daha kötü tahmin ediyor demektir. Bu, şaşırtıcı derecede sık karşılaşılan bir durum.
+
+## Zamana bağlı veride doğrulama
+
+Veri zamana bağlıysa (satışlar, trafik, bekleme süreleri) veriyi rastgele bölmek, modelin geleceği görmesine izin verir: eğitim setinde yarının, test setinde dünün gözlemleri olur. Sonuç, gerçekte hiç ulaşılamayacak kadar iyi görünen bir skordur.
+
+Doğrusu, veriyi zaman sırasıyla bölmek: geçmişle eğitip daha sonraki dönemle sınamak. scikit-learn'deki `TimeSeriesSplit` bunu birkaç kez, pencereyi ileri kaydırarak yapar; böylece tek bir şanslı döneme bağlı kalmazsınız.
+
+<Callout tone="warning" title="Sızıntıya dikkat">
+
+Zaman sırasıyla bölmek yetmeyebilir. Bir özelliği hesaplarken geleceğe bakmak da sızıntıdır: örneğin "son 7 günün ortalaması" bugünün değerini de içeriyorsa, model cevabı soruda görür. Özellikleri her zaman yalnızca tahmin anında bilinen bilgiyle hesaplayın.
+
+</Callout>
+
+## Hangisini raporlamalı
+
+Tek bir sayı yerine kısa bir tablo çoğu zaman daha dürüst:
+
+1. **MAE**, hedefin biriminde: herkesin anlayacağı ortalama hata.
+2. **RMSE**, MAE'nin yanında: büyük hataların sıklığı hakkında fikir verir.
+3. **Taban modelin aynı ölçüleri**: modelin gerçekten bir şey öğrenip öğrenmediği.
+4. **Hatanın nerede yoğunlaştığı**: günün saati, ürün grubu ya da şehir gibi alt kümelerde hata nasıl değişiyor?
+
+Son madde genellikle en çok şey öğretenidir. Ortalamada iyi görünen bir model, tam da en önemli olduğu anlarda (yoğun saatler, büyük siparişler) kötü olabilir. Ölçülerin ayrıntılı tanımları için scikit-learn'ün [model değerlendirme rehberi](https://scikit-learn.org/stable/modules/model_evaluation.html) iyi bir başlangıç.
+
+[^1]: R² test verisinde negatif de olabilir: model, her seferinde ortalamayı söylemekten daha kötü tahmin ediyorsa.

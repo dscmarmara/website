@@ -157,7 +157,8 @@
     "readArticle": "Read article",
     "comingSoon": "Posts coming soon",
     "comingSoonSub": "Our first columns are in the works. Check back shortly to read what the crew is writing about data.",
-    "related": "More from the blog"
+    "related": "More from the blog",
+    "draftNote": "Draft: this post only shows on previews and is not published on the live site."
   },
   "article": {
     "toc": "Contents",

@@ -1,0 +1,101 @@
+---
+title: "How good is a prediction model? What MAE, RMSE and R² tell you"
+author: "sadik"
+date: "2026-10-20"
+category: "Core AI"
+readingTime: "6 MIN"
+excerpt: "A single score can't tell you where a model goes wrong, or by how much. What the three basic metrics measure, why a baseline matters, and how to validate on data that depends on time."
+draft: true
+---
+
+When you finish a regression model, the first question is usually "what's the score?" But "R² is 0.87" or "the error is 2.1" says little on its own: good compared to what, where does it go wrong, is it usable in practice? This post covers what the three basic metrics measure and what belongs next to the score when you evaluate a model.
+
+## How we measure error
+
+All three metrics start from the same place: for each observation, the difference between the actual value and the prediction, the **error**. Where they differ is how they add those errors up.
+
+### MAE: mean absolute error
+
+The average of the absolute errors. It is the easiest to read, because it is in the target's own unit: you can say "the model is off by 2 minutes on average". It weighs every error the same; one 10-minute miss counts as much as ten 1-minute misses.
+
+### RMSE: harsher on large errors
+
+The square root of the average squared error. Squaring makes large errors count disproportionately. That is why RMSE is never smaller than MAE, and the wider the gap between them, the more often the model makes **large** errors.
+
+### R²: explained variance
+
+How much of the variation in the target the model explains: 1 is a perfect prediction, 0 is as good as "always say the average".[^1] Being unitless, it is useful for comparing models on the same dataset, but misleading across datasets: if the target itself barely varies, even a good model can score a low R².
+
+| Metric | Unit | Sensitive to | Useful for |
+|---|---|---|---|
+| MAE | Same as target | Every error equally | "How far off on average?" |
+| RMSE | Same as target | Large errors | Work where a big miss is costly |
+| R² | Unitless | Variation of the target | Comparing models on the same data |
+
+<Chart
+  type="bar"
+  caption="Same MAE, different RMSE"
+  x="olcu"
+  y={["a", "b"]}
+  names={{ a: "Model A", b: "Model B" }}
+  yTitle="Error (units)"
+  height={260}
+  data={[{ "olcu": "MAE", "a": 2.0, "b": 2.0 }, { "olcu": "RMSE", "a": 2.1, "b": 3.1 }]}
+  note="Example values. Model A is off by about 2 on every observation; Model B is usually off by 1 but now and then by 7 or 8."
+/>
+
+<Callout tone="finding">
+
+Both models have the same MAE, but Model B's RMSE is clearly higher: now and then it is off by **a lot**. Which one is better depends on how costly a large miss is for you. Someone looking only at MAE never sees the difference.
+
+</Callout>
+
+## Compare against a baseline
+
+Is "an error of 2.1" good? You can only tell once you know how much a very simple method gets wrong. That is the **baseline**:
+
+- Always predicting the training data's average
+- On data that depends on time, repeating the previous value ("whatever happened yesterday")
+- On seasonal data, using the same day last week
+
+A model is worth what it gains over the baseline. An easy way to show that in one number is the relative drop in error: if the baseline's MAE is 4 and the model's is 2, the model has halved the error.
+
+```python
+import numpy as np
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+
+mae = mean_absolute_error(y_test, y_pred)
+rmse = np.sqrt(mean_squared_error(y_test, y_pred))
+r2 = r2_score(y_test, y_pred)
+
+# Baseline: repeat the previous value
+y_naive = y_test.shift(1).bfill()
+skill = 1 - mae / mean_absolute_error(y_test, y_naive)
+```
+
+If `skill` is below zero, the model predicts worse than "whatever happened yesterday". That happens surprisingly often.
+
+## Validating on data that depends on time
+
+When the data depends on time (sales, traffic, waiting times), a random split lets the model see the future: the training set holds tomorrow's observations and the test set yesterday's. The result is a score that looks better than anything you will ever get in practice.
+
+The right way is to split in time order: train on the past and test on a later period. `TimeSeriesSplit` in scikit-learn does this several times, moving the window forward, so you don't depend on one lucky period.
+
+<Callout tone="warning" title="Watch for leakage">
+
+Splitting in time order may not be enough. Looking into the future while computing a feature is leakage too: if a "last 7 days average" includes today's value, the model sees the answer in the question. Always compute features only from what is known at prediction time.
+
+</Callout>
+
+## What to report
+
+A short table is often more honest than a single number:
+
+1. **MAE**, in the target's unit: an average error anyone can understand.
+2. **RMSE**, next to MAE: a hint of how often large errors happen.
+3. **The same metrics for the baseline**: whether the model actually learned anything.
+4. **Where the error concentrates**: how it changes across subsets like time of day, product group or city.
+
+The last one usually teaches the most. A model that looks good on average can be poor exactly when it matters most (peak hours, large orders). For detailed definitions of the metrics, scikit-learn's [model evaluation guide](https://scikit-learn.org/stable/modules/model_evaluation.html) is a good start.
+
+[^1]: R² can even be negative on test data, when the model predicts worse than always saying the average.

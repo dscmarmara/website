@@ -183,6 +183,9 @@ Bu dosyalarda çevrilen alanlar `{ en: "…", tr: "…" }` şeklinde yan yana du
   `authorName: "Ad Soyad"` yazılır. Ad profil linki, rol ve yazar kutusu olmadan görünür. Örnek: Mustafa Kaan
   Yıldız'ın risk analizi yazısı.
 - Başlangıç için `content/blog/tr/_template.mdx` dosyasını kopyalayabilirsin.
+- `draft: true` olan yazı yalnızca önizlemede görünür ("Taslak" uyarısıyla). Canlıda listede, sitemap'te ve yazarın
+  profilinde yer almaz, adresi 404 verir. Yayınlamak için satırı silmek yeterli. Örnek:
+  `evaluating-a-prediction-model` (şablonu denemek için yazılmış deneme yazısı).
 
 **Yazının görünümü (okuma şablonu):**
 - Başlık düz yazı fontuyla (Bricolage) çizilir; el yazısı font yalnızca sayfa hero'larında kalır.

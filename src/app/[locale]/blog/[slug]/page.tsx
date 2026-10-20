@@ -150,6 +150,7 @@ export default async function BlogDetailPage({
       <article className="read-layout">
         <aside className="read-toc">{hasToc && <TocRail items={headings} label={ta("toc")} />}</aside>
         <div className="read-main">
+          {post.draft && <div className="example-banner">{t("draftNote")}</div>}
           <ArticleHeader
             back={{ href: "/blog", label: t("backToBlog") }}
             // lang="en": department names stay English, so uppercase them without the Turkish dotted İ.
