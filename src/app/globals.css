@@ -44,7 +44,7 @@
   --font-sans: var(--font-hanken), system-ui, sans-serif;
   --font-display: var(--font-bricolage), system-ui, sans-serif;
   --font-body: var(--font-hanken), system-ui, sans-serif;
-  --font-script: var(--font-condiment), var(--font-pacifico), cursive;
+  --font-script: var(--font-dsc-script), cursive;
 }
 
 :root {
@@ -73,7 +73,7 @@
   /* --- font stacks --- */
   --font-display-stack: var(--font-bricolage), system-ui, sans-serif;
   --font-body-stack: var(--font-hanken), system-ui, sans-serif;
-  --font-script-stack: var(--font-condiment), var(--font-pacifico), cursive;
+  --font-script-stack: var(--font-dsc-script), cursive;
   --font-mono-stack: var(--font-hanken), system-ui, sans-serif;
 
   /* --- shadcn tokens mapped onto the dark palette --- */
@@ -897,6 +897,25 @@ details.dsc-acc[open] .acc-title {
 }
 .dif-del + .dif-ins {
   margin-left: 3px;
+}
+/* /karsilastir/font (script headings before / after DSC Script) */
+.fnt-line {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 12px;
+  align-items: center;
+  overflow-wrap: anywhere;
+}
+.fnt-line + .fnt-line {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.08);
+}
+.fnt-mark {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.12em;
 }
 @media (max-width: 900px) {
   .cmp-frames {

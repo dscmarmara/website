@@ -38,8 +38,15 @@ sunumundan (DSC_ALTYAPI_TANITIM) uyarlanmış metinler. Anasayfa departman kartl
   "Sayfada gör →" o sayfayı iki sürümde yan yana açar. Seçimler adreste durur (`?once=eski&sonra=v2&dil=tr`). Metinler
   `src/lib/textInventory.ts`'te sitenin kendi okuma kurallarıyla toplanır; blog yazıları dahil değil. Paslaşma
   bölümünün metinleri, sayfadaki gibi yalnızca **Paslaşma AÇIK** iken listelenir.
-- Şerit, `/karsilastir` ve `/karsilastir/farklar` Vercel production'da (`NEXT_PUBLIC_VERCEL_ENV=production`) yok; sürüm
-  adresleri canlıda 404.
+- **Font:** şeritteki **"Font →"** ya da `/karsilastir/font`. Sitedeki el yazısı başlıklar iki satırda: ÖNCE (Condiment;
+  eksik Ğ ğ İ Ş ş ve ı Pacifico'dan) ve SONRA (DSC Script). Değişen harflerin altı çizili.
+- Şerit, `/karsilastir`, `/karsilastir/farklar` ve `/karsilastir/font` Vercel production'da
+  (`NEXT_PUBLIC_VERCEL_ENV=production`) yok; sürüm adresleri canlıda 404.
+
+**Başlık fontu (DSC Script):** hero başlıklarındaki el yazısı font, Condiment'e eksik Türkçe harflerin (Ğ ğ İ Ş ş)
+fontun kendi harf ve aksanlarından eklenmiş hali (`src/fonts/dsc-script/`, OFL; özgün dosya `src/fonts/condiment/`
+kaynak olarak duruyor). Yeniden üretmek ya da aksan yerini ayarlamak için `scripts/build-script-font.mjs` →
+`TUNE()` ve `node scripts/build-script-font.mjs`.
 
 Menüdeki tek dil düğmesi (Türkçede "EN" → `/`, İngilizcede "TR" → `/tr`) her zaman öteki dilin YENİ 2'sine gider.
 
@@ -96,8 +103,9 @@ açıklamalar `messages/*.json` → `metadata.*`'tan gelir (≤ ~160 karakter tu
 3. Kod tarafını kaldır:
    - `src/i18n/routing.ts` içindeki `REVIEW_LOCALES` / `isReviewLocale` ve onları kullanan yerler (`src/lib/seo.ts`, `src/app/[locale]/layout.tsx`)
    - `src/components/layout/DevOptions.tsx` ve `Nav.tsx`'teki `<DevOptions />` satırı, `src/lib/copyVersions.ts`
-   - `src/app/karsilastir/` (farklar sayfası dahil), `src/components/dev/CompareView.tsx` ve `DiffView.tsx`,
-     `src/lib/textInventory.ts`, `src/lib/wordDiff.ts`, `globals.css`'teki `.cmp*` ve `.dif*` kuralları ve
+   - `src/app/karsilastir/` (farklar ve font sayfaları dahil), `src/components/dev/CompareView.tsx`, `DiffView.tsx`
+     ve `FontCompare.tsx`, `src/fonts/legacy.ts`, `src/lib/textInventory.ts`, `src/lib/wordDiff.ts`, `globals.css`'teki
+     `.cmp*`, `.dif*` ve `.fnt*` kuralları ve
      `src/proxy.ts`'teki `karsilastir` istisnası (`src/lib/siteTextKeys.ts` kalır, `npm run site-texts` kullanıyor)
    - `src/lib/members.ts` içindeki `Localized` tipinde sürüm anahtarları
    - `messages/en.json` ve `messages/tr.json` içindeki `nav.turkishOld` ve `nav.englishOld`

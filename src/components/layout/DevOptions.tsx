@@ -1,6 +1,7 @@
 "use client";
 
 import { useSyncExternalStore, useTransition } from "react";
+import NextLink from "next/link";
 import { useLocale } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { IS_PRODUCTION } from "@/lib/env";
@@ -109,6 +110,10 @@ export function DevOptions() {
             <a href={diffHref} className="lang-btn" style={{ ...btn, textDecoration: "none" }} title="Canlıdaki metinle bu sürüm arasındaki farklar">
               Farklar →
             </a>
+            {/* next/link, not the locale-aware Link: /karsilastir has no locale prefix. */}
+            <NextLink href="/karsilastir/font" className="lang-btn" style={{ ...btn, textDecoration: "none" }} title="Başlıkların el yazısı fontu: önce / sonra">
+              Font →
+            </NextLink>
           </div>
           <div style={pill}>
             <Link href="/shop" className="lang-btn" data-active={onShop ? "" : undefined} style={{ ...btn, textDecoration: "none" }}>

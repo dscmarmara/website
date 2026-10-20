@@ -4,7 +4,7 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { isReviewLocale, routing } from "@/i18n/routing";
 import { IS_PRODUCTION } from "@/lib/env";
-import { bricolage, hanken, pacifico, condiment } from "@/fonts";
+import { bricolage, hanken, dscScript } from "@/fonts";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -76,7 +76,7 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
   const tMeta = await getTranslations({ locale, namespace: "metadata" });
 
-  const fontVars = `${bricolage.variable} ${hanken.variable} ${pacifico.variable} ${condiment.variable}`;
+  const fontVars = `${bricolage.variable} ${hanken.variable} ${dscScript.variable}`;
 
   return (
     <html lang={locale} data-scroll-behavior="smooth" className={`dark ${fontVars}`}>

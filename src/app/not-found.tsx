@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { bricolage, hanken, pacifico, condiment } from "@/fonts";
+import { bricolage, hanken, dscScript } from "@/fonts";
 import en from "../../messages/en.json";
 import tr from "../../messages/tr.json";
 import "./globals.css";
@@ -11,7 +11,7 @@ import "./globals.css";
  * localized [locale]/not-found.tsx instead. Both languages, same look.
  */
 export default function RootNotFound() {
-  const fontVars = `${bricolage.variable} ${hanken.variable} ${pacifico.variable} ${condiment.variable}`;
+  const fontVars = `${bricolage.variable} ${hanken.variable} ${dscScript.variable}`;
   const btn = {
     display: "inline-flex",
     alignItems: "center",

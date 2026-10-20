@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import NextLink from "next/link";
 import { COPY_VERSIONS, isCopyVersion, stripLocale, textVersionOf, versionHref } from "@/lib/copyVersions";
 import { routing, type Locale } from "@/i18n/routing";
 import { setDevFlag, useDevFlag } from "@/lib/devFlags";
@@ -236,6 +237,9 @@ export function CompareView() {
         <a href={diffHref} style={{ ...caption, color: "var(--accent)", textDecoration: "none" }} title="İki sürüm arasındaki metin farkları">
           Farklar →
         </a>
+        <NextLink href="/karsilastir/font" style={{ ...caption, color: "var(--accent)", textDecoration: "none" }} title="Başlıkların el yazısı fontu: önce / sonra">
+          Font →
+        </NextLink>
       </div>
       <div className="cmp-frames">
         {(["left", "right"] as Side[]).map((side) => (

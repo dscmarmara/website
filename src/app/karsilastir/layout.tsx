@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { bricolage, hanken, pacifico, condiment } from "@/fonts";
+import { bricolage, hanken, dscScript } from "@/fonts";
 import { IS_PRODUCTION } from "@/lib/env";
 import "../globals.css";
 
@@ -9,7 +9,7 @@ import "../globals.css";
  */
 export default function CompareLayout({ children }: { children: React.ReactNode }) {
   if (IS_PRODUCTION) notFound();
-  const fontVars = `${bricolage.variable} ${hanken.variable} ${pacifico.variable} ${condiment.variable}`;
+  const fontVars = `${bricolage.variable} ${hanken.variable} ${dscScript.variable}`;
   return (
     <html lang="tr" className={`dark ${fontVars}`}>
       <body>{children}</body>

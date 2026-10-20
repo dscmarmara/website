@@ -1,4 +1,4 @@
-import { Bricolage_Grotesque, Hanken_Grotesk, Pacifico } from "next/font/google";
+import { Bricolage_Grotesque, Hanken_Grotesk } from "next/font/google";
 import localFont from "next/font/local";
 
 // Display / headings
@@ -15,28 +15,11 @@ export const hanken = Hanken_Grotesk({
   display: "swap",
 });
 
-// Turkish-capable brush script fallback for the hero headings
-export const pacifico = Pacifico({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-pacifico",
+// Script hero headings: Condiment with the Turkish letters it lacks (Ğ ğ İ Ş ş)
+// added from its own letters and accents, renamed as the OFL requires
+// (built by scripts/build-script-font.mjs; licence in ./dsc-script/OFL.txt).
+export const dscScript = localFont({
+  src: "./dsc-script/DSCScript-Regular.ttf",
+  variable: "--font-dsc-script",
   display: "swap",
-});
-
-// Condiment (script hero). Its unicode-range deliberately EXCLUDES the Turkish
-// Latin-Extended letters (Ğ ğ İ ı Ş ş) so those glyphs fall through the
-// `--font-script` stack to Pacifico. `adjustFontFallback:false` is required so
-// next/font does not inject an un-ranged metric fallback that would grab those
-// glyphs before Pacifico is reached.
-export const condiment = localFont({
-  src: "./condiment/Condiment-Regular.ttf",
-  variable: "--font-condiment",
-  display: "swap",
-  adjustFontFallback: false,
-  declarations: [
-    {
-      prop: "unicode-range",
-      value: "U+0-11D, U+120-12F, U+132-15D, U+160-2AF, U+2000-206F, U+20A0-20BF",
-    },
-  ],
 });
