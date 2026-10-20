@@ -1,0 +1,94 @@
+---
+title: "Başlık bir soru olsun"
+excerpt: "Bir iki cümle: soru ve çıkan sonuç. Başlığın altında, kartta ve arama sonuçlarında görünür."
+category: "Core AI"
+team: ["sadik"]
+date: "2026-01-01"
+status: "done"
+stack: ["Python", "pandas"]
+links:
+  repo: "https://github.com/dscmarmara"
+metrics:
+  - value: "1,7 dk"
+    label: "Ortalama hata"
+    accent: true
+  - value: "420"
+    label: "Ölçüm"
+    note: "kısa bir açıklama"
+---
+
+Adı `_` ile başlayan dosyalar yayınlanmaz (`src/lib/content.ts` → `slugsOf`).
+Bu dosyayı hem `en/` hem `tr/` içine `<slug>.mdx` olarak kopyala. Veri dosyaları
+ve görseller `public/projects/<slug>/` altına.
+
+Frontmatter: `category`, `DEPARTMENTS` değerlerinden biri (`src/lib/constants.ts`);
+`team`, `src/data/members.json` içindeki üye slug'ları (ekipte olmayanlar
+`teamNames: ["Ad Soyad"]`); `status` `done` ya da `ongoing`. `links`, `metrics`,
+`cover` (kart görseli), `featured` (anasayfa) isteğe bağlı. Yanlış kategori, ekip
+slug'ı ya da durum build'i durdurur.
+
+Sonuçla başla, yöntemi sona bırak. `##` başlıklar numaralı bölüm (01, 02…),
+`###` başlıklar numaralı alt bölüm olur; ikisi de sayfanın yanındaki içindekilerde
+görünür.
+
+## Sonuç
+
+### Bir alt bölüm
+
+<Chart
+  type="line"
+  caption="Grafiğin üstündeki başlık"
+  x="t"
+  y={["a", "b"]}
+  names={{ a: "Gerçek", b: "Tahmin" }}
+  unit="dk"
+  yTitle="Dakika"
+  data={[{ t: "11:30", a: 7, b: 8 }, { t: "12:00", a: 16, b: 17 }, { t: "12:30", a: 20, b: 21 }]}
+  note="Küçük not: kaynak, örneklem, uyarı."
+/>
+
+Grafik türleri: `line`, `area` (`stacked`), `bar` (`horizontal`, `stacked`),
+`scatter` (`diagonal` y = x çizgisini çizer), `histogram` (`bins`). Veri satır içinde
+`data={[…]}` ya da satırlardan oluşan bir JSON dosyasından:
+`src="/projects/<slug>/rows.json"`. İsteğe bağlı: `xTitle`, `yTitle`, `height`
+(px, varsayılan 300).
+
+<Callout tone="finding">
+
+`tone`: `note` (nötr), `finding` (yeşil), `warning` (turuncu); `title` etiketi değiştirir.
+
+</Callout>
+
+## Veri
+
+<Metrics>
+  <Stat value="420" label="Ölçüm" note="bir not" />
+  <Stat value="1,7" label="MAE" accent />
+</Metrics>
+
+<Method>
+
+Nasıl ölçüldüğü ya da hesaplandığı, sakin bir monospace notta.
+
+</Method>
+
+<Grid>
+  <Figure src="/logo/dsc_mark_full.svg" caption="Açıklamalı bir görsel" credit="kaynak" />
+  <Figure src="/logo/dsc_mark_full.svg" caption="Yan yana iki görsel" />
+</Grid>
+
+`<Figure wide …>` geniş ekranda tek bir görseli metinden daha geniş gösterir.
+
+| Model | MAE | R² |
+|---|---:|---:|
+| Taban | 3,9 | 0,41 |
+
+## Yöntem
+
+<Pipeline steps={[{ label: "Ham veri", note: "CSV" }, "Temizlik", "Model", "Rapor"]} />
+
+<Details summary="Kapalı ayrıntı">
+
+Ek materyal, uzun yöntem notları, kod.
+
+</Details>

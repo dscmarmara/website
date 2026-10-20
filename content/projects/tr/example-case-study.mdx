@@ -1,0 +1,169 @@
+---
+title: "Kafeteryada sıra ne kadar sürer?"
+excerpt: "Altı haftalık turnike kayıtlarıyla öğle arasındaki bekleme süresini 10 dakikalık aralıklarla tahmin eden bir model kurduk; ortalama hata 1,7 dakika."
+category: "Data Insights"
+teamNames: ["Örnek Ekip"]
+date: "2026-10-20"
+status: "done"
+stack: ["Python", "pandas", "scikit-learn", "LightGBM", "Plotly"]
+metrics:
+  - value: "1,7 dk"
+    label: "Ortalama hata (MAE)"
+    accent: true
+  - value: "0,91"
+    label: "R²"
+    note: "zaman bazlı doğrulama"
+  - value: "420"
+    label: "Ölçüm"
+    note: "6 hafta, hafta içi 11:30–14:30"
+  - value: "%38"
+    label: "Daha kısa bekleme"
+    note: "önerilen kasa düzeniyle, simülasyon"
+featured: true
+example: true
+---
+
+Öğle arasında kafeteryada sıraya girenler ortalama 7 dakika bekliyor, ama bu ortalama asıl soruyu gizliyor: 12:10 ile 12:40 arasında bekleme 20 dakikayı aşıyor, 13:30'dan sonra ise 4 dakikanın altına iniyor. Amacımız, bir öğrencinin "şimdi gitsem ne kadar beklerim?" sorusuna dakika düzeyinde cevap vermekti.
+
+## Sonuç
+
+### Model sırayı iki dakikadan az hatayla tahmin ediyor
+
+<Chart
+  type="line"
+  caption="Öğle arasında ortalama bekleme: gerçek ve tahmin"
+  x="saat"
+  y={["gercek", "tahmin"]}
+  names={{ gercek: "Gerçek", tahmin: "Tahmin" }}
+  unit="dk"
+  yTitle="Bekleme (dk)"
+  data={[{"saat":"11:30","gercek":7.3,"tahmin":8.1},{"saat":"11:40","gercek":10.2,"tahmin":7.3},{"saat":"11:50","gercek":13.2,"tahmin":14},{"saat":"12:00","gercek":16.6,"tahmin":17.3},{"saat":"12:10","gercek":19.3,"tahmin":20.9},{"saat":"12:20","gercek":21.2,"tahmin":22.5},{"saat":"12:30","gercek":20.7,"tahmin":21.2},{"saat":"12:40","gercek":17.4,"tahmin":16.3},{"saat":"12:50","gercek":15.5,"tahmin":16.7},{"saat":"13:00","gercek":13.8,"tahmin":13.6},{"saat":"13:10","gercek":9.2,"tahmin":9.5},{"saat":"13:20","gercek":7.8,"tahmin":6.7},{"saat":"13:30","gercek":6.7,"tahmin":4.5},{"saat":"13:40","gercek":3.4,"tahmin":1.4},{"saat":"13:50","gercek":4.1,"tahmin":3.9},{"saat":"14:00","gercek":3.6,"tahmin":3.3},{"saat":"14:10","gercek":3.1,"tahmin":5.2},{"saat":"14:20","gercek":2.8,"tahmin":2.5},{"saat":"14:30","gercek":2.5,"tahmin":1.5}]}
+  note="Hafta içi ortalaması, 10 dakikalık aralıklar. Örnek veri."
+/>
+
+<Callout tone="finding">
+
+En uzun bekleme, derslerin bittiği 12:20 civarında. İkinci kasanın yalnızca 12:00–12:40 arasında açık tutulması, simülasyonda ortalama beklemeyi **%38** kısaltıyor.
+
+</Callout>
+
+## Veri
+
+### Ne ölçtük
+
+Turnikeden geçiş ile kasadan çıkış arasındaki süreyi, altı hafta boyunca hafta içi öğle saatlerinde kaydettik. Her kayıt bir kişinin beklemesi; model ise bunları 10 dakikalık aralıklarda topluyor.
+
+<Chart
+  type="histogram"
+  caption="Bekleme sürelerinin dağılımı"
+  src="/projects/example-case-study/waits.json"
+  y="dk"
+  names={{ dk: "Bekleme" }}
+  bins={30}
+  unit="dk"
+  xTitle="Bekleme (dk)"
+  yTitle="Kişi sayısı"
+  note="420 ölçüm. Sağa çarpık: çoğu kişi 10 dakikanın altında bekliyor, ama uzun bir kuyruk var."
+/>
+
+<Method>
+
+Turnike ile kasa kayıtları öğrenci kartı üzerinden eşleştirildi, kimlik bilgisi saklanmadı. 60 dakikayı aşan 14 kayıt (kart okutma hatası) çıkarıldı.
+
+</Method>
+
+## Keşif
+
+### Gün ve saatin etkisi
+
+<Grid>
+  <Chart
+    type="bar"
+    caption="Güne göre ortalama bekleme"
+    x="gun"
+    y="dk"
+    names={{ dk: "Bekleme" }}
+    unit="dk"
+    height={260}
+    data={[{"gun":"Pzt","dk":8.4},{"gun":"Sal","dk":7.6},{"gun":"Çar","dk":9.1},{"gun":"Per","dk":7.2},{"gun":"Cum","dk":4.9}]}
+  />
+  <Chart
+    type="area"
+    caption="Sıradaki kişi sayısı"
+    x="saat"
+    y="kisi"
+    names={{ kisi: "Kişi" }}
+    height={260}
+    data={[{"saat":"11:30","kisi":18},{"saat":"11:50","kisi":35},{"saat":"12:10","kisi":51},{"saat":"12:30","kisi":55},{"saat":"12:50","kisi":42},{"saat":"13:10","kisi":25},{"saat":"13:30","kisi":15},{"saat":"13:50","kisi":11},{"saat":"14:10","kisi":9},{"saat":"14:30","kisi":8}]}
+  />
+</Grid>
+
+Çarşamba en yoğun gün; o gün öğleden önce biten ders sayısı da en fazla. Cuma ise beklemenin neredeyse yarıya indiği gün. Sıradaki kişi sayısı ile bekleme süresi birlikte hareket ediyor; ikisinin tepe noktası aynı 20 dakikaya düşüyor.
+
+## Model
+
+### Tahmin ve gerçek
+
+<Chart
+  type="scatter"
+  caption="Her nokta bir 10 dakikalık aralık"
+  src="/projects/example-case-study/predictions.json"
+  x="gercek"
+  y="tahmin"
+  names={{ tahmin: "Tahmin" }}
+  diagonal
+  unit="dk"
+  xTitle="Gerçek bekleme (dk)"
+  yTitle="Tahmin (dk)"
+  note="Noktalı çizgi kusursuz tahmini gösteriyor. Uzun beklemelerde hata biraz büyüyor."
+/>
+
+### Modelleri karşılaştırdık
+
+| Model | MAE (dk) | R² |
+|---|---:|---:|
+| Saatlik ortalama (taban) | 3,9 | 0,41 |
+| Doğrusal regresyon | 2,6 | 0,74 |
+| LightGBM | **1,7** | **0,91** |
+
+Taban model, her aralık için geçmiş haftaların ortalamasını veriyor. LightGBM'in farkı en çok ders çıkışlarına denk gelen aralıklarda ortaya çıkıyor.
+
+## Sınırlar
+
+<Callout tone="warning" title="Ne söylemiyor">
+
+- Sınav haftaları veride yok; o haftalarda düzen değişebilir.
+- Model menüyü bilmiyor: sevilen bir yemeğin olduğu gün sıra beklenenden uzun olabilir.
+- Simülasyondaki %38, kasiyerin hızının sabit kaldığı varsayımına dayanıyor.
+
+</Callout>
+
+## Yöntem
+
+<Pipeline
+  steps={[
+    { label: "Turnike kayıtları", note: "günlük CSV" },
+    "Temizlik",
+    { label: "10 dk aralıklar", note: "özellikler" },
+    { label: "LightGBM", note: "zaman bazlı doğrulama" },
+    "Panel",
+  ]}
+/>
+
+<Details summary="Özellikler ve doğrulama">
+
+Her 10 dakikalık aralık için şu özellikler kullanıldı:
+
+1. Günün saati ve haftanın günü
+2. O aralıkta biten ders sayısı
+3. Bir önceki aralıktaki sıra uzunluğu
+
+Doğrulama zamana göre yapıldı: model ilk dört haftayla eğitildi, son iki haftada sınandı.
+
+```python
+model = lgb.LGBMRegressor(n_estimators=400, learning_rate=0.05)
+model.fit(X_train, y_train)
+mae = mean_absolute_error(y_test, model.predict(X_test))
+```
+
+</Details>

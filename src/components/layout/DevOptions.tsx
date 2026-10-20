@@ -41,6 +41,7 @@ export function DevOptions() {
 
   if (IS_PRODUCTION || inFrame) return null;
   const onShop = pathname === "/shop" || pathname.startsWith("/shop/");
+  const onProjects = pathname === "/projects" || pathname.startsWith("/projects/");
   const toggleFlow = () => {
     setDevFlag("flow", !flowOn);
     // Turning it on elsewhere jumps to the page that shows it.
@@ -118,6 +119,9 @@ export function DevOptions() {
           <div style={pill}>
             <Link href="/shop" className="lang-btn" data-active={onShop ? "" : undefined} style={{ ...btn, textDecoration: "none" }}>
               Mağaza →
+            </Link>
+            <Link href="/projects" className="lang-btn" data-active={onProjects ? "" : undefined} style={{ ...btn, textDecoration: "none" }}>
+              Projeler →
             </Link>
           </div>
           {/* A switch, remembered per browser. */}

@@ -184,6 +184,50 @@ Bu dosyalarda çevrilen alanlar `{ en: "…", tr: "…" }` şeklinde yan yana du
   Yıldız'ın risk analizi yazısı.
 - Başlangıç için `content/blog/tr/_template.mdx` dosyasını kopyalayabilirsin.
 
+**Yazının görünümü (okuma şablonu):**
+- Başlık düz yazı fontuyla (Bricolage) çizilir; el yazısı font yalnızca sayfa hero'larında kalır.
+- Üstte "kategori · tarih · süre", başlık ve yazar satırı bulunur. `excerpt`, yazının ilk paragrafında zaten geçmiyorsa
+  başlığın altında özet olarak görünür.
+- En az üç `##` / `###` başlık varsa içindekiler eklenir: geniş ekranda solda yapışkan, telefonda başlığın altında
+  açılır kutu.
+- Sonda yazar kutusu (yazar ekipteyse) ve "Diğer yazılar" listesi yer alır.
+- Markdown: linkler, listeler, tablolar (GFM), dipnot `[^1]`, `satır içi kod`, kod blokları.
+- Bileşenler: `<Callout>`, `<Figure>`, `<Chart>`, `<Metrics>`/`<Stat>`, `<Method>`, `<Grid>`, `<Details>`,
+  `<Pipeline>`. Örnekleri `content/projects/<dil>/_template.mdx` dosyasında. Bileşenler `src/components/mdx/`,
+  stilleri `globals.css` → `.article`.
+- Görseller `public/` altına konur (`<Figure src="/blog/<slug>/x.png" …>`).
+
+## Projeler (case study, şimdilik yalnızca önizleme)
+
+- Proje sayfaları `content/projects/<dil>/<slug>.mdx` dosyalarından üretilir; kurallar blogla aynı (aynı slug iki
+  dilde). Başlangıç için `content/projects/tr/_template.mdx` kullanılabilir; bütün bileşenlerin örnekleri orada.
+- Frontmatter: `title`, `excerpt`, `category` (departman), `team` (üye slug'ları) ya da `teamNames`, `date`,
+  `status` (`done` / `ongoing`), `stack`, `links` (`repo`, `demo`), `metrics` (üstteki metrik şeridi), `cover`
+  (kart görseli), `featured` (anasayfada göster), `example` ("örnek sayfa" uyarısı).
+- Sayfa düzeni:
+  - `##` başlıklar numaralı bölüm (01 · SONUÇ), `###` başlıklar numaralı alt bölüm ([01]) olur.
+  - Solda içindekiler, okuma çubuğu ve o an okunan bölüm vurgulanır.
+  - Sayfa sonuçla açılmalı; yöntem sona kalmalı.
+- **Grafikler:** `<Chart type="line|area|bar|scatter|histogram" …>` ile Plotly (`src/components/charts/`).
+  - Veri satır içinde (`data={[…]}`) ya da `public/projects/<slug>/*.json` dosyasından (`src=`) gelir.
+  - Plotly yalnızca grafik ekrana yaklaşınca, yalnızca o sayfada yüklenir.
+- Örnek: `example-case-study` (uydurma veri, "örnek" uyarılı). Gerçek ilk proje gelince silinebilir; veri dosyaları
+  `public/projects/example-case-study/`.
+- **Şimdilik önizleme:**
+  - `/projects` ve proje sayfaları canlıda 404 (`IS_PRODUCTION`). Anasayfadaki "Öne çıkan projeler" de canlıda
+    gizli.
+  - Önizlemede DEV OPTIONS → **Projeler →** ile açılır.
+  - Metinleri (`projects.*`, `metadata.projects.*`) `SITE_METINLERI.md`'ye girmez.
+- **Canlıya açmak için:**
+  1. `src/app/[locale]/projects/page.tsx` ve `[slug]/page.tsx`'teki `if (IS_PRODUCTION) notFound()` satırlarını
+     kaldır.
+  2. `src/app/[locale]/page.tsx`'te `getFeaturedProjects`'i canlıda da çağır.
+  3. `Nav.tsx` → `NAV_LINKS`'e `{ key: "projects", href: "/projects" }` ekle ve 6 mesaj dosyasına `nav.projects`
+     yaz. Menü 880 px'te mobile geçiyor; 6. link sığıyor mu bak.
+  4. `src/app/sitemap.ts`'e `/projects` ve proje sayfalarını ekle.
+  5. `src/lib/siteTextKeys.ts`'ten `projects` satırını kaldır.
+  6. Örnek vakayı sil.
+
 ## Türkçede de İngilizce kalanlar
 
 Aşağıdakiler bilerek tek dilli bırakıldı. Türkçeleştirmek için kod değişikliği gerekir, metin düzenlemek yetmez:

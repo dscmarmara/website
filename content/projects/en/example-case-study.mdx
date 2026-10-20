@@ -1,0 +1,169 @@
+---
+title: "How long is the cafeteria queue?"
+excerpt: "From six weeks of turnstile records we built a model that predicts the lunchtime wait in 10-minute slots; it is off by 1.7 minutes on average."
+category: "Data Insights"
+teamNames: ["Example Team"]
+date: "2026-10-20"
+status: "done"
+stack: ["Python", "pandas", "scikit-learn", "LightGBM", "Plotly"]
+metrics:
+  - value: "1.7 min"
+    label: "Mean error (MAE)"
+    accent: true
+  - value: "0.91"
+    label: "R²"
+    note: "time-based validation"
+  - value: "420"
+    label: "Measurements"
+    note: "6 weeks, weekdays 11:30–14:30"
+  - value: "38%"
+    label: "Shorter wait"
+    note: "with the suggested tills, simulated"
+featured: true
+example: true
+---
+
+People queuing at the cafeteria over lunch wait 7 minutes on average, but that average hides the real question: between 12:10 and 12:40 the wait goes past 20 minutes, and after 13:30 it drops under 4. We wanted to answer a student's "if I go now, how long will I wait?" to the minute.
+
+## Result
+
+### The model predicts the queue within two minutes
+
+<Chart
+  type="line"
+  caption="Average lunchtime wait: actual and predicted"
+  x="saat"
+  y={["gercek", "tahmin"]}
+  names={{ gercek: "Actual", tahmin: "Predicted" }}
+  unit="min"
+  yTitle="Wait (min)"
+  data={[{"saat":"11:30","gercek":7.3,"tahmin":8.1},{"saat":"11:40","gercek":10.2,"tahmin":7.3},{"saat":"11:50","gercek":13.2,"tahmin":14},{"saat":"12:00","gercek":16.6,"tahmin":17.3},{"saat":"12:10","gercek":19.3,"tahmin":20.9},{"saat":"12:20","gercek":21.2,"tahmin":22.5},{"saat":"12:30","gercek":20.7,"tahmin":21.2},{"saat":"12:40","gercek":17.4,"tahmin":16.3},{"saat":"12:50","gercek":15.5,"tahmin":16.7},{"saat":"13:00","gercek":13.8,"tahmin":13.6},{"saat":"13:10","gercek":9.2,"tahmin":9.5},{"saat":"13:20","gercek":7.8,"tahmin":6.7},{"saat":"13:30","gercek":6.7,"tahmin":4.5},{"saat":"13:40","gercek":3.4,"tahmin":1.4},{"saat":"13:50","gercek":4.1,"tahmin":3.9},{"saat":"14:00","gercek":3.6,"tahmin":3.3},{"saat":"14:10","gercek":3.1,"tahmin":5.2},{"saat":"14:20","gercek":2.8,"tahmin":2.5},{"saat":"14:30","gercek":2.5,"tahmin":1.5}]}
+  note="Weekday average, 10-minute slots. Example data."
+/>
+
+<Callout tone="finding">
+
+The longest wait falls around 12:20, when classes let out. Keeping the second till open only from 12:00 to 12:40 cuts the average wait by **38%** in the simulation.
+
+</Callout>
+
+## Data
+
+### What we measured
+
+We recorded the time between passing the turnstile and leaving the till, on weekday lunchtimes over six weeks. Each record is one person's wait; the model groups them into 10-minute slots.
+
+<Chart
+  type="histogram"
+  caption="How long people waited"
+  src="/projects/example-case-study/waits.json"
+  y="dk"
+  names={{ dk: "Wait" }}
+  bins={30}
+  unit="min"
+  xTitle="Wait (min)"
+  yTitle="People"
+  note="420 measurements. Skewed right: most people wait under 10 minutes, with a long tail."
+/>
+
+<Method>
+
+Turnstile and till records were matched by student card; no identities were kept. 14 records over 60 minutes (card misreads) were dropped.
+
+</Method>
+
+## Exploration
+
+### Day and time of day
+
+<Grid>
+  <Chart
+    type="bar"
+    caption="Average wait by day"
+    x="gun"
+    y="dk"
+    names={{ dk: "Wait" }}
+    unit="min"
+    height={260}
+    data={[{"gun":"Mon","dk":8.4},{"gun":"Tue","dk":7.6},{"gun":"Wed","dk":9.1},{"gun":"Thu","dk":7.2},{"gun":"Fri","dk":4.9}]}
+  />
+  <Chart
+    type="area"
+    caption="People in the queue"
+    x="saat"
+    y="kisi"
+    names={{ kisi: "People" }}
+    height={260}
+    data={[{"saat":"11:30","kisi":18},{"saat":"11:50","kisi":35},{"saat":"12:10","kisi":51},{"saat":"12:30","kisi":55},{"saat":"12:50","kisi":42},{"saat":"13:10","kisi":25},{"saat":"13:30","kisi":15},{"saat":"13:50","kisi":11},{"saat":"14:10","kisi":9},{"saat":"14:30","kisi":8}]}
+  />
+</Grid>
+
+Wednesday is the busiest day, and also the day with the most classes ending before lunch. On Fridays the wait is almost halved. The number of people in the queue and the wait move together; both peak in the same 20 minutes.
+
+## Model
+
+### Predicted against actual
+
+<Chart
+  type="scatter"
+  caption="Each point is a 10-minute slot"
+  src="/projects/example-case-study/predictions.json"
+  x="gercek"
+  y="tahmin"
+  names={{ tahmin: "Predicted" }}
+  diagonal
+  unit="min"
+  xTitle="Actual wait (min)"
+  yTitle="Predicted (min)"
+  note="The dotted line is a perfect prediction. The error grows a little for long waits."
+/>
+
+### Comparing models
+
+| Model | MAE (min) | R² |
+|---|---:|---:|
+| Hourly average (baseline) | 3.9 | 0.41 |
+| Linear regression | 2.6 | 0.74 |
+| LightGBM | **1.7** | **0.91** |
+
+The baseline gives each slot the average of past weeks. LightGBM gains most in the slots when classes let out.
+
+## Limits
+
+<Callout tone="warning" title="What it doesn't say">
+
+- Exam weeks are not in the data; the pattern may change then.
+- The model doesn't know the menu: on a popular dish's day the queue can be longer than predicted.
+- The simulated 38% assumes the cashier's speed stays the same.
+
+</Callout>
+
+## Method
+
+<Pipeline
+  steps={[
+    { label: "Turnstile records", note: "daily CSV" },
+    "Cleaning",
+    { label: "10-min slots", note: "features" },
+    { label: "LightGBM", note: "time-based validation" },
+    "Dashboard",
+  ]}
+/>
+
+<Details summary="Features and validation">
+
+Each 10-minute slot used these features:
+
+1. Time of day and day of the week
+2. Number of classes ending in that slot
+3. Queue length in the previous slot
+
+Validation was done in time order: trained on the first four weeks, tested on the last two.
+
+```python
+model = lgb.LGBMRegressor(n_estimators=400, learning_rate=0.05)
+model.fit(X_train, y_train)
+mae = mean_absolute_error(y_test, model.predict(X_test))
+```
+
+</Details>

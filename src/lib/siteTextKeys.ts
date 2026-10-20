@@ -2,6 +2,7 @@
 // (scripts/site-texts.mjs) and of the text-diff page (/karsilastir/farklar).
 export const EXCLUDED_MESSAGE_KEYS: (string | RegExp)[] = [
   /^shop\./, /^metadata\.shop\./, "nav.shop", "footer.linkShop", // shop: preview only
+  /^projects\./, /^metadata\.projects\./, // projects: preview only
   /^kpiLabels\./, // member KPIs are switched off
   "nav.englishOld", "nav.turkishOld", // dev options bar
   "metadata.siteName", "about.storyEst", "about.viewFullProfile", "blog.readArticle", // unused in code

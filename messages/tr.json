@@ -40,6 +40,10 @@
       "vicePresident": "Başkan Yardımcısı",
       "secretary": "Sekreter",
       "director": "{dept} Eş Direktörü"
+    },
+    "projects": {
+      "title": "Projeler",
+      "description": "DSC Marmara departmanlarının veriyle yürüttüğü projeler: sorudan sonuca, grafikleri ve yöntemiyle."
     }
   },
   "nav": {
@@ -155,7 +159,28 @@
     "readSuffix": "OKUMA",
     "readArticle": "Yazıyı oku",
     "comingSoon": "Yazılar çok yakında",
-    "comingSoonSub": "İlk köşe yazılarımız üzerinde çalışıyoruz. Ekibin veriyle ilgili neler yazdığını okumak için yakında tekrar uğrayın."
+    "comingSoonSub": "İlk köşe yazılarımız üzerinde çalışıyoruz. Ekibin veriyle ilgili neler yazdığını okumak için yakında tekrar uğrayın.",
+    "related": "Diğer yazılar"
+  },
+  "article": {
+    "toc": "İçindekiler",
+    "calloutNote": "Not",
+    "calloutFinding": "Bulgu",
+    "calloutWarning": "Dikkat"
+  },
+  "projects": {
+    "eyebrow": "PROJELER",
+    "heroTitle": "Ürettiğimiz projeler",
+    "heroSub": "Departmanlarımızın veriyle yürüttüğü çalışmalar: sorudan sonuca, grafikleriyle.",
+    "backToProjects": "← PROJELERE DÖN",
+    "statusDone": "Tamamlandı",
+    "statusOngoing": "Sürüyor",
+    "team": "Ekip",
+    "repo": "Kodu gör →",
+    "demo": "Canlı demo →",
+    "exampleNote": "Örnek sayfa: bu vaka, proje şablonunu göstermek için hazırlandı; veriler uydurmadır.",
+    "comingSoon": "Projeler çok yakında",
+    "comingSoonSub": "İlk projelerimiz üzerinde çalışıyoruz."
   },
   "contact": {
     "eyebrow": "BİZE MERHABA DE",

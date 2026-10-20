@@ -40,6 +40,10 @@
       "vicePresident": "Vice President",
       "secretary": "Secretary",
       "director": "Co-director, {dept}"
+    },
+    "projects": {
+      "title": "Projects",
+      "description": "Projects by DSC Marmara's departments: from the question to the result, with charts and method."
     }
   },
   "nav": {
@@ -155,7 +159,28 @@
     "readSuffix": "READ",
     "readArticle": "Read article",
     "comingSoon": "Posts coming soon",
-    "comingSoonSub": "Our first columns are in the works. Check back soon to read what the crew is writing about data."
+    "comingSoonSub": "Our first columns are in the works. Check back soon to read what the crew is writing about data.",
+    "related": "More from the blog"
+  },
+  "article": {
+    "toc": "Contents",
+    "calloutNote": "Note",
+    "calloutFinding": "Finding",
+    "calloutWarning": "Caveat"
+  },
+  "projects": {
+    "eyebrow": "PROJECTS",
+    "heroTitle": "What we build",
+    "heroSub": "Work our departments do with data: from the question to the result, charts included.",
+    "backToProjects": "← BACK TO PROJECTS",
+    "statusDone": "Completed",
+    "statusOngoing": "Ongoing",
+    "team": "Team",
+    "repo": "View code →",
+    "demo": "Live demo →",
+    "exampleNote": "Example page: this case study shows the project template; the data is made up.",
+    "comingSoon": "Projects coming soon",
+    "comingSoonSub": "Our first projects are in the works."
   },
   "contact": {
     "eyebrow": "SAY HELLO",

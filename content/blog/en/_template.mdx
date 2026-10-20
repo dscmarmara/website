@@ -20,10 +20,39 @@ top of the blog index.
 
 ## A section heading
 
-Regular paragraphs, **bold**, _italic_ and [links](https://example.com) all work.
+Regular paragraphs, **bold**, _italic_, `inline code` and [links](https://example.com) all work.
+Site links (`/team/sadik`) get the language prefix by themselves. With three or more `##` / `###`
+headings, a table of contents appears beside the post.
+
+- Bulleted
+- lists
+
+1. and numbered
+2. lists
 
 > Pull quotes render with the green accent bar.
+
+| Table | Number |
+|---|---:|
+| Row | 1.5 |
 
 ```python
 print("Fenced code blocks get syntax highlighting.")
 ```
+
+### Components
+
+Every component of the case studies works in posts too (examples:
+`content/projects/en/_template.mdx`):
+
+<Callout tone="finding">
+
+A boxed note: `note`, `finding` (green) or `warning` (amber).
+
+</Callout>
+
+<Figure src="/logo/dsc_mark_full.svg" caption="An image from public/ with its caption" />
+
+Footnotes work as well.[^1]
+
+[^1]: Footnotes are listed at the end of the post.

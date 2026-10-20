@@ -9,8 +9,10 @@ import { Eyebrow } from "@/components/common/Eyebrow";
 import { ProjectCard } from "@/components/cards/ProjectCard";
 import { DepartmentCard } from "@/components/cards/DepartmentCard";
 import { pick } from "@/lib/members";
-import { HOME_STATS, HOME_PROJECTS, HOME_DEPARTMENTS } from "@/lib/constants";
+import { HOME_STATS, HOME_DEPARTMENTS } from "@/lib/constants";
 import { buildAlternates } from "@/lib/seo";
+import { IS_PRODUCTION } from "@/lib/env";
+import { getFeaturedProjects } from "@/lib/projects";
 
 export async function generateMetadata({
   params,
@@ -75,6 +77,8 @@ export default async function HomePage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("home");
+  // /projects is preview-only for now: no project cards on the live site.
+  const projects = IS_PRODUCTION ? [] : getFeaturedProjects(locale);
 
   return (
     <>
@@ -146,10 +150,10 @@ export default async function HomePage({
         </div>
       </section>
 
-      {/* FEATURED PROJECTS — the whole section is hidden while there are no
-         projects. Add entries to HOME_PROJECTS (lib/constants.ts) to bring it
-         back; the cards then render automatically. */}
-      {HOME_PROJECTS.length > 0 && (
+      {/* FEATURED PROJECTS: projects with `featured: true` (content/projects).
+         Hidden while there are none, and on the live site while /projects is
+         preview-only (see TRANSLATIONS.md). */}
+      {projects.length > 0 && (
         <section style={{ borderTop: "1px solid var(--border)", background: "var(--bg-elev)" }}>
           <div style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "90px 24px" }}>
             <Reveal style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 24, flexWrap: "wrap", marginBottom: 46 }}>
@@ -157,11 +161,13 @@ export default async function HomePage({
                 <Eyebrow style={{ marginBottom: 12 }}>{t("featuredEyebrow")}</Eyebrow>
                 <h2 style={h2Style}>{t("featuredTitle")}</h2>
               </div>
-              <span style={{ fontFamily: "var(--font-body-stack)", fontWeight: 600, fontSize: 15, color: "var(--text-muted)" }}>{t("allProjects")}</span>
+              <Link href="/projects" className="lift-arrow" style={{ fontFamily: "var(--font-body-stack)", fontWeight: 600, fontSize: 15, color: "var(--accent)", textDecoration: "none" }}>
+                {t("allProjects")}
+              </Link>
             </Reveal>
             <div className="dsc-grid-3" style={{ gap: 26 }}>
-              {HOME_PROJECTS.map((p) => (
-                <ProjectCard key={p.title} title={p.title} tag={p.tag} shot={p.shot} desc={pick(p.desc, locale)} />
+              {projects.map((p) => (
+                <ProjectCard key={p.slug} href={`/projects/${p.slug}`} title={p.title} category={p.category} excerpt={p.excerpt} cover={p.cover} />
               ))}
             </div>
           </div>

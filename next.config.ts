@@ -42,6 +42,8 @@ const withMDX = createMDX({
     remarkPlugins: [
       "remark-frontmatter",
       ["remark-mdx-frontmatter", { name: "frontmatter" }],
+      // Tables, footnotes, ~~strikethrough~~ and bare-URL links in posts and case studies.
+      "remark-gfm",
     ],
     rehypePlugins: [
       ["rehype-pretty-code", { keepBackground: false, theme: dscShikiTheme }],

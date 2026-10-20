@@ -7,14 +7,18 @@ import {
 } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { Avatar } from "@/components/common/Avatar";
-import { Reveal } from "@/components/effects/Reveal";
 import { ReadingProgress } from "@/components/blog/ReadingProgress";
+import { ArticleHeader } from "@/components/article/ArticleHeader";
+import { TocRail } from "@/components/article/TocRail";
+import { TocInline } from "@/components/article/toc";
+import { PostRow } from "@/components/cards/PostRow";
 import {
   SocialLink,
   LinkedInIcon,
 } from "@/components/common/SocialIcons";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { getPostAuthor, getPostBySlug, getPostSlugs, localeChain } from "@/lib/posts";
+import { getAllPosts, getPostAuthor, getPostBySlug, getPostSlugs, localeChain, postRowData } from "@/lib/posts";
+import { firstParagraphOf, headingsOf } from "@/lib/content";
 import { displayRole, pick } from "@/lib/members";
 import { buildAlternates, clampDescription, openGraphBase, orgName, SITE_URL } from "@/lib/seo";
 import { routing } from "@/i18n/routing";
@@ -83,6 +87,7 @@ export default async function BlogDetailPage({
   // Only team members get a profile link, role line and bio box.
   const member = author?.member;
   const t = await getTranslations("blog");
+  const ta = await getTranslations("article");
   const tr = await getTranslations("roles");
   const format = await getFormatter();
   const { default: Body } = await importBody(locale, slug);
@@ -109,62 +114,58 @@ export default async function BlogDetailPage({
   };
   if (author) blogLd.author = { "@type": "Person", name: author.name };
 
-  const dateLabel = format
-    .dateTime(new Date(post.date), { year: "numeric", month: "short", day: "numeric" })
-    .toLocaleUpperCase(locale);
+  const dateLabel = format.dateTime(new Date(post.date), { year: "numeric", month: "short", day: "numeric" });
+  const headings = headingsOf("blog", slug, locale);
+  const hasToc = headings.length >= 3;
+  // The excerpt as standfirst, unless the opening paragraph already says it (excerpts are often lifted from it).
+  const norm = (s: string) => s.replace(/\s+/g, " ").trim().toLocaleLowerCase(locale);
+  const standfirst = norm(firstParagraphOf("blog", slug, locale)).includes(norm(post.excerpt).slice(0, 60)) ? undefined : post.excerpt;
+  // Same department first, then the newest.
+  const related = getAllPosts(locale)
+    .filter((p) => p.slug !== slug)
+    .sort((a, b) => Number(b.category === post.category) - Number(a.category === post.category))
+    .slice(0, 3)
+    .map((p) => postRowData(p, locale));
+
+  const byline = member && author ? (
+    <Link href={`/team/${member.slug}`} className="author-link" style={{ display: "inline-flex", alignItems: "center", gap: 14, textDecoration: "none", color: "var(--text)" }}>
+      <Avatar photo={author.photo} initials={author.initials} size={44} radius={999} fontSize={15} />
+      <span style={{ display: "flex", flexDirection: "column", lineHeight: 1.4 }}>
+        <span className="al-name" style={{ fontFamily: "var(--font-body-stack)", fontWeight: 700, fontSize: 15 }}>{author.name}</span>
+        <span style={{ fontFamily: "var(--font-mono-stack)", fontSize: 12, color: "var(--text-muted)" }}>{displayRole(member, tr)}</span>
+      </span>
+    </Link>
+  ) : author ? (
+    <span style={{ display: "inline-flex", alignItems: "center", gap: 14, color: "var(--text)" }}>
+      <Avatar photo={author.photo} initials={author.initials} size={44} radius={999} fontSize={15} />
+      <span style={{ fontFamily: "var(--font-body-stack)", fontWeight: 700, fontSize: 15 }}>{author.name}</span>
+    </span>
+  ) : null;
 
   return (
     <>
       <JsonLd data={blogLd} />
       <ReadingProgress />
 
-      <article>
-        <header style={{ maxWidth: 880, margin: "0 auto", padding: "64px 24px 0" }}>
-          <Link
-            href="/blog"
-            data-reveal
-            style={{ fontFamily: "var(--font-mono-stack)", fontSize: 12, letterSpacing: "0.06em", color: "var(--accent)", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 7, marginBottom: 26 }}
-          >
-            {t("backToBlog")}
-          </Link>
-          <Reveal style={{ display: "flex", gap: 10, alignItems: "center", marginBottom: 20, flexWrap: "wrap" }}>
-            <span style={{ padding: "5px 13px", borderRadius: 100, background: "var(--grad)", color: "#04190a", fontFamily: "var(--font-mono-stack)", fontSize: 11, letterSpacing: "0.06em", fontWeight: 500 }}>{post.category}</span>
-          </Reveal>
-          <Reveal
-            as="h1"
-            // lineHeight 1.2: long ascenders/descenders touch across lines below that (see PageHero)
-            style={{ fontFamily: "var(--font-script-stack)", fontWeight: 700, paddingBottom: "0.09em", fontSize: "clamp(32px,5vw,56px)", lineHeight: 1.2, margin: "0 0 28px" }}
-          >
-            {post.title}
-          </Reveal>
-          <Reveal style={{ display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap", paddingBottom: 34, borderBottom: "1px solid var(--border)" }}>
-            {member && author ? (
-              <Link href={`/team/${member.slug}`} className="author-link" style={{ display: "inline-flex", alignItems: "center", gap: 14, textDecoration: "none", color: "var(--text)" }}>
-                <Avatar photo={author.photo} initials={author.initials} size={48} radius={999} fontSize={16} />
-                <span style={{ display: "flex", flexDirection: "column", lineHeight: 1.4 }}>
-                  <span className="al-name" style={{ fontFamily: "var(--font-body-stack)", fontWeight: 700, fontSize: 15 }}>{author.name}</span>
-                  <span style={{ fontFamily: "var(--font-mono-stack)", fontSize: 12, color: "var(--text-muted)" }}>{displayRole(member, tr)}</span>
-                </span>
-              </Link>
-            ) : author ? (
-              <span style={{ display: "inline-flex", alignItems: "center", gap: 14, color: "var(--text)" }}>
-                <Avatar photo={author.photo} initials={author.initials} size={48} radius={999} fontSize={16} />
-                <span style={{ fontFamily: "var(--font-body-stack)", fontWeight: 700, fontSize: 15 }}>{author.name}</span>
-              </span>
-            ) : null}
-            <span style={{ width: 1, height: 30, background: "var(--border)", margin: "0 6px" }} />
-            <span style={{ fontFamily: "var(--font-mono-stack)", fontSize: 12, color: "var(--text-muted)" }}>{dateLabel}</span>
-            <span style={{ fontFamily: "var(--font-mono-stack)", fontSize: 12, color: "var(--text-muted)" }}>· {post.readingTime} {t("readSuffix")}</span>
-          </Reveal>
-        </header>
+      <article className="read-layout">
+        <aside className="read-toc">{hasToc && <TocRail items={headings} label={ta("toc")} />}</aside>
+        <div className="read-main">
+          <ArticleHeader
+            back={{ href: "/blog", label: t("backToBlog") }}
+            // lang="en": department names stay English, so uppercase them without the Turkish dotted İ.
+            meta={[<span key="c" lang="en">{post.category}</span>, dateLabel, `${post.readingTime} ${t("readSuffix")}`]}
+            title={post.title}
+            standfirst={standfirst}
+            byline={byline}
+          />
+          {hasToc && <TocInline items={headings} label={ta("toc")} />}
 
-        <div className="article" style={{ maxWidth: "var(--readw)", margin: "0 auto", padding: "56px 24px 20px" }}>
-          <Body />
-        </div>
+          <div className="article">
+            <Body />
+          </div>
 
-        {member && author && (
-          <div style={{ maxWidth: "var(--readw)", margin: "24px auto 0", padding: "0 24px" }}>
-            <div style={{ border: "1px solid var(--border)", borderRadius: 18, background: "var(--bg-elev)", padding: 30, display: "flex", gap: 22, alignItems: "flex-start", flexWrap: "wrap" }}>
+          {member && author && (
+            <div style={{ marginTop: 40, border: "1px solid var(--border)", borderRadius: 18, background: "var(--bg-elev)", padding: 30, display: "flex", gap: 22, alignItems: "flex-start", flexWrap: "wrap" }}>
               <Link href={`/team/${member.slug}`} className="author-link" style={{ textDecoration: "none" }}>
                 <Avatar photo={author.photo} initials={author.initials} size={62} radius={999} fontSize={20} />
               </Link>
@@ -181,10 +182,17 @@ export default async function BlogDetailPage({
                 </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
 
-        <div style={{ paddingBottom: 70 }} />
+          {related.length > 0 && (
+            <section className="read-related">
+              <h2 className="read-related-title">{t("related")}</h2>
+              {related.map((p) => (
+                <PostRow key={p.slug} post={p} />
+              ))}
+            </section>
+          )}
+        </div>
       </article>
     </>
   );

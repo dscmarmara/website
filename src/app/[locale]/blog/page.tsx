@@ -9,7 +9,7 @@ import { PageHero } from "@/components/common/PageHero";
 import { Avatar } from "@/components/common/Avatar";
 import { BlogFilter } from "@/components/blog/BlogFilter";
 import type { PostRowData } from "@/components/cards/PostRow";
-import { getAllPosts, getFeaturedPost, getPostAuthor } from "@/lib/posts";
+import { getAllPosts, getFeaturedPost, getPostAuthor, postRowData } from "@/lib/posts";
 import { displayRole } from "@/lib/members";
 import { buildAlternates } from "@/lib/seo";
 
@@ -42,23 +42,7 @@ export default async function BlogPage({
   const featured = getFeaturedPost(locale);
   const featuredAuthor = featured ? getPostAuthor(featured, locale) : undefined;
 
-  const rowData: PostRowData[] = all
-    .filter((p) => !p.featured)
-    .map((p) => {
-      const a = getPostAuthor(p, locale);
-      return {
-        slug: p.slug,
-        title: p.title,
-        excerpt: p.excerpt,
-        category: p.category,
-        date: p.date,
-        readingTime: p.readingTime,
-        authorSlug: a?.member?.slug,
-        authorName: a?.name,
-        authorInitials: a?.initials,
-        authorPhoto: a?.photo,
-      };
-    });
+  const rowData: PostRowData[] = all.filter((p) => !p.featured).map((p) => postRowData(p, locale));
 
   return (
     <>
@@ -67,7 +51,8 @@ export default async function BlogPage({
         title={t("heroTitle")}
         sub={t("heroSub")}
         density={0.7}
-        titleMaxWidth="15ch"
+        plain
+        titleMaxWidth="18ch"
       />
 
       <div style={{ maxWidth: 920, margin: "0 auto", padding: "64px 24px 96px" }}>

@@ -20,11 +20,39 @@ listesinin en üstüne sabitlemek için `featured: true` ekle.
 
 ## Bir bölüm başlığı
 
-Normal paragraflar, **kalın**, _italik_ ve [bağlantılar](https://example.com)
-sorunsuz çalışır.
+Normal paragraflar, **kalın**, _italik_, `satır içi kod` ve [bağlantılar](https://example.com)
+sorunsuz çalışır. Site içi linkler (`/team/sadik`) dili kendisi ekler. En az üç `##` / `###`
+başlık olunca yazının yanında içindekiler çıkar.
+
+- Madde işaretli
+- listeler
+
+1. ve numaralı
+2. listeler
 
 > Alıntılar yeşil vurgu çizgisiyle görünür.
+
+| Tablo | Sayı |
+|---|---:|
+| Satır | 1,5 |
 
 ```python
 print("Kod blokları sözdizimi vurgusuyla gelir.")
 ```
+
+### Bileşenler
+
+Projelerdeki bütün bileşenler yazılarda da kullanılabilir (örnekler:
+`content/projects/tr/_template.mdx`):
+
+<Callout tone="finding">
+
+Not kutusu: `note`, `finding` (yeşil) ya da `warning` (turuncu).
+
+</Callout>
+
+<Figure src="/logo/dsc_mark_full.svg" caption="public/ altındaki bir görsel ve açıklaması" />
+
+Dipnot da olur.[^1]
+
+[^1]: Dipnotlar yazının sonunda listelenir.

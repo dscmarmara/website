@@ -117,7 +117,7 @@ h(2, "7. Odak alanı etiketleri (`src/lib/skills.ts`)");
 out.push(table(["English", "Türkçe"], Object.entries(SKILLS_TR).map(([enLabel, trLabel]) => [enLabel, trLabel])));
 
 h(2, "8. Blog");
-out.push(messageTable("blog"));
+out.push(messageTable("blog", "article"));
 
 h(2, "9. İletişim");
 out.push(messageTable("contact"));

@@ -1,0 +1,93 @@
+---
+title: "A question as the title"
+excerpt: "One or two sentences: the question and what came out of it. Shown under the title, on the card and in search results."
+category: "Core AI"
+team: ["sadik"]
+date: "2026-01-01"
+status: "done"
+stack: ["Python", "pandas"]
+links:
+  repo: "https://github.com/dscmarmara"
+metrics:
+  - value: "1.7 min"
+    label: "Mean error"
+    accent: true
+  - value: "420"
+    label: "Measurements"
+    note: "a short explanation"
+---
+
+Files whose name starts with `_` are not published (see `slugsOf` in
+`src/lib/content.ts`). Copy this file to `<slug>.mdx` in both `en/` and `tr/`.
+Data files and images go under `public/projects/<slug>/`.
+
+Frontmatter: `category` is one of `DEPARTMENTS` (`src/lib/constants.ts`), `team`
+lists member slugs from `src/data/members.json` (people not on the team go in
+`teamNames: ["Full Name"]`), `status` is `done` or `ongoing`; `links`, `metrics`,
+`cover` (card image), `featured` (home page) are optional. The build fails on a
+wrong category, team slug or status.
+
+Open with the result; keep the method for the end. `##` headings become
+numbered chapters (01, 02…) and `###` numbered sections, and both appear in the
+contents beside the page.
+
+## Result
+
+### A section
+
+<Chart
+  type="line"
+  caption="Title above the chart"
+  x="t"
+  y={["a", "b"]}
+  names={{ a: "Actual", b: "Predicted" }}
+  unit="min"
+  yTitle="Minutes"
+  data={[{ t: "11:30", a: 7, b: 8 }, { t: "12:00", a: 16, b: 17 }, { t: "12:30", a: 20, b: 21 }]}
+  note="Small print: source, sample, caveat."
+/>
+
+Chart types: `line`, `area` (`stacked`), `bar` (`horizontal`, `stacked`),
+`scatter` (`diagonal` draws y = x), `histogram` (`bins`). Data inline with
+`data={[…]}` or from a JSON file of rows: `src="/projects/<slug>/rows.json"`.
+Optional: `xTitle`, `yTitle`, `height` (px, default 300).
+
+<Callout tone="finding">
+
+`tone`: `note` (neutral), `finding` (green), `warning` (amber); `title` replaces the label.
+
+</Callout>
+
+## Data
+
+<Metrics>
+  <Stat value="420" label="Measurements" note="a note" />
+  <Stat value="1.7" label="MAE" accent />
+</Metrics>
+
+<Method>
+
+How it was measured or computed, as a quiet monospace note.
+
+</Method>
+
+<Grid>
+  <Figure src="/logo/dsc_mark_full.svg" caption="An image with a caption" credit="source" />
+  <Figure src="/logo/dsc_mark_full.svg" caption="Two side by side" />
+</Grid>
+
+`<Figure wide …>` lets one image run wider than the text on large screens.
+
+| Model | MAE | R² |
+|---|---:|---:|
+| Baseline | 3.9 | 0.41 |
+
+## Method
+
+<Pipeline steps={[{ label: "Raw data", note: "CSV" }, "Cleaning", "Model", "Report"]} />
+
+<Details summary="Collapsed detail">
+
+Appendix material, long method notes, code.
+
+</Details>

@@ -121,7 +121,7 @@ export function getTextInventory(): TextSection[] {
       path: "/team",
       rows: Object.keys(SKILLS_TR).map((skill) => row(`skill:${skill}`, skill, values((locale) => skillLabel(skill, locale)))),
     },
-    { title: "Blog", path: "/blog", rows: messageRows("blog") },
+    { title: "Blog", path: "/blog", rows: messageRows("blog", "article") },
     { title: "İletişim", path: "/contact", rows: messageRows("contact") },
     { title: "Alt bilgi (footer)", path: "/", rows: messageRows("footer") },
     { title: "404 sayfası", path: "/sayfa-yok", rows: messageRows("notFound") },

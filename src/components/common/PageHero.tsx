@@ -4,13 +4,18 @@ import { GlitchHeading } from "@/components/effects/GlitchHeading";
 import { Reveal } from "@/components/effects/Reveal";
 import { Eyebrow } from "@/components/common/Eyebrow";
 
-/** Shared page header: plexus background + eyebrow + script H1 (+ optional sub). */
+/**
+ * Shared page header: plexus background + eyebrow + script H1 (+ optional sub).
+ * `plain` sets the H1 in the display font instead, like the home page's section
+ * headings: the reading sections (blog, projects) use it.
+ */
 export function PageHero({
   eyebrow,
   title,
   sub,
   density = 0.85,
   glitch = false,
+  plain = false,
   padding = "96px 24px 64px",
   titleMaxWidth = "16ch",
 }: {
@@ -19,20 +24,31 @@ export function PageHero({
   sub?: ReactNode;
   density?: number;
   glitch?: boolean;
+  plain?: boolean;
   padding?: string;
   titleMaxWidth?: string;
 }) {
-  const titleStyle = {
-    fontFamily: "var(--font-script-stack)",
-    fontWeight: 700,
-    paddingBottom: "0.09em",
-    fontSize: "clamp(36px,6vw,68px)",
-    // The script font's ascenders and descenders are long (b/l ~0.86em, g/p/y ~0.62em):
-    // tighter than ~1.2 and they touch across wrapped lines.
-    lineHeight: 1.2,
-    margin: "0 0 18px",
-    maxWidth: titleMaxWidth,
-  } as const;
+  const titleStyle = plain
+    ? ({
+        fontFamily: "var(--font-display-stack)",
+        fontWeight: 700,
+        fontSize: "clamp(34px,5vw,58px)",
+        lineHeight: 1.08,
+        letterSpacing: "-0.02em",
+        margin: "0 0 18px",
+        maxWidth: titleMaxWidth,
+      } as const)
+    : ({
+        fontFamily: "var(--font-script-stack)",
+        fontWeight: 700,
+        paddingBottom: "0.09em",
+        fontSize: "clamp(36px,6vw,68px)",
+        // The script font's ascenders and descenders are long (b/l ~0.86em, g/p/y ~0.62em):
+        // tighter than ~1.2 and they touch across wrapped lines.
+        lineHeight: 1.2,
+        margin: "0 0 18px",
+        maxWidth: titleMaxWidth,
+      } as const);
 
   return (
     <section style={{ position: "relative", overflow: "hidden", borderBottom: "1px solid var(--border)" }}>
