@@ -99,7 +99,7 @@ export default async function HomePage({
               fontWeight: 700,
               paddingBottom: "0.09em",
               fontSize: "clamp(40px,7vw,80px)",
-              lineHeight: 1.03,
+              lineHeight: 1.2, // long ascenders/descenders touch across lines below ~1.2 (see PageHero)
               margin: "0 0 26px",
               maxWidth: "18ch",
             }}

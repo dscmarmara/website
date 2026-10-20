@@ -132,7 +132,8 @@ export default async function BlogDetailPage({
           </Reveal>
           <Reveal
             as="h1"
-            style={{ fontFamily: "var(--font-script-stack)", fontWeight: 700, paddingBottom: "0.09em", fontSize: "clamp(32px,5vw,56px)", lineHeight: 1.08, margin: "0 0 28px" }}
+            // lineHeight 1.2: long ascenders/descenders touch across lines below that (see PageHero)
+            style={{ fontFamily: "var(--font-script-stack)", fontWeight: 700, paddingBottom: "0.09em", fontSize: "clamp(32px,5vw,56px)", lineHeight: 1.2, margin: "0 0 28px" }}
           >
             {post.title}
           </Reveal>

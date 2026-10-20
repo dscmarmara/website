@@ -27,7 +27,9 @@ export function PageHero({
     fontWeight: 700,
     paddingBottom: "0.09em",
     fontSize: "clamp(36px,6vw,68px)",
-    lineHeight: 1.04,
+    // The script font's ascenders and descenders are long (b/l ~0.86em, g/p/y ~0.62em):
+    // tighter than ~1.2 and they touch across wrapped lines.
+    lineHeight: 1.2,
     margin: "0 0 18px",
     maxWidth: titleMaxWidth,
   } as const;
