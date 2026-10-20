@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "site-texts": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/site-texts.mjs",
-    "indexnow": "node scripts/indexnow.mjs"
+    "indexnow": "node scripts/indexnow.mjs",
+    "seo-audit": "node scripts/seo-audit.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",

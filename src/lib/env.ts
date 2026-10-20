@@ -1,7 +1,17 @@
 /**
- * True on the live site (Vercel production). Preview-only features — the dev
- * options bar, the shop and the old-copy review locales — check this so they
- * never reach the live site. Vercel exposes NEXT_PUBLIC_VERCEL_ENV to Next.js
- * builds automatically (next.config.ts falls back to VERCEL_ENV).
+ * The deployment's role (set in next.config.ts from the Vercel environment and branch):
+ * "production" (live site), "staging" (branch staging: an exact copy of the live site,
+ * checked before release) or "preview" (development branches).
  */
-export const IS_PRODUCTION = process.env.NEXT_PUBLIC_VERCEL_ENV === "production";
+export const SITE_STAGE = (process.env.NEXT_PUBLIC_SITE_STAGE || "preview") as "production" | "staging" | "preview";
+
+/**
+ * Live-site behaviour: true on the live site and on staging, its copy.
+ * Preview-only features (the dev options bar, the shop, projects, draft posts,
+ * the review locales, /karsilastir) check this so they never reach the live
+ * site, and so staging shows exactly what will go live.
+ */
+export const IS_PRODUCTION = SITE_STAGE === "production" || SITE_STAGE === "staging";
+
+/** Staging only: for the few things that must differ from the live site (e.g. tagging test mail). */
+export const IS_STAGING = SITE_STAGE === "staging";

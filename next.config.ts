@@ -3,6 +3,7 @@ import createNextIntlPlugin from "next-intl/plugin";
 import createMDX from "@next/mdx";
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
+const vercelEnv = process.env.NEXT_PUBLIC_VERCEL_ENV || process.env.VERCEL_ENV || "";
 
 // Custom Shiki theme reproducing the prototype's neon-green code palette.
 // Passed as a plain (serializable) object so it survives Turbopack's Rust boundary.
@@ -58,12 +59,18 @@ const nextConfig: NextConfig = {
   // next/image only serves qualities listed here (Next 16 default: [75]).
   // 90 is PHOTO_QUALITY for member photos (src/components/common/Avatar.tsx).
   images: { qualities: [75, 90] },
-  // IS_PRODUCTION (src/lib/env.ts) keeps the shop, the dev options bar and the
-  // old-copy locales off the live site. Vercel normally exposes this variable
-  // itself; falling back to VERCEL_ENV keeps that gate closed even if the
-  // project's "expose System Environment Variables" setting is ever turned off.
+  // The deployment's role, read by src/lib/env.ts (SITE_STAGE, IS_PRODUCTION):
+  //   production: the live site (Vercel production, branch main)
+  //   staging:    branch "staging", a Vercel preview that behaves exactly like the live site
+  //   preview:    every other branch (preview-development…): dev tools and preview-only pages on
+  // An explicit NEXT_PUBLIC_SITE_STAGE wins (local checks); NEXT_PUBLIC_VERCEL_ENV=production still
+  // works as a local production simulation. Vercel normally exposes NEXT_PUBLIC_VERCEL_ENV itself;
+  // falling back to VERCEL_ENV keeps the gate closed even if that setting is ever turned off.
   env: {
-    NEXT_PUBLIC_VERCEL_ENV: process.env.NEXT_PUBLIC_VERCEL_ENV || process.env.VERCEL_ENV || "",
+    NEXT_PUBLIC_VERCEL_ENV: vercelEnv,
+    NEXT_PUBLIC_SITE_STAGE:
+      process.env.NEXT_PUBLIC_SITE_STAGE ||
+      (vercelEnv === "production" ? "production" : process.env.VERCEL_GIT_COMMIT_REF === "staging" ? "staging" : "preview"),
   },
 };
 

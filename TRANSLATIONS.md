@@ -68,10 +68,35 @@ Sürümlerin diğer parçaları:
 `src/i18n/routing.ts` → `REVIEW_LOCALES` ve `src/lib/copyVersions.ts` → `COPY_VERSIONS` / `TEXT_VERSIONS`'tan çıkar;
 `src/lib/textInventory.ts`'teki `messages/*-x-v1.json` importlarını kaldır.
 
-**Yayın akışı:** geliştirme `preview-development` dalında yapılır; her push Vercel Preview'a gider. Yayına almak için
-`git push origin preview-development:main` (ya da GitHub'da `preview-development` → `main` pull request'i). `main`'e
-doğrudan commit atılmadığı sürece bu her seferinde çakışmasız bir fast-forward'dur. Mağaza, DEV OPTIONS, ESKİ sürümler
-ve KPI'lar `main`'e geçse de canlıda kapalı kalır.
+**Yayın akışı (üç dal):**
+
+| Dal | Ne için | Görünüş |
+|---|---|---|
+| `preview-development` | Geliştirme, denemeler, çoklu kurulumlar | Önizleme: DEV OPTIONS, sürümler, mağaza, projeler, taslak yazılar açık |
+| `staging` | Canlının birebir kopyası: son kontrol, küçük düzeltmeler, sadeleştirme, SEO denetimi | Canlı gibi: canlıda kapalı olan her şey burada da kapalı |
+| `main` | Canlı site (www.dscmarmara.com.tr) | Canlı |
+
+1. Geliştirme `preview-development`'ta yapılır; her push bir Vercel Preview'dır.
+2. Hazır olunca staging'e terfi edilir: `git push origin preview-development:staging`.
+3. Staging adresinde site canlıdaki haliyle kontrol edilir:
+   - Adres Vercel'in dal adresi (`…-git-staging-….vercel.app`) ya da GitHub'da commit'in "Deployments" bağlantısı;
+     açmak için Vercel girişi gerekir.
+   - İstenirse Vercel → Settings → Domains'ten `staging.dscmarmara.com.tr` gibi bir alt alan adı bu dala
+     bağlanabilir (DNS kaydı da gerekir).
+   - SEO denetimi:
+     `NEXT_PUBLIC_SITE_STAGE=staging npm run build && npx next start` → `npm run seo-audit http://localhost:3000`
+     (canlıya karşı yalnızca `npm run seo-audit`).
+4. Canlıya alma: `git push origin staging:main`.
+5. **Staging'de düzeltme commit'i atıldıysa** onu `preview-development`'a geri al:
+   `git checkout preview-development && git merge origin/staging && git push`. Böylece dallar ayrışmaz ve terfiler
+   hep fast-forward kalır. `main`'e doğrudan commit atılmaz.
+
+Staging'in canlı gibi davranması `next.config.ts` → `NEXT_PUBLIC_SITE_STAGE`'den gelir: Vercel production →
+`production`, `staging` dalı → `staging`, diğer dallar → `preview`. Canlıda kapalı olan her şey `IS_PRODUCTION`'a
+(`src/lib/env.ts`) bakar ve bu bayrak staging'de de doğrudur. Staging'in canlıdan tek farkları:
+- İletişim formundan gelen e-postanın konusunda `[STAGING]` yazar.
+- Vercel önizleme adreslerine `X-Robots-Tag: noindex` koyduğu için arama motorlarına girmez.
+- IndexNow yalnızca `main` yayınından sonra çalıştırılır.
 
 **Yayından sonra arama motorları:** Vercel canlı deploy'u bitince `npm run indexnow` çalıştır. Canlı sitemap'teki
 bütün adresleri IndexNow'a (Bing, Yandex vb.) bildirir; anahtar `public/<anahtar>.txt` dosyası. Google IndexNow

@@ -1,4 +1,5 @@
 import "server-only";
+import { IS_STAGING } from "@/lib/env";
 
 /**
  * Zoho Mail REST API sender (region-aware, defaults to EU).
@@ -181,7 +182,8 @@ export async function sendContactMail(input: ContactMail): Promise<void> {
       // the body carries it as a mailto link.
       // Each part is capped separately — zod allows a 120-char name, which would
       // otherwise crowd the subject out of the line.
-      subject: `[İletişim] ${headerSafe(input.name, 60)} · ${headerSafe(input.subject, 120)}`,
+      // On staging (the live site's copy) the form works for real; `[STAGING]` keeps test mail apart.
+      subject: `${IS_STAGING ? "[STAGING] " : ""}[İletişim] ${headerSafe(input.name, 60)} · ${headerSafe(input.subject, 120)}`,
       content,
       mailFormat: "html",
       askReceipt: "no",
