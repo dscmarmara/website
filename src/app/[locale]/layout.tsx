@@ -7,6 +7,7 @@ import { bricolage, hanken, dscScript } from "@/fonts";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { RevealOnScroll } from "@/components/effects/RevealOnScroll";
 import { organizationLd, websiteLd, ogLocale, SITE_NAME, SITE_URL } from "@/lib/seo";
 import "../globals.css";
 
@@ -83,6 +84,7 @@ export default async function LocaleLayout({
           <Nav />
           <main>{children}</main>
           <Footer />
+          <RevealOnScroll />
         </NextIntlClientProvider>
       </body>
     </html>

@@ -153,32 +153,29 @@
 }
 
 /* ---------------------------------------------------------------------------
-   Reveal on scroll (CSS scroll-driven animation)
+   Reveal on scroll: a short rise, played once when an element first scrolls
+   into view. RevealOnScroll (src/components/effects) marks each [data-reveal]:
+   "now" (on screen at the start: never hidden), "wait" (below: hidden), then
+   "anim" when it arrives. Nothing is hidden without JS (no data-reveal-js).
+   Not scroll-linked on purpose, see RevealOnScroll.
 --------------------------------------------------------------------------- */
-[data-reveal] {
-  opacity: 1;
+@keyframes dsc-rise {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
-@supports (animation-timeline: view()) {
-  @keyframes dsc-rise {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: none;
-    }
-  }
-  /* `backwards`, not `both`: once an element has risen into place the animation
-     stops applying. Its final frame equals the resting style, so nothing moves,
-     but the browser can drop the element's compositing layer (a page of cards
-     otherwise keeps one each for its whole life) and hover transforms such as
-     the card lift are no longer overridden by the animation's `transform: none`. */
-  [data-reveal] {
-    animation: dsc-rise linear backwards;
-    animation-timeline: view();
-    animation-range: entry 4% cover 30%;
-  }
+[data-reveal-js] [data-reveal][data-revealed="wait"] {
+  opacity: 0;
+}
+/* `backwards`, not `both`: once finished the animation stops applying, so the
+   browser drops the element's layer and hover transforms (the card lift) work. */
+[data-reveal-js] [data-reveal][data-revealed="anim"] {
+  animation: dsc-rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
 }
 @media (prefers-reduced-motion: reduce) {
   [data-reveal] {
