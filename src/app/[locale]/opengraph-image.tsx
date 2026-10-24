@@ -1,9 +1,17 @@
 import { ImageResponse } from "next/og";
 import { getTranslations } from "next-intl/server";
+import { isServedLocale, routing } from "@/i18n/routing";
 
 export const alt = "DSC Marmara · Data Science Club";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+
+// Rendered once per served locale at build time. Any other first segment is a 404: the proxy
+// skips this route, so without this /anything/opengraph-image rendered a fresh image per request.
+export function generateStaticParams() {
+  return routing.locales.filter(isServedLocale).map((locale) => ({ locale }));
+}
+export const dynamicParams = false;
 
 /** Social share card, in the page's language: the home hero line and the university name. */
 export default async function Image({ params }: { params: Promise<{ locale: string }> }) {

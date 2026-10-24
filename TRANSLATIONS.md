@@ -4,7 +4,8 @@ Site İngilizce (`/`) ve Türkçe (`/tr`) yayınlanıyor. Türkçe metinleri ell
 aşağıdaki dosyalara bakman yeterli. Kod bilgisi gerekmiyor; sadece tırnak içindeki
 **değerleri** değiştir.
 
-Değişikliği görmek için: `npm run dev` → <http://localhost:3737/tr>
+Değişikliği görmek için: `npm run dev` → <http://localhost:3737/tr> (telefondan aynı ağda denemek için
+`npm run dev:lan`)
 
 Sitedeki bütün TR/EN metinlerin tek sayfalık dökümü: `SITE_METINLERI.md` (`npm run site-texts` ile yenilenir).
 
@@ -40,8 +41,8 @@ sunumundan (DSC_ALTYAPI_TANITIM) uyarlanmış metinler. Anasayfa departman kartl
   bölümünün metinleri, sayfadaki gibi yalnızca **Paslaşma AÇIK** iken listelenir.
 - **Font:** şeritteki **"Font →"** ya da `/karsilastir/font`. Sitedeki el yazısı başlıklar iki satırda: ÖNCE (Condiment;
   eksik Ğ ğ İ Ş ş ve ı Pacifico'dan) ve SONRA (DSC Script). Değişen harflerin altı çizili.
-- Şerit, `/karsilastir`, `/karsilastir/farklar` ve `/karsilastir/font` Vercel production'da
-  (`NEXT_PUBLIC_VERCEL_ENV=production`) yok; sürüm adresleri canlıda 404.
+- Şerit, `/karsilastir`, `/karsilastir/farklar` ve `/karsilastir/font` canlıda ve staging'de yok; sürüm adresleri
+  orada 404.
 
 **Başlık fontu (DSC Script):** hero başlıklarındaki el yazısı font, Condiment'e eksik Türkçe harflerin (Ğ ğ İ Ş ş)
 fontun kendi harf ve aksanlarından eklenmiş hali (`src/fonts/dsc-script/`, OFL; özgün dosya `src/fonts/condiment/`
@@ -89,17 +90,39 @@ Sürümlerin diğer parçaları:
    - SEO denetimi:
      `NEXT_PUBLIC_SITE_STAGE=staging npm run build && npx next start` → `npm run seo-audit http://localhost:3000`
      (canlıya karşı yalnızca `npm run seo-audit`).
+   - Güvenlik: `npm audit` 0 açık göstermeli (bkz. "Güvenlik" aşağıda).
 4. Canlıya alma: `git push origin staging:main`.
 5. **Staging'de düzeltme commit'i atıldıysa** onu `preview-development`'a geri al:
    `git checkout preview-development && git merge origin/staging && git push`. Böylece dallar ayrışmaz ve terfiler
    hep fast-forward kalır. `main`'e doğrudan commit atılmaz.
 
 Staging'in canlı gibi davranması `next.config.ts` → `NEXT_PUBLIC_SITE_STAGE`'den gelir: Vercel production →
-`production`, `staging` dalı → `staging`, diğer dallar → `preview`. Canlıda kapalı olan her şey `IS_PRODUCTION`'a
-(`src/lib/env.ts`) bakar ve bu bayrak staging'de de doğrudur. Staging'in canlıdan tek farkları:
+`production`, `staging` dalı → `staging`, diğer Vercel dalları ve `npm run dev` → `preview`. Nerede çalıştığı
+anlaşılamayan derleme (ör. yerelde düz `npm run build`) **canlı** sayılır; yerelde önizlemeyi derlemek için
+`NEXT_PUBLIC_SITE_STAGE=preview npm run build`. Canlıda kapalı olan her şey `IS_PRODUCTION`'a (`src/lib/env.ts`) bakar
+ve bu bayrak staging'de de doğrudur. Staging'in canlıdan tek farkları:
 - İletişim formundan gelen e-postanın konusunda `[STAGING]` yazar.
 - Vercel önizleme adreslerine `X-Robots-Tag: noindex` koyduğu için arama motorlarına girmez.
 - IndexNow yalnızca `main` yayınından sonra çalıştırılır.
+
+Yerelde başka modda yeniden derlemeden önce açık `next start`'ı kapat: çalışmaya devam eden eski sunucu, yeni
+derlemenin `.next/server/route-cache`'ine kendi modunun sonuçlarını (ör. staging'in 404'lerini) yazar ve yeni sunucu
+onları sunar. Şüphede `.next/server/route-cache`'i sil.
+
+**Güvenlik:**
+- **Bağımlılıklar:** yayından önce `npm audit` 0 açık göstermeli. Next ve React güvenlik duyurularını takip et
+  (nextjs.org/blog); yamalı sürüme geçiş staging'den geçer. `next` ve `react` tam sürümle sabit.
+- **Başlıklar:** CSP, X-Frame-Options, nosniff, Referrer-Policy, Permissions-Policy `next.config.ts` → `headers()`.
+  Sitede dışarıdan betik, stil, font, iframe yok; yeni bir dış kaynak (analitik, gömülü video vb.) eklenirse CSP'ye
+  de eklenmeli, yoksa tarayıcı engeller. Önizleme ve staging'de Vercel araç çubuğu (`vercel.live`) ayrıca izinli.
+- **İletişim formu:**
+  - Vercel BotID (Basic, ücretsiz) korur: `src/instrumentation-client.ts` + `actions.ts` → `checkBotId()`. Vercel →
+    Settings → Security'de **OIDC Federation açık olmalı**; kapalıysa kontrol hata verir, form yine çalışır
+    (hata kayıtlarda "BotID check failed") ama bot koruması devre dışı kalır.
+  - Ziyaretçi başına 10 dakikada 3 mesaj, sunucu başına günde 40 mesaj sınırı var. Alan sınırları
+    `src/lib/contactRules.ts`'te; form ve sunucu aynı kuralları kullanır.
+  - `ZOHO_*` değişkenleri Vercel'de "Sensitive" olmalı ve yalnızca Production ile `staging` dalına tanımlı olmalı.
+    Yerelde `.env.local`'da tanımlıysa yerel form **gerçekten mail gönderir**.
 
 **Yayından sonra arama motorları:** Vercel canlı deploy'u bitince `npm run indexnow` çalıştır. Canlı sitemap'teki
 bütün adresleri IndexNow'a (Bing, Yandex vb.) bildirir; anahtar `public/<anahtar>.txt` dosyası. Google IndexNow

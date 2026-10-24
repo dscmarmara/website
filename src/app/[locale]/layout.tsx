@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { isReviewLocale, routing } from "@/i18n/routing";
-import { IS_PRODUCTION } from "@/lib/env";
+import { isReviewLocale, isServedLocale, routing } from "@/i18n/routing";
 import { bricolage, hanken, dscScript } from "@/fonts";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
@@ -12,9 +11,6 @@ import { organizationLd, websiteLd, ogLocale, SITE_NAME, SITE_URL } from "@/lib/
 import "../globals.css";
 
 type Params = { locale: string };
-
-/** Review locales (the old copy) exist on previews only; the live site 404s them. */
-const isServedLocale = (locale: string) => !(IS_PRODUCTION && isReviewLocale(locale));
 
 export function generateStaticParams() {
   return routing.locales.filter(isServedLocale).map((locale) => ({ locale }));

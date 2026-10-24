@@ -1,20 +1,33 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { Heading } from "@/lib/content";
 import { TocList } from "@/components/article/toc";
 
+/** Where `.read-toc` is shown (globals.css); below it the rail is hidden and does no work. */
+const WIDE = "(min-width: 1180px)";
+const subscribeWide = (onChange: () => void) => {
+  const query = window.matchMedia(WIDE);
+  query.addEventListener("change", onChange);
+  return () => query.removeEventListener("change", onChange);
+};
+
 /**
  * Wide screens: sticky contents beside the text, with a reading-progress bar
- * and the current section highlighted. The bar is written through a ref in
- * requestAnimationFrame, and state only changes when the section does, so
- * scrolling doesn't re-render the page. The section's #id follows in the URL.
+ * and the current section highlighted. The bar is a CSS scroll-driven animation
+ * where supported (globals.css), otherwise written through a ref once per frame;
+ * state only changes when the section does, so scrolling doesn't re-render the
+ * page. The section's #id follows in the URL. On narrower screens, where the
+ * rail is hidden, none of this runs.
  */
 export function TocRail({ items, label, numbered }: { items: Heading[]; label: string; numbered?: boolean }) {
   const [active, setActive] = useState<string | null>(null);
   const bar = useRef<HTMLSpanElement>(null);
+  const wide = useSyncExternalStore(subscribeWide, () => window.matchMedia(WIDE).matches, () => false);
 
   useEffect(() => {
+    if (!wide) return;
+    const cssBar = CSS.supports("animation-timeline: scroll()");
     let frame = 0;
     let hashTimer: number | undefined;
     let current: string | null = null;
@@ -22,7 +35,7 @@ export function TocRail({ items, label, numbered }: { items: Heading[]; label: s
       frame = 0;
       const root = document.documentElement;
       const max = root.scrollHeight - root.clientHeight;
-      if (bar.current) bar.current.style.transform = `scaleX(${max > 0 ? Math.min(1, root.scrollTop / max) : 0})`;
+      if (!cssBar && bar.current) bar.current.style.transform = `scaleX(${max > 0 ? Math.min(1, root.scrollTop / max) : 0})`;
       // A heading is current once it passes just under the sticky nav; at the very bottom, mid-screen.
       const line = root.scrollTop >= max - 4 ? window.innerHeight / 2 : 120;
       let id: string | null = null;
@@ -51,7 +64,7 @@ export function TocRail({ items, label, numbered }: { items: Heading[]; label: s
       cancelAnimationFrame(frame);
       window.clearTimeout(hashTimer);
     };
-  }, [items]);
+  }, [items, wide]);
 
   return (
     <nav className="toc-rail" aria-label={label}>

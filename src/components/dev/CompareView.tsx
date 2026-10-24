@@ -51,7 +51,8 @@ export function CompareView() {
     return {
       left: isCopyVersion(sol) ? sol : ("tr" as Locale),
       right: isCopyVersion(sag) ? sag : ("en" as Locale),
-      path: sayfa.startsWith("/") ? sayfa : "/",
+      // Site paths only: `//host` and `/\host` also start with "/" but leave the site.
+      path: /^\/(?![/\\])/.test(sayfa) ? sayfa : "/",
     };
   });
 

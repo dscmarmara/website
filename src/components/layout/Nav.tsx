@@ -28,17 +28,7 @@ export function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header
-      style={{
-        position: "sticky",
-        top: 0,
-        zIndex: 60,
-        backdropFilter: "blur(14px)",
-        WebkitBackdropFilter: "blur(14px)",
-        background: "var(--nav-bg)",
-        borderBottom: "1px solid var(--border)",
-      }}
-    >
+    <header className="site-nav">
       <div
         style={{
           maxWidth: "var(--maxw)",

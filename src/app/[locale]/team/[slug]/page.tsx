@@ -42,6 +42,9 @@ export function generateStaticParams() {
   return getMemberSlugs().map((slug) => ({ slug }));
 }
 
+// Only the slugs above exist; any other URL is a 404 instead of an on-demand render.
+export const dynamicParams = false;
+
 export async function generateMetadata({
   params,
 }: {

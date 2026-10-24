@@ -27,6 +27,9 @@ export function generateStaticParams() {
   return getPostSlugs().map((slug) => ({ slug }));
 }
 
+// Only the slugs above exist; any other URL is a 404 instead of an on-demand render.
+export const dynamicParams = false;
+
 async function importBody(locale: string, slug: string) {
   const chain = localeChain(locale);
   for (const l of chain.slice(0, -1)) {

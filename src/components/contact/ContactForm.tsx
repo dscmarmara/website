@@ -1,14 +1,17 @@
 "use client";
 
-import { useState, type CSSProperties } from "react";
+import { useState, useSyncExternalStore, type CSSProperties } from "react";
 import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import { useTranslations } from "next-intl";
 import { CheckIcon } from "@/components/common/SocialIcons";
 import { sendContactMessage } from "@/app/[locale]/contact/actions";
+import { CONTACT_LIMITS, EMAIL_RE, HONEYPOT_FIELD } from "@/lib/contactRules";
 
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+type FormValues = { name: string; email: string; subject: string; message: string; [HONEYPOT_FIELD]?: string };
+
+/** False in the server HTML and until hydration, true after: no effect or extra render needed. */
+const noSubscribe = () => () => {};
+const useHydrated = () => useSyncExternalStore(noSubscribe, () => true, () => false);
 
 const inputStyle: CSSProperties = {
   padding: "14px 16px",
@@ -38,36 +41,36 @@ export function ContactForm() {
   const t = useTranslations("contact");
   const [sent, setSent] = useState(false);
   const [sendError, setSendError] = useState<string | null>(null);
-
-  const schema = z.object({
-    // `.trim()` mirrors the server schema. Without it a whitespace-only value
-    // passes here and is only caught server-side, where the visitor gets the
-    // generic "couldn't be sent" banner instead of an inline field error.
-    name: z.string().trim().min(2, t("nameError")),
-    email: z.string().trim().regex(EMAIL_RE, t("emailError")),
-    subject: z.string().trim().min(2, t("subjectError")),
-    // Deliberately NOT trimmed — zodResolver hands onSubmit the parsed value, so
-    // a `.trim()` here would edit the message before it is ever sent. One
-    // character is enough; the refine is what rejects an all-whitespace message.
-    message: z.string().refine((s) => s.trim().length > 0, t("messageError")),
-    /** Honeypot — hidden from real users; see `company` in the server action. */
-    company: z.string().optional(),
-  });
-  type FormValues = z.infer<typeof schema>;
+  const hydrated = useHydrated();
 
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<FormValues>({ resolver: zodResolver(schema) });
+  } = useForm<FormValues>();
+
+  // The same checks as the server action (trimmed lengths, zod's email pattern), so a
+  // whitespace-only or malformed value gets an inline field error here instead of the
+  // generic "couldn't be sent" banner. Values are sent as typed: the server trims what
+  // it should, and the message keeps its indentation. Maximum lengths are the inputs'
+  // own `maxLength`.
+  const minTwo = (message: string) => (v: string) => v.trim().length >= 2 || message;
 
   const onSubmit = async (values: FormValues) => {
     setSendError(null);
-    const result = await sendContactMessage(values);
+    let result: Awaited<ReturnType<typeof sendContactMessage>>;
+    try {
+      result = await sendContactMessage(values);
+    } catch {
+      // Network failure, or a page left open across a deploy (its action ID no longer exists).
+      setSendError(t("sendError"));
+      return;
+    }
     if (result.ok) {
       setSent(true);
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
       return;
     }
     setSendError(result.error === "rate" ? t("rateError") : t("sendError"));
@@ -93,36 +96,38 @@ export function ContactForm() {
   }
 
   return (
-    <form className="contact-form" noValidate onSubmit={handleSubmit(onSubmit)}>
+    // method="post": a submit before hydration must not put the visitor's details in the URL,
+    // where they would end up in logs and history. The send button also waits for hydration.
+    <form className="contact-form" method="post" noValidate onSubmit={handleSubmit(onSubmit)}>
       {/* Honeypot: off-screen and hidden from assistive tech, so only bots fill it. */}
       <div aria-hidden style={{ position: "absolute", left: "-9999px", width: 1, height: 1, overflow: "hidden" }}>
         <label>
-          Company
-          <input type="text" tabIndex={-1} autoComplete="off" {...register("company")} />
+          Leave this field empty
+          <input type="text" tabIndex={-1} autoComplete="off" {...register(HONEYPOT_FIELD)} />
         </label>
       </div>
 
       <label style={{ display: "flex", flexDirection: "column", gap: 9 }}>
         <span style={captionStyle}>{t("fullName")}</span>
-        <input className="field" type="text" placeholder={t("namePlaceholder")} style={inputStyle} {...register("name")} />
+        <input className="field" type="text" placeholder={t("namePlaceholder")} style={inputStyle} maxLength={CONTACT_LIMITS.name} {...register("name", { validate: minTwo(t("nameError")) })} />
         {errors.name && <span style={errorStyle}>{errors.name.message}</span>}
       </label>
 
       <label style={{ display: "flex", flexDirection: "column", gap: 9 }}>
         <span style={captionStyle}>{t("email")}</span>
-        <input className="field" type="email" placeholder={t("emailPlaceholder")} style={inputStyle} {...register("email")} />
+        <input className="field" type="email" placeholder={t("emailPlaceholder")} style={inputStyle} maxLength={CONTACT_LIMITS.email} {...register("email", { validate: (v) => EMAIL_RE.test(v.trim()) || t("emailError") })} />
         {errors.email && <span style={errorStyle}>{errors.email.message}</span>}
       </label>
 
       <label className="span-2" style={{ display: "flex", flexDirection: "column", gap: 9 }}>
         <span style={captionStyle}>{t("subject")}</span>
-        <input className="field" type="text" placeholder={t("subjectPlaceholder")} style={inputStyle} {...register("subject")} />
+        <input className="field" type="text" placeholder={t("subjectPlaceholder")} style={inputStyle} maxLength={CONTACT_LIMITS.subject} {...register("subject", { validate: minTwo(t("subjectError")) })} />
         {errors.subject && <span style={errorStyle}>{errors.subject.message}</span>}
       </label>
 
       <label className="span-2" style={{ display: "flex", flexDirection: "column", gap: 9 }}>
         <span style={captionStyle}>{t("message")}</span>
-        <textarea className="field" rows={6} placeholder={t("messagePlaceholder")} style={{ ...inputStyle, resize: "vertical" }} {...register("message")} />
+        <textarea className="field" rows={6} placeholder={t("messagePlaceholder")} style={{ ...inputStyle, resize: "vertical" }} maxLength={CONTACT_LIMITS.message} {...register("message", { validate: (v) => v.trim().length > 0 || t("messageError") })} />
         {errors.message && <span style={errorStyle}>{errors.message.message}</span>}
       </label>
 
@@ -130,8 +135,8 @@ export function ContactForm() {
         <button
           type="submit"
           className="lift-btn"
-          disabled={isSubmitting}
-          style={{ padding: "15px 34px", borderRadius: 10, border: "none", background: "var(--grad)", color: "#04190a", fontFamily: "var(--font-body-stack)", fontWeight: 700, fontSize: 15, cursor: isSubmitting ? "wait" : "pointer", opacity: isSubmitting ? 0.7 : 1, boxShadow: "var(--glow-soft)" }}
+          disabled={!hydrated || isSubmitting}
+          style={{ padding: "15px 34px", borderRadius: 10, border: "none", background: "var(--grad)", color: "#04190a", fontFamily: "var(--font-body-stack)", fontWeight: 700, fontSize: 15, cursor: isSubmitting ? "wait" : "pointer", opacity: !hydrated || isSubmitting ? 0.7 : 1, boxShadow: "var(--glow-soft)" }}
         >
           {isSubmitting ? t("sending") : t("send")}
         </button>

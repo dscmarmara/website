@@ -41,9 +41,9 @@ function readFrontmatter(slug: string, locale: string): Post | null {
 }
 
 export function getPostBySlug(slug: string, locale: string): Post | null {
-  const post = readFrontmatter(slug, locale);
-  // A draft does not exist on the live site, even when its URL is requested directly.
-  return post && IS_PRODUCTION && post.draft ? null : post;
+  // Only listed slugs exist, even when a URL is requested directly: no `_template`,
+  // and no drafts on the live site.
+  return getPostSlugs().includes(slug) ? readFrontmatter(slug, locale) : null;
 }
 
 export function getAllPosts(locale: string): Post[] {

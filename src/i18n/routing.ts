@@ -1,4 +1,5 @@
 import { defineRouting } from "next-intl/routing";
+import { IS_PRODUCTION } from "@/lib/env";
 
 /**
  * TEMPORARY review locales: other versions of the Turkish and English copy,
@@ -14,6 +15,9 @@ import { defineRouting } from "next-intl/routing";
 export const REVIEW_LOCALES = ["tr-x-eski", "en-x-eski", "tr-x-v1", "en-x-v1"] as const;
 
 export const isReviewLocale = (locale: string) => (REVIEW_LOCALES as readonly string[]).includes(locale);
+
+/** Review locales exist on previews only; the live site (and staging) 404s them. */
+export const isServedLocale = (locale: string) => !(IS_PRODUCTION && isReviewLocale(locale));
 
 export const routing = defineRouting({
   // English served at the root (/about), Turkish under /tr (/tr/about).

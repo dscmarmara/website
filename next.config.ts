@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
+import { PHASE_DEVELOPMENT_SERVER } from "next/constants";
 import createNextIntlPlugin from "next-intl/plugin";
 import createMDX from "@next/mdx";
+import { withBotId } from "botid/next/config";
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 const vercelEnv = process.env.NEXT_PUBLIC_VERCEL_ENV || process.env.VERCEL_ENV || "";
@@ -52,26 +54,84 @@ const withMDX = createMDX({
   },
 });
 
-const nextConfig: NextConfig = {
-  pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
-  // Allow the LAN origin during `next dev` (e.g. testing the responsive site on a phone).
-  allowedDevOrigins: ["192.168.1.89", "192.168.1.89:3737"],
-  // next/image only serves qualities listed here (Next 16 default: [75]).
-  // 90 is PHOTO_QUALITY for member photos (src/components/common/Avatar.tsx).
-  images: { qualities: [75, 90] },
-  // The deployment's role, read by src/lib/env.ts (SITE_STAGE, IS_PRODUCTION):
-  //   production: the live site (Vercel production, branch main)
-  //   staging:    branch "staging", a Vercel preview that behaves exactly like the live site
-  //   preview:    every other branch (preview-development…): dev tools and preview-only pages on
-  // An explicit NEXT_PUBLIC_SITE_STAGE wins (local checks); NEXT_PUBLIC_VERCEL_ENV=production still
-  // works as a local production simulation. Vercel normally exposes NEXT_PUBLIC_VERCEL_ENV itself;
-  // falling back to VERCEL_ENV keeps the gate closed even if that setting is ever turned off.
-  env: {
-    NEXT_PUBLIC_VERCEL_ENV: vercelEnv,
-    NEXT_PUBLIC_SITE_STAGE:
-      process.env.NEXT_PUBLIC_SITE_STAGE ||
-      (vercelEnv === "production" ? "production" : process.env.VERCEL_GIT_COMMIT_REF === "staging" ? "staging" : "preview"),
-  },
-};
+/**
+ * The deployment's role, read by src/lib/env.ts (SITE_STAGE, IS_PRODUCTION):
+ *   production: the live site (Vercel production, branch main)
+ *   staging:    branch "staging", a Vercel preview that behaves exactly like the live site
+ *   preview:    every other Vercel branch (preview-development…) and `next dev`: dev tools and
+ *               preview-only pages on
+ * An explicit NEXT_PUBLIC_SITE_STAGE wins (local checks: `NEXT_PUBLIC_SITE_STAGE=preview npm run build`).
+ * Fails closed: a build that cannot tell where it runs (a local `next build`, a host without Vercel's
+ * variables) is production, so the dev tools never ship by accident. Vercel normally exposes
+ * NEXT_PUBLIC_VERCEL_ENV itself; falling back to VERCEL_ENV keeps the gate working if that is ever off.
+ */
+function siteStage(phase: string): string {
+  if (process.env.NEXT_PUBLIC_SITE_STAGE) return process.env.NEXT_PUBLIC_SITE_STAGE;
+  if (vercelEnv === "production") return "production";
+  if (process.env.VERCEL_GIT_COMMIT_REF === "staging") return "staging";
+  if (vercelEnv === "preview" || vercelEnv === "development" || phase === PHASE_DEVELOPMENT_SERVER) return "preview";
+  return "production";
+}
 
-export default withNextIntl(withMDX(nextConfig));
+/**
+ * Content-Security-Policy. Scripts and styles need 'unsafe-inline': Next inlines its bootstrap
+ * scripts, and a nonce would make every page dynamic (no static HTML, no CDN cache); the site also
+ * styles with `style={{}}`. What the policy still buys: no third-party scripts, styles, frames or
+ * connections, no framing by other sites (clickjacking), no <base> or form-target hijacking, no plugins.
+ * Fonts are self-hosted by next/font, Plotly needs no eval, BotID's challenge script is same-origin.
+ * Off the live site the Vercel toolbar (vercel.live) is allowed too. Not sent by `next dev` (HMR uses eval).
+ */
+function contentSecurityPolicy(stage: string): string {
+  const toolbar = stage === "production" ? [] : ["https://vercel.live"];
+  return [
+    "default-src 'self'",
+    ["script-src 'self' 'unsafe-inline'", ...toolbar].join(" "),
+    ["style-src 'self' 'unsafe-inline'", ...toolbar].join(" "),
+    ["img-src 'self' data: blob:", ...toolbar, ...(toolbar.length ? ["https://vercel.com"] : [])].join(" "),
+    ["font-src 'self'", ...toolbar, ...(toolbar.length ? ["https://assets.vercel.com"] : [])].join(" "),
+    ["connect-src 'self'", ...toolbar, ...(toolbar.length ? ["wss://ws-us3.pusher.com"] : [])].join(" "),
+    ["frame-src 'self'", ...toolbar].join(" "),
+    "frame-ancestors 'self'",
+    "base-uri 'self'",
+    "form-action 'self'",
+    "object-src 'none'",
+  ].join("; ");
+}
+
+export default function config(phase: string): NextConfig {
+  const stage = siteStage(phase);
+  const nextConfig: NextConfig = {
+    pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
+    poweredByHeader: false,
+    // Allow the LAN origin during `npm run dev:lan` (testing the responsive site on a phone).
+    allowedDevOrigins: ["192.168.1.89", "192.168.1.89:3737"],
+    // next/image only serves qualities listed here (Next 16 default: [75]).
+    // 90 is PHOTO_QUALITY for member photos (src/components/common/Avatar.tsx).
+    images: { qualities: [75, 90] },
+    env: {
+      NEXT_PUBLIC_VERCEL_ENV: vercelEnv,
+      NEXT_PUBLIC_SITE_STAGE: stage,
+    },
+    async headers() {
+      if (phase === PHASE_DEVELOPMENT_SERVER) return [];
+      return [
+        {
+          source: "/:path*",
+          headers: [
+            { key: "Content-Security-Policy", value: contentSecurityPolicy(stage) },
+            // Older browsers that ignore frame-ancestors.
+            { key: "X-Frame-Options", value: "SAMEORIGIN" },
+            { key: "X-Content-Type-Options", value: "nosniff" },
+            { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+            { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), browsing-topics=()" },
+          ],
+        },
+      ];
+    },
+  };
+  // BotID's challenge (src/instrumentation-client.ts): Vercel routes it on its own; off Vercel
+  // (`next dev`, a local production build) these rewrites fetch it from Vercel's API instead,
+  // so the contact form also works locally.
+  const withChallenge = process.env.VERCEL ? (c: NextConfig) => c : withBotId;
+  return withNextIntl(withMDX(withChallenge(nextConfig)));
+}

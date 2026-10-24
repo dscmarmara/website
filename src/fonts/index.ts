@@ -1,16 +1,20 @@
 import { Bricolage_Grotesque, Hanken_Grotesk } from "next/font/google";
 import localFont from "next/font/local";
 
+// latin-ext preloaded too: ğ ş İ (and the other Turkish letters outside basic Latin) live there,
+// and almost every page has them (the /tr copy, members' names). Without it that file loads only
+// once the text needs it, and those letters swap in after the rest of the heading.
+
 // Display / headings
 export const bricolage = Bricolage_Grotesque({
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
   variable: "--font-bricolage",
   display: "swap",
 });
 
 // Body / labels
 export const hanken = Hanken_Grotesk({
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
   variable: "--font-hanken",
   display: "swap",
 });
