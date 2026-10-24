@@ -482,22 +482,18 @@
   text-decoration: none;
   transition: color 0.2s ease;
 }
-/* Sticky header. The backdrop blur is re-computed on every scroll frame (and on
-   every frame of an animated hero under it); behind a 72%-opaque bar it barely
-   shows, so phones and tablets get a slightly more opaque bar without it. */
+/* Sticky header: a frosted bar on every screen. Measured on a phone viewport
+   (2026-10-24), the blur adds about 1 ms/s of compositor work, within noise;
+   a translucent bar without it looked worse, letting glowing buttons show
+   through as it scrolled over them. */
 .site-nav {
   position: sticky;
   top: 0;
   z-index: 60;
-  background: rgba(6, 8, 6, 0.9);
+  background: var(--nav-bg);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
-}
-@media (hover: hover) and (pointer: fine) and (min-width: 881px) {
-  .site-nav {
-    background: var(--nav-bg);
-    -webkit-backdrop-filter: blur(14px);
-    backdrop-filter: blur(14px);
-  }
 }
 
 .navlink::after {
