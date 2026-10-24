@@ -36,7 +36,11 @@ export function RevealOnScroll() {
     );
 
     const track = (el: Element) => {
-      if (el.hasAttribute("data-revealed")) return;
+      // "wait" is tracked again, not skipped: on a language switch the layout remounts, and the
+      // outgoing instance's MutationObserver marks the new page's elements "wait" just before its
+      // IntersectionObserver is disconnected. Skipping them here left them hidden for good.
+      const state = el.getAttribute("data-revealed");
+      if (state === "now" || state === "anim") return;
       if (el.getBoundingClientRect().top < window.innerHeight) el.setAttribute("data-revealed", "now");
       else {
         el.setAttribute("data-revealed", "wait");
