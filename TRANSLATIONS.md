@@ -47,7 +47,8 @@ sunumundan (DSC_ALTYAPI_TANITIM) uyarlanmış metinler. Anasayfa departman kartl
 **Başlık fontu (DSC Script):** hero başlıklarındaki el yazısı font, Condiment'e eksik Türkçe harflerin (Ğ ğ İ Ş ş)
 fontun kendi harf ve aksanlarından eklenmiş hali (`src/fonts/dsc-script/`, OFL; özgün dosya `src/fonts/condiment/`
 kaynak olarak duruyor). Yeniden üretmek ya da aksan yerini ayarlamak için `scripts/build-script-font.mjs` →
-`TUNE()` ve `node scripts/build-script-font.mjs`.
+`TUNE()` ve `node scripts/build-script-font.mjs`. Betik hem TTF'i hem sitenin yüklediği WOFF2'yi yazar (WOFF2 için
+`npm install` ile gelen `wawoff2` gerekir).
 
 Menüdeki tek dil düğmesi (Türkçede "EN" → `/`, İngilizcede "TR" → `/tr`) her zaman öteki dilin YENİ 2'sine gider.
 
@@ -139,6 +140,19 @@ onları sunar. Şüphede `.next/server/route-cache`'i sil.
   sınıf. Bir öğenin `:hover`/`:focus`/medya kuralıyla çakışan özellikleri bilerek satır içi bırakıldı; onları
   sınıfa taşımak o kuralı devreye sokar ve görünümü değiştirir.
 - **Belgeler:** Next'in sürüme uygun belgeleri `node_modules/next/dist/docs/`; diğer kütüphaneler için Context7.
+- **Dokunmatik ekran:** telefonda dokunulan her öğe en az 44×44 px. Kurallar `globals.css` sonunda
+  `@media (pointer: coarse)` içinde; masaüstünde (fare) görünüm değişmez. Yeni bir küçük link ya da ikon eklenirse oraya
+  da eklenmeli. Etiket metinleri 12 px'ten küçük olmamalı (logodaki "MARMARA ÜNİVERSİTESİ" logonun parçası, hariç).
+- **Yapısal veri:** kulüp (`ORG_ID`) ve site (`WEBSITE_ID`) her sayfada; üye (Person) ve yazı (BlogPosting) onlara
+  `@id` ile bağlanır. Ana sayfa dışındaki sayfalarda breadcrumb (`<BreadcrumbLd>`) var. Yazı yayından sonra
+  düzeltilirse frontmatter'a `updated: "YYYY-AA-GG"` eklenir (Google'a güncelleme tarihi olarak gider).
+- **Paylaşım kartları:** sitenin kartı `[locale]/opengraph-image.tsx`; her üyenin fotoğraflı kartı
+  `[locale]/team/[slug]/opengraph-image.tsx` (build sırasında üretilir; fotoğraf `public/team/`'den).
+- **Departman linkleri:** footer'daki departmanlar `/about#core-ai` gibi ilgili akordeonu açar
+  (`departmentAnchor`, `OpenDepartmentOnHash`).
+- **404:** dil içindeki eksik adresler `[locale]/[...rest]` üzerinden `[locale]/not-found.tsx`'e düşer (menülü, dilin
+  kendi 404'ü). Next 16 bu sayfayı tarayıcıda çiziyor (`<html id="__next_error__">`, `lang` yok); durum kodu 404 ve
+  `noindex` doğru, arama motorlarına etkisi yok.
 
 **Yayından sonra arama motorları:** Vercel canlı deploy'u bitince `npm run indexnow` çalıştır. Canlı sitemap'teki
 bütün adresleri IndexNow'a (Bing, Yandex vb.) bildirir; anahtar `public/<anahtar>.txt` dosyası. Google IndexNow

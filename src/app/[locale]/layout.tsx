@@ -43,8 +43,10 @@ export async function generateMetadata({ params }: Omit<LayoutProps<"/[locale]">
       // claimed to be the homepage. Pages rely on their canonical link instead.
     },
     twitter: { card: "summary_large_image" },
-    // Review locales are side-by-side copies for proofreading, not pages to rank.
-    robots: isReviewLocale(locale) ? { index: false, follow: false } : { index: true, follow: true },
+    // Review locales are side-by-side copies for proofreading, not pages to rank. Other pages
+    // carry no robots meta (indexable is the default): an explicit "index, follow" here also
+    // landed on 404 pages, next to the "noindex" Next adds there.
+    robots: isReviewLocale(locale) ? { index: false, follow: false } : undefined,
     // Explicit, query-less icon links. Bing (unlike Google) does not reliably
     // guess /favicon.ico and wants a plain <link rel="icon"> advertising a
     // 32x32 entry; Next's file-convention links carry a cache-busting query.
@@ -73,7 +75,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
       <body>
         {/* Locale only: client components get their messages from <ClientMessages> where they render. */}
         <NextIntlClientProvider messages={null}>
-          <JsonLd data={websiteLd(locale)} />
+          <JsonLd data={websiteLd()} />
           <JsonLd data={organizationLd(locale, tMeta("defaultDescription"))} />
           <Nav />
           <main>{children}</main>

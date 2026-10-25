@@ -7,7 +7,7 @@ import { ProductArt } from "@/components/shop/ProductArt";
 
 const labelStyle = {
   fontFamily: "var(--font-mono-stack)",
-  fontSize: 11,
+  fontSize: 12,
   letterSpacing: "0.12em",
   color: "var(--accent)",
   marginBottom: 8,
@@ -53,7 +53,7 @@ export function ProductCard({
         }}
       >
         <ProductArt art={art} />
-        <span style={{ position: "absolute", left: 0, right: 0, bottom: 12, textAlign: "center", fontFamily: "var(--font-mono-stack)", fontSize: 11, color: "var(--text-muted)" }}>
+        <span style={{ position: "absolute", left: 0, right: 0, bottom: 12, textAlign: "center", fontFamily: "var(--font-mono-stack)", fontSize: 12, color: "var(--text-muted)" }}>
           [ {t("photoSoon")} ]
         </span>
       </div>

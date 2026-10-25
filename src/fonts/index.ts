@@ -21,9 +21,10 @@ export const hanken = Hanken_Grotesk({
 
 // Script hero headings: Condiment with the Turkish letters it lacks (Ğ ğ İ Ş ş)
 // added from its own letters and accents, renamed as the OFL requires
-// (built by scripts/build-script-font.mjs; licence in ./dsc-script/OFL.txt).
+// (built by scripts/build-script-font.mjs; licence in ./dsc-script/OFL.txt). The WOFF2 is
+// served; the TTF next to it is the same font, kept as the build's TrueType output.
 export const dscScript = localFont({
-  src: "./dsc-script/DSCScript-Regular.ttf",
+  src: "./dsc-script/DSCScript-Regular.woff2",
   variable: "--font-dsc-script",
   display: "swap",
 });

@@ -45,7 +45,7 @@ export function ProjectCard({
             background: "color-mix(in srgb,var(--bg) 65%,transparent)",
             border: "1px solid var(--border)",
             fontFamily: "var(--font-mono-stack)",
-            fontSize: 11,
+            fontSize: 12,
             letterSpacing: "0.06em",
             color: "var(--accent)",
           }}

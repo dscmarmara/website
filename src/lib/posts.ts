@@ -18,6 +18,7 @@ export interface PostFrontmatter {
   author?: string; // member slug — resolved to a person via getMemberBySlug
   authorName?: string; // instead of `author` when the writer isn't in members.json; shown unlinked
   date: string; // ISO, e.g. "2026-06-22"
+  updated?: string; // ISO; set when a published post is revised (JSON-LD dateModified)
   category: string; // one of DEPARTMENTS
   readingTime: string; // e.g. "7 MIN"
   excerpt: string;

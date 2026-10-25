@@ -7,18 +7,21 @@ import { BlogFilter } from "@/components/blog/BlogFilter";
 import type { PostRowData } from "@/components/cards/PostRow";
 import { getAllPosts, getFeaturedPost, getPostAuthor, postRowData } from "@/lib/posts";
 import { displayRole } from "@/lib/members";
-import { buildAlternates } from "@/lib/seo";
+import { buildAlternates, pageOpenGraph } from "@/lib/seo";
 import { ClientMessages } from "@/components/i18n/ClientMessages";
+import { BreadcrumbLd } from "@/components/seo/BreadcrumbLd";
 
 export async function generateMetadata({
   params,
 }: PageProps<"/[locale]/blog">): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
+  const alternates = await buildAlternates("/blog", locale);
   return {
     title: t("blog.title"),
     description: t("blog.description"),
-    alternates: await buildAlternates("/blog", locale),
+    alternates,
+    openGraph: pageOpenGraph(locale, alternates.canonical),
   };
 }
 
@@ -28,6 +31,7 @@ export default async function BlogPage({
   const { locale } = await params;
   const t = await getTranslations("blog");
   const tr = await getTranslations("roles");
+  const tNav = await getTranslations("nav");
   const format = await getFormatter();
 
   const all = getAllPosts(locale);
@@ -38,6 +42,7 @@ export default async function BlogPage({
 
   return (
     <>
+      <BreadcrumbLd trail={[{ href: "/blog", name: tNav("blog") }]} />
       <PageHero
         eyebrow={t("eyebrow")}
         title={t("heroTitle")}
@@ -51,7 +56,7 @@ export default async function BlogPage({
           <div data-reveal style={{ position: "relative", paddingBottom: 44, marginBottom: 20, borderBottom: "1px solid var(--border)" }}>
             <Link href={`/blog/${featured.slug}`} aria-label={featured.title} style={{ position: "absolute", inset: 0, zIndex: 1 }} />
             <div style={{ display: "flex", gap: 12, alignItems: "center", marginBottom: 18, flexWrap: "wrap" }}>
-              <span style={{ padding: "5px 13px", borderRadius: 100, background: "var(--grad)", color: "#04190a", fontFamily: "var(--font-mono-stack)", fontSize: 11, letterSpacing: "0.06em", fontWeight: 500 }}>{t("featuredBadge")}</span>
+              <span style={{ padding: "5px 13px", borderRadius: 100, background: "var(--grad)", color: "#04190a", fontFamily: "var(--font-mono-stack)", fontSize: 12, letterSpacing: "0.06em", fontWeight: 500 }}>{t("featuredBadge")}</span>
               <span style={{ fontFamily: "var(--font-mono-stack)", fontSize: 12, color: "var(--text-muted)" }}>
                 {format.dateTime(new Date(featured.date), { year: "numeric", month: "short", day: "numeric" }).toLocaleUpperCase(locale)} · {featured.readingTime}
               </span>

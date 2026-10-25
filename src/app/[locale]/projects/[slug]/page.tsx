@@ -94,7 +94,7 @@ export default async function ProjectPage({
 
   const byline = people.length > 0 && (
     <span style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "10px 18px" }}>
-      <span style={{ fontFamily: "var(--font-mono-stack)", fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--text-muted)" }}>{t("team")}</span>
+      <span style={{ fontFamily: "var(--font-mono-stack)", fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--text-muted)" }}>{t("team")}</span>
       {team.map((m) => (
         <Link key={m.slug} href={`/team/${m.slug}`} className="author-link" style={{ display: "inline-flex", alignItems: "center", gap: 10, textDecoration: "none", color: "var(--text)" }}>
           <Avatar photo={m.photo} initials={initialsOf(m, locale)} size={34} radius={999} fontSize={12} />

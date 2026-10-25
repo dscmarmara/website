@@ -790,7 +790,7 @@ details.dsc-acc[open] .acc-title {
 .article th {
   padding: 12px 16px;
   text-align: left;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1086,7 +1086,7 @@ details.dsc-acc[open] .acc-title {
 .toc-label {
   margin-bottom: 10px;
   font-family: var(--font-mono-stack);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--text-muted);
@@ -1124,7 +1124,7 @@ details.dsc-acc[open] .acc-title {
 .toc-n {
   margin-right: 7px;
   font-family: var(--font-mono-stack);
-  font-size: 11px;
+  font-size: 12px;
   color: var(--accent);
 }
 .toc-inline {
@@ -1338,7 +1338,7 @@ details.dsc-acc[open] .acc-title {
 .callout-label {
   margin-bottom: 8px;
   font-family: var(--font-mono-stack);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -1408,7 +1408,7 @@ details.dsc-acc[open] .acc-title {
 .stat-l {
   margin-top: 8px;
   font-family: var(--font-mono-stack);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-muted);
@@ -1500,7 +1500,7 @@ details.dsc-acc[open] .acc-title {
   display: block;
   margin-top: 2px;
   font-weight: 400;
-  font-size: 11.5px;
+  font-size: 12px;
   color: var(--text-muted);
 }
 
@@ -1727,7 +1727,7 @@ details.dsc-acc[open] .acc-title {
 }
 .member-card__role {
   font-family: var(--font-mono-stack);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.06em;
   color: var(--accent);
 }
@@ -2282,7 +2282,7 @@ details.dsc-acc[open] .acc-title {
 }
 .member-stats__label {
   font-family: var(--font-mono-stack);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.1em;
   color: var(--text-muted);
   margin-top: 8px;
@@ -2335,7 +2335,7 @@ details.dsc-acc[open] .acc-title {
 }
 .member-box__label {
   font-family: var(--font-mono-stack);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.12em;
   color: var(--accent);
   margin-bottom: 16px;
@@ -2432,7 +2432,7 @@ details.dsc-acc[open] .acc-title {
 }
 .member-nav__label {
   font-family: var(--font-mono-stack);
-  font-size: 10.5px;
+  font-size: 12px;
   letter-spacing: 0.1em;
   color: var(--text-muted);
 }
@@ -2582,7 +2582,7 @@ details.dsc-acc[open] .acc-title {
 }
 .contact-card__label {
   font-family: var(--font-mono-stack);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.12em;
   color: var(--accent);
   margin-bottom: 8px;
@@ -2596,7 +2596,7 @@ details.dsc-acc[open] .acc-title {
 }
 .contact-social__label {
   font-family: var(--font-mono-stack);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.12em;
   color: var(--accent);
   margin-bottom: 14px;
@@ -2623,18 +2623,57 @@ details.dsc-acc[open] .acc-title {
   font-size: 14px;
   line-height: 1.6;
   color: var(--text-muted);
-  margin: 0 0 18px;
+  margin: 0;
 }
-.contact-join__btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 22px;
-  border-radius: 10px;
-  background: var(--grad);
-  color: #04190a;
-  font-family: var(--font-body-stack);
-  font-weight: 700;
-  font-size: 14px;
-  text-decoration: none;
+
+/* ============================================================================
+   Touch screens: tap targets of at least 44x44px (WCAG 2.5.5). Desktop (a fine
+   pointer) keeps the drawn sizes. Where only the tappable box grows, a matching
+   negative margin keeps the text where it was; the footer lists do get roomier.
+   ========================================================================== */
+@media (pointer: coarse) {
+  .lang-btn {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .menu-btn {
+    width: 44px;
+    height: 44px;
+  }
+  /* width/height are inline (SocialLink); min-* wins over them */
+  .social-ico {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .site-footer__list {
+    gap: 0;
+  }
+  .site-footer__link {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .lift-arrow {
+    padding-block: 11px;
+    margin-block: -11px;
+  }
+  .member-top__back {
+    min-width: 44px;
+    padding-block: 13px;
+    margin-top: -13px;
+    margin-bottom: 27px;
+  }
+  .ah-back {
+    padding-block: 13px;
+    margin-top: -13px;
+    margin-bottom: 17px;
+  }
+  /* inline: the padding grows the tappable box without moving the lines */
+  .contact-card__mail {
+    padding-block: 11px;
+  }
+  .toc-inline .toc-list a {
+    padding-block: 13px;
+  }
 }

@@ -1,6 +1,6 @@
 # DSC Marmara: sitedeki Türkçe ve İngilizce metinler
 
-> Bu dosya otomatik üretilir (2026-10-20); elle düzenleme. Bir metni değiştirmek için
+> Bu dosya otomatik üretilir (2026-10-25); elle düzenleme. Bir metni değiştirmek için
 > `TRANSLATIONS.md`'de gösterilen dosyayı düzenle, sonra `npm run site-texts` ile bu dosyayı yenile.
 >
 > Dahil değil: üyelerin kendi yazdığı biyografi ve alıntılar, blog yazıları, mağaza, gizli KPI etiketleri,
@@ -15,13 +15,13 @@
 | `metadata.defaultDescription` | Marmara Üniversitesi Veri Bilimi Kulübü, geleneksel öğrenci kulübü kalıplarını yıkıyor; küresel teknoloji toplulukları ve çevik startup'larla aynı dili konuşuyor. | The Data Science Club of Marmara University breaks traditional student-club molds and speaks the same language as global tech communities and agile startups. |
 | `metadata.home.title` | Anasayfa | Home |
 | `metadata.home.description` | Startup gibi düşünen veri kulübü. Marmara Üniversitesi'nde altı departman, gerçek projeler ve seni üreten biri olarak gören bir öğrenci topluluğu. | The data club that thinks like a startup. Six departments, real projects, and a student community at Marmara University that treats you like a builder. |
-| `metadata.about.title` | Hakkımızda | About |
+| `metadata.about.title` | Hakkımızda: Hikâyemiz ve Departmanlarımız | About Us: Our Story and Departments |
 | `metadata.about.description` | Biz bir kulüp değiliz, bir üretim ekibiyiz. Altı departmanımız: Data Insights, Core AI, Data Pipelines, Summits & Awards, Finance & Corporate Relations ve PR. | We're not a club, we're a build crew. Our six departments: Data Insights, Core AI, Data Pipelines, Summits & Awards, Finance & Corporate Relations and PR. |
-| `metadata.team.title` | Ekip | Team |
+| `metadata.team.title` | Ekibimiz: Yönetim ve Departman Direktörleri | Our Team: Leadership and Department Directors |
 | `metadata.team.description` | DSC Marmara'nın yönetim ekibi: başkan, başkan yardımcısı, sekreter ve altı departmanın her birini yöneten iki direktörle tanışın. | Meet the team behind DSC Marmara: the president, vice president, secretary, and the two directors leading each of the six departments. |
-| `metadata.blog.title` | Blog | Blog |
+| `metadata.blog.title` | Blog & Köşe Yazıları | Blog & Columns |
 | `metadata.blog.description` | DSC Marmara blogu: veriyle çalışan öğrencilerden gerçek görüşler, saha notları ve deneyimler. Üretim ekibinden köşe yazıları. | The DSC Marmara blog: real opinions, field notes, and lessons from students working with data. Columns from the build crew. |
-| `metadata.contact.title` | İletişim | Contact |
+| `metadata.contact.title` | İletişim: Üyelik, Projeler ve Sponsorluk | Contact: Membership, Projects and Sponsorship |
 | `metadata.contact.description` | DSC Marmara'ya katılmak, projelerimize ortak olmak ya da sponsor olmak mı istiyorsun? Bize bir mesaj bırak; her mesajı gerçek bir öğrenci okuyor. | Want to join DSC Marmara, collaborate on a project, or sponsor us? Leave us a message. A real student reads every message. |
 | `metadata.notFound.title` | Sayfa bulunamadı | Page not found |
 | `metadata.notFound.description` | Aradığın sayfa bulunamadı. | The page you were looking for doesn't exist. |
@@ -348,7 +348,6 @@ Kendi biyografisini vermemiş üyelerde profilde görünen kalıp cümle.
 | `contact.follow` | TAKİP ET | FOLLOW |
 | `contact.applyTitle` | Başvurmaya hazır mısın? | Ready to apply? |
 | `contact.applyBody` | Üyelik başvuruları her dönem başında açılıyor. | Membership applications open at the start of every semester. |
-| `contact.applyNow` | Hemen başvur → | Apply now → |
 
 ## 10. Alt bilgi (footer)
 

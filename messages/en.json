@@ -9,19 +9,19 @@
       "description": "The data club that thinks like a startup. Six departments, real projects, and a student community at Marmara University that treats you like a builder."
     },
     "about": {
-      "title": "About",
+      "title": "About Us: Our Story and Departments",
       "description": "We're not a club, we're a build crew. Our six departments: Data Insights, Core AI, Data Pipelines, Summits & Awards, Finance & Corporate Relations and PR."
     },
     "team": {
-      "title": "Team",
+      "title": "Our Team: Leadership and Department Directors",
       "description": "Meet the team behind DSC Marmara: the president, vice president, secretary, and the two directors leading each of the six departments."
     },
     "blog": {
-      "title": "Blog",
+      "title": "Blog & Columns",
       "description": "The DSC Marmara blog: real opinions, field notes, and lessons from students working with data. Columns from the build crew."
     },
     "contact": {
-      "title": "Contact",
+      "title": "Contact: Membership, Projects and Sponsorship",
       "description": "Want to join DSC Marmara, collaborate on a project, or sponsor us? Leave us a message. A real student reads every message."
     },
     "shop": {
@@ -208,8 +208,7 @@
     "emailUs": "EMAIL US",
     "follow": "FOLLOW",
     "applyTitle": "Ready to apply?",
-    "applyBody": "Membership applications open at the start of every semester.",
-    "applyNow": "Apply now →"
+    "applyBody": "Membership applications open at the start of every semester."
   },
   "shop": {
     "eyebrow": "SHOP",

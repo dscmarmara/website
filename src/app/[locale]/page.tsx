@@ -10,7 +10,7 @@ import { ProjectCard } from "@/components/cards/ProjectCard";
 import { DepartmentCard } from "@/components/cards/DepartmentCard";
 import { pick } from "@/lib/members";
 import { HOME_STATS, HOME_DEPARTMENTS } from "@/lib/constants";
-import { buildAlternates } from "@/lib/seo";
+import { buildAlternates, pageOpenGraph } from "@/lib/seo";
 import { IS_PRODUCTION } from "@/lib/env";
 import { getFeaturedProjects } from "@/lib/projects";
 
@@ -19,13 +19,15 @@ export async function generateMetadata({
 }: PageProps<"/[locale]">): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
+  const alternates = await buildAlternates("/", locale);
   return {
     // No `title` on purpose: `title.template` in the layout does not apply to a
     // page in the same route segment, so setting one here emitted a bare
     // "Home" as the homepage <title> (and og:title). Omitting it falls through
     // to the layout's `title.default`, which carries the brand.
     description: t("home.description"),
-    alternates: await buildAlternates("/", locale),
+    alternates,
+    openGraph: pageOpenGraph(locale, alternates.canonical),
   };
 }
 

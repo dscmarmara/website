@@ -117,6 +117,13 @@ export interface AboutDepartment {
   vision: Localized;
 }
 
+/**
+ * A department's anchor on /about ("Summits & Awards" → "summits-awards"): the id of its
+ * accordion, and the target of the footer's department links (/about#summits-awards).
+ */
+export const departmentAnchor = (name: string) =>
+  name.toLowerCase().replace(/&/g, " ").trim().replace(/[^a-z0-9]+/g, "-");
+
 export const ABOUT_DEPARTMENTS: AboutDepartment[] = [
   {
     no: "01",

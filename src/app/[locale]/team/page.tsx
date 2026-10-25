@@ -6,17 +6,20 @@ import { PageHero } from "@/components/common/PageHero";
 import { Avatar } from "@/components/common/Avatar";
 import { MemberCard } from "@/components/cards/MemberCard";
 import { getGroupedTeam, initialsOf, pick } from "@/lib/members";
-import { buildAlternates } from "@/lib/seo";
+import { buildAlternates, pageOpenGraph } from "@/lib/seo";
+import { BreadcrumbLd } from "@/components/seo/BreadcrumbLd";
 
 export async function generateMetadata({
   params,
 }: PageProps<"/[locale]/team">): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
+  const alternates = await buildAlternates("/team", locale);
   return {
     title: t("team.title"),
     description: t("team.description"),
-    alternates: await buildAlternates("/team", locale),
+    alternates,
+    openGraph: pageOpenGraph(locale, alternates.canonical),
   };
 }
 
@@ -35,11 +38,13 @@ export default async function TeamPage({
   const { locale } = await params;
   const t = await getTranslations("team");
   const tr = await getTranslations("roles");
+  const tNav = await getTranslations("nav");
   const grouped = getGroupedTeam();
   const president = grouped.president;
 
   return (
     <>
+      <BreadcrumbLd trail={[{ href: "/team", name: tNav("team") }]} />
       <PageHero
         eyebrow={t("eyebrow")}
         title={t("heroTitle")}

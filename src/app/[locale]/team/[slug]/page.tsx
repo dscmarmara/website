@@ -14,6 +14,8 @@ import {
   GlobeIcon,
 } from "@/components/common/SocialIcons";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { BreadcrumbLd } from "@/components/seo/BreadcrumbLd";
+import { memberJobTitle } from "@/lib/memberJobTitle";
 import {
   getMemberBySlug,
   getMemberSlugs,
@@ -24,7 +26,7 @@ import {
 } from "@/lib/members";
 import { getPostsByAuthor } from "@/lib/posts";
 import { skillLabel } from "@/lib/skills";
-import { buildAlternates, clampDescription, openGraphBase, orgName, SITE_URL } from "@/lib/seo";
+import { buildAlternates, clampDescription, openGraphBase, ORG_ID, SITE_URL } from "@/lib/seo";
 import { routing } from "@/i18n/routing";
 
 /**
@@ -55,15 +57,16 @@ export async function generateMetadata({
   const description = withClub.length <= 160 ? withClub : clampDescription(`${m.name}: ${tagline}`);
   const alternates = await buildAlternates(`/team/${slug}`, locale);
   const og = openGraphBase(locale);
-  // Shared profiles show the member's (square) photo instead of the club card.
-  const images = m.photo ? [{ url: m.photo, alt: m.name }] : og.images;
+  // Shared profiles show the member's own card: photo, name and role on the club's design
+  // (./opengraph-image.tsx), in the large 1200x630 format.
+  const images = [{ url: `/${locale}/team/${slug}/opengraph-image`, width: 1200, height: 630, alt: m.name, type: "image/png" }];
   const title = t("titleTemplate").replace("%s", m.name);
   return {
     title: m.name,
     description,
     alternates,
     openGraph: { ...og, type: "profile", url: alternates.canonical, title, description, images },
-    twitter: { card: m.photo ? "summary" : "summary_large_image", title, description, images },
+    twitter: { card: "summary_large_image", title, description, images },
   };
 }
 
@@ -84,24 +87,18 @@ export default async function MemberPage({
   const posts = getPostsByAuthor(slug, locale);
 
   const prefix = locale === routing.defaultLocale ? "" : `/${locale}`;
-  // The on-page role label is uppercase styling ("DİREKTÖR · CORE AI"); search engines get a plain title.
-  const tm = await getTranslations("metadata");
-  const jobTitle =
-    m.teamRole === "PRESIDENT"
-      ? tm("jobTitle.president")
-      : m.teamRole === "VICE PRESIDENT"
-        ? tm("jobTitle.vicePresident")
-        : m.teamRole === "SECRETARY"
-          ? tm("jobTitle.secretary")
-          : tm("jobTitle.director", { dept: m.group });
+  const tNav = await getTranslations("nav");
+  const url = `${SITE_URL}${prefix}/team/${slug}`;
   const personLd: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": `${url}#person`,
     name: m.name,
-    jobTitle,
+    jobTitle: await memberJobTitle(m, locale),
     description: pick(m.tagline, locale),
-    url: `${SITE_URL}${prefix}/team/${slug}`,
-    worksFor: { "@type": "Organization", name: orgName(locale), url: SITE_URL },
+    url,
+    // A member of the club (the organisation node every page carries), not its employee.
+    memberOf: { "@id": ORG_ID },
   };
   if (m.photo) personLd.image = `${SITE_URL}${m.photo}`;
   // `sameAs` is how a search engine ties this page to the real-world person:
@@ -116,6 +113,7 @@ export default async function MemberPage({
   return (
     <>
       <JsonLd data={personLd} />
+      <BreadcrumbLd trail={[{ href: "/team", name: tNav("team") }, { href: `/team/${slug}`, name: m.name }]} />
 
       {/* HERO */}
       <section className="member-top">

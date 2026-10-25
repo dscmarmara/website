@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { SOCIALS } from "@/lib/constants";
+import { SOCIALS, departmentAnchor } from "@/lib/constants";
 import { SHOW_SHOP } from "@/lib/env";
 import {
   SocialLink,
@@ -35,7 +35,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="site-footer__heading">{t("exploreTitle")}</h4>
+          <h2 className="site-footer__heading">{t("exploreTitle")}</h2>
           <div className="site-footer__list">
             <Link className="dsc-foot-link author-link site-footer__link" href="/" style={{ color: "var(--text-muted)" }}>{t("linkHome")}</Link>
             <Link className="dsc-foot-link author-link site-footer__link" href="/about" style={{ color: "var(--text-muted)" }}>{t("linkAbout")}</Link>
@@ -46,10 +46,11 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="site-footer__heading">{t("departmentsTitle")}</h4>
+          <h2 className="site-footer__heading">{t("departmentsTitle")}</h2>
           <div className="site-footer__list">
+            {/* Each opens its own accordion on /about (OpenDepartmentOnHash). */}
             {FOOT_DEPARTMENTS.map((d) => (
-              <Link key={d} className="dsc-foot-link author-link site-footer__link" href="/about" style={{ color: "var(--text-muted)" }}>{d}</Link>
+              <Link key={d} className="dsc-foot-link author-link site-footer__link" href={`/about#${departmentAnchor(d)}`} style={{ color: "var(--text-muted)" }}>{d}</Link>
             ))}
           </div>
         </div>

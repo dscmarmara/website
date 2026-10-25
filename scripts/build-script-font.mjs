@@ -7,8 +7,10 @@
 // I + dot accent, S/s + cedilla), placed the way the font places its own
 // accents (Ç/ç, Ö, Ï, the dot of i), and get the kerning of their base letter.
 // The OFL reserves the name "Condiment" for the original, so the result is
-// renamed. Output: src/fonts/dsc-script/DSCScript-Regular.ttf (next to OFL.txt).
-// No dependencies: a minimal TrueType reader/writer for the tables touched.
+// renamed. Output: src/fonts/dsc-script/DSCScript-Regular.ttf (next to OFL.txt) and
+// the same font as DSCScript-Regular.woff2, the file the site loads (smaller).
+// A minimal TrueType reader/writer for the tables touched; the WOFF2 encoding is
+// Google's woff2 (dev dependency wawoff2).
 
 import fs from "node:fs";
 import path from "node:path";
@@ -17,6 +19,7 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 export const SOURCE = path.join(root, "src/fonts/condiment/Condiment-Regular.ttf");
 export const OUTPUT = path.join(root, "src/fonts/dsc-script/DSCScript-Regular.ttf");
+export const OUTPUT_WOFF2 = OUTPUT.replace(/\.ttf$/, ".woff2");
 const FAMILY = "DSC Script";
 const POSTSCRIPT = "DSCScript-Regular";
 const NOTICE = "Turkish letters (Gbreve, gbreve, Idotaccent, Scedilla, scedilla) added by DSC Marmara, 2026.";
@@ -484,6 +487,10 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
   fs.mkdirSync(path.dirname(OUTPUT), { recursive: true });
   fs.writeFileSync(OUTPUT, font);
   console.log(`${path.relative(root, OUTPUT)}: ${font.length} bytes, +${letters.map((l) => String.fromCodePoint(l.cp)).join(" ")}, ${kerningPairsAdded} kerning pairs added`);
+  const { compress } = await import("wawoff2");
+  const woff2 = Buffer.from(await compress(font));
+  fs.writeFileSync(OUTPUT_WOFF2, woff2);
+  console.log(`${path.relative(root, OUTPUT_WOFF2)}: ${woff2.length} bytes`);
 }
 
 /** Hand adjustments (font units), checked against renderings of the new letters next to Ç, Ö, Ü, ı. */

@@ -13,10 +13,11 @@ import {
   LinkedInIcon,
 } from "@/components/common/SocialIcons";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { BreadcrumbLd } from "@/components/seo/BreadcrumbLd";
 import { getAllPosts, getPostAuthor, getPostBySlug, getPostSlugs, localeChain, postRowData } from "@/lib/posts";
 import { firstParagraphOf, headingsOf } from "@/lib/content";
 import { displayRole, pick } from "@/lib/members";
-import { buildAlternates, clampDescription, openGraphBase, orgName, SITE_URL } from "@/lib/seo";
+import { buildAlternates, clampDescription, openGraphBase, orgName, ORG_ID, SITE_URL } from "@/lib/seo";
 import { routing } from "@/i18n/routing";
 
 export function generateStaticParams() {
@@ -83,30 +84,43 @@ export default async function BlogDetailPage({
   const t = await getTranslations("blog");
   const ta = await getTranslations("article");
   const tr = await getTranslations("roles");
+  const tNav = await getTranslations("nav");
   const format = await getFormatter();
   const { default: Body } = await importBody(locale, slug);
 
   const prefix = locale === routing.defaultLocale ? "" : `/${locale}`;
+  const url = `${SITE_URL}${prefix}/blog/${slug}`;
   const blogLd: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
+    "@id": `${url}#article`,
     headline: post.title,
     description: post.excerpt,
     datePublished: post.date,
+    // `updated` in the frontmatter once a published post is revised; until then, the publish date.
+    dateModified: post.updated ?? post.date,
     articleSection: post.category,
     inLanguage: locale,
-    url: `${SITE_URL}${prefix}/blog/${slug}`,
-    mainEntityOfPage: `${SITE_URL}${prefix}/blog/${slug}`,
+    url,
+    mainEntityOfPage: url,
     // The post's share card; Google's article results want an image.
     image: `${SITE_URL}/${locale}/opengraph-image`,
+    // The club node every page carries (@id), restated so the post stands on its own too.
     publisher: {
       "@type": "Organization",
+      "@id": ORG_ID,
       name: orgName(locale),
       url: SITE_URL,
       logo: { "@type": "ImageObject", url: `${SITE_URL}/icon-192.png` },
     },
   };
-  if (author) blogLd.author = { "@type": "Person", name: author.name };
+  if (author) {
+    // A team member links to their profile (the Person node on it); a guest author is a name only.
+    const memberUrl = author.member ? `${SITE_URL}${prefix}/team/${author.member.slug}` : undefined;
+    blogLd.author = memberUrl
+      ? { "@type": "Person", "@id": `${memberUrl}#person`, name: author.name, url: memberUrl }
+      : { "@type": "Person", name: author.name };
+  }
 
   const dateLabel = format.dateTime(new Date(post.date), { year: "numeric", month: "short", day: "numeric" });
   const headings = headingsOf("blog", slug, locale);
@@ -139,6 +153,7 @@ export default async function BlogDetailPage({
   return (
     <>
       <JsonLd data={blogLd} />
+      <BreadcrumbLd trail={[{ href: "/blog", name: tNav("blog") }, { href: `/blog/${slug}`, name: post.title }]} />
       <ReadingProgress />
 
       <article className="read-layout">
@@ -165,7 +180,7 @@ export default async function BlogDetailPage({
                 <Avatar photo={author.photo} initials={author.initials} size={62} radius={999} fontSize={20} />
               </Link>
               <div style={{ flex: 1, minWidth: 240 }}>
-                <div style={{ fontFamily: "var(--font-mono-stack)", fontSize: 11, letterSpacing: "0.1em", color: "var(--accent)", marginBottom: 6 }}>{t("writtenBy")}</div>
+                <div style={{ fontFamily: "var(--font-mono-stack)", fontSize: 12, letterSpacing: "0.1em", color: "var(--accent)", marginBottom: 6 }}>{t("writtenBy")}</div>
                 <Link href={`/team/${member.slug}`} className="author-link" style={{ textDecoration: "none", color: "var(--text)" }}>
                   <h3 className="al-name" style={{ fontFamily: "var(--font-display-stack)", fontWeight: 700, fontSize: 21, margin: "0 0 8px" }}>{author.name}</h3>
                 </Link>

@@ -9,6 +9,13 @@ export const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.dscmarmara.com.tr"
 ).replace(/\/$/, "");
 
+/**
+ * Stable JSON-LD node ids. Every page carries the WebSite and the organisation (layout),
+ * so member pages, posts and breadcrumbs point at these instead of restating the club.
+ */
+export const ORG_ID = `${SITE_URL}/#organization`;
+export const WEBSITE_ID = `${SITE_URL}/#website`;
+
 /** Short name we want search engines to show as the site name. */
 export const SITE_NAME = "DSC Marmara";
 /** Full English name for the organisation entity. */
@@ -35,6 +42,14 @@ export function openGraphBase(locale: string) {
     locale: ogLocale(locale),
     images: [{ url: `/${locale}/opengraph-image`, width: 1200, height: 630, alt: "DSC Marmara · Data Science Club", type: "image/png" }],
   };
+}
+
+/**
+ * A page's own Open Graph block: the shared fields plus `og:url` (its canonical URL). The layout
+ * leaves `url` out, or every page would claim to be the homepage, so each page states its own.
+ */
+export function pageOpenGraph(locale: string, url: string) {
+  return { ...openGraphBase(locale), type: "website" as const, url };
 }
 
 /**
@@ -91,16 +106,35 @@ export async function buildAlternates(href: Href, locale: string) {
  * prints above the URL in search results; without it, it falls back to the bare
  * domain (which is why results were reading "dscmarmara.com.tr").
  */
-export function websiteLd(locale: string) {
+export function websiteLd() {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": WEBSITE_ID,
     name: SITE_NAME,
     alternateName: ["Data Science Club", SITE_NAME_TR, SITE_LEGAL_NAME],
-    // The page's own language; stating it beats letting a crawler infer it
-    // from the Turkish brand names on an English page.
-    inLanguage: locale,
+    // One site in both languages (the page's own language is in <html lang>).
+    inLanguage: PUBLIC_LOCALES,
     url: SITE_URL,
+    publisher: { "@id": ORG_ID },
+  };
+}
+
+/** Absolute URL of a route in a locale (breadcrumbs, JSON-LD). */
+export const absoluteUrl = async (href: Href, locale: string) => SITE_URL + (await getPathname({ locale, href }));
+
+/**
+ * schema.org BreadcrumbList for a page below the homepage: Home › … › the page.
+ * `trail` is the path after Home, each step with its name in the page's language.
+ */
+export async function breadcrumbLd(locale: string, homeName: string, trail: { href: Href; name: string }[]) {
+  const steps = [{ href: "/" as Href, name: homeName }, ...trail];
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: await Promise.all(
+      steps.map(async (s, i) => ({ "@type": "ListItem", position: i + 1, name: s.name, item: await absoluteUrl(s.href, locale) }))
+    ),
   };
 }
 
@@ -114,6 +148,7 @@ export function organizationLd(locale: string, description: string) {
   return {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
+    "@id": ORG_ID,
     name,
     alternateName: [SITE_NAME, name === SITE_NAME_TR ? SITE_LEGAL_NAME : SITE_NAME_TR],
     description,
@@ -133,6 +168,7 @@ export function organizationLd(locale: string, description: string) {
     parentOrganization: {
       "@type": "CollegeOrUniversity",
       name: name === SITE_NAME_TR ? "Marmara Üniversitesi" : "Marmara University",
+      url: "https://www.marmara.edu.tr",
     },
   };
 }

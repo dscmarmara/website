@@ -9,17 +9,20 @@ import { DevFlagGate } from "@/components/dev/DevFlagGate";
 import { getMembers, departmentOrder, pick } from "@/lib/members";
 import { ABOUT_FLOW } from "@/lib/constants";
 import { IS_PRODUCTION } from "@/lib/env";
-import { buildAlternates } from "@/lib/seo";
+import { buildAlternates, pageOpenGraph } from "@/lib/seo";
+import { BreadcrumbLd } from "@/components/seo/BreadcrumbLd";
 
 export async function generateMetadata({
   params,
 }: PageProps<"/[locale]/about">): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
+  const alternates = await buildAlternates("/about", locale);
   return {
     title: t("about.title"),
     description: t("about.description"),
-    alternates: await buildAlternates("/about", locale),
+    alternates,
+    openGraph: pageOpenGraph(locale, alternates.canonical),
   };
 }
 
@@ -35,6 +38,7 @@ export default async function AboutPage({
 }: PageProps<"/[locale]/about">) {
   const { locale } = await params;
   const t = await getTranslations("about");
+  const tNav = await getTranslations("nav");
   // Counts for the team call-to-action, derived from the data so they stay
   // correct as the roster changes.
   const memberCount = getMembers().length;
@@ -42,6 +46,7 @@ export default async function AboutPage({
 
   return (
     <>
+      <BreadcrumbLd trail={[{ href: "/about", name: tNav("about") }]} />
       <PageHero
         eyebrow={t("eyebrow")}
         title={t("heroTitle")}
@@ -163,7 +168,7 @@ export default async function AboutPage({
             ].map((s) => (
               <div key={s.label}>
                 <div style={{ fontFamily: "var(--font-display-stack)", fontWeight: 700, fontSize: 40, color: "var(--accent)", lineHeight: 1 }}>{s.num}</div>
-                <div style={{ fontFamily: "var(--font-mono-stack)", fontSize: 11, letterSpacing: "0.12em", color: "var(--text-muted)", marginTop: 9 }}>{s.label}</div>
+                <div style={{ fontFamily: "var(--font-mono-stack)", fontSize: 12, letterSpacing: "0.12em", color: "var(--text-muted)", marginTop: 9 }}>{s.label}</div>
               </div>
             ))}
           </div>

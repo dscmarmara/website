@@ -10,26 +10,31 @@ import {
   GitHubIcon,
 } from "@/components/common/SocialIcons";
 import { CONTACT_EMAIL, SOCIALS } from "@/lib/constants";
-import { buildAlternates } from "@/lib/seo";
+import { buildAlternates, pageOpenGraph } from "@/lib/seo";
 import { ClientMessages } from "@/components/i18n/ClientMessages";
+import { BreadcrumbLd } from "@/components/seo/BreadcrumbLd";
 
 export async function generateMetadata({
   params,
 }: PageProps<"/[locale]/contact">): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
+  const alternates = await buildAlternates("/contact", locale);
   return {
     title: t("contact.title"),
     description: t("contact.description"),
-    alternates: await buildAlternates("/contact", locale),
+    alternates,
+    openGraph: pageOpenGraph(locale, alternates.canonical),
   };
 }
 
 export default async function ContactPage() {
   const t = await getTranslations("contact");
+  const tNav = await getTranslations("nav");
 
   return (
     <>
+      <BreadcrumbLd trail={[{ href: "/contact", name: tNav("contact") }]} />
       <PageHero
         eyebrow={t("eyebrow")}
         title={t("heroTitle")}
@@ -69,14 +74,8 @@ export default async function ContactPage() {
             </div>
 
             <div className="contact-join">
-              <h3 className="contact-join__title">{t("applyTitle")}</h3>
+              <h2 className="contact-join__title">{t("applyTitle")}</h2>
               <p className="contact-join__text">{t("applyBody")}</p>
-              <a
-                href="#"
-                className="lift-btn contact-join__btn"
-              >
-                {t("applyNow")}
-              </a>
             </div>
           </Reveal>
         </div>

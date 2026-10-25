@@ -9,19 +9,19 @@
       "description": "Startup gibi düşünen veri kulübü. Marmara Üniversitesi'nde altı departman, gerçek projeler ve seni üreten biri olarak gören bir öğrenci topluluğu."
     },
     "about": {
-      "title": "Hakkımızda",
+      "title": "Hakkımızda: Hikâyemiz ve Departmanlarımız",
       "description": "Biz bir kulüp değiliz, bir üretim ekibiyiz. Altı departmanımız: Data Insights, Core AI, Data Pipelines, Summits & Awards, Finance & Corporate Relations ve PR."
     },
     "team": {
-      "title": "Ekip",
+      "title": "Ekibimiz: Yönetim ve Departman Direktörleri",
       "description": "DSC Marmara'nın yönetim ekibi: başkan, başkan yardımcısı, sekreter ve altı departmanın her birini yöneten iki direktörle tanışın."
     },
     "blog": {
-      "title": "Blog",
+      "title": "Blog & Köşe Yazıları",
       "description": "DSC Marmara blogu: veriyle çalışan öğrencilerden gerçek görüşler, saha notları ve deneyimler. Üretim ekibinden köşe yazıları."
     },
     "contact": {
-      "title": "İletişim",
+      "title": "İletişim: Üyelik, Projeler ve Sponsorluk",
       "description": "DSC Marmara'ya katılmak, projelerimize ortak olmak ya da sponsor olmak mı istiyorsun? Bize bir mesaj bırak; her mesajı gerçek bir öğrenci okuyor."
     },
     "shop": {
@@ -208,8 +208,7 @@
     "emailUs": "BİZE YAZ",
     "follow": "TAKİP ET",
     "applyTitle": "Başvurmaya hazır mısın?",
-    "applyBody": "Üyelik başvuruları her dönem başında açılıyor.",
-    "applyNow": "Hemen başvur →"
+    "applyBody": "Üyelik başvuruları her dönem başında açılıyor."
   },
   "shop": {
     "eyebrow": "MAĞAZA",

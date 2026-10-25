@@ -1,10 +1,11 @@
 import { useLocale, useTranslations } from "next-intl";
-import { ABOUT_DEPARTMENTS } from "@/lib/constants";
+import { ABOUT_DEPARTMENTS, departmentAnchor } from "@/lib/constants";
 import { pick } from "@/lib/members";
+import { OpenDepartmentOnHash } from "@/components/about/OpenDepartmentOnHash";
 
 const labelStyle = {
   fontFamily: "var(--font-mono-stack)",
-  fontSize: 11,
+  fontSize: 12,
   letterSpacing: "0.12em",
   color: "var(--accent)",
   marginBottom: 10,
@@ -34,11 +35,14 @@ export function DepartmentAccordions() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+      <OpenDepartmentOnHash />
       {ABOUT_DEPARTMENTS.map((d) => (
-        <details key={d.no} className="dsc-acc glow-card" data-reveal style={{ border: "1px solid var(--border)", borderRadius: 14, background: "var(--bg)", overflow: "hidden" }}>
+        // The id is the footer links' target (/about#core-ai); scroll-margin clears the sticky nav.
+        <details key={d.no} id={departmentAnchor(d.name)} className="dsc-acc glow-card" data-reveal style={{ border: "1px solid var(--border)", borderRadius: 14, background: "var(--bg)", overflow: "hidden", scrollMarginTop: 120 }}>
           <summary style={{ display: "flex", alignItems: "center", gap: 20, padding: "24px 26px" }}>
             <span style={{ fontFamily: "var(--font-display-stack)", fontWeight: 700, fontSize: 15, color: "var(--accent)", flex: "none", width: 34 }}>{d.no}</span>
-            <span className="acc-title" style={{ fontFamily: "var(--font-display-stack)", fontWeight: 600, fontSize: "clamp(18px,2.2vw,23px)", flex: 1 }}>{d.name}</span>
+            {/* A heading under the section's h2, so the departments show in the page outline. */}
+            <h3 className="acc-title" style={{ fontFamily: "var(--font-display-stack)", fontWeight: 600, fontSize: "clamp(18px,2.2vw,23px)", flex: 1, margin: 0 }}>{d.name}</h3>
             <span className="chev" style={{ color: "var(--accent)", flex: "none", display: "inline-flex" }}>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" aria-hidden>
                 <polyline points="9 6 15 12 9 18" />

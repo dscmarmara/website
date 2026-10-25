@@ -29,6 +29,10 @@ export const routing = defineRouting({
   // switch or a /tr link. Without this, most of the audience (Turkish
   // browsers) would be redirected from / to /tr on their first visit.
   localeDetection: false,
+  // No hreflang `Link` response header: next-intl builds it from every locale above, so it
+  // advertised the review locales (404 on the live site). The pages' own <link rel="alternate">
+  // tags (buildAlternates in src/lib/seo.ts) and the sitemap list en, tr and x-default.
+  alternateLinks: false,
 });
 
 export type Locale = (typeof routing.locales)[number];
