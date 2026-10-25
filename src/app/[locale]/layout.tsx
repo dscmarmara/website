@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { notFound } from "next/navigation";
-import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { NextIntlClientProvider } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { isReviewLocale, isServedLocale, routing } from "@/i18n/routing";
 import { bricolage, hanken, dscScript } from "@/fonts";
 import { Nav } from "@/components/layout/Nav";
@@ -11,9 +10,15 @@ import { RevealOnScroll } from "@/components/effects/RevealOnScroll";
 import { organizationLd, websiteLd, ogLocale, SITE_NAME, SITE_URL } from "@/lib/seo";
 import "../globals.css";
 
+/**
+ * The root layout: `locale` is a root param (next/root-params, read in src/i18n/request.ts).
+ * Only the served locales exist; any other first segment (the review locales on the live site,
+ * /missing.html) matches no route and gets src/app/global-not-found.tsx.
+ */
 export function generateStaticParams() {
   return routing.locales.filter(isServedLocale).map((locale) => ({ locale }));
 }
+export const dynamicParams = false;
 
 // The site is dark only: tints the mobile browser bar to the page background (--bg).
 // color-scheme is also set in globals.css; the meta lets the browser know before the CSS loads.
@@ -59,10 +64,6 @@ export async function generateMetadata({ params }: Omit<LayoutProps<"/[locale]">
 
 export default async function LocaleLayout({ children, params }: LayoutProps<"/[locale]">) {
   const { locale } = await params;
-  if (!hasLocale(routing.locales, locale) || !isServedLocale(locale)) {
-    notFound();
-  }
-  setRequestLocale(locale);
   const tMeta = await getTranslations({ locale, namespace: "metadata" });
 
   const fontVars = `${bricolage.variable} ${hanken.variable} ${dscScript.variable}`;

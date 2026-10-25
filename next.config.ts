@@ -103,6 +103,11 @@ export default function config(phase: string): NextConfig {
   const nextConfig: NextConfig = {
     pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
     poweredByHeader: false,
+    experimental: {
+      // src/app/global-not-found.tsx: the 404 for URLs outside any locale. `[locale]` is the root
+      // layout (for next/root-params), so there is no layout above it to compose that page from.
+      globalNotFound: true,
+    },
     // Allow the LAN origin during `npm run dev:lan` (testing the responsive site on a phone).
     // Hostnames only: Next ignores the scheme and port.
     allowedDevOrigins: ["192.168.1.89"],

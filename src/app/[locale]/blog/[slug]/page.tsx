@@ -1,10 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import {
-  getFormatter,
-  getTranslations,
-  setRequestLocale,
-} from "next-intl/server";
+import { getFormatter, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { Avatar } from "@/components/common/Avatar";
 import { ReadingProgress } from "@/components/blog/ReadingProgress";
@@ -78,7 +74,6 @@ export default async function BlogDetailPage({
   params,
 }: PageProps<"/[locale]/blog/[slug]">) {
   const { locale, slug } = await params;
-  setRequestLocale(locale);
   const post = getPostBySlug(slug, locale);
   if (!post) notFound();
 

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { GlitchHeading } from "@/components/effects/GlitchHeading";
 import { PlexusBg } from "@/components/effects/PlexusBg";
@@ -71,7 +71,6 @@ export default async function HomePage({
   params,
 }: PageProps<"/[locale]">) {
   const { locale } = await params;
-  setRequestLocale(locale);
   const t = await getTranslations("home");
   // /projects is preview-only for now: no project cards on the live site.
   const projects = IS_PRODUCTION ? [] : getFeaturedProjects(locale);

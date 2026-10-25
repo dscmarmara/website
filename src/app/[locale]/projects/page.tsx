@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { PageHero } from "@/components/common/PageHero";
 import { ProjectCard } from "@/components/cards/ProjectCard";
 import { IS_PRODUCTION } from "@/lib/env";
@@ -26,7 +26,6 @@ export default async function ProjectsPage({
 }: PageProps<"/[locale]/projects">) {
   if (IS_PRODUCTION) notFound();
   const { locale } = await params;
-  setRequestLocale(locale);
   const t = await getTranslations("projects");
   const projects = getAllProjects(locale);
 

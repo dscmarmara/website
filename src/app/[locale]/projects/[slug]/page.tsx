@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getFormatter, getTranslations, setRequestLocale } from "next-intl/server";
+import { getFormatter, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { Avatar } from "@/components/common/Avatar";
@@ -63,7 +63,6 @@ export default async function ProjectPage({
 }: PageProps<"/[locale]/projects/[slug]">) {
   if (IS_PRODUCTION) notFound();
   const { locale, slug } = await params;
-  setRequestLocale(locale);
   const project = getProjectBySlug(slug, locale);
   if (!project) notFound();
 

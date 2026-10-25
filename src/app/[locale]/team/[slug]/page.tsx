@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import {
-  getFormatter,
-  getTranslations,
-  setRequestLocale,
-} from "next-intl/server";
+import { getFormatter, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { PlexusBg } from "@/components/effects/PlexusBg";
 import { Reveal } from "@/components/effects/Reveal";
@@ -85,7 +81,6 @@ export default async function MemberPage({
   params,
 }: PageProps<"/[locale]/team/[slug]">) {
   const { locale, slug } = await params;
-  setRequestLocale(locale);
   const m = getMemberBySlug(slug);
   if (!m) notFound();
 

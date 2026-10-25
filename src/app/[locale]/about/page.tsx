@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { PageHero } from "@/components/common/PageHero";
 import { Reveal } from "@/components/effects/Reveal";
@@ -34,7 +34,6 @@ export default async function AboutPage({
   params,
 }: PageProps<"/[locale]/about">) {
   const { locale } = await params;
-  setRequestLocale(locale);
   const t = await getTranslations("about");
   // Counts for the team call-to-action, derived from the data so they stay
   // correct as the roster changes.

@@ -1,16 +1,21 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { bricolage, hanken, dscScript } from "@/fonts";
 import en from "../../messages/en.json";
 import tr from "../../messages/tr.json";
 import "./globals.css";
 
+export const metadata: Metadata = { title: `404 · ${tr.notFound.title} · ${en.notFound.title}` };
+
 /**
- * 404 for the cases where no language is known: the old-copy locales on the
- * live site (their layout calls notFound() itself) and URLs the locale proxy
- * skips, such as /missing.html. Missing pages inside a locale get the
+ * 404 for URLs that match no route, so no language is known: a first segment
+ * that is not a served locale (the old-copy locales on the live site, /missing.html,
+ * which the locale proxy skips). `[locale]` is the root layout and only lists the
+ * served locales (`dynamicParams = false`), so Next answers these with this page
+ * directly (experimental.globalNotFound). Missing pages inside a locale get the
  * localized [locale]/not-found.tsx instead. Both languages, same look.
  */
-export default function RootNotFound() {
+export default function GlobalNotFound() {
   const fontVars = `${bricolage.variable} ${hanken.variable} ${dscScript.variable}`;
   const btn = {
     display: "inline-flex",
@@ -26,7 +31,6 @@ export default function RootNotFound() {
   return (
     <html lang="tr" className={`dark ${fontVars}`}>
       <body>
-        <title>{`404 · ${tr.notFound.title} · ${en.notFound.title}`}</title>
         <main>
           <section style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "140px 24px 160px", textAlign: "center" }}>
             <div style={{ fontFamily: "var(--font-script-stack)", fontSize: "clamp(64px,12vw,120px)", color: "var(--accent)", lineHeight: 1, marginBottom: 8, paddingBottom: "0.09em" }}>404</div>

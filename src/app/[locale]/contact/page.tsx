@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { PageHero } from "@/components/common/PageHero";
 import { Reveal } from "@/components/effects/Reveal";
 import { ContactForm } from "@/components/contact/ContactForm";
@@ -38,11 +38,7 @@ const cardLabel = {
   color: "var(--accent)",
 } as const;
 
-export default async function ContactPage({
-  params,
-}: PageProps<"/[locale]/contact">) {
-  const { locale } = await params;
-  setRequestLocale(locale);
+export default async function ContactPage() {
   const t = await getTranslations("contact");
 
   return (

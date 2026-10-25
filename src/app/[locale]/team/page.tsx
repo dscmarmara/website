@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { PageHero } from "@/components/common/PageHero";
 import { Avatar } from "@/components/common/Avatar";
@@ -33,7 +33,6 @@ export default async function TeamPage({
   params,
 }: PageProps<"/[locale]/team">) {
   const { locale } = await params;
-  setRequestLocale(locale);
   const t = await getTranslations("team");
   const tr = await getTranslations("roles");
   const grouped = getGroupedTeam();
