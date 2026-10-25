@@ -13,9 +13,7 @@ import { buildAlternates } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
+}: PageProps<"/[locale]/about">): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
   return {
@@ -34,9 +32,7 @@ const h2Style = {
 
 export default async function AboutPage({
   params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
+}: PageProps<"/[locale]/about">) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("about");

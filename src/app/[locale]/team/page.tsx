@@ -10,9 +10,7 @@ import { buildAlternates } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
+}: PageProps<"/[locale]/team">): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
   return {
@@ -33,9 +31,7 @@ function GroupHeading({ children }: { children: React.ReactNode }) {
 
 export default async function TeamPage({
   params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
+}: PageProps<"/[locale]/team">) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("team");

@@ -104,10 +104,18 @@ export default function config(phase: string): NextConfig {
     pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
     poweredByHeader: false,
     // Allow the LAN origin during `npm run dev:lan` (testing the responsive site on a phone).
-    allowedDevOrigins: ["192.168.1.89", "192.168.1.89:3737"],
-    // next/image only serves qualities listed here (Next 16 default: [75]).
-    // 90 is PHOTO_QUALITY for member photos (src/components/common/Avatar.tsx).
-    images: { qualities: [75, 90] },
+    // Hostnames only: Next ignores the scheme and port.
+    allowedDevOrigins: ["192.168.1.89"],
+    images: {
+      // next/image only serves qualities listed here (Next 16 default: [75]).
+      // 90 is PHOTO_QUALITY for member photos (src/components/common/Avatar.tsx).
+      qualities: [75, 90],
+      // The only next/image use is member photos, at most 188 CSS px (564 px on a 3x screen); the
+      // default list up to 3840w only made every srcset longer. imageSizes (32…384) stay default.
+      deviceSizes: [640, 828, 1080],
+      // Member photos change rarely: keep optimized copies for 31 days instead of the default 4 hours.
+      minimumCacheTTL: 2678400,
+    },
     env: {
       NEXT_PUBLIC_VERCEL_ENV: vercelEnv,
       NEXT_PUBLIC_SITE_STAGE: stage,

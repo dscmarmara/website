@@ -15,9 +15,7 @@ import { buildAlternates } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
+}: PageProps<"/[locale]/blog">): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
   return {
@@ -29,9 +27,7 @@ export async function generateMetadata({
 
 export default async function BlogPage({
   params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
+}: PageProps<"/[locale]/blog">) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("blog");

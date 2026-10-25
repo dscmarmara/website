@@ -44,9 +44,7 @@ async function importBody(locale: string, slug: string) {
 
 export async function generateMetadata({
   params,
-}: {
-  params: Promise<{ locale: string; slug: string }>;
-}): Promise<Metadata> {
+}: PageProps<"/[locale]/blog/[slug]">): Promise<Metadata> {
   const { locale, slug } = await params;
   const post = getPostBySlug(slug, locale);
   if (!post) return {};
@@ -78,9 +76,7 @@ export async function generateMetadata({
 
 export default async function BlogDetailPage({
   params,
-}: {
-  params: Promise<{ locale: string; slug: string }>;
-}) {
+}: PageProps<"/[locale]/blog/[slug]">) {
   const { locale, slug } = await params;
   setRequestLocale(locale);
   const post = getPostBySlug(slug, locale);

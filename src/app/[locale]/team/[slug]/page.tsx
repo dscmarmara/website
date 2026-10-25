@@ -47,9 +47,7 @@ export const dynamicParams = false;
 
 export async function generateMetadata({
   params,
-}: {
-  params: Promise<{ locale: string; slug: string }>;
-}): Promise<Metadata> {
+}: PageProps<"/[locale]/team/[slug]">): Promise<Metadata> {
   const { locale, slug } = await params;
   const m = getMemberBySlug(slug);
   if (!m) return {};
@@ -85,9 +83,7 @@ const chipStyle = {
 
 export default async function MemberPage({
   params,
-}: {
-  params: Promise<{ locale: string; slug: string }>;
-}) {
+}: PageProps<"/[locale]/team/[slug]">) {
   const { locale, slug } = await params;
   setRequestLocale(locale);
   const m = getMemberBySlug(slug);

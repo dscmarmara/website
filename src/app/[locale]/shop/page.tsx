@@ -14,9 +14,7 @@ import { IS_PRODUCTION } from "@/lib/env";
 
 export async function generateMetadata({
   params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
+}: PageProps<"/[locale]/shop">): Promise<Metadata> {
   const { locale } = await params;
   if (IS_PRODUCTION) return {};
   const t = await getTranslations({ locale, namespace: "metadata" });
@@ -29,9 +27,7 @@ export async function generateMetadata({
 
 export default async function ShopPage({
   params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
+}: PageProps<"/[locale]/shop">) {
   if (IS_PRODUCTION) notFound();
   const { locale } = await params;
   setRequestLocale(locale);

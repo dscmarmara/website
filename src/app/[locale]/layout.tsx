@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -11,17 +11,15 @@ import { RevealOnScroll } from "@/components/effects/RevealOnScroll";
 import { organizationLd, websiteLd, ogLocale, SITE_NAME, SITE_URL } from "@/lib/seo";
 import "../globals.css";
 
-type Params = { locale: string };
-
 export function generateStaticParams() {
   return routing.locales.filter(isServedLocale).map((locale) => ({ locale }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<Params>;
-}): Promise<Metadata> {
+// The site is dark only: tints the mobile browser bar to the page background (--bg).
+// color-scheme is also set in globals.css; the meta lets the browser know before the CSS loads.
+export const viewport: Viewport = { themeColor: "#000000", colorScheme: "dark" };
+
+export async function generateMetadata({ params }: Omit<LayoutProps<"/[locale]">, "children">): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
   return {
@@ -59,13 +57,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function LocaleLayout({
-  children,
-  params,
-}: {
-  children: React.ReactNode;
-  params: Promise<Params>;
-}) {
+export default async function LocaleLayout({ children, params }: LayoutProps<"/[locale]">) {
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale) || !isServedLocale(locale)) {
     notFound();

@@ -48,8 +48,9 @@ export function Nav() {
           style={{ display: "flex", alignItems: "center", gap: 14, textDecoration: "none", color: "var(--text)" }}
         >
           <span style={{ display: "flex", alignItems: "center", height: 52, flex: "none" }}>
+            {/* width/height: the SVG viewBox ratio, so its width is reserved before it loads (CSS sets the size). */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo/dsc_logo_dark.svg" alt="Data Science Club" style={{ height: 52, width: "auto", display: "block" }} />
+            <img src="/logo/dsc_logo_dark.svg" alt="Data Science Club" width={2350} height={1920} style={{ height: 52, width: "auto", display: "block" }} />
           </span>
           <span
             className="nav-lockup"

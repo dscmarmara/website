@@ -35,8 +35,9 @@ export function Footer() {
       <div className="footer-grid" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "60px 24px 32px", display: "grid", gridTemplateColumns: "1.6fr 1fr 1fr", gap: 48 }}>
         <div>
           <Link href="/" aria-label="Data Science Club" style={{ display: "inline-block", textDecoration: "none", color: "var(--text)", marginBottom: 20 }}>
+            {/* width/height: the SVG viewBox ratio, so its width is reserved before it loads (CSS sets the size). */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo/dsc_logo_dark.svg" alt="Data Science Club" style={{ height: 54, width: "auto", display: "block" }} />
+            <img src="/logo/dsc_logo_dark.svg" alt="Data Science Club" width={2350} height={1920} style={{ height: 54, width: "auto", display: "block" }} />
           </Link>
           <p style={{ fontFamily: "var(--font-body-stack)", fontSize: 14, lineHeight: 1.7, color: "var(--text-muted)", maxWidth: 340, margin: "0 0 22px" }}>
             {t("description")}

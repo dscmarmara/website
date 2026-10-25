@@ -37,9 +37,7 @@ async function importBody(locale: string, slug: string) {
 
 export async function generateMetadata({
   params,
-}: {
-  params: Promise<{ locale: string; slug: string }>;
-}): Promise<Metadata> {
+}: PageProps<"/[locale]/projects/[slug]">): Promise<Metadata> {
   // Preview-only: on the live site the page 404s, and its metadata must not leak the project either.
   if (IS_PRODUCTION) return {};
   const { locale, slug } = await params;
@@ -62,9 +60,7 @@ export async function generateMetadata({
 /** A project case study. Preview-only for now: 404 on the live site. */
 export default async function ProjectPage({
   params,
-}: {
-  params: Promise<{ locale: string; slug: string }>;
-}) {
+}: PageProps<"/[locale]/projects/[slug]">) {
   if (IS_PRODUCTION) notFound();
   const { locale, slug } = await params;
   setRequestLocale(locale);

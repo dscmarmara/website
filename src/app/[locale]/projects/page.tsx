@@ -9,9 +9,7 @@ import { buildAlternates } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
+}: PageProps<"/[locale]/projects">): Promise<Metadata> {
   if (IS_PRODUCTION) return {}; // preview-only (the page 404s on the live site)
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
@@ -25,9 +23,7 @@ export async function generateMetadata({
 /** Project index. Preview-only for now: 404 on the live site (see TRANSLATIONS.md to open it). */
 export default async function ProjectsPage({
   params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
+}: PageProps<"/[locale]/projects">) {
   if (IS_PRODUCTION) notFound();
   const { locale } = await params;
   setRequestLocale(locale);

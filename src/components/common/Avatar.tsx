@@ -43,7 +43,8 @@ export function Avatar({
             source too; quality must be listed in next.config `images.qualities`. */}
         <Image
           src={photo}
-          alt={initials}
+          // The name is always written next to the photo, so the image adds nothing for screen readers.
+          alt=""
           fill
           sizes={`${size}px`}
           quality={PHOTO_QUALITY}

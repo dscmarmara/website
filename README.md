@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DSC Marmara website
 
-## Getting Started
+The Data Science Club site at <https://www.dscmarmara.com.tr>: Next.js 16 (App Router), React 19, next-intl
+(English at `/`, Turkish at `/tr`), MDX for blog posts, deployed on Vercel.
 
-First, run the development server:
+## Develop
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3737/tr
+npm run dev:lan    # the same, reachable from a phone on the local network
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+| Script | What it does |
+|---|---|
+| `npm run build` / `npm start` | production build and server. A local build counts as the live site; add `NEXT_PUBLIC_SITE_STAGE=preview` for the preview tools |
+| `npm run lint` | ESLint |
+| `npm run seo-audit [baseUrl]` | checks titles, descriptions, canonical/hreflang and structured data on every sitemap URL |
+| `npm run indexnow` | notifies search engines after a release |
+| `npm run site-texts` | writes `SITE_METINLERI.md`: every text the live site shows, page by page |
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Where things are
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `TRANSLATIONS.md`: where each piece of text lives, the release flow (`preview-development` → `staging` →
+  `main`), blog writing, security notes.
+- `AGENTS.md`: instructions for AI coding agents (the Next.js block is maintained by `next dev`).
+- Version-matched Next.js docs: `node_modules/next/dist/docs/`.
