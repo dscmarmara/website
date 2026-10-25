@@ -1,10 +1,13 @@
+import { SHOW_SHOP } from "@/lib/env";
+
 /** The main navigation, shared by the server-rendered bar and its client parts. */
 export const NAV_LINKS = [
   { key: "home", href: "/" },
   { key: "about", href: "/about" },
   { key: "team", href: "/team" },
   { key: "blog", href: "/blog" },
-  // The shop is preview-only for now and linked from the dev options bar.
+  // The shop: on previews and staging until its launch, not on the live site (SHOW_SHOP).
+  ...(SHOW_SHOP ? ([{ key: "shop", href: "/shop" }] as const) : []),
   { key: "contact", href: "/contact" },
 ] as const;
 

@@ -6,18 +6,17 @@ import { ProductCard } from "@/components/shop/ProductCard";
 import { SHOP_PRODUCTS } from "@/lib/constants";
 import { pick } from "@/lib/members";
 import { buildAlternates } from "@/lib/seo";
-import { IS_PRODUCTION } from "@/lib/env";
+import { SHOW_SHOP } from "@/lib/env";
 import { ClientMessages } from "@/components/i18n/ClientMessages";
 
-// The shop is preview-only for now: a 404 on the live site, reached on
-// previews from the dev options bar. To open it, drop these checks and add it
-// back to NAV_LINKS (src/components/layout/navLinks.ts), the footer and the sitemap (see TRANSLATIONS.md).
+// Before its launch the shop is open on previews and staging (with its menu and footer links)
+// and a 404 on the live site: SHOW_SHOP in src/lib/env.ts. Launch steps in TRANSLATIONS.md.
 
 export async function generateMetadata({
   params,
 }: PageProps<"/[locale]/shop">): Promise<Metadata> {
   const { locale } = await params;
-  if (IS_PRODUCTION) return {};
+  if (!SHOW_SHOP) return {};
   const t = await getTranslations({ locale, namespace: "metadata" });
   return {
     title: t("shop.title"),
@@ -29,7 +28,7 @@ export async function generateMetadata({
 export default async function ShopPage({
   params,
 }: PageProps<"/[locale]/shop">) {
-  if (IS_PRODUCTION) notFound();
+  if (!SHOW_SHOP) notFound();
   const { locale } = await params;
   const t = await getTranslations("shop");
 

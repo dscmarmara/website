@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { SOCIALS } from "@/lib/constants";
+import { SHOW_SHOP } from "@/lib/env";
 import {
   SocialLink,
   LinkedInIcon,
@@ -39,6 +40,7 @@ export function Footer() {
             <Link className="dsc-foot-link author-link site-footer__link" href="/" style={{ color: "var(--text-muted)" }}>{t("linkHome")}</Link>
             <Link className="dsc-foot-link author-link site-footer__link" href="/about" style={{ color: "var(--text-muted)" }}>{t("linkAbout")}</Link>
             <Link className="dsc-foot-link author-link site-footer__link" href="/blog" style={{ color: "var(--text-muted)" }}>{t("linkBlog")}</Link>
+            {SHOW_SHOP && <Link className="dsc-foot-link author-link site-footer__link" href="/shop" style={{ color: "var(--text-muted)" }}>{t("linkShop")}</Link>}
             <Link className="dsc-foot-link author-link site-footer__link" href="/contact" style={{ color: "var(--text-muted)" }}>{t("linkContact")}</Link>
           </div>
         </div>
