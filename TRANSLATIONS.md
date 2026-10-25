@@ -75,7 +75,7 @@ Sürümlerin diğer parçaları:
 | Dal | Ne için | Görünüş |
 |---|---|---|
 | `preview-development` | Geliştirme, denemeler, çoklu kurulumlar | Önizleme: DEV OPTIONS, sürümler, mağaza, projeler, taslak yazılar açık |
-| `staging` | Canlının birebir kopyası: son kontrol, küçük düzeltmeler, sadeleştirme, SEO denetimi | Canlı gibi: canlıda kapalı olan her şey burada da kapalı |
+| `staging` | Canlının birebir kopyası: son kontrol, küçük düzeltmeler, sadeleştirme, SEO denetimi | Canlı gibi: canlıda kapalı olan her şey burada da kapalı (istisna: taslak yazılar, gözden geçirmek için) |
 | `main` | Canlı site (www.dscmarmara.com.tr) | Canlı |
 
 1. Geliştirme `preview-development`'ta yapılır; her push bir Vercel Preview'dır.
@@ -269,9 +269,13 @@ Bu dosyalarda çevrilen alanlar `{ en: "…", tr: "…" }` şeklinde yan yana du
   `authorName: "Ad Soyad"` yazılır. Ad profil linki, rol ve yazar kutusu olmadan görünür. Örnek: Mustafa Kaan
   Yıldız'ın risk analizi yazısı.
 - Başlangıç için `content/blog/tr/_template.mdx` dosyasını kopyalayabilirsin.
-- `draft: true` olan yazı yalnızca önizlemede görünür ("Taslak" uyarısıyla). Canlıda listede, sitemap'te ve yazarın
-  profilinde yer almaz, adresi 404 verir. Yayınlamak için satırı silmek yeterli. Örnek:
+- `draft: true` olan yazı önizlemede ve staging'de görünür ("Taslak" uyarısıyla), böylece canlıdaki haliyle
+  (şablon, SEO etiketleri) gözden geçirilebilir (`SHOW_DRAFTS`, `src/lib/env.ts`). Canlıda listede, sitemap'te ve
+  yazarın profilinde yer almaz, adresi 404 verir. Yayınlamak için satırı silmek yeterli. Örnek:
   `evaluating-a-prediction-model` (şablonu denemek için yazılmış deneme yazısı).
+- Yazar ekipten biriyse (`author: <slug>`) yazı kutusunda rolü, LinkedIn, GitHub ve kişisel sitesi görünür; aynı
+  profiller yapısal veride (`sameAs`) de yer alır. Bu yüzden üyelerin `members.json`'daki `linkedin`, `github`,
+  `websiteUrl` alanlarının dolu olması yazılarının SEO'suna da yarar.
 
 **Yazının görünümü (okuma şablonu):**
 - Başlık düz yazı fontuyla (Bricolage) çizilir; el yazısı font yalnızca sayfa hero'larında kalır.

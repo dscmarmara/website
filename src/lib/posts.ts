@@ -8,7 +8,7 @@ import {
 import { DEPARTMENTS } from "@/lib/constants";
 import { routing } from "@/i18n/routing";
 import { readEntry, slugsOf } from "@/lib/content";
-import { IS_PRODUCTION } from "@/lib/env";
+import { SHOW_DRAFTS } from "@/lib/env";
 import type { PostRowData } from "@/components/cards/PostRow";
 
 export { localeChain } from "@/lib/content";
@@ -31,9 +31,9 @@ export interface Post extends PostFrontmatter {
   slug: string;
 }
 
-/** Post slugs (content/blog/en; see slugsOf for the `_template.mdx` rule). Drafts only off the live site. */
+/** Post slugs (content/blog/en; see slugsOf for the `_template.mdx` rule). Drafts on previews and staging only (SHOW_DRAFTS). */
 export function getPostSlugs(): string[] {
-  return slugsOf("blog").filter((slug) => !(IS_PRODUCTION && readFrontmatter(slug, routing.defaultLocale)?.draft));
+  return slugsOf("blog").filter((slug) => SHOW_DRAFTS || !readFrontmatter(slug, routing.defaultLocale)?.draft);
 }
 
 function readFrontmatter(slug: string, locale: string): Post | null {

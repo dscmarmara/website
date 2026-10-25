@@ -8,9 +8,9 @@ export const SITE_STAGE = (process.env.NEXT_PUBLIC_SITE_STAGE || "production") a
 
 /**
  * Live-site behaviour: true on the live site and on staging, its copy.
- * Preview-only features (the dev options bar, projects, draft posts, the
- * review locales, /karsilastir) check this so they never reach the live
- * site, and so staging shows exactly what will go live.
+ * Preview-only features (the dev options bar, projects, the review locales,
+ * /karsilastir) check this so they never reach the live site, and so staging
+ * shows exactly what will go live.
  */
 export const IS_PRODUCTION = SITE_STAGE === "production" || SITE_STAGE === "staging";
 
@@ -24,3 +24,11 @@ export const IS_STAGING = SITE_STAGE === "staging";
  * day set this to true (or remove it) and add /shop to the sitemap — see TRANSLATIONS.md.
  */
 export const SHOW_SHOP = SITE_STAGE === "preview";
+
+/**
+ * Draft posts (`draft: true` in the frontmatter): listed and served, with a "Draft" notice, on
+ * previews and on staging, so a post can be reviewed there as it will look live (template, SEO
+ * tags); never on the live site (not listed, not in the sitemap, the URL is a 404). Publishing
+ * is deleting the `draft` line.
+ */
+export const SHOW_DRAFTS = SITE_STAGE !== "production";

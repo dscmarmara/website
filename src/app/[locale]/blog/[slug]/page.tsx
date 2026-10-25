@@ -11,13 +11,16 @@ import { PostRow } from "@/components/cards/PostRow";
 import {
   SocialLink,
   LinkedInIcon,
+  GitHubIcon,
+  GlobeIcon,
 } from "@/components/common/SocialIcons";
+import { memberJobTitle } from "@/lib/memberJobTitle";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { BreadcrumbLd } from "@/components/seo/BreadcrumbLd";
 import { getAllPosts, getPostAuthor, getPostBySlug, getPostSlugs, localeChain, postRowData } from "@/lib/posts";
 import { firstParagraphOf, headingsOf } from "@/lib/content";
 import { displayRole, pick } from "@/lib/members";
-import { buildAlternates, clampDescription, openGraphBase, orgName, ORG_ID, SITE_URL } from "@/lib/seo";
+import { absoluteUrl, buildAlternates, clampDescription, openGraphBase, orgName, ORG_ID, SITE_URL } from "@/lib/seo";
 import { routing } from "@/i18n/routing";
 
 export function generateStaticParams() {
@@ -64,7 +67,9 @@ export async function generateMetadata({
       title: post.title,
       description,
       publishedTime: post.date,
-      authors: author ? [author.name] : undefined,
+      modifiedTime: post.updated ?? post.date,
+      // article:author is a profile URL: the member's page; a guest author has only a name.
+      authors: author ? [author.member ? await absoluteUrl(`/team/${author.member.slug}`, locale) : author.name] : undefined,
       section: post.category,
     },
     twitter: { card: "summary_large_image", title: post.title, description, images: og.images },
@@ -114,12 +119,24 @@ export default async function BlogDetailPage({
       logo: { "@type": "ImageObject", url: `${SITE_URL}/icon-192.png` },
     },
   };
-  if (author) {
-    // A team member links to their profile (the Person node on it); a guest author is a name only.
-    const memberUrl = author.member ? `${SITE_URL}${prefix}/team/${author.member.slug}` : undefined;
-    blogLd.author = memberUrl
-      ? { "@type": "Person", "@id": `${memberUrl}#person`, name: author.name, url: memberUrl }
-      : { "@type": "Person", name: author.name };
+  if (member && author) {
+    // A team member: the Person node of their profile page (@id), restated with what an article's
+    // author needs on its own: role, photo, the club, and their profiles elsewhere (sameAs).
+    const memberUrl = `${SITE_URL}${prefix}/team/${member.slug}`;
+    const sameAs = [member.linkedin, member.github, member.websiteUrl].filter((u): u is string => Boolean(u));
+    blogLd.author = {
+      "@type": "Person",
+      "@id": `${memberUrl}#person`,
+      name: author.name,
+      url: memberUrl,
+      jobTitle: await memberJobTitle(member, locale),
+      ...(member.photo ? { image: `${SITE_URL}${member.photo}` } : {}),
+      memberOf: { "@id": ORG_ID },
+      ...(sameAs.length ? { sameAs } : {}),
+    };
+  } else if (author) {
+    // A guest author (authorName): a name only.
+    blogLd.author = { "@type": "Person", name: author.name };
   }
 
   const dateLabel = format.dateTime(new Date(post.date), { year: "numeric", month: "short", day: "numeric" });
@@ -136,7 +153,7 @@ export default async function BlogDetailPage({
     .map((p) => postRowData(p, locale));
 
   const byline = member && author ? (
-    <Link href={`/team/${member.slug}`} className="author-link" style={{ display: "inline-flex", alignItems: "center", gap: 14, textDecoration: "none", color: "var(--text)" }}>
+    <Link href={`/team/${member.slug}`} rel="author" className="author-link" style={{ display: "inline-flex", alignItems: "center", gap: 14, textDecoration: "none", color: "var(--text)" }}>
       <Avatar photo={author.photo} initials={author.initials} size={44} radius={999} fontSize={15} />
       <span style={{ display: "flex", flexDirection: "column", lineHeight: 1.4 }}>
         <span className="al-name" style={{ fontFamily: "var(--font-body-stack)", fontWeight: 700, fontSize: 15 }}>{author.name}</span>
@@ -181,13 +198,21 @@ export default async function BlogDetailPage({
               </Link>
               <div style={{ flex: 1, minWidth: 240 }}>
                 <div style={{ fontFamily: "var(--font-mono-stack)", fontSize: 12, letterSpacing: "0.1em", color: "var(--accent)", marginBottom: 6 }}>{t("writtenBy")}</div>
-                <Link href={`/team/${member.slug}`} className="author-link" style={{ textDecoration: "none", color: "var(--text)" }}>
-                  <h3 className="al-name" style={{ fontFamily: "var(--font-display-stack)", fontWeight: 700, fontSize: 21, margin: "0 0 8px" }}>{author.name}</h3>
+                <Link href={`/team/${member.slug}`} rel="author" className="author-link" style={{ textDecoration: "none", color: "var(--text)" }}>
+                  <h3 className="al-name" style={{ fontFamily: "var(--font-display-stack)", fontWeight: 700, fontSize: 21, margin: "0 0 4px" }}>{author.name}</h3>
                 </Link>
+                <div style={{ fontFamily: "var(--font-mono-stack)", fontSize: 12, color: "var(--text-muted)", margin: "0 0 12px" }}>{displayRole(member, tr)}</div>
                 <p style={{ fontFamily: "var(--font-body-stack)", fontSize: 14.5, lineHeight: 1.7, color: "var(--text-muted)", margin: "0 0 16px" }}>{pick(member.bio1, locale)}</p>
+                {/* The author's own profiles: who wrote this, checkable elsewhere (also sameAs in the JSON-LD). */}
                 <div style={{ display: "flex", gap: 11 }}>
                   {member.linkedin && (
                     <SocialLink href={member.linkedin} label="LinkedIn" size={38} radius={9} external><LinkedInIcon size={16} /></SocialLink>
+                  )}
+                  {member.github && (
+                    <SocialLink href={member.github} label="GitHub" size={38} radius={9} external><GitHubIcon size={16} /></SocialLink>
+                  )}
+                  {member.websiteUrl && (
+                    <SocialLink href={member.websiteUrl} label={member.website ?? "Website"} size={38} radius={9} external><GlobeIcon size={16} /></SocialLink>
                   )}
                 </div>
               </div>

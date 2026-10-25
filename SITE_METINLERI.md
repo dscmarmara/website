@@ -347,7 +347,7 @@ Kendi biyografisini vermemiş üyelerde profilde görünen kalıp cümle.
 | `contact.emailUs` | BİZE YAZ | EMAIL US |
 | `contact.follow` | TAKİP ET | FOLLOW |
 | `contact.applyTitle` | Başvurmaya hazır mısın? | Ready to apply? |
-| `contact.applyBody` | Üyelik başvuruları her dönem başında açılıyor. | Membership applications open at the start of every semester. |
+| `contact.applyBody` | Üyelik başvuruları her dönem açık. | Membership applications are open every semester. |
 
 ## 10. Alt bilgi (footer)
 
