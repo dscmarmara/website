@@ -23,8 +23,20 @@ const schema = z.object({
   [HONEYPOT_FIELD]: z.string().max(200).optional(),
 });
 
-export type ContactInput = z.input<typeof schema>;
-export type ContactResult = { ok: true } | { ok: false; error: "invalid" | "rate" | "send" };
+/** The visible fields, in form order. The honeypot is never echoed back. */
+const FIELDS = ["name", "email", "subject", "message"] as const;
+export type ContactField = (typeof FIELDS)[number];
+export type ContactValues = Record<ContactField, string>;
+
+/**
+ * useActionState's state. An error carries the fields the server rejected and what the
+ * visitor typed: React resets the form after the action, and the inputs' defaultValue puts
+ * the text back, so nothing they wrote is lost.
+ */
+export type ContactState =
+  | { status: "idle" }
+  | { status: "sent" }
+  | { status: "error"; error: "invalid" | "rate" | "send"; fields?: ContactField[]; values: ContactValues };
 
 /**
  * Best-effort throttle. Serverless instances are ephemeral and not shared, so
@@ -89,19 +101,30 @@ async function looksLikeBot(): Promise<boolean> {
   }
 }
 
-export async function sendContactMessage(input: ContactInput): Promise<ContactResult> {
+/** The contact form's action (useActionState in ContactForm): the previous state, then the form's data. */
+export async function sendContactMessage(_prev: ContactState, formData: FormData): Promise<ContactState> {
+  const read = (key: string) => {
+    const value = formData.get(key);
+    return typeof value === "string" ? value : "";
+  };
+  const values = Object.fromEntries(FIELDS.map((f) => [f, read(f)])) as ContactValues;
+  const fail = (error: "invalid" | "rate" | "send", fields?: ContactField[]): ContactState => ({ status: "error", error, fields, values });
+
   // An error rather than a silent "sent", so a visitor misjudged as a bot is told to
   // email instead of losing the message.
-  if (await looksLikeBot()) return { ok: false, error: "send" };
+  if (await looksLikeBot()) return fail("send");
 
-  const parsed = schema.safeParse(input);
-  if (!parsed.success) return { ok: false, error: "invalid" };
+  const parsed = schema.safeParse({ ...values, [HONEYPOT_FIELD]: read(HONEYPOT_FIELD) });
+  if (!parsed.success) {
+    const rejected = new Set(parsed.error.issues.map((issue) => String(issue.path[0])));
+    return fail("invalid", FIELDS.filter((f) => rejected.has(f)));
+  }
   const { name, email, subject, message } = parsed.data;
 
   // Bot: accept silently so it gets no signal that it was filtered.
   if (parsed.data[HONEYPOT_FIELD]?.trim()) {
     console.info("[contact] honeypot filled, message dropped");
-    return { ok: true };
+    return { status: "sent" };
   }
 
   // On Vercel x-forwarded-for is set by the platform (the client's own value is replaced).
@@ -110,7 +133,7 @@ export async function sendContactMessage(input: ContactInput): Promise<ContactRe
     hdrs.get("x-forwarded-for")?.split(",")[0]?.trim() ||
     hdrs.get("x-real-ip") ||
     "unknown";
-  if (rateLimited(visitorKey(ip))) return { ok: false, error: "rate" };
+  if (rateLimited(visitorKey(ip))) return fail("rate");
 
   if (!zohoConfigured) {
     // Without credentials, log instead of failing silently. In development that
@@ -119,21 +142,21 @@ export async function sendContactMessage(input: ContactInput): Promise<ContactRe
     // message in development: deployment logs are not the place for personal data.
     if (process.env.NODE_ENV === "production") {
       console.error("[contact] ZOHO_* not configured: message not sent");
-      return { ok: false, error: "send" };
+      return fail("send");
     }
     console.warn(
       `[contact] ZOHO_* not configured — message not sent:\n` +
         `  from: ${name} <${email}>\n  subject: ${subject}\n  message: ${message}`
     );
-    return { ok: true };
+    return { status: "sent" };
   }
 
   try {
     await sendContactMail({ name, email, subject, message });
-    return { ok: true };
+    return { status: "sent" };
   } catch (err) {
     // Log the reason server-side (status codes only, see zoho.ts); the visitor gets a generic error.
     console.error("[contact] send failed:", err instanceof Error ? err.message : err);
-    return { ok: false, error: "send" };
+    return fail("send");
   }
 }

@@ -1,13 +1,10 @@
 "use client";
 
-import { useState, useSyncExternalStore, type CSSProperties } from "react";
-import { useForm } from "react-hook-form";
+import { useActionState, useEffect, useState, useSyncExternalStore, type CSSProperties, type FormEvent } from "react";
 import { useTranslations } from "next-intl";
 import { CheckIcon } from "@/components/common/SocialIcons";
-import { sendContactMessage } from "@/app/[locale]/contact/actions";
+import { sendContactMessage, type ContactField, type ContactState } from "@/app/[locale]/contact/actions";
 import { CONTACT_LIMITS, EMAIL_RE, HONEYPOT_FIELD } from "@/lib/contactRules";
-
-type FormValues = { name: string; email: string; subject: string; message: string; [HONEYPOT_FIELD]?: string };
 
 /** False in the server HTML and until hydration, true after: no effect or extra render needed. */
 const noSubscribe = () => () => {};
@@ -37,46 +34,57 @@ const errorStyle: CSSProperties = {
   color: "var(--destructive)",
 };
 
+const INITIAL: ContactState = { status: "idle" };
+
+/**
+ * The same checks as the server action (trimmed lengths, zod's email pattern), run before
+ * sending so a whitespace-only or malformed value gets its field error at once. Values are
+ * sent as typed: the server trims what it should, and the message keeps its indentation.
+ * Maximum lengths are the inputs' own `maxLength`.
+ */
+function invalidFields(data: FormData): ContactField[] {
+  const value = (key: ContactField) => String(data.get(key) ?? "");
+  const bad: ContactField[] = [];
+  if (value("name").trim().length < 2) bad.push("name");
+  if (!EMAIL_RE.test(value("email").trim())) bad.push("email");
+  if (value("subject").trim().length < 2) bad.push("subject");
+  if (!value("message").trim()) bad.push("message");
+  return bad;
+}
+
+/**
+ * Runs the server action. A thrown error would reach the nearest error boundary, which here
+ * is the whole-site error page, so a network failure or a page left open across a deploy
+ * (its action ID no longer exists) becomes the form's send error instead.
+ */
+async function submit(prev: ContactState, data: FormData): Promise<ContactState> {
+  try {
+    return await sendContactMessage(prev, data);
+  } catch {
+    const value = (key: ContactField) => String(data.get(key) ?? "");
+    return { status: "error", error: "send", values: { name: value("name"), email: value("email"), subject: value("subject"), message: value("message") } };
+  }
+}
+
+/** A new key starts a fresh form ("send another"): useActionState has no reset of its own. */
 export function ContactForm() {
+  const [round, setRound] = useState(0);
+  return <ContactFormRound key={round} onSendAnother={() => setRound((r) => r + 1)} />;
+}
+
+function ContactFormRound({ onSendAnother }: { onSendAnother: () => void }) {
   const t = useTranslations("contact");
-  const [sent, setSent] = useState(false);
-  const [sendError, setSendError] = useState<string | null>(null);
   const hydrated = useHydrated();
+  const [state, formAction, pending] = useActionState(submit, INITIAL);
+  const [clientErrors, setClientErrors] = useState<ContactField[]>([]);
 
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors, isSubmitting },
-  } = useForm<FormValues>();
+  useEffect(() => {
+    if (state.status !== "sent") return;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+  }, [state.status]);
 
-  // The same checks as the server action (trimmed lengths, zod's email pattern), so a
-  // whitespace-only or malformed value gets an inline field error here instead of the
-  // generic "couldn't be sent" banner. Values are sent as typed: the server trims what
-  // it should, and the message keeps its indentation. Maximum lengths are the inputs'
-  // own `maxLength`.
-  const minTwo = (message: string) => (v: string) => v.trim().length >= 2 || message;
-
-  const onSubmit = async (values: FormValues) => {
-    setSendError(null);
-    let result: Awaited<ReturnType<typeof sendContactMessage>>;
-    try {
-      result = await sendContactMessage(values);
-    } catch {
-      // Network failure, or a page left open across a deploy (its action ID no longer exists).
-      setSendError(t("sendError"));
-      return;
-    }
-    if (result.ok) {
-      setSent(true);
-      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
-      return;
-    }
-    setSendError(result.error === "rate" ? t("rateError") : t("sendError"));
-  };
-
-  if (sent) {
+  if (state.status === "sent") {
     return (
       <div style={{ border: "1px solid var(--accent)", borderRadius: 18, background: "var(--bg-elev)", padding: 48, textAlign: "center", boxShadow: "var(--glow-soft)" }}>
         <div style={{ width: 64, height: 64, margin: "0 auto 22px", borderRadius: "50%", background: "var(--grad)", display: "grid", placeItems: "center" }}>
@@ -86,7 +94,7 @@ export function ContactForm() {
         <p style={{ fontFamily: "var(--font-body-stack)", fontSize: 15, lineHeight: 1.6, color: "var(--text-muted)", margin: "0 auto 24px", maxWidth: "42ch" }}>{t("successBody")}</p>
         <button
           type="button"
-          onClick={() => { reset(); setSent(false); setSendError(null); }}
+          onClick={onSendAnother}
           style={{ padding: "12px 24px", borderRadius: 10, border: "1px solid var(--border)", background: "transparent", color: "var(--accent)", fontFamily: "var(--font-body-stack)", fontWeight: 600, fontSize: 14, cursor: "pointer" }}
         >
           {t("sendAnother")}
@@ -95,50 +103,62 @@ export function ContactForm() {
     );
   }
 
+  const values = state.status === "error" ? state.values : undefined;
+  // Errors from the last check made: this submit's, or the server's answer to the previous one.
+  const errors = clientErrors.length ? clientErrors : state.status === "error" ? (state.fields ?? []) : [];
+  const sendError = state.status === "error" && state.error !== "invalid" ? t(state.error === "rate" ? "rateError" : "sendError") : null;
+
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const bad = invalidFields(new FormData(e.currentTarget));
+    setClientErrors(bad);
+    // A prevented submit never reaches the action, so nothing is reset either.
+    if (bad.length) e.preventDefault();
+  };
+
   return (
-    // method="post": a submit before hydration must not put the visitor's details in the URL,
-    // where they would end up in logs and history. The send button also waits for hydration.
-    <form className="contact-form" method="post" noValidate onSubmit={handleSubmit(onSubmit)}>
+    // The send button waits for hydration: the action runs from client code (BotID adds its
+    // check to the request there), so a submit before that would go nowhere.
+    <form className="contact-form" action={formAction} onSubmit={onSubmit} noValidate>
       {/* Honeypot: off-screen and hidden from assistive tech, so only bots fill it. */}
       <div aria-hidden style={{ position: "absolute", left: "-9999px", width: 1, height: 1, overflow: "hidden" }}>
         <label>
           Leave this field empty
-          <input type="text" tabIndex={-1} autoComplete="off" {...register(HONEYPOT_FIELD)} />
+          <input type="text" name={HONEYPOT_FIELD} tabIndex={-1} autoComplete="off" />
         </label>
       </div>
 
       <label style={{ display: "flex", flexDirection: "column", gap: 9 }}>
         <span style={captionStyle}>{t("fullName")}</span>
-        <input className="field" type="text" placeholder={t("namePlaceholder")} style={inputStyle} maxLength={CONTACT_LIMITS.name} {...register("name", { validate: minTwo(t("nameError")) })} />
-        {errors.name && <span style={errorStyle}>{errors.name.message}</span>}
+        <input className="field" type="text" name="name" placeholder={t("namePlaceholder")} style={inputStyle} maxLength={CONTACT_LIMITS.name} defaultValue={values?.name} />
+        {errors.includes("name") && <span style={errorStyle}>{t("nameError")}</span>}
       </label>
 
       <label style={{ display: "flex", flexDirection: "column", gap: 9 }}>
         <span style={captionStyle}>{t("email")}</span>
-        <input className="field" type="email" placeholder={t("emailPlaceholder")} style={inputStyle} maxLength={CONTACT_LIMITS.email} {...register("email", { validate: (v) => EMAIL_RE.test(v.trim()) || t("emailError") })} />
-        {errors.email && <span style={errorStyle}>{errors.email.message}</span>}
+        <input className="field" type="email" name="email" placeholder={t("emailPlaceholder")} style={inputStyle} maxLength={CONTACT_LIMITS.email} defaultValue={values?.email} />
+        {errors.includes("email") && <span style={errorStyle}>{t("emailError")}</span>}
       </label>
 
       <label className="span-2" style={{ display: "flex", flexDirection: "column", gap: 9 }}>
         <span style={captionStyle}>{t("subject")}</span>
-        <input className="field" type="text" placeholder={t("subjectPlaceholder")} style={inputStyle} maxLength={CONTACT_LIMITS.subject} {...register("subject", { validate: minTwo(t("subjectError")) })} />
-        {errors.subject && <span style={errorStyle}>{errors.subject.message}</span>}
+        <input className="field" type="text" name="subject" placeholder={t("subjectPlaceholder")} style={inputStyle} maxLength={CONTACT_LIMITS.subject} defaultValue={values?.subject} />
+        {errors.includes("subject") && <span style={errorStyle}>{t("subjectError")}</span>}
       </label>
 
       <label className="span-2" style={{ display: "flex", flexDirection: "column", gap: 9 }}>
         <span style={captionStyle}>{t("message")}</span>
-        <textarea className="field" rows={6} placeholder={t("messagePlaceholder")} style={{ ...inputStyle, resize: "vertical" }} maxLength={CONTACT_LIMITS.message} {...register("message", { validate: (v) => v.trim().length > 0 || t("messageError") })} />
-        {errors.message && <span style={errorStyle}>{errors.message.message}</span>}
+        <textarea className="field" name="message" rows={6} placeholder={t("messagePlaceholder")} style={{ ...inputStyle, resize: "vertical" }} maxLength={CONTACT_LIMITS.message} defaultValue={values?.message} />
+        {errors.includes("message") && <span style={errorStyle}>{t("messageError")}</span>}
       </label>
 
       <div className="span-2" style={{ display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap" }}>
         <button
           type="submit"
           className="lift-btn"
-          disabled={!hydrated || isSubmitting}
-          style={{ padding: "15px 34px", borderRadius: 10, border: "none", background: "var(--grad)", color: "#04190a", fontFamily: "var(--font-body-stack)", fontWeight: 700, fontSize: 15, cursor: isSubmitting ? "wait" : "pointer", opacity: !hydrated || isSubmitting ? 0.7 : 1, boxShadow: "var(--glow-soft)" }}
+          disabled={!hydrated || pending}
+          style={{ padding: "15px 34px", borderRadius: 10, border: "none", background: "var(--grad)", color: "#04190a", fontFamily: "var(--font-body-stack)", fontWeight: 700, fontSize: 15, cursor: pending ? "wait" : "pointer", opacity: !hydrated || pending ? 0.7 : 1, boxShadow: "var(--glow-soft)" }}
         >
-          {isSubmitting ? t("sending") : t("send")}
+          {pending ? t("sending") : t("send")}
         </button>
         {sendError && <span role="alert" style={errorStyle}>{sendError}</span>}
       </div>

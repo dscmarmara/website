@@ -21,7 +21,6 @@
     "plotly.js-cartesian-dist-min": "^4.1.2",
     "react": "19.3.1",
     "react-dom": "19.3.1",
-    "react-hook-form": "^7.80.0",
     "rehype-pretty-code": "^0.14.5",
     "remark-frontmatter": "^5.0.0",
     "remark-gfm": "^4.0.1",
