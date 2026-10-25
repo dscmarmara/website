@@ -18,9 +18,9 @@ export const IS_PRODUCTION = SITE_STAGE === "production" || SITE_STAGE === "stag
 export const IS_STAGING = SITE_STAGE === "staging";
 
 /**
- * The shop, ahead of its launch: open on previews and on staging (page, menu and footer
- * link), so its design can be reviewed as it will look live; closed on the live site.
- * Promoting staging to main keeps it closed with no step to remember. On launch day set
- * this to true (or remove it) and add /shop to the sitemap — see TRANSLATIONS.md.
+ * The shop, ahead of its launch: open on previews (page, menu and footer link), closed on
+ * staging and on the live site. To review it on staging as it will look live, use
+ * SITE_STAGE !== "production" (promoting staging to main still keeps it closed). On launch
+ * day set this to true (or remove it) and add /shop to the sitemap — see TRANSLATIONS.md.
  */
-export const SHOW_SHOP = SITE_STAGE !== "production";
+export const SHOW_SHOP = SITE_STAGE === "preview";

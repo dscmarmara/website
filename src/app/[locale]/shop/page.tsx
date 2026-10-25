@@ -9,8 +9,8 @@ import { buildAlternates } from "@/lib/seo";
 import { SHOW_SHOP } from "@/lib/env";
 import { ClientMessages } from "@/components/i18n/ClientMessages";
 
-// Before its launch the shop is open on previews and staging (with its menu and footer links)
-// and a 404 on the live site: SHOW_SHOP in src/lib/env.ts. Launch steps in TRANSLATIONS.md.
+// Before its launch the shop is open on previews only (with its menu and footer links)
+// and a 404 on staging and the live site: SHOW_SHOP in src/lib/env.ts. Launch steps in TRANSLATIONS.md.
 
 export async function generateMetadata({
   params,

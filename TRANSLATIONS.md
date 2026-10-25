@@ -74,7 +74,7 @@ Sürümlerin diğer parçaları:
 | Dal | Ne için | Görünüş |
 |---|---|---|
 | `preview-development` | Geliştirme, denemeler, çoklu kurulumlar | Önizleme: DEV OPTIONS, sürümler, mağaza, projeler, taslak yazılar açık |
-| `staging` | Canlının birebir kopyası: son kontrol, küçük düzeltmeler, sadeleştirme, SEO denetimi | Canlı gibi: canlıda kapalı olan her şey burada da kapalı (istisna: açılış öncesi mağaza) |
+| `staging` | Canlının birebir kopyası: son kontrol, küçük düzeltmeler, sadeleştirme, SEO denetimi | Canlı gibi: canlıda kapalı olan her şey burada da kapalı |
 | `main` | Canlı site (www.dscmarmara.com.tr) | Canlı |
 
 1. Geliştirme `preview-development`'ta yapılır; her push bir Vercel Preview'dır.
@@ -102,7 +102,6 @@ anlaşılamayan derleme (ör. yerelde düz `npm run build`) **canlı** sayılır
 `NEXT_PUBLIC_SITE_STAGE=preview npm run build`. Canlıda kapalı olan her şey `IS_PRODUCTION`'a (`src/lib/env.ts`) bakar
 ve bu bayrak staging'de de doğrudur. Staging'in canlıdan tek farkları:
 - İletişim formundan gelen e-postanın konusunda `[STAGING]` yazar.
-- Mağaza açılışına kadar staging'de açık (menü ve footer linkiyle), canlıda kapalı (`SHOW_SHOP`).
 - Vercel önizleme adreslerine `X-Robots-Tag: noindex` koyduğu için arama motorlarına girmez.
 - IndexNow yalnızca `main` yayınından sonra çalıştırılır.
 
@@ -152,9 +151,10 @@ açıklamalar `messages/*.json` → `metadata.*`'tan gelir (≤ ~160 karakter tu
   - WhatsApp numarası `SHOP_WHATSAPP` sahte (`905555555555`).
   - Fiyatlar ve ürün açıklamaları `SHOP_PRODUCTS` içinde örnek değerler.
   - Ürün görselleri çizim (`src/components/shop/ProductArt.tsx`). Fotoğraflar gelince kartta `next/image` ile değiştirilir.
-- **Mağaza staging'de açık, canlıda kapalı** (`src/lib/env.ts` → `SHOW_SHOP`). Önizlemede ve staging'de sayfa,
-  menüdeki ve footer'daki "Mağaza" linkiyle birlikte açılış günündeki gibi görünür; canlıda `/shop` 404, menüde ve
-  footer'da yok. staging → main terfisinde kendiliğinden kapalı kalır, elle kapatılacak bir şey yok.
+- **Mağaza yalnızca önizlemede açık** (`src/lib/env.ts` → `SHOW_SHOP`). Önizlemede sayfa, menüdeki ve footer'daki
+  "Mağaza" linkiyle birlikte açılış günündeki gibi görünür; staging'de ve canlıda `/shop` 404, menüde ve footer'da
+  yok. Staging'de yeniden incelemek için bayrağı `SITE_STAGE !== "production"` yap: staging → main terfisinde yine
+  kendiliğinden kapalı kalır.
   **Açılış günü:**
   1. Yukarıdaki yer tutucuları gerçekleriyle değiştir.
   2. `SHOW_SHOP`'u `true` yap (ya da bayrağı kaldır).

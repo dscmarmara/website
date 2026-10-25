@@ -6,7 +6,7 @@ export const NAV_LINKS = [
   { key: "about", href: "/about" },
   { key: "team", href: "/team" },
   { key: "blog", href: "/blog" },
-  // The shop: on previews and staging until its launch, not on the live site (SHOW_SHOP).
+  // The shop: on previews until its launch, not on staging or the live site (SHOW_SHOP).
   ...(SHOW_SHOP ? ([{ key: "shop", href: "/shop" }] as const) : []),
   { key: "contact", href: "/contact" },
 ] as const;
