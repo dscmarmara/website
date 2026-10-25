@@ -1,8 +1,20 @@
 import fs from "node:fs";
 import path from "node:path";
-import matter from "gray-matter";
+import { parse as parseYaml } from "yaml";
 import { routing } from "@/i18n/routing";
 import { slugify } from "@/lib/slug";
+
+/**
+ * Splits the `---` YAML front matter off an MDX source: `data` is the parsed
+ * front matter, `content` the body after it. Replaces gray-matter (unmaintained,
+ * on js-yaml 3) and returns the same values for every file in content/.
+ */
+function parseEntry(source: string): { data: Record<string, unknown>; content: string } {
+  const text = source.charCodeAt(0) === 0xfeff ? source.slice(1) : source;
+  const m = text.match(/^---\r?\n([\s\S]*?)\r?\n---[ \t]*(?:\r?\n|$)/);
+  if (!m) return { data: {}, content: text };
+  return { data: (parseYaml(m[1]) ?? {}) as Record<string, unknown>, content: text.slice(m[0].length) };
+}
 
 /** MDX content collections: content/<collection>/<locale>/<slug>.mdx */
 export type Collection = "blog" | "projects";
@@ -41,7 +53,7 @@ function sourceFile(collection: Collection, slug: string, locale: string): strin
 export function readEntry<T>(collection: Collection, slug: string, locale: string): (T & { slug: string }) | null {
   const file = sourceFile(collection, slug, locale);
   if (!file) return null;
-  const { data } = matter(fs.readFileSync(file, "utf8"));
+  const { data } = parseEntry(fs.readFileSync(file, "utf8"));
   return { slug, ...(data as T) };
 }
 
@@ -63,7 +75,7 @@ const plain = (s: string) =>
 export function headingsOf(collection: Collection, slug: string, locale: string): Heading[] {
   const file = sourceFile(collection, slug, locale);
   if (!file) return [];
-  const { content } = matter(fs.readFileSync(file, "utf8"));
+  const { content } = parseEntry(fs.readFileSync(file, "utf8"));
   const out: Heading[] = [];
   let fence: string | null = null;
   for (const line of content.split(/\r?\n/)) {
@@ -86,7 +98,7 @@ export function headingsOf(collection: Collection, slug: string, locale: string)
 export function firstParagraphOf(collection: Collection, slug: string, locale: string): string {
   const file = sourceFile(collection, slug, locale);
   if (!file) return "";
-  const { content } = matter(fs.readFileSync(file, "utf8"));
+  const { content } = parseEntry(fs.readFileSync(file, "utf8"));
   const para = content
     .split(/\r?\n\s*\r?\n/)
     .map((b) => b.trim())

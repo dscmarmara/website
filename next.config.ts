@@ -43,8 +43,8 @@ const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
     remarkPlugins: [
+      // Keeps the `---` front matter out of the rendered body; src/lib/content.ts reads it from the file.
       "remark-frontmatter",
-      ["remark-mdx-frontmatter", { name: "frontmatter" }],
       // Tables, footnotes, ~~strikethrough~~ and bare-URL links in posts and case studies.
       "remark-gfm",
     ],
