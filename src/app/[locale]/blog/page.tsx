@@ -43,7 +43,6 @@ export default async function BlogPage({
         title={t("heroTitle")}
         sub={t("heroSub")}
         density={0.7}
-        plain
         titleMaxWidth="18ch"
       />
 

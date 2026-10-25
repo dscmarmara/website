@@ -7,7 +7,7 @@ import { Eyebrow } from "@/components/common/Eyebrow";
 /**
  * Shared page header: plexus background + eyebrow + script H1 (+ optional sub).
  * `plain` sets the H1 in the display font instead, like the home page's section
- * headings: the reading sections (blog, projects) use it.
+ * headings: the projects index uses it.
  */
 export function PageHero({
   eyebrow,

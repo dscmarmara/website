@@ -24,7 +24,7 @@ export default function FontComparePage() {
       { lang, where: "Anasayfa", path: "/", text: m.home.heroTitle, size: HOME },
       { lang, where: "Hakkımızda", path: "/about", text: m.about.heroTitle, size: HERO },
       { lang, where: "Ekip", path: "/team", text: m.team.heroTitle, size: HERO },
-      // The blog's headings are in the display font (not script), so they are not listed.
+      { lang, where: "Blog", path: "/blog", text: m.blog.heroTitle, size: HERO },
       { lang, where: "İletişim", path: "/contact", text: m.contact.heroTitle, size: HERO },
       { lang, where: "Mağaza (önizleme)", path: "/shop", text: m.shop.heroTitle, size: HERO }
     );
