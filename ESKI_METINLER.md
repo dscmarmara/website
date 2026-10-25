@@ -76,7 +76,6 @@
 | `about.eyebrow` | KULÜP HAKKINDA | ABOUT THE CLUB |
 | `about.heroTitle` | Biz bir kulüp değiliz. Bir üretim ekibiyiz. | We're not a club. We're a build crew. |
 | `about.storyTitle` | Hikâyemiz | Our story |
-| `about.storyEst` | KURULUŞ 2024 · İSTANBUL | EST. 2024 · ISTANBUL |
 | `about.storyP1` | Çoğu üniversite kulübü toplantılar, tutanaklar ve hiyerarşiyle işler. Biz Veri Bilimi Kulübü'nü tam tersini istediğimiz için kurduk — hayran olduğumuz şirketlerdeki veri ekipleri gibi hissettiren bir yer. | Most university clubs run on meetings, minutes and hierarchy. We started the Data Science Club because we wanted the opposite — a place that felt like the data teams at the companies we admired. |
 | `about.storyP2` | Biz de öyle bir yer kurduk. Altı departman, çok işlevli takımlar gibi çalışıyor. İşler sprintlerle ilerliyor. Bilgi saklanmıyor; kod incelemeleri ve açık demolarla paylaşılıyor. Yeni üyeler ilk aylarında gerçek bir şey çıkarıyor — bir grafik, bir model ya da bir veri hattı. | So we built one. Six departments operate like cross-functional squads. Work happens in sprints. Knowledge is shared in code reviews and open demos, not gatekept. New members ship something real in their first month, whether that's a chart, a model, or a data pipeline. |
 | `about.pullQuote` | Veri yeni petrol değil. Yeni toprak — ve biz bir kuşağa onda bir şeyler yetiştirmeyi öğretiyoruz. | Data isn't the new oil. It's the new soil — and we teach a generation how to grow things in it. |

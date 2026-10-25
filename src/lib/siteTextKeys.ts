@@ -5,7 +5,7 @@ export const EXCLUDED_MESSAGE_KEYS: (string | RegExp)[] = [
   /^projects\./, /^metadata\.projects\./, "blog.draftNote", // projects, draft posts: preview only
   /^kpiLabels\./, // member KPIs are switched off
   "nav.englishOld", "nav.turkishOld", // dev options bar
-  "metadata.siteName", "about.storyEst", "about.viewFullProfile", "blog.readArticle", // unused in code
+  "metadata.siteName", "about.viewFullProfile", "blog.readArticle", // unused in code
 ];
 
 export const isExcludedMessageKey = (key: string): boolean =>

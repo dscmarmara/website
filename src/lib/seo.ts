@@ -124,9 +124,7 @@ export function organizationLd(locale: string, description: string) {
     // This PNG is a known 192x192.
     logo: `${SITE_URL}/icon-192.png`,
     sameAs: Object.values(SOCIALS).filter((u) => u !== "#"),
-    // From the club's own copy ("EST. 2024 · ISTANBUL", metadata.storyEst) —
-    // if that is ever corrected, correct it here too.
-    foundingDate: "2024",
+    // No foundingDate: the club does not state its founding year anywhere.
     address: {
       "@type": "PostalAddress",
       addressLocality: "İstanbul",
