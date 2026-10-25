@@ -122,7 +122,23 @@ onları sunar. Şüphede `.next/server/route-cache`'i sil.
   - Ziyaretçi başına 10 dakikada 3 mesaj, sunucu başına günde 40 mesaj sınırı var. Alan sınırları
     `src/lib/contactRules.ts`'te; form ve sunucu aynı kuralları kullanır.
   - `ZOHO_*` değişkenleri Vercel'de "Sensitive" olmalı ve yalnızca Production ile `staging` dalına tanımlı olmalı.
-    Yerelde `.env.local`'da tanımlıysa yerel form **gerçekten mail gönderir**.
+    Yerelde `.env.local`'da tanımlıysa yerel form **gerçekten mail gönderir**. Yerel testte mail gitmesin diye
+    sunucuyu `ZOHO_CLIENT_ID= ZOHO_CLIENT_SECRET= ZOHO_REFRESH_TOKEN= npx next start` ile başlat.
+
+**Geliştirici notları (Next 16.4 düzeni):**
+- **Dil:** kök layout `src/app/[locale]/layout.tsx`; dil `next/root-params` ile `src/i18n/request.ts`'te okunur.
+  Sayfalarda `setRequestLocale` gerekmez (next-intl'de artık "legacy"). Dil dışı adresler (`/missing.html`, canlıda
+  sürüm dilleri) `src/app/global-not-found.tsx`'e düşer; dil içindeki eksik sayfalar `[locale]/not-found.tsx`'e.
+- **Çeviri kullanan istemci bileşeni:** layout istemciye hiç mesaj göndermez (`messages={null}`). `useTranslations`
+  kullanan yeni bir `"use client"` bileşeni, render edildiği sayfada
+  `<ClientMessages namespaces={["ad-alani"]}>` ile sarılmalı (`src/components/i18n/ClientMessages.tsx`), yoksa
+  çeviri bulunamaz. Mümkünse metni sunucudan prop olarak vermek daha iyi (menü böyle).
+- **Menü:** sunucuda çizilir (`Nav.tsx`); yalnızca `NavLink`, `MobileMenu`, `LocaleSwitch` istemcide. Link listesi
+  `src/components/layout/navLinks.ts`. Geliştirici şeridi yalnızca önizleme derlemesine girer.
+- **Stiller:** paylaşılan/tekrarlanan bileşenlerin stilleri `globals.css` sonundaki "Component styles" bölümünde
+  sınıf. Bir öğenin `:hover`/`:focus`/medya kuralıyla çakışan özellikleri bilerek satır içi bırakıldı; onları
+  sınıfa taşımak o kuralı devreye sokar ve görünümü değiştirir.
+- **Belgeler:** Next'in sürüme uygun belgeleri `node_modules/next/dist/docs/`; diğer kütüphaneler için Context7.
 
 **Yayından sonra arama motorları:** Vercel canlı deploy'u bitince `npm run indexnow` çalıştır. Canlı sitemap'teki
 bütün adresleri IndexNow'a (Bing, Yandex vb.) bildirir; anahtar `public/<anahtar>.txt` dosyası. Google IndexNow
