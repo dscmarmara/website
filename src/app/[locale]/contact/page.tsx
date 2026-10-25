@@ -25,20 +25,6 @@ export async function generateMetadata({
   };
 }
 
-const cardStyle = {
-  border: "1px solid var(--border)",
-  borderRadius: 16,
-  background: "var(--bg-elev)",
-  padding: 26,
-} as const;
-
-const cardLabel = {
-  fontFamily: "var(--font-mono-stack)",
-  fontSize: 11,
-  letterSpacing: "0.12em",
-  color: "var(--accent)",
-} as const;
-
 export default async function ContactPage() {
   const t = await getTranslations("contact");
 
@@ -53,42 +39,41 @@ export default async function ContactPage() {
         titleMaxWidth="16ch"
       />
 
-      <div style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "80px 24px 100px" }}>
-        <div className="split contact" style={{ gap: 56, alignItems: "start" }}>
+      <div className="contact-page">
+        <div className="split contact contact-page__grid">
           <Reveal>
             <ClientMessages namespaces={["contact"]}>
               <ContactForm />
             </ClientMessages>
           </Reveal>
 
-          <Reveal as="aside" style={{ display: "flex", flexDirection: "column", gap: 18 }}>
-            <div style={cardStyle}>
-              <div style={{ ...cardLabel, marginBottom: 8 }}>{t("emailUs")}</div>
+          <Reveal className="contact-aside" as="aside">
+            <div className="contact-card">
+              <div className="contact-card__label">{t("emailUs")}</div>
               <a
-                className="author-link"
+                className="author-link contact-card__mail"
                 href={`mailto:${CONTACT_EMAIL}`}
-                style={{ fontFamily: "var(--font-display-stack)", fontWeight: 600, fontSize: 18, color: "var(--text)", textDecoration: "none", wordBreak: "break-all" }}
+                style={{ color: "var(--text)" }}
               >
                 {CONTACT_EMAIL}
               </a>
             </div>
 
-            <div style={cardStyle}>
-              <div style={{ ...cardLabel, marginBottom: 14 }}>{t("follow")}</div>
-              <div style={{ display: "flex", gap: 12 }}>
+            <div className="contact-card">
+              <div className="contact-social__label">{t("follow")}</div>
+              <div className="contact-social">
                 <SocialLink href={SOCIALS.linkedin} label="LinkedIn" size={44} radius={11} external><LinkedInIcon size={19} /></SocialLink>
                 <SocialLink href={SOCIALS.instagram} label="Instagram" size={44} radius={11} external><InstagramIcon size={19} /></SocialLink>
                 <SocialLink href={SOCIALS.github} label="GitHub" size={44} radius={11} external><GitHubIcon size={19} /></SocialLink>
               </div>
             </div>
 
-            <div style={{ border: "1px solid var(--accent)", borderRadius: 16, background: "color-mix(in srgb,var(--accent) 9%,var(--bg-elev))", padding: 26, boxShadow: "var(--glow-soft)" }}>
-              <h3 style={{ fontFamily: "var(--font-display-stack)", fontWeight: 700, fontSize: 19, margin: "0 0 8px" }}>{t("applyTitle")}</h3>
-              <p style={{ fontFamily: "var(--font-body-stack)", fontSize: 14, lineHeight: 1.6, color: "var(--text-muted)", margin: "0 0 18px" }}>{t("applyBody")}</p>
+            <div className="contact-join">
+              <h3 className="contact-join__title">{t("applyTitle")}</h3>
+              <p className="contact-join__text">{t("applyBody")}</p>
               <a
                 href="#"
-                className="lift-btn"
-                style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "12px 22px", borderRadius: 10, background: "var(--grad)", color: "#04190a", fontFamily: "var(--font-body-stack)", fontWeight: 700, fontSize: 14, textDecoration: "none" }}
+                className="lift-btn contact-join__btn"
               >
                 {t("applyNow")}
               </a>

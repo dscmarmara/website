@@ -28,27 +28,19 @@ export function Avatar({
   if (photo) {
     return (
       <span
-        style={{
-          position: "relative",
-          width: size,
-          height: size,
-          borderRadius: radius,
-          overflow: "hidden",
-          display: "block",
-          flex: "none",
-          boxShadow: "var(--glow-soft)",
-        }}
+        className="avatar"
+        style={{ width: size, height: size, borderRadius: radius }}
       >
         {/* `fill` + `sizes` (not width/height) so 3x screens get a sharp enough
             source too; quality must be listed in next.config `images.qualities`. */}
         <Image
+          className="avatar__img"
           src={photo}
           // The name is always written next to the photo, so the image adds nothing for screen readers.
           alt=""
           fill
           sizes={`${size}px`}
           quality={PHOTO_QUALITY}
-          style={{ objectFit: "cover" }}
         />
       </span>
     );
@@ -57,17 +49,8 @@ export function Avatar({
   if (variant === "clip") {
     return (
       <span
-        style={{
-          position: "relative",
-          fontFamily: "var(--font-display-stack)",
-          fontWeight: 700,
-          fontSize: fs,
-          background: "var(--grad)",
-          WebkitBackgroundClip: "text",
-          backgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-          color: "transparent",
-        }}
+        className="avatar__clip"
+        style={{ fontSize: fs }}
       >
         {initials}
       </span>
@@ -76,20 +59,8 @@ export function Avatar({
 
   return (
     <span
-      style={{
-        width: size,
-        height: size,
-        borderRadius: radius,
-        flex: "none",
-        boxShadow: "var(--glow-soft)",
-        background: "var(--grad)",
-        display: "grid",
-        placeItems: "center",
-        fontFamily: "var(--font-display-stack)",
-        fontWeight: 700,
-        fontSize: fs,
-        color: "#04190a",
-      }}
+      className="avatar__tile"
+      style={{ width: size, height: size, borderRadius: radius, fontSize: fs }}
     >
       {initials}
     </span>

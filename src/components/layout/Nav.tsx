@@ -33,48 +33,37 @@ export async function Nav() {
   return (
     <header className="site-nav">
       <MobileMenuProvider>
-        <div
-          style={{
-            maxWidth: "var(--maxw)",
-            margin: "0 auto",
-            padding: "0 24px",
-            height: 72,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: 20,
-          }}
-        >
+        <div className="site-nav__bar">
           <Link
+            className="site-nav__brand"
             href="/"
             aria-label="Data Science Club"
-            style={{ display: "flex", alignItems: "center", gap: 14, textDecoration: "none", color: "var(--text)" }}
           >
-            <span style={{ display: "flex", alignItems: "center", height: 52, flex: "none" }}>
+            <span className="site-nav__logo">
               {/* width/height: the SVG viewBox ratio, so its width is reserved before it loads (CSS sets the size). */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/logo/dsc_logo_dark.svg" alt="Data Science Club" width={2350} height={1920} style={{ height: 52, width: "auto", display: "block" }} />
+              <img className="site-nav__logo-img" src="/logo/dsc_logo_dark.svg" alt="Data Science Club" width={2350} height={1920} />
             </span>
             <span
-              className="nav-lockup"
-              style={{ display: "flex", flexDirection: "column", gap: 4, borderLeft: "1px solid var(--border)", paddingLeft: 14, lineHeight: 1 }}
+              className="nav-lockup site-nav__lockup"
+              style={{ display: "flex" }}
             >
-              <span lang="en" style={{ fontFamily: "var(--font-display-stack)", fontWeight: 600, fontSize: 14, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--text)" }}>
+              <span className="site-nav__title" lang="en">
                 {tb("title")}
               </span>
-              <span style={{ fontFamily: "var(--font-body-stack)", fontWeight: 500, fontSize: 9.5, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--text-muted)" }}>
+              <span className="site-nav__uni">
                 {tb("university")}
               </span>
             </span>
           </Link>
 
-          <nav className="nav-desktop" style={{ display: "flex", alignItems: "center", gap: 34 }}>
+          <nav className="nav-desktop site-nav__links" style={{ display: "flex" }}>
             {links.map((l) => (
               <NavLink
                 key={l.href}
-                className="navlink"
+                className="navlink site-nav__link"
                 href={l.href}
-                style={{ fontFamily: "var(--font-body-stack)", fontWeight: 600, fontSize: 14.5, letterSpacing: "0.01em", color: "var(--text)" }}
+                style={{ color: "var(--text)" }}
               >
                 {l.label}
               </NavLink>
@@ -84,7 +73,7 @@ export async function Nav() {
 
           <div className="nav-mobile">
             {/* Language toggle stays in the bar, left of the burger. */}
-            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <div className="site-nav__mobile-row">
               <LocaleSwitch target={switchTarget} label={switchLabel} large />
               <MenuButton openLabel={t("openMenu")} closeLabel={t("closeMenu")} />
             </div>

@@ -17,16 +17,7 @@ export function LocaleSwitch({ target, label, large = false }: { target: Locale;
   // doesn't use (localeDetection: false): one redirect for every visitor and crawler.
   const href = getPathname({ href: usePathname(), locale: target });
   return (
-    <div
-      style={{
-        display: "inline-flex",
-        alignItems: "center",
-        border: "1px solid var(--border)",
-        borderRadius: 100,
-        overflow: "hidden",
-        width: "fit-content",
-      }}
-    >
+    <div className="lang-switch">
       <NextLink
         className="lang-btn"
         href={href}

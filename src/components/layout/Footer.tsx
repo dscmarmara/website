@@ -10,39 +10,23 @@ import {
 
 const FOOT_DEPARTMENTS = ["Data Insights", "Core AI", "Data Pipelines", "Summits & Awards"];
 
-const footLink = {
-  fontFamily: "var(--font-body-stack)",
-  fontSize: 14,
-  color: "var(--text-muted)",
-} as const;
-
-const footHeading = {
-  fontFamily: "var(--font-display-stack)",
-  fontWeight: 600,
-  fontSize: 13,
-  letterSpacing: "0.16em",
-  textTransform: "uppercase",
-  color: "var(--text)",
-  margin: "0 0 18px",
-} as const;
-
 export function Footer() {
   const t = useTranslations("footer");
 
   return (
-    <footer style={{ position: "relative", borderTop: "1px solid var(--border)", background: "var(--bg-elev)", overflow: "hidden" }}>
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 1, background: "var(--grad)", opacity: 0.6 }} />
-      <div className="footer-grid" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "60px 24px 32px", display: "grid", gridTemplateColumns: "1.6fr 1fr 1fr", gap: 48 }}>
+    <footer className="site-footer">
+      <div className="site-footer__line" />
+      <div className="footer-grid site-footer__grid" style={{ gridTemplateColumns: "1.6fr 1fr 1fr" }}>
         <div>
-          <Link href="/" aria-label="Data Science Club" style={{ display: "inline-block", textDecoration: "none", color: "var(--text)", marginBottom: 20 }}>
+          <Link className="site-footer__brand" href="/" aria-label="Data Science Club">
             {/* width/height: the SVG viewBox ratio, so its width is reserved before it loads (CSS sets the size). */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo/dsc_logo_dark.svg" alt="Data Science Club" width={2350} height={1920} style={{ height: 54, width: "auto", display: "block" }} />
+            <img className="site-footer__logo" src="/logo/dsc_logo_dark.svg" alt="Data Science Club" width={2350} height={1920} />
           </Link>
-          <p style={{ fontFamily: "var(--font-body-stack)", fontSize: 14, lineHeight: 1.7, color: "var(--text-muted)", maxWidth: 340, margin: "0 0 22px" }}>
+          <p className="site-footer__about">
             {t("description")}
           </p>
-          <div style={{ display: "flex", gap: 12 }}>
+          <div className="site-footer__social">
             <SocialLink href={SOCIALS.linkedin} label="LinkedIn" external><LinkedInIcon /></SocialLink>
             <SocialLink href={SOCIALS.instagram} label="Instagram" external><InstagramIcon /></SocialLink>
             <SocialLink href={SOCIALS.github} label="GitHub" external><GitHubIcon /></SocialLink>
@@ -50,28 +34,28 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 style={footHeading}>{t("exploreTitle")}</h4>
-          <div style={{ display: "flex", flexDirection: "column", gap: 13 }}>
-            <Link className="dsc-foot-link author-link" href="/" style={footLink}>{t("linkHome")}</Link>
-            <Link className="dsc-foot-link author-link" href="/about" style={footLink}>{t("linkAbout")}</Link>
-            <Link className="dsc-foot-link author-link" href="/blog" style={footLink}>{t("linkBlog")}</Link>
-            <Link className="dsc-foot-link author-link" href="/contact" style={footLink}>{t("linkContact")}</Link>
+          <h4 className="site-footer__heading">{t("exploreTitle")}</h4>
+          <div className="site-footer__list">
+            <Link className="dsc-foot-link author-link site-footer__link" href="/" style={{ color: "var(--text-muted)" }}>{t("linkHome")}</Link>
+            <Link className="dsc-foot-link author-link site-footer__link" href="/about" style={{ color: "var(--text-muted)" }}>{t("linkAbout")}</Link>
+            <Link className="dsc-foot-link author-link site-footer__link" href="/blog" style={{ color: "var(--text-muted)" }}>{t("linkBlog")}</Link>
+            <Link className="dsc-foot-link author-link site-footer__link" href="/contact" style={{ color: "var(--text-muted)" }}>{t("linkContact")}</Link>
           </div>
         </div>
 
         <div>
-          <h4 style={footHeading}>{t("departmentsTitle")}</h4>
-          <div style={{ display: "flex", flexDirection: "column", gap: 13 }}>
+          <h4 className="site-footer__heading">{t("departmentsTitle")}</h4>
+          <div className="site-footer__list">
             {FOOT_DEPARTMENTS.map((d) => (
-              <Link key={d} className="dsc-foot-link author-link" href="/about" style={footLink}>{d}</Link>
+              <Link key={d} className="dsc-foot-link author-link site-footer__link" href="/about" style={{ color: "var(--text-muted)" }}>{d}</Link>
             ))}
           </div>
         </div>
       </div>
 
-      <div style={{ borderTop: "1px solid var(--border)" }}>
-        <div style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "20px 24px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, flexWrap: "wrap" }}>
-          <span style={{ fontFamily: "var(--font-body-stack)", fontSize: 13, color: "var(--text-muted)" }}>{t("copyright")}</span>
+      <div className="site-footer__bottom">
+        <div className="site-footer__bottom-row">
+          <span className="site-footer__copy">{t("copyright")}</span>
         </div>
       </div>
     </footer>

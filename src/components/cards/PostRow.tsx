@@ -28,40 +28,40 @@ export function PostRow({ post }: { post: PostRowData }) {
 
   return (
     <div
-      className="post-row"
+      className="post-row post-row__layout"
       data-reveal
-      style={{ position: "relative", display: "grid", gridTemplateColumns: "120px 1fr auto", gap: 26, alignItems: "baseline", color: "var(--text)", padding: "28px 0", borderBottom: "1px solid var(--border)" }}
+      style={{ display: "grid", gridTemplateColumns: "120px 1fr auto", color: "var(--text)", padding: "28px 0", borderBottom: "1px solid var(--border)" }}
     >
-      <Link href={`/blog/${post.slug}`} aria-label={post.title} style={{ position: "absolute", inset: 0, zIndex: 1 }} />
-      <div style={{ fontFamily: "var(--font-mono-stack)", fontSize: 12, letterSpacing: "0.04em", color: "var(--text-muted)", paddingTop: 4 }}>
-        <div style={{ color: "var(--accent)", marginBottom: 6 }}>{post.category}</div>
+      <Link className="post-row__cover" href={`/blog/${post.slug}`} aria-label={post.title} />
+      <div className="post-row__meta">
+        <div className="post-row__category">{post.category}</div>
         <div>{dateLabel}</div>
-        <div style={{ marginTop: 3 }}>{post.readingTime}</div>
+        <div className="post-row__time">{post.readingTime}</div>
       </div>
       <div>
-        <h3 className="row-title" style={{ fontFamily: "var(--font-display-stack)", fontWeight: 600, fontSize: "clamp(20px,2.4vw,26px)", lineHeight: 1.2, margin: "0 0 10px" }}>
+        <h3 className="row-title post-row__title">
           {post.title}
         </h3>
-        <p style={{ fontFamily: "var(--font-body-stack)", fontSize: 15, lineHeight: 1.65, color: "var(--text-muted)", margin: "0 0 14px", maxWidth: "60ch" }}>
+        <p className="post-row__excerpt">
           {post.excerpt}
         </p>
         {post.authorName && post.authorInitials && (post.authorSlug ? (
           <Link
             href={`/team/${post.authorSlug}`}
-            className="author-link"
-            style={{ position: "relative", zIndex: 2, display: "inline-flex", alignItems: "center", gap: 9, textDecoration: "none", color: "var(--text)", width: "fit-content" }}
+            className="author-link post-row__author"
+            style={{ color: "var(--text)" }}
           >
             <Avatar photo={post.authorPhoto ?? null} initials={post.authorInitials} size={26} radius={999} fontSize={10} />
-            <span className="al-name" style={{ fontFamily: "var(--font-body-stack)", fontWeight: 600, fontSize: 13 }}>{post.authorName}</span>
+            <span className="al-name post-row__author-name">{post.authorName}</span>
           </Link>
         ) : (
-          <span style={{ display: "inline-flex", alignItems: "center", gap: 9, color: "var(--text)" }}>
+          <span className="post-row__author-plain">
             <Avatar photo={post.authorPhoto ?? null} initials={post.authorInitials} size={26} radius={999} fontSize={10} />
-            <span style={{ fontFamily: "var(--font-body-stack)", fontWeight: 600, fontSize: 13 }}>{post.authorName}</span>
+            <span className="post-row__author-name">{post.authorName}</span>
           </span>
         ))}
       </div>
-      <span className="row-arrow" style={{ fontFamily: "var(--font-display-stack)", fontSize: 22, color: "var(--accent)", alignSelf: "center" }}>→</span>
+      <span className="row-arrow post-row__arrow">→</span>
     </div>
   );
 }

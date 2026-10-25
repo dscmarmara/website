@@ -51,11 +51,11 @@ export function PageHero({
       } as const);
 
   return (
-    <section style={{ position: "relative", overflow: "hidden", borderBottom: "1px solid var(--border)" }}>
+    <section className="page-hero">
       <PlexusBg density={density} />
       <div style={{ position: "relative", maxWidth: "var(--maxw)", margin: "0 auto", padding }}>
         <Reveal>
-          <Eyebrow style={{ marginBottom: 18 }}>{eyebrow}</Eyebrow>
+          <Eyebrow className="page-hero__eyebrow">{eyebrow}</Eyebrow>
         </Reveal>
         {glitch ? (
           <GlitchHeading text={title} style={titleStyle} />
@@ -66,8 +66,8 @@ export function PageHero({
         )}
         {sub && (
           <Reveal
+            className="page-hero__sub"
             as="p"
-            style={{ fontFamily: "var(--font-body-stack)", fontSize: "clamp(16px,2vw,20px)", lineHeight: 1.6, color: "var(--text-muted)", maxWidth: "56ch", margin: 0 }}
           >
             {sub}
           </Reveal>

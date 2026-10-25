@@ -45,22 +45,11 @@ export function MenuButton({ openLabel, closeLabel }: { openLabel: string; close
   const { open, toggle } = useMenu();
   return (
     <button
+      className="menu-btn"
       type="button"
       aria-label={open ? closeLabel : openLabel}
       aria-expanded={open}
       onClick={toggle}
-      style={{
-        width: 42,
-        height: 42,
-        display: "inline-flex",
-        alignItems: "center",
-        justifyContent: "center",
-        borderRadius: 10,
-        border: "1px solid var(--border)",
-        background: "var(--bg-elev)",
-        color: "var(--text)",
-        cursor: "pointer",
-      }}
     >
       <MenuIcon open={open} />
     </button>
@@ -74,23 +63,16 @@ export function MenuPanel({ links }: { links: readonly { href: string; label: st
   if (!open) return null;
   return (
     <div
-      className="nav-collapse"
-      style={{ borderTop: "1px solid var(--border)", background: "var(--bg-elev)", padding: "8px 24px 18px", display: "flex", flexDirection: "column" }}
+      className="nav-collapse menu-panel"
+      style={{ display: "flex" }}
     >
       {links.map((l) => (
         <Link
+          className="menu-panel__link"
           key={l.href}
           href={l.href}
           onClick={close}
-          style={{
-            fontFamily: "var(--font-body-stack)",
-            fontWeight: 600,
-            fontSize: 16,
-            color: isActive(pathname, l.href) ? "var(--accent)" : "var(--text)",
-            textDecoration: "none",
-            padding: "14px 4px",
-            borderBottom: "1px solid var(--border)",
-          }}
+          style={{ color: isActive(pathname, l.href) ? "var(--accent)" : "var(--text)" }}
         >
           {l.label}
         </Link>

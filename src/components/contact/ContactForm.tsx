@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useEffect, useState, useSyncExternalStore, type CSSProperties, type FormEvent } from "react";
+import { useActionState, useEffect, useState, useSyncExternalStore, type FormEvent } from "react";
 import { useTranslations } from "next-intl";
 import { CheckIcon } from "@/components/common/SocialIcons";
 import { sendContactMessage, type ContactField, type ContactState } from "@/app/[locale]/contact/actions";
@@ -9,30 +9,6 @@ import { CONTACT_LIMITS, EMAIL_RE, HONEYPOT_FIELD } from "@/lib/contactRules";
 /** False in the server HTML and until hydration, true after: no effect or extra render needed. */
 const noSubscribe = () => () => {};
 const useHydrated = () => useSyncExternalStore(noSubscribe, () => true, () => false);
-
-const inputStyle: CSSProperties = {
-  padding: "14px 16px",
-  borderRadius: 10,
-  border: "1px solid var(--border)",
-  background: "var(--bg-elev)",
-  color: "var(--text)",
-  fontFamily: "var(--font-body-stack)",
-  fontSize: 15,
-  width: "100%",
-};
-
-const captionStyle: CSSProperties = {
-  fontFamily: "var(--font-mono-stack)",
-  fontSize: 12,
-  letterSpacing: "0.08em",
-  color: "var(--text-muted)",
-};
-
-const errorStyle: CSSProperties = {
-  fontFamily: "var(--font-body-stack)",
-  fontSize: 12.5,
-  color: "var(--destructive)",
-};
 
 const INITIAL: ContactState = { status: "idle" };
 
@@ -86,16 +62,16 @@ function ContactFormRound({ onSendAnother }: { onSendAnother: () => void }) {
 
   if (state.status === "sent") {
     return (
-      <div style={{ border: "1px solid var(--accent)", borderRadius: 18, background: "var(--bg-elev)", padding: 48, textAlign: "center", boxShadow: "var(--glow-soft)" }}>
-        <div style={{ width: 64, height: 64, margin: "0 auto 22px", borderRadius: "50%", background: "var(--grad)", display: "grid", placeItems: "center" }}>
+      <div className="cform-done">
+        <div className="cform-done__icon">
           <CheckIcon size={30} />
         </div>
-        <h3 style={{ fontFamily: "var(--font-display-stack)", fontWeight: 700, fontSize: 26, margin: "0 0 12px" }}>{t("successTitle")}</h3>
-        <p style={{ fontFamily: "var(--font-body-stack)", fontSize: 15, lineHeight: 1.6, color: "var(--text-muted)", margin: "0 auto 24px", maxWidth: "42ch" }}>{t("successBody")}</p>
+        <h3 className="cform-done__title">{t("successTitle")}</h3>
+        <p className="cform-done__body">{t("successBody")}</p>
         <button
+          className="cform-done__again"
           type="button"
           onClick={onSendAnother}
-          style={{ padding: "12px 24px", borderRadius: 10, border: "1px solid var(--border)", background: "transparent", color: "var(--accent)", fontFamily: "var(--font-body-stack)", fontWeight: 600, fontSize: 14, cursor: "pointer" }}
         >
           {t("sendAnother")}
         </button>
@@ -120,47 +96,47 @@ function ContactFormRound({ onSendAnother }: { onSendAnother: () => void }) {
     // check to the request there), so a submit before that would go nowhere.
     <form className="contact-form" action={formAction} onSubmit={onSubmit} noValidate>
       {/* Honeypot: off-screen and hidden from assistive tech, so only bots fill it. */}
-      <div aria-hidden style={{ position: "absolute", left: "-9999px", width: 1, height: 1, overflow: "hidden" }}>
+      <div className="cform-hp" aria-hidden>
         <label>
           Leave this field empty
           <input type="text" name={HONEYPOT_FIELD} tabIndex={-1} autoComplete="off" />
         </label>
       </div>
 
-      <label style={{ display: "flex", flexDirection: "column", gap: 9 }}>
-        <span style={captionStyle}>{t("fullName")}</span>
-        <input className="field" type="text" name="name" placeholder={t("namePlaceholder")} style={inputStyle} maxLength={CONTACT_LIMITS.name} defaultValue={values?.name} />
-        {errors.includes("name") && <span style={errorStyle}>{t("nameError")}</span>}
+      <label className="cform-field">
+        <span className="cform-caption">{t("fullName")}</span>
+        <input className="field cform-input" type="text" name="name" placeholder={t("namePlaceholder")} style={{ border: "1px solid var(--border)", color: "var(--text)" }} maxLength={CONTACT_LIMITS.name} defaultValue={values?.name} />
+        {errors.includes("name") && <span className="cform-error">{t("nameError")}</span>}
       </label>
 
-      <label style={{ display: "flex", flexDirection: "column", gap: 9 }}>
-        <span style={captionStyle}>{t("email")}</span>
-        <input className="field" type="email" name="email" placeholder={t("emailPlaceholder")} style={inputStyle} maxLength={CONTACT_LIMITS.email} defaultValue={values?.email} />
-        {errors.includes("email") && <span style={errorStyle}>{t("emailError")}</span>}
+      <label className="cform-field">
+        <span className="cform-caption">{t("email")}</span>
+        <input className="field cform-input" type="email" name="email" placeholder={t("emailPlaceholder")} style={{ border: "1px solid var(--border)", color: "var(--text)" }} maxLength={CONTACT_LIMITS.email} defaultValue={values?.email} />
+        {errors.includes("email") && <span className="cform-error">{t("emailError")}</span>}
       </label>
 
-      <label className="span-2" style={{ display: "flex", flexDirection: "column", gap: 9 }}>
-        <span style={captionStyle}>{t("subject")}</span>
-        <input className="field" type="text" name="subject" placeholder={t("subjectPlaceholder")} style={inputStyle} maxLength={CONTACT_LIMITS.subject} defaultValue={values?.subject} />
-        {errors.includes("subject") && <span style={errorStyle}>{t("subjectError")}</span>}
+      <label className="span-2 cform-field">
+        <span className="cform-caption">{t("subject")}</span>
+        <input className="field cform-input" type="text" name="subject" placeholder={t("subjectPlaceholder")} style={{ border: "1px solid var(--border)", color: "var(--text)" }} maxLength={CONTACT_LIMITS.subject} defaultValue={values?.subject} />
+        {errors.includes("subject") && <span className="cform-error">{t("subjectError")}</span>}
       </label>
 
-      <label className="span-2" style={{ display: "flex", flexDirection: "column", gap: 9 }}>
-        <span style={captionStyle}>{t("message")}</span>
-        <textarea className="field" name="message" rows={6} placeholder={t("messagePlaceholder")} style={{ ...inputStyle, resize: "vertical" }} maxLength={CONTACT_LIMITS.message} defaultValue={values?.message} />
-        {errors.includes("message") && <span style={errorStyle}>{t("messageError")}</span>}
+      <label className="span-2 cform-field">
+        <span className="cform-caption">{t("message")}</span>
+        <textarea className="field cform-textarea" name="message" rows={6} placeholder={t("messagePlaceholder")} style={{ border: "1px solid var(--border)", color: "var(--text)" }} maxLength={CONTACT_LIMITS.message} defaultValue={values?.message} />
+        {errors.includes("message") && <span className="cform-error">{t("messageError")}</span>}
       </label>
 
-      <div className="span-2" style={{ display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap" }}>
+      <div className="span-2 cform-actions">
         <button
           type="submit"
-          className="lift-btn"
+          className="lift-btn cform-submit"
           disabled={!hydrated || pending}
-          style={{ padding: "15px 34px", borderRadius: 10, border: "none", background: "var(--grad)", color: "#04190a", fontFamily: "var(--font-body-stack)", fontWeight: 700, fontSize: 15, cursor: pending ? "wait" : "pointer", opacity: !hydrated || pending ? 0.7 : 1, boxShadow: "var(--glow-soft)" }}
+          style={{ cursor: pending ? "wait" : "pointer", opacity: !hydrated || pending ? 0.7 : 1, boxShadow: "var(--glow-soft)" }}
         >
           {pending ? t("sending") : t("send")}
         </button>
-        {sendError && <span role="alert" style={errorStyle}>{sendError}</span>}
+        {sendError && <span className="cform-error" role="alert">{sendError}</span>}
       </div>
     </form>
   );

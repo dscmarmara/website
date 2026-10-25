@@ -10,33 +10,24 @@ export function MemberCard({ member }: { member: Member }) {
 
   return (
     <Link
-      className="mcard"
+      className="mcard member-card"
       data-reveal
       href={`/team/${member.slug}`}
-      style={{
-        textDecoration: "none",
-        color: "var(--text)",
-        border: "1px solid var(--border)",
-        borderRadius: 18,
-        background: "var(--bg-elev)",
-        padding: 28,
-        display: "flex",
-        flexDirection: "column",
-      }}
+      style={{ color: "var(--text)", border: "1px solid var(--border)" }}
     >
-      <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 18 }}>
+      <div className="member-card__head">
         <Avatar photo={member.photo} initials={initialsOf(member, locale)} size={60} radius={16} fontSize={20} />
         <div>
-          <h3 style={{ fontFamily: "var(--font-display-stack)", fontWeight: 600, fontSize: 20, margin: "0 0 4px" }}>{member.name}</h3>
-          <div style={{ fontFamily: "var(--font-mono-stack)", fontSize: 11, letterSpacing: "0.06em", color: "var(--accent)" }}>
+          <h3 className="member-card__name">{member.name}</h3>
+          <div className="member-card__role">
             {tr(teamRoleKey[member.teamRole])}
           </div>
         </div>
       </div>
-      <p style={{ fontFamily: "var(--font-body-stack)", fontSize: 14, lineHeight: 1.6, color: "var(--text-muted)", margin: "0 0 20px", flex: 1 }}>
+      <p className="member-card__tagline">
         {pick(member.tagline, locale)}
       </p>
-      <span className="m-go" style={{ display: "inline-flex", alignItems: "center", gap: 8, fontFamily: "var(--font-body-stack)", fontWeight: 600, fontSize: 14, color: "var(--text-muted)" }}>
+      <span className="m-go member-card__go" style={{ gap: 8, color: "var(--text-muted)" }}>
         {t("viewProfile")}
       </span>
     </Link>

@@ -67,16 +67,6 @@ export async function generateMetadata({
   };
 }
 
-const chipStyle = {
-  padding: "7px 14px",
-  borderRadius: 100,
-  border: "1px solid var(--border)",
-  background: "var(--bg)",
-  fontFamily: "var(--font-body-stack)",
-  fontSize: 13,
-  color: "var(--text)",
-} as const;
-
 export default async function MemberPage({
   params,
 }: PageProps<"/[locale]/team/[slug]">) {
@@ -128,38 +118,38 @@ export default async function MemberPage({
       <JsonLd data={personLd} />
 
       {/* HERO */}
-      <section style={{ position: "relative", overflow: "hidden", borderBottom: "1px solid var(--border)" }}>
+      <section className="member-top">
         <PlexusBg density={1} />
-        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(120% 90% at 18% 0,color-mix(in srgb,var(--accent) 10%,transparent),transparent 60%)" }} />
-        <div style={{ position: "relative", maxWidth: MAXW, margin: "0 auto", padding: "48px 24px 64px" }}>
+        <div className="member-top__glow" />
+        <div className="member-top__inner" style={{ maxWidth: MAXW }}>
           <Link
+            className="member-top__back"
             href="/team"
             data-reveal
-            style={{ fontFamily: "var(--font-mono-stack)", fontSize: 12, letterSpacing: "0.06em", color: "var(--accent)", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 7, marginBottom: 40 }}
           >
             {t("backToTeam")}
           </Link>
-          <div className="split member-hero" style={{ gap: 44, alignItems: "center" }}>
-            <div data-reveal className="avatar-ring" style={{ position: "relative", width: 188, height: 188, flex: "none" }}>
-              <div style={{ position: "relative", zIndex: 1, width: "100%", height: "100%", borderRadius: 24, background: "var(--bg-elev)", display: "grid", placeItems: "center", overflow: "hidden", border: "1px solid var(--border)" }}>
+          <div className="split member-hero member-top__grid">
+            <div data-reveal className="avatar-ring member-top__ring" style={{ position: "relative" }}>
+              <div className="member-top__frame">
                 {m.photo ? (
                   // The photo fills the panel; the size-based <Avatar> would render it at 0px here.
-                  <Image src={m.photo} alt={m.name} fill sizes="188px" quality={PHOTO_QUALITY} preload style={{ objectFit: "cover" }} />
+                  <Image className="member-top__img" src={m.photo} alt={m.name} fill sizes="188px" quality={PHOTO_QUALITY} preload />
                 ) : (
                   <>
-                    <div style={{ position: "absolute", inset: 0, background: "repeating-linear-gradient(135deg,var(--bg-elev2),var(--bg-elev2) 10px,transparent 10px,transparent 20px)" }} />
+                    <div className="member-top__stripes" />
                     <Avatar photo={null} initials={initialsOf(m, locale)} size={0} variant="clip" fontSize={64} />
                   </>
                 )}
               </div>
             </div>
             <Reveal>
-              <div style={{ fontFamily: "var(--font-mono-stack)", fontSize: 12, letterSpacing: "0.14em", color: "var(--accent)", marginBottom: 14 }}>{role}</div>
-              <h1 style={{ fontFamily: "var(--font-display-stack)", fontWeight: 700, fontSize: "clamp(38px,6vw,68px)", lineHeight: 1.02, margin: "0 0 16px" }}>{m.name}</h1>
-              <p style={{ fontFamily: "var(--font-body-stack)", fontSize: 18, lineHeight: 1.6, color: "var(--text-muted)", maxWidth: "54ch", margin: "0 0 24px" }}>{pick(m.tagline, locale)}</p>
-              <div style={{ display: "flex", alignItems: "center", gap: 18, flexWrap: "wrap" }}>
-                <span style={{ padding: "6px 15px", borderRadius: 100, border: "1px solid var(--border)", background: "var(--bg-elev)", fontFamily: "var(--font-mono-stack)", fontSize: 12, letterSpacing: "0.05em", color: "var(--accent)" }}>{m.dept}</span>
-                <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
+              <div className="member-top__role">{role}</div>
+              <h1 className="member-top__name">{m.name}</h1>
+              <p className="member-top__tagline">{pick(m.tagline, locale)}</p>
+              <div className="member-top__meta">
+                <span className="member-top__dept">{m.dept}</span>
+                <div className="member-top__socials">
                   {/* Only rendered for members who actually have one — no dead
                       "#" links. Fill in `linkedin` / `github` / `email` in members.json
                       (or later, the admin profile form) to switch them on. */}
@@ -174,12 +164,12 @@ export default async function MemberPage({
                   )}
                   {m.website && m.websiteUrl && (
                     <a
-                      className="social-ico"
+                      className="social-ico member-social"
                       href={m.websiteUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={t("website")}
-                      style={{ display: "inline-flex", alignItems: "center", gap: 8, height: 40, padding: "0 15px", borderRadius: 10, border: "1px solid var(--border)", color: "var(--text-muted)", textDecoration: "none", fontFamily: "var(--font-mono-stack)", fontSize: 12 }}
+                      style={{ border: "1px solid var(--border)", color: "var(--text-muted)" }}
                     >
                       <GlobeIcon size={16} />
                       {m.website}
@@ -196,12 +186,12 @@ export default async function MemberPage({
           Otherwise the hero's own bottom rule is the only divider: an empty
           band would be decoration with nothing to say. */}
       {SHOW_KPIS && m.kpis.length > 0 && (
-        <section style={{ borderBottom: "1px solid var(--border)", background: "var(--bg-elev)" }}>
-          <div data-reveal className="dsc-grid-3" style={{ maxWidth: MAXW, margin: "0 auto", padding: "0 24px" }}>
+        <section className="member-stats">
+          <div data-reveal className="dsc-grid-3 member-stats__grid" style={{ maxWidth: MAXW }}>
             {m.kpis.map((k, i) => (
-              <div key={k.label + i} style={{ padding: "30px 0", textAlign: "center", borderRight: "1px solid var(--border)" }}>
-                <div style={{ fontFamily: "var(--font-display-stack)", fontWeight: 700, fontSize: 34, color: "var(--accent)", lineHeight: 1 }}>{k.num}</div>
-                <div style={{ fontFamily: "var(--font-mono-stack)", fontSize: 11, letterSpacing: "0.1em", color: "var(--text-muted)", marginTop: 8 }}>{tk(k.label)}</div>
+              <div className="member-stats__cell" key={k.label + i}>
+                <div className="member-stats__value">{k.num}</div>
+                <div className="member-stats__label">{tk(k.label)}</div>
               </div>
             ))}
           </div>
@@ -209,25 +199,25 @@ export default async function MemberPage({
       )}
 
       {/* ABOUT + FOCUS */}
-      <div className="split member-main" style={{ maxWidth: MAXW, margin: "0 auto", padding: "72px 24px 40px", gap: 56, alignItems: "start" }}>
+      <div className="split member-main member-body" style={{ maxWidth: MAXW }}>
         <Reveal>
-          <h2 style={{ fontFamily: "var(--font-display-stack)", fontWeight: 700, fontSize: "clamp(22px,2.6vw,30px)", margin: "0 0 20px" }}>{t("about", { name: m.first })}</h2>
-          <p style={{ fontFamily: "var(--font-body-stack)", fontSize: 17, lineHeight: 1.8, color: "var(--text)", margin: "0 0 20px" }}>{pick(m.bio1, locale)}</p>
+          <h2 className="member-body__title">{t("about", { name: m.first })}</h2>
+          <p className="member-body__bio">{pick(m.bio1, locale)}</p>
           {pick(m.bio2, locale) && (
-            <p style={{ fontFamily: "var(--font-body-stack)", fontSize: 17, lineHeight: 1.8, color: "var(--text-muted)", margin: "0 0 32px" }}>{pick(m.bio2, locale)}</p>
+            <p className="member-body__bio-muted">{pick(m.bio2, locale)}</p>
           )}
           {/* quote is only shown when the member actually has one — never invented */}
           {pick(m.quote, locale) && (
-            <blockquote style={{ borderLeft: "3px solid var(--accent)", padding: "4px 0 4px 26px", margin: 0, boxShadow: "-1px 0 0 0 var(--accent),var(--glow-soft)" }}>
-              <p style={{ fontFamily: "var(--font-display-stack)", fontWeight: 500, fontSize: "clamp(19px,2.2vw,24px)", lineHeight: 1.45, fontStyle: "italic", margin: 0 }}>“{pick(m.quote, locale)}”</p>
+            <blockquote className="member-quote">
+              <p className="member-quote__text">“{pick(m.quote, locale)}”</p>
             </blockquote>
           )}
         </Reveal>
-        <Reveal as="aside" style={{ border: "1px solid var(--border)", borderRadius: 16, background: "var(--bg-elev)", padding: 26 }}>
-          <div style={{ fontFamily: "var(--font-mono-stack)", fontSize: 11, letterSpacing: "0.12em", color: "var(--accent)", marginBottom: 16 }}>{t("focusLabel")}</div>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 9 }}>
+        <Reveal className="member-box" as="aside">
+          <div className="member-box__label">{t("focusLabel")}</div>
+          <div className="member-skills">
             {m.focus.map((skill) => (
-              <span key={skill} style={chipStyle}>{skillLabel(skill, locale)}</span>
+              <span className="member-skill" key={skill}>{skillLabel(skill, locale)}</span>
             ))}
           </div>
         </Reveal>
@@ -235,49 +225,49 @@ export default async function MemberPage({
 
       {/* WRITING */}
       {posts.length > 0 && (
-        <section style={{ maxWidth: MAXW, margin: "0 auto", padding: "20px 24px 70px" }}>
-          <Reveal style={{ marginBottom: 8, display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 16 }}>
-            <h2 style={{ fontFamily: "var(--font-display-stack)", fontWeight: 700, fontSize: "clamp(22px,2.6vw,30px)", margin: 0 }}>{t("writingTitle")}</h2>
-            <Link href="/blog" style={{ fontFamily: "var(--font-body-stack)", fontWeight: 600, fontSize: 14, color: "var(--accent)", textDecoration: "none" }}>{t("allPosts")}</Link>
+        <section className="member-posts" style={{ maxWidth: MAXW }}>
+          <Reveal className="member-posts__head">
+            <h2 className="member-posts__title">{t("writingTitle")}</h2>
+            <Link className="member-posts__all" href="/blog">{t("allPosts")}</Link>
           </Reveal>
           {posts.map((p) => (
             <Link
               key={p.slug}
               href={`/blog/${p.slug}`}
-              className="art-row"
+              className="art-row member-post"
               data-reveal
-              style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 24, textDecoration: "none", color: "var(--text)", padding: "22px 0", borderBottom: "1px solid var(--border)" }}
+              style={{ color: "var(--text)", padding: "22px 0", borderBottom: "1px solid var(--border)" }}
             >
               <div>
-                <h3 className="art-title" style={{ fontFamily: "var(--font-display-stack)", fontWeight: 600, fontSize: 19, margin: "0 0 6px" }}>{p.title}</h3>
-                <span style={{ fontFamily: "var(--font-mono-stack)", fontSize: 12, color: "var(--text-muted)" }}>
+                <h3 className="art-title member-post__title">{p.title}</h3>
+                <span className="member-post__meta">
                   {p.category} · {format.dateTime(new Date(p.date), { year: "numeric", month: "short", day: "numeric" }).toLocaleUpperCase(locale)}
                 </span>
               </div>
-              <span style={{ fontFamily: "var(--font-display-stack)", fontSize: 20, color: "var(--accent)", flex: "none" }}>→</span>
+              <span className="member-post__arrow">→</span>
             </Link>
           ))}
         </section>
       )}
 
       {/* PREV / NEXT */}
-      <section style={{ borderTop: "1px solid var(--border)", background: "var(--bg-elev)" }}>
-        <div className="dsc-grid-2" style={{ maxWidth: MAXW, margin: "0 auto", padding: "40px 24px", gap: 20 }}>
-          <Link className="glow-card glow-card--sm" href={`/team/${prev.slug}`} style={{ border: "1px solid var(--border)", borderRadius: 14, background: "var(--bg)", padding: 22, textDecoration: "none", color: "var(--text)", display: "flex", alignItems: "center", gap: 16 }}>
-            <span style={{ fontFamily: "var(--font-display-stack)", fontSize: 22, color: "var(--accent)" }}>←</span>
+      <section className="member-nav">
+        <div className="dsc-grid-2 member-nav__grid" style={{ maxWidth: MAXW }}>
+          <Link className="glow-card glow-card--sm member-nav__card" href={`/team/${prev.slug}`} style={{ border: "1px solid var(--border)" }}>
+            <span className="member-nav__arrow">←</span>
             <Avatar photo={prev.photo} initials={initialsOf(prev, locale)} size={46} radius={999} fontSize={15} />
-            <span style={{ display: "flex", flexDirection: "column" }}>
-              <span style={{ fontFamily: "var(--font-mono-stack)", fontSize: 10.5, letterSpacing: "0.1em", color: "var(--text-muted)" }}>{t("previous")}</span>
-              <span style={{ fontFamily: "var(--font-display-stack)", fontWeight: 600, fontSize: 16 }}>{prev.name}</span>
+            <span className="member-nav__text">
+              <span className="member-nav__label">{t("previous")}</span>
+              <span className="member-nav__name">{prev.name}</span>
             </span>
           </Link>
-          <Link className="glow-card glow-card--sm" href={`/team/${next.slug}`} style={{ border: "1px solid var(--border)", borderRadius: 14, background: "var(--bg)", padding: 22, textDecoration: "none", color: "var(--text)", display: "flex", alignItems: "center", gap: 16, justifyContent: "flex-end", textAlign: "right" }}>
-            <span style={{ display: "flex", flexDirection: "column", alignItems: "flex-end" }}>
-              <span style={{ fontFamily: "var(--font-mono-stack)", fontSize: 10.5, letterSpacing: "0.1em", color: "var(--text-muted)" }}>{t("next")}</span>
-              <span style={{ fontFamily: "var(--font-display-stack)", fontWeight: 600, fontSize: 16 }}>{next.name}</span>
+          <Link className="glow-card glow-card--sm member-nav__card-next" href={`/team/${next.slug}`} style={{ border: "1px solid var(--border)" }}>
+            <span className="member-nav__text-next">
+              <span className="member-nav__label">{t("next")}</span>
+              <span className="member-nav__name">{next.name}</span>
             </span>
             <Avatar photo={next.photo} initials={initialsOf(next, locale)} size={46} radius={999} fontSize={15} />
-            <span style={{ fontFamily: "var(--font-display-stack)", fontSize: 22, color: "var(--accent)" }}>→</span>
+            <span className="member-nav__arrow">→</span>
           </Link>
         </div>
       </section>
