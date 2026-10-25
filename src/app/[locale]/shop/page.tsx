@@ -7,10 +7,11 @@ import { SHOP_PRODUCTS } from "@/lib/constants";
 import { pick } from "@/lib/members";
 import { buildAlternates } from "@/lib/seo";
 import { IS_PRODUCTION } from "@/lib/env";
+import { ClientMessages } from "@/components/i18n/ClientMessages";
 
 // The shop is preview-only for now: a 404 on the live site, reached on
 // previews from the dev options bar. To open it, drop these checks and add it
-// back to NAV_LINKS, the footer and the sitemap (see TRANSLATIONS.md).
+// back to NAV_LINKS (src/components/layout/navLinks.ts), the footer and the sitemap (see TRANSLATIONS.md).
 
 export async function generateMetadata({
   params,
@@ -45,16 +46,18 @@ export default async function ShopPage({
 
       <div style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "80px 24px 100px" }}>
         <div className="shop-grid">
-          {SHOP_PRODUCTS.map((p) => (
-            <ProductCard
-              key={p.id}
-              name={pick(p.name, locale)}
-              desc={pick(p.desc, locale)}
-              price={p.price}
-              sizes={p.sizes}
-              art={p.art}
-            />
-          ))}
+          <ClientMessages namespaces={["shop"]}>
+            {SHOP_PRODUCTS.map((p) => (
+              <ProductCard
+                key={p.id}
+                name={pick(p.name, locale)}
+                desc={pick(p.desc, locale)}
+                price={p.price}
+                sizes={p.sizes}
+                art={p.art}
+              />
+            ))}
+          </ClientMessages>
         </div>
       </div>
     </>

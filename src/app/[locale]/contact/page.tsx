@@ -11,6 +11,7 @@ import {
 } from "@/components/common/SocialIcons";
 import { CONTACT_EMAIL, SOCIALS } from "@/lib/constants";
 import { buildAlternates } from "@/lib/seo";
+import { ClientMessages } from "@/components/i18n/ClientMessages";
 
 export async function generateMetadata({
   params,
@@ -55,7 +56,9 @@ export default async function ContactPage() {
       <div style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "80px 24px 100px" }}>
         <div className="split contact" style={{ gap: 56, alignItems: "start" }}>
           <Reveal>
-            <ContactForm />
+            <ClientMessages namespaces={["contact"]}>
+              <ContactForm />
+            </ClientMessages>
           </Reveal>
 
           <Reveal as="aside" style={{ display: "flex", flexDirection: "column", gap: 18 }}>

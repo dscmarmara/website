@@ -1,6 +1,6 @@
 "use client";
 
-import { useFormatter, useLocale, useTranslations } from "next-intl";
+import { useFormatter, useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Avatar } from "@/components/common/Avatar";
 
@@ -19,7 +19,6 @@ export interface PostRowData {
 }
 
 export function PostRow({ post }: { post: PostRowData }) {
-  const t = useTranslations("blog");
   const format = useFormatter();
   const locale = useLocale();
   // Locale-aware so Turkish months keep their dotted İ ("NİS", not "NIS").

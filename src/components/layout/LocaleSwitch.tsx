@@ -1,27 +1,21 @@
 "use client";
 
-import { useTransition } from "react";
-import { useLocale, useTranslations } from "next-intl";
-import { usePathname, useRouter } from "@/i18n/navigation";
+import NextLink from "next/link";
+import { getPathname, usePathname } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 
 /**
- * One button that flips to the other language on the same page: "EN" on a
- * Turkish page, "TR" on the English one. The TR / TR YENİ comparison lives in
- * the dev options bar (DevOptions.tsx), not here.
+ * One link that flips to the other language on the same page: "EN" on a Turkish
+ * page, "TR" on the English one. A real <a href>, so it works before hydration,
+ * search engines can follow it and Back returns to the previous language. The
+ * server picks the target (Nav.tsx); only the current path is read here. The
+ * TR / TR YENİ comparison lives in the dev options bar (DevOptions.tsx).
  */
-export function LocaleSwitch({ large = false }: { large?: boolean }) {
-  const t = useTranslations("nav");
-  const locale = useLocale();
-  const pathname = usePathname();
-  const router = useRouter();
-  const [, startTransition] = useTransition();
-
-  // By base language, so the review copies (tr-x-eski, en-x-eski) flip to the
-  // other language's current default too.
-  const toEnglish = locale.split("-")[0] !== "en";
-  const target: Locale = toEnglish ? "en" : "tr";
-
+export function LocaleSwitch({ target, label, large = false }: { target: Locale; label: string; large?: boolean }) {
+  // The same page in the other language, as its final URL (/team, /tr/team). next-intl's
+  // <Link locale> would always prefix it (/en/team) for its locale cookie, which this site
+  // doesn't use (localeDetection: false): one redirect for every visitor and crawler.
+  const href = getPathname({ href: usePathname(), locale: target });
   return (
     <div
       style={{
@@ -33,15 +27,15 @@ export function LocaleSwitch({ large = false }: { large?: boolean }) {
         width: "fit-content",
       }}
     >
-      <button
+      <NextLink
         className="lang-btn"
-        // Preserve the current route, swap only the locale.
-        onClick={() => startTransition(() => router.replace(pathname, { locale: target }))}
-        aria-label={t(toEnglish ? "english" : "turkish")}
+        href={href}
+        hrefLang={target}
+        aria-label={label}
         style={large ? { fontSize: 14, padding: "9px 18px" } : undefined}
       >
-        {toEnglish ? "EN" : "TR"}
-      </button>
+        {target === "en" ? "EN" : "TR"}
+      </NextLink>
     </div>
   );
 }

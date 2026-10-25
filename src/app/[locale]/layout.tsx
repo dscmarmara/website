@@ -71,7 +71,8 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
   return (
     <html lang={locale} data-scroll-behavior="smooth" className={`dark ${fontVars}`}>
       <body>
-        <NextIntlClientProvider>
+        {/* Locale only: client components get their messages from <ClientMessages> where they render. */}
+        <NextIntlClientProvider messages={null}>
           <JsonLd data={websiteLd(locale)} />
           <JsonLd data={organizationLd(locale, tMeta("defaultDescription"))} />
           <Nav />

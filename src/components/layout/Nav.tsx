@@ -1,141 +1,100 @@
-"use client";
-
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
-import { useTranslations } from "next-intl";
-import { Link, usePathname } from "@/i18n/navigation";
+import dynamic from "next/dynamic";
+import { getLocale, getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
+import type { Locale } from "@/i18n/routing";
+import { NAV_LINKS } from "./navLinks";
+import { NavLink } from "./NavLink";
 import { LocaleSwitch } from "./LocaleSwitch";
-import { DevOptions } from "./DevOptions";
+import { MenuButton, MenuPanel, MobileMenuProvider } from "./MobileMenu";
 
-export const NAV_LINKS = [
-  { key: "home", href: "/" },
-  { key: "about", href: "/about" },
-  { key: "team", href: "/team" },
-  { key: "blog", href: "/blog" },
-  // The shop is preview-only for now and linked from the dev options bar.
-  { key: "contact", href: "/contact" },
-] as const;
+// Previews only. The condition is the inlined build-time value (not IS_PRODUCTION from another
+// module), so on live and staging builds the import is dropped and the bar's code ships nowhere:
+// a client component imported here is bundled with the header even when it isn't rendered.
+const DevOptions =
+  process.env.NEXT_PUBLIC_SITE_STAGE === "preview"
+    ? dynamic(() => import("./DevOptions").then((m) => m.DevOptions))
+    : null;
 
-function isActive(pathname: string, href: string) {
-  if (href === "/") return pathname === "/";
-  return pathname === href || pathname.startsWith(`${href}/`);
-}
-
-export function Nav() {
-  const t = useTranslations("nav");
-  const tb = useTranslations("brand");
-  const pathname = usePathname();
-  const [menuOpen, setMenuOpen] = useState(false);
+/**
+ * The site header, rendered on the server. Only the parts that react to the visitor are
+ * client components, each given its text as props: the active-link marker (NavLink), the
+ * mobile menu (MobileMenu) and the language link (LocaleSwitch).
+ */
+export async function Nav() {
+  const t = await getTranslations("nav");
+  const tb = await getTranslations("brand");
+  // By base language, so the review copies (tr-x-eski, en-x-eski) flip to the
+  // other language's current default too.
+  const toEnglish = (await getLocale()).split("-")[0] !== "en";
+  const switchTarget: Locale = toEnglish ? "en" : "tr";
+  const switchLabel = t(toEnglish ? "english" : "turkish");
+  const links = NAV_LINKS.map((l) => ({ href: l.href, label: t(l.key) }));
 
   return (
     <header className="site-nav">
-      <div
-        style={{
-          maxWidth: "var(--maxw)",
-          margin: "0 auto",
-          padding: "0 24px",
-          height: 72,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          gap: 20,
-        }}
-      >
-        <Link
-          href="/"
-          aria-label="Data Science Club"
-          onClick={() => setMenuOpen(false)}
-          style={{ display: "flex", alignItems: "center", gap: 14, textDecoration: "none", color: "var(--text)" }}
+      <MobileMenuProvider>
+        <div
+          style={{
+            maxWidth: "var(--maxw)",
+            margin: "0 auto",
+            padding: "0 24px",
+            height: 72,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: 20,
+          }}
         >
-          <span style={{ display: "flex", alignItems: "center", height: 52, flex: "none" }}>
-            {/* width/height: the SVG viewBox ratio, so its width is reserved before it loads (CSS sets the size). */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo/dsc_logo_dark.svg" alt="Data Science Club" width={2350} height={1920} style={{ height: 52, width: "auto", display: "block" }} />
-          </span>
-          <span
-            className="nav-lockup"
-            style={{ display: "flex", flexDirection: "column", gap: 4, borderLeft: "1px solid var(--border)", paddingLeft: 14, lineHeight: 1 }}
+          <Link
+            href="/"
+            aria-label="Data Science Club"
+            style={{ display: "flex", alignItems: "center", gap: 14, textDecoration: "none", color: "var(--text)" }}
           >
-            <span lang="en" style={{ fontFamily: "var(--font-display-stack)", fontWeight: 600, fontSize: 14, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--text)" }}>
-              {tb("title")}
+            <span style={{ display: "flex", alignItems: "center", height: 52, flex: "none" }}>
+              {/* width/height: the SVG viewBox ratio, so its width is reserved before it loads (CSS sets the size). */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/logo/dsc_logo_dark.svg" alt="Data Science Club" width={2350} height={1920} style={{ height: 52, width: "auto", display: "block" }} />
             </span>
-            <span style={{ fontFamily: "var(--font-body-stack)", fontWeight: 500, fontSize: 9.5, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--text-muted)" }}>
-              {tb("university")}
+            <span
+              className="nav-lockup"
+              style={{ display: "flex", flexDirection: "column", gap: 4, borderLeft: "1px solid var(--border)", paddingLeft: 14, lineHeight: 1 }}
+            >
+              <span lang="en" style={{ fontFamily: "var(--font-display-stack)", fontWeight: 600, fontSize: 14, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--text)" }}>
+                {tb("title")}
+              </span>
+              <span style={{ fontFamily: "var(--font-body-stack)", fontWeight: 500, fontSize: 9.5, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--text-muted)" }}>
+                {tb("university")}
+              </span>
             </span>
-          </span>
-        </Link>
+          </Link>
 
-        <nav className="nav-desktop" style={{ display: "flex", alignItems: "center", gap: 34 }}>
-          {NAV_LINKS.map((l) => (
-            <Link
-              key={l.key}
-              className="navlink"
-              href={l.href}
-              data-active={isActive(pathname, l.href) ? "" : undefined}
-              style={{ fontFamily: "var(--font-body-stack)", fontWeight: 600, fontSize: 14.5, letterSpacing: "0.01em", color: "var(--text)" }}
-            >
-              {t(l.key)}
-            </Link>
-          ))}
-          <LocaleSwitch />
-        </nav>
+          <nav className="nav-desktop" style={{ display: "flex", alignItems: "center", gap: 34 }}>
+            {links.map((l) => (
+              <NavLink
+                key={l.href}
+                className="navlink"
+                href={l.href}
+                style={{ fontFamily: "var(--font-body-stack)", fontWeight: 600, fontSize: 14.5, letterSpacing: "0.01em", color: "var(--text)" }}
+              >
+                {l.label}
+              </NavLink>
+            ))}
+            <LocaleSwitch target={switchTarget} label={switchLabel} />
+          </nav>
 
-        <div className="nav-mobile">
-          {/* Language toggle stays in the bar, left of the burger. */}
-          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-            <LocaleSwitch large />
-            <button
-              type="button"
-              aria-label={menuOpen ? t("closeMenu") : t("openMenu")}
-              aria-expanded={menuOpen}
-              onClick={() => setMenuOpen((o) => !o)}
-              style={{
-                width: 42,
-                height: 42,
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                borderRadius: 10,
-                border: "1px solid var(--border)",
-                background: "var(--bg-elev)",
-                color: "var(--text)",
-                cursor: "pointer",
-              }}
-            >
-              {menuOpen ? <X size={20} /> : <Menu size={20} />}
-            </button>
+          <div className="nav-mobile">
+            {/* Language toggle stays in the bar, left of the burger. */}
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <LocaleSwitch target={switchTarget} label={switchLabel} large />
+              <MenuButton openLabel={t("openMenu")} closeLabel={t("closeMenu")} />
+            </div>
           </div>
         </div>
-      </div>
 
-      <DevOptions />
+        {DevOptions && <DevOptions />}
 
-      {/* Mobile menu: inline collapsible panel that opens below the bar (matches the prototype) */}
-      {menuOpen && (
-        <div
-          className="nav-collapse"
-          style={{ borderTop: "1px solid var(--border)", background: "var(--bg-elev)", padding: "8px 24px 18px", display: "flex", flexDirection: "column" }}
-        >
-          {NAV_LINKS.map((l) => (
-            <Link
-              key={l.key}
-              href={l.href}
-              onClick={() => setMenuOpen(false)}
-              style={{
-                fontFamily: "var(--font-body-stack)",
-                fontWeight: 600,
-                fontSize: 16,
-                color: isActive(pathname, l.href) ? "var(--accent)" : "var(--text)",
-                textDecoration: "none",
-                padding: "14px 4px",
-                borderBottom: "1px solid var(--border)",
-              }}
-            >
-              {t(l.key)}
-            </Link>
-          ))}
-        </div>
-      )}
+        <MenuPanel links={links} />
+      </MobileMenuProvider>
     </header>
   );
 }

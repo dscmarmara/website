@@ -8,6 +8,7 @@ import type { PostRowData } from "@/components/cards/PostRow";
 import { getAllPosts, getFeaturedPost, getPostAuthor, postRowData } from "@/lib/posts";
 import { displayRole } from "@/lib/members";
 import { buildAlternates } from "@/lib/seo";
+import { ClientMessages } from "@/components/i18n/ClientMessages";
 
 export async function generateMetadata({
   params,
@@ -80,7 +81,9 @@ export default async function BlogPage({
 
         {/* Only the featured post so far → nothing to list or filter below it. */}
         {rowData.length > 0 ? (
-          <BlogFilter posts={rowData} />
+          <ClientMessages namespaces={["blog"]}>
+            <BlogFilter posts={rowData} />
+          </ClientMessages>
         ) : all.length > 0 ? null : (
           /* No posts yet — the category chips would be pointless, so show a placeholder instead. */
           <div
