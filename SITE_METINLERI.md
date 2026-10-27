@@ -1,6 +1,6 @@
 # DSC Marmara: sitedeki Türkçe ve İngilizce metinler
 
-> Bu dosya otomatik üretilir (2026-10-25); elle düzenleme. Bir metni değiştirmek için
+> Bu dosya otomatik üretilir (2026-10-27); elle düzenleme. Bir metni değiştirmek için
 > `TRANSLATIONS.md`'de gösterilen dosyayı düzenle, sonra `npm run site-texts` ile bu dosyayı yenile.
 >
 > Dahil değil: üyelerin kendi yazdığı biyografi ve alıntılar, blog yazıları, mağaza, gizli KPI etiketleri,
@@ -317,6 +317,8 @@ Kendi biyografisini vermemiş üyelerde profilde görünen kalıp cümle.
 | `article.calloutNote` | Not | Note |
 | `article.calloutFinding` | Bulgu | Finding |
 | `article.calloutWarning` | Dikkat | Caveat |
+| `article.footnotes` | Dipnotlar | Footnotes |
+| `article.footnoteBack` | Metindeki göndermeye dön ({n}) | Back to reference {n} |
 
 ## 9. İletişim
 

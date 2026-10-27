@@ -807,7 +807,7 @@ details.dsc-acc[open] .acc-title {
 .article tbody tr:first-child td {
   border-top: 0;
 }
-/* GFM footnotes: the "Footnotes" heading stays screen-reader only (sr-only) */
+/* GFM footnotes, under a "Dipnotlar" / "Footnotes" heading (FootnotesHeading in components/mdx) */
 .article .footnotes {
   margin-top: 56px;
   padding-top: 18px;

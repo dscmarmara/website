@@ -16,8 +16,31 @@ function textOf(node: ReactNode): string {
   return "";
 }
 
+/**
+ * The heading remark-gfm puts above a post's footnotes. It comes in English ("Footnotes") and
+ * marked screen-reader only; here it is in the page's language and shown (id kept: the
+ * footnote references point at it with aria-describedby).
+ */
+function FootnotesHeading({ id }: { id: string }) {
+  const t = useTranslations("article");
+  return <h2 id={id}>{t("footnotes")}</h2>;
+}
+
+/** A footnote's ↩ link back to the text: its screen-reader label in the page's language. */
+function FootnoteBackLink({ href = "", children, ...rest }: ComponentProps<"a">) {
+  const t = useTranslations("article");
+  // remark-gfm's href: #user-content-fnref-1 (…-1-2 for a footnote's second reference).
+  const n = href.match(/fnref-(.+)$/)?.[1] ?? "";
+  return (
+    <a href={href} {...rest} aria-label={t("footnoteBack", { n })}>
+      {children}
+    </a>
+  );
+}
+
 // Ids from the same text and slugify() as the table of contents (lib/content.ts → headingsOf).
 export function H2({ children, ...rest }: ComponentProps<"h2">) {
+  if (rest.id === "footnote-label") return <FootnotesHeading id={rest.id} />;
   return (
     <h2 id={slugify(textOf(children))} {...rest}>
       {children}
@@ -35,6 +58,13 @@ export function H3({ children, ...rest }: ComponentProps<"h3">) {
 
 /** Site paths go through the locale-aware Link; other sites open in a new tab. */
 export function MdxLink({ href = "", children, ...rest }: ComponentProps<"a">) {
+  if ("data-footnote-backref" in rest) {
+    return (
+      <FootnoteBackLink href={href} {...rest}>
+        {children}
+      </FootnoteBackLink>
+    );
+  }
   if (href.startsWith("/") && !href.startsWith("//")) {
     return (
       <Link href={href} {...rest}>

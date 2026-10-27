@@ -166,7 +166,9 @@
     "toc": "İçindekiler",
     "calloutNote": "Not",
     "calloutFinding": "Bulgu",
-    "calloutWarning": "Dikkat"
+    "calloutWarning": "Dikkat",
+    "footnotes": "Dipnotlar",
+    "footnoteBack": "Metindeki göndermeye dön ({n})"
   },
   "projects": {
     "eyebrow": "PROJELER",

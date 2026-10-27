@@ -166,7 +166,9 @@
     "toc": "Contents",
     "calloutNote": "Note",
     "calloutFinding": "Finding",
-    "calloutWarning": "Caveat"
+    "calloutWarning": "Caveat",
+    "footnotes": "Footnotes",
+    "footnoteBack": "Back to reference {n}"
   },
   "projects": {
     "eyebrow": "PROJECTS",
