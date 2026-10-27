@@ -50,7 +50,8 @@ for (const u of urls) {
   if (desc.length < 70 || desc.length > 160) issues.push(`description ${desc.length} chars`);
   if ((title + desc).includes("—")) issues.push("em dash");
   if (canonical !== path) issues.push(`canonical ${canonical}`);
-  if (ogUrl && ogUrl.replace(SITE, "") !== path) issues.push(`og:url ${ogUrl}`);
+  // The homepage's URL is the bare origin (no "/"), as for the canonical above.
+  if (ogUrl && (ogUrl.replace(SITE, "") || "/") !== path) issues.push(`og:url ${ogUrl}`);
   if (hreflang !== "en,tr,x-default") issues.push(`hreflang ${hreflang || "none"}`);
   if (h1 !== 1) issues.push(`${h1} h1`);
   if (lds.includes(null)) issues.push("invalid JSON-LD");
