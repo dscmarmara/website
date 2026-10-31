@@ -35,29 +35,35 @@ export function RevealOnScroll() {
       { rootMargin: "0px 0px -4% 0px" }
     );
 
-    const track = (el: Element) => {
+    const track = (els: Element[]) => {
       // "wait" is tracked again, not skipped: on a language switch the layout remounts, and the
       // outgoing instance's MutationObserver marks the new page's elements "wait" just before its
       // IntersectionObserver is disconnected. Skipping them here left them hidden for good.
-      const state = el.getAttribute("data-revealed");
-      if (state === "now" || state === "anim") return;
-      if (el.getBoundingClientRect().top < window.innerHeight) el.setAttribute("data-revealed", "now");
-      else {
-        el.setAttribute("data-revealed", "wait");
-        io.observe(el);
-      }
+      const todo = els.filter((el) => {
+        const state = el.getAttribute("data-revealed");
+        return state !== "now" && state !== "anim";
+      });
+      // Every position is read before any attribute is written: a write between two reads makes
+      // the browser recompute the layout for each element (Lighthouse's "forced reflow").
+      const fold = window.innerHeight;
+      const onScreen = todo.map((el) => el.getBoundingClientRect().top < fold);
+      todo.forEach((el, i) => {
+        if (onScreen[i]) el.setAttribute("data-revealed", "now");
+        else {
+          el.setAttribute("data-revealed", "wait");
+          io.observe(el);
+        }
+      });
     };
-    const trackWithin = (node: Node) => {
-      if (!(node instanceof Element)) return;
-      if (node.matches("[data-reveal]")) track(node);
-      node.querySelectorAll("[data-reveal]").forEach(track);
-    };
+    const within = (node: Node): Element[] =>
+      node instanceof Element ? [...(node.matches("[data-reveal]") ? [node] : []), ...node.querySelectorAll("[data-reveal]")] : [];
 
-    trackWithin(document.body);
+    track(within(document.body));
     root.setAttribute("data-reveal-js", "");
 
     const mo = new MutationObserver((mutations) => {
-      for (const m of mutations) m.addedNodes.forEach(trackWithin);
+      const added = mutations.flatMap((m) => [...m.addedNodes].flatMap(within));
+      if (added.length) track(added);
     });
     mo.observe(document.body, { childList: true, subtree: true });
 

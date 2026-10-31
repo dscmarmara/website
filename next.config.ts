@@ -107,6 +107,9 @@ export default function config(phase: string): NextConfig {
       // src/app/global-not-found.tsx: the 404 for URLs outside any locale. `[locale]` is the root
       // layout (for next/root-params), so there is no layout above it to compose that page from.
       globalNotFound: true,
+      // No inlineCss: tried on 2026-11-01 for Lighthouse's "render-blocking requests". Next puts the
+      // CSS in the HTML and again in the RSC payload, so the home page's HTML went from ~12 KB to
+      // ~46 KB gzipped, and on Lighthouse's mobile profile LCP got worse (3.3 s -> 4.0 s, score 93 -> 88).
     },
     // Allow the LAN origin during `npm run dev:lan` (testing the responsive site on a phone).
     // Hostnames only: Next ignores the scheme and port.
