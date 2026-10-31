@@ -65,7 +65,7 @@ export function Eyebrow({ children }: { children: ReactNode }) {
   );
 }
 
-/** The card's frame: page gradient, lattice, logo + "Data Science Club / university" lockup, the address at the bottom. */
+/** The card's frame: page gradient, lattice, logo + "Data Science Club / university" lockup. */
 async function Frame({ university, children }: { university: string; children: ReactNode }) {
   return (
     <div
@@ -92,11 +92,8 @@ async function Frame({ university, children }: { university: string; children: R
           <div style={{ fontWeight: 500, fontSize: 14, letterSpacing: 2.8, color: C.muted }}>{university}</div>
         </div>
       </div>
+      {/* No address line: link previews print the domain under the card themselves. */}
       <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", flex: 1 }}>{children}</div>
-      <div style={{ display: "flex", alignItems: "center", gap: 12, fontWeight: 500, fontSize: 20, color: C.muted }}>
-        <div style={{ width: 9, height: 9, borderRadius: 9, background: C.accent }} />
-        dscmarmara.com.tr
-      </div>
     </div>
   );
 }
