@@ -16,16 +16,20 @@ export function LocaleSwitch({ target, label, large = false }: { target: Locale;
   // <Link locale> would always prefix it (/en/team) for its locale cookie, which this site
   // doesn't use (localeDetection: false): one redirect for every visitor and crawler.
   const href = getPathname({ href: usePathname(), locale: target });
+  const code = target === "en" ? "EN" : "TR";
   return (
     <div className="lang-switch">
       <NextLink
         className="lang-btn"
         href={href}
         hrefLang={target}
-        aria-label={label}
+        // The accessible name starts with the visible "EN"/"TR" (WCAG 2.5.3, label in name), so
+        // "click EN" works in voice control; `lang` makes a screen reader say "English" / "Türkçe" right.
+        aria-label={`${code} (${label})`}
+        lang={target}
         style={large ? { fontSize: 14, padding: "9px 18px" } : undefined}
       >
-        {target === "en" ? "EN" : "TR"}
+        {code}
       </NextLink>
     </div>
   );
