@@ -51,6 +51,8 @@ export async function generateMetadata({
   const author = getPostAuthor(post, locale);
   const alternates = await buildAlternates(`/blog/${slug}`, locale);
   const og = openGraphBase(locale);
+  // The post's own card (./opengraph-image.tsx): department, title and byline.
+  const images = [{ url: `/${locale}/blog/${slug}/opengraph-image`, width: 1200, height: 630, alt: post.title, type: "image/jpeg" }];
   const t = await getTranslations({ locale, namespace: "metadata" });
   // Search results show ~60 characters of a title: a long post title goes without the " · DSC Marmara" suffix.
   const title = t("titleTemplate").replace("%s", post.title).length > 60 ? { absolute: post.title } : post.title;
@@ -71,8 +73,9 @@ export async function generateMetadata({
       // article:author is a profile URL: the member's page; a guest author has only a name.
       authors: author ? [author.member ? await absoluteUrl(`/team/${author.member.slug}`, locale) : author.name] : undefined,
       section: post.category,
+      images,
     },
-    twitter: { card: "summary_large_image", title: post.title, description, images: og.images },
+    twitter: { card: "summary_large_image", title: post.title, description, images },
   };
 }
 
@@ -108,8 +111,8 @@ export default async function BlogDetailPage({
     inLanguage: locale,
     url,
     mainEntityOfPage: url,
-    // The post's share card; Google's article results want an image.
-    image: `${SITE_URL}/${locale}/opengraph-image`,
+    // The post's own share card; Google's article results want an image.
+    image: `${SITE_URL}/${locale}/blog/${slug}/opengraph-image`,
     // The club node every page carries (@id), restated so the post stands on its own too.
     publisher: {
       "@type": "Organization",

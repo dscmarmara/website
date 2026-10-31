@@ -40,7 +40,7 @@ export function openGraphBase(locale: string) {
   return {
     siteName: SITE_NAME,
     locale: ogLocale(locale),
-    images: [{ url: `/${locale}/opengraph-image`, width: 1200, height: 630, alt: "DSC Marmara · Data Science Club", type: "image/png" }],
+    images: [{ url: `/${locale}/opengraph-image`, width: 1200, height: 630, alt: "DSC Marmara · Data Science Club", type: "image/jpeg" }],
   };
 }
 

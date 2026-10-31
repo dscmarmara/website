@@ -59,7 +59,7 @@ export async function generateMetadata({
   const og = openGraphBase(locale);
   // Shared profiles show the member's own card: photo, name and role on the club's design
   // (./opengraph-image.tsx), in the large 1200x630 format.
-  const images = [{ url: `/${locale}/team/${slug}/opengraph-image`, width: 1200, height: 630, alt: m.name, type: "image/png" }];
+  const images = [{ url: `/${locale}/team/${slug}/opengraph-image`, width: 1200, height: 630, alt: m.name, type: "image/jpeg" }];
   const title = t("titleTemplate").replace("%s", m.name);
   return {
     title: m.name,

@@ -146,8 +146,15 @@ onları sunar. Şüphede `.next/server/route-cache`'i sil.
 - **Yapısal veri:** kulüp (`ORG_ID`) ve site (`WEBSITE_ID`) her sayfada; üye (Person) ve yazı (BlogPosting) onlara
   `@id` ile bağlanır. Ana sayfa dışındaki sayfalarda breadcrumb (`<BreadcrumbLd>`) var. Yazı yayından sonra
   düzeltilirse frontmatter'a `updated: "YYYY-AA-GG"` eklenir (Google'a güncelleme tarihi olarak gider).
-- **Paylaşım kartları:** sitenin kartı `[locale]/opengraph-image.tsx`; her üyenin fotoğraflı kartı
-  `[locale]/team/[slug]/opengraph-image.tsx` (build sırasında üretilir; fotoğraf `public/team/`'den).
+- **Paylaşım kartları (WhatsApp, LinkedIn vb. önizlemeleri):** üç tür var; hepsi build sırasında üretilir:
+  - Site kartı: `[locale]/opengraph-image.tsx`.
+  - Üye kartı (fotoğraflı): `[locale]/team/[slug]/opengraph-image.tsx`.
+  - Yazı kartı (başlık, kategori, yazar): `[locale]/blog/[slug]/opengraph-image.tsx`.
+
+  Ortak çerçeve, fontlar ve JPEG çevirisi `src/lib/og.tsx`'te. Kart fontları `src/fonts/og/` altında WOFF (OFL),
+  çünkü kartı çizen satori WOFF2 okuyamıyor. Kartlar JPEG ve 150 KB'ın altında olmalı: WhatsApp ~300 KB'ı aşan
+  görselde önizleme göstermiyor. Dosya okumaları sabit klasörlerden yapılmalı (`src/fonts/...`, `public/team/...`);
+  değişken yol, derlemede bütün projeyi sunucu koduna kattırır.
 - **Departman linkleri:** footer'daki departmanlar `/about#core-ai` gibi ilgili akordeonu açar
   (`departmentAnchor`, `OpenDepartmentOnHash`).
 - **404:** dil içindeki eksik adresler `[locale]/[...rest]` üzerinden `[locale]/not-found.tsx`'e düşer (menülü, dilin
