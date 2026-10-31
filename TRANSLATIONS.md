@@ -147,7 +147,7 @@ onları sunar. Şüphede `.next/server/route-cache`'i sil.
   `@id` ile bağlanır. Ana sayfa dışındaki sayfalarda breadcrumb (`<BreadcrumbLd>`) var. Yazı yayından sonra
   düzeltilirse frontmatter'a `updated: "YYYY-AA-GG"` eklenir (Google'a güncelleme tarihi olarak gider).
 - **Paylaşım kartları (WhatsApp, LinkedIn vb. önizlemeleri):** üç tür var; hepsi build sırasında üretilir:
-  - Site kartı: `[locale]/opengraph-image.tsx`.
+  - Site kartı (varsayılan; yalnızca logo ve "Data Science Club / Marmara Üniversitesi"): `[locale]/opengraph-image.tsx`.
   - Üye kartı (fotoğraflı): `[locale]/team/[slug]/opengraph-image.tsx`.
   - Yazı kartı (başlık, kategori, yazar): `[locale]/blog/[slug]/opengraph-image.tsx`.
 

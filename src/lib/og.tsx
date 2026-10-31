@@ -65,8 +65,24 @@ export function Eyebrow({ children }: { children: ReactNode }) {
   );
 }
 
-/** The card's frame: page gradient, lattice, logo + "Data Science Club / university" lockup. */
-async function Frame({ university, children }: { university: string; children: ReactNode }) {
+/** The logo with the nav's "Data Science Club / university" lockup; `scale` 1 is the size in a card's corner. */
+async function Lockup({ university, scale = 1 }: { university: string; scale?: number }) {
+  const s = (n: number) => n * scale;
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: s(20) }}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={await logoUri()} width={s(84)} height={s(69)} alt="" />
+      <div style={{ width: s(1), height: s(48), background: "rgba(77,255,0,0.3)" }} />
+      <div style={{ display: "flex", flexDirection: "column", gap: s(6) }}>
+        <div style={{ fontFamily: "Bricolage", fontWeight: 600, fontSize: s(22), letterSpacing: s(4.4) }}>DATA SCIENCE CLUB</div>
+        <div style={{ fontWeight: 500, fontSize: s(14), letterSpacing: s(2.8), color: C.muted }}>{university}</div>
+      </div>
+    </div>
+  );
+}
+
+/** The card's ground: the site's page gradient and the hexagon lattice. */
+function Ground({ children, center = false }: { children: ReactNode; center?: boolean }) {
   return (
     <div
       style={{
@@ -76,6 +92,7 @@ async function Frame({ university, children }: { university: string; children: R
         flexDirection: "column",
         position: "relative",
         padding: "56px 80px 52px",
+        ...(center ? { alignItems: "center", justifyContent: "center" } : {}),
         background: "linear-gradient(158deg, #000000 0%, #000000 30%, #02240f 58%, #0b8f30 88%, #2ecb25 100%)",
         color: "#ffffff",
         fontFamily: "Hanken",
@@ -83,26 +100,31 @@ async function Frame({ university, children }: { university: string; children: R
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={HEXGRID} width={1200} height={630} alt="" style={{ position: "absolute", top: 0, left: 0 }} />
-      <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={await logoUri()} width={84} height={69} alt="" />
-        <div style={{ width: 1, height: 48, background: "rgba(77,255,0,0.3)" }} />
-        <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-          <div style={{ fontFamily: "Bricolage", fontWeight: 600, fontSize: 22, letterSpacing: 4.4 }}>DATA SCIENCE CLUB</div>
-          <div style={{ fontWeight: 500, fontSize: 14, letterSpacing: 2.8, color: C.muted }}>{university}</div>
-        </div>
-      </div>
-      {/* No address line: link previews print the domain under the card themselves. */}
-      <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", flex: 1 }}>{children}</div>
+      {children}
     </div>
   );
 }
 
-/** Renders a card in the frame with the site's fonts and returns it as a JPEG response. */
-export async function ogCard(university: string, content: ReactElement) {
-  const png = await new ImageResponse(await Frame({ university, children: content }), { ...OG_SIZE, fonts: await ogFonts() }).arrayBuffer();
+async function jpegResponse(element: ReactElement) {
+  const png = await new ImageResponse(element, { ...OG_SIZE, fonts: await ogFonts() }).arrayBuffer();
   const { default: sharp } = await import("sharp");
   // 4:4:4 chroma keeps the thin green text and lines sharp.
   const jpg = await sharp(Buffer.from(png)).jpeg({ quality: 88, mozjpeg: true, chromaSubsampling: "4:4:4" }).toBuffer();
   return new Response(new Uint8Array(jpg), { headers: { "Content-Type": OG_TYPE } });
+}
+
+/** A card with content (member, post): the lockup in the corner, the content in the middle. */
+export async function ogCard(university: string, content: ReactElement) {
+  return jpegResponse(
+    <Ground>
+      {await Lockup({ university })}
+      {/* No address line: link previews print the domain under the card themselves. */}
+      <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", flex: 1 }}>{content}</div>
+    </Ground>
+  );
+}
+
+/** The site's default card: only the logo and the lockup, large and centred. */
+export async function ogBrandCard(university: string) {
+  return jpegResponse(<Ground center>{await Lockup({ university, scale: 2.1 })}</Ground>);
 }
