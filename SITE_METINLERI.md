@@ -1,6 +1,6 @@
 # DSC Marmara: sitedeki Türkçe ve İngilizce metinler
 
-> Bu dosya otomatik üretilir (2026-10-27); elle düzenleme. Bir metni değiştirmek için
+> Bu dosya otomatik üretilir (2026-10-31); elle düzenleme. Bir metni değiştirmek için
 > `TRANSLATIONS.md`'de gösterilen dosyayı düzenle, sonra `npm run site-texts` ile bu dosyayı yenile.
 >
 > Dahil değil: üyelerin kendi yazdığı biyografi ve alıntılar, blog yazıları, mağaza, gizli KPI etiketleri,
@@ -51,6 +51,7 @@
 
 | Anahtar | Türkçe | English |
 |---|---|---|
+| `home.heroEyebrow` | MARMARA ÜNİVERSİTESİ VERİ BİLİMİ KULÜBÜ | MARMARA UNIVERSITY DATA SCIENCE CLUB |
 | `home.heroTitle` | Startup gibi düşünen veri kulübü. | The data club that thinks like a startup. |
 | `home.heroSub` | Geleneksel öğrenci kulübü kalıplarını yıkıyor; küresel teknoloji toplulukları ve çevik teknoloji startup'larıyla aynı dili konuşan modern bir yapı inşa ediyoruz. | Breaking traditional student-club molds and building a modern structure that speaks the same language as global tech communities and agile tech startups. |
 | `home.joinUs` | Aramıza Katıl | Join Us |

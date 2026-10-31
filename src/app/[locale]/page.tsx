@@ -92,6 +92,11 @@ export default async function HomePage({
           }}
         />
         <div style={{ position: "relative", maxWidth: "var(--maxw)", margin: "0 auto", padding: "120px 24px 104px" }}>
+          {/* The club's full name above the slogan: on phones the nav hides its "Marmara Üniversitesi" line,
+              so without this the first screen never names the university. */}
+          <Reveal>
+            <Eyebrow className="page-hero__eyebrow">{t("heroEyebrow")}</Eyebrow>
+          </Reveal>
           <GlitchHeading
             text={t("heroTitle")}
             hover
